@@ -1,0 +1,10 @@
+{
+  "level": 2,
+  "count": 119,
+  "passed": 18,
+  "accuracy": 0.15126050420168066,
+  "request_status": {
+    "failed": 37,
+    "success": 82
+  }
+}

@@ -1,0 +1,6828 @@
+[
+  {
+    "file": "AddAgenda-AddAlarm-GetUserToken-level-2-1.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JaneSmith",
+      "password": "password"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "AddAgenda-AddAlarm-GetUserToken-level-2-1.jsonl",
+    "step": 8,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "content": "Meeting with John at the office",
+      "time": "2023-09-12 14:00:00",
+      "location": "office"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AddAgenda-AddAlarm-GetUserToken-level-2-1.jsonl",
+    "step": 10,
+    "expected_api": "AddAlarm",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "time": "2023-09-12 13:50:00"
+    },
+    "generated": "[AddAlarm(token='o8i7u6y5t4r3e2w1q0', content='Reminder: Meeting with John', time='2023-09-12 13:50:00')]",
+    "parsed": [
+      "AddAlarm",
+      {
+        "token": "o8i7u6y5t4r3e2w1q0",
+        "content": "Reminder: Meeting with John",
+        "time": "2023-09-12 13:50:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "AddAgenda-AddMeeting-GetUserToken-level-2-2.jsonl",
+    "step": 2,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AddAgenda-AddMeeting-GetUserToken-level-2-2.jsonl",
+    "step": 3,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "content": "Meeting with John",
+      "time": "2023-10-26 09:00:00",
+      "location": "coffee shop on Main Street"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AddAgenda-AddMeeting-GetUserToken-level-2-3.jsonl",
+    "step": 3,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "[AddMeeting(date='2023-11-12', time='15:00', topic='new project launch', location='conference room', attendees=['John', 'Jane'])]",
+    "parsed": [
+      "AddMeeting",
+      {
+        "date": "2023-11-12",
+        "time": "15:00",
+        "topic": "new project launch",
+        "location": "conference room",
+        "attendees": [
+          "John",
+          "Jane"
+        ]
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "AddAgenda-AddMeeting-GetUserToken-level-2-3.jsonl",
+    "step": 4,
+    "expected_api": "AddMeeting",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "meeting_topic": "new project launch",
+      "start_time": "2023-11-12 15:00:00",
+      "end_time": "2023-11-12 16:00:00",
+      "location": "conference room",
+      "attendees": "['John', 'Jane']"
+    },
+    "generated": "[AddMeeting(date='2023-11-12', time='15:00', topic='new project launch', location='conference room', attendees=['John', 'Jane'])]",
+    "parsed": [
+      "AddMeeting",
+      {
+        "date": "2023-11-12",
+        "time": "15:00",
+        "topic": "new project launch",
+        "location": "conference room",
+        "attendees": [
+          "John",
+          "Jane"
+        ]
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "AddAgenda-AddMeeting-GetUserToken-level-2-4.jsonl",
+    "step": 2,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AddAgenda-AddMeeting-GetUserToken-level-2-4.jsonl",
+    "step": 3,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "content": "Meeting with clients at ABC company",
+      "time": "2023-12-15 14:00:00",
+      "location": "ABC company"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AddAgenda-level-1-1.jsonl",
+    "step": 9,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "bar"
+    },
+    "generated": "[AddAgenda(title='Meeting with marketing team', location='conference room', time='2021-09-28T14:00')]",
+    "parsed": [
+      "AddAgenda",
+      {
+        "title": "Meeting with marketing team",
+        "location": "conference room",
+        "time": "2021-09-28T14:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "AddAgenda-level-1-1.jsonl",
+    "step": 11,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "z9x8c7v6b5n4m3q2w1",
+      "content": "Meeting with the marketing team",
+      "time": "2021-09-28 14:00:00",
+      "location": "Conference room"
+    },
+    "generated": "[AddAgenda(content='The meeting with the marketing team', location='conference room', time='202",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "AddAgenda-level-1-2.jsonl",
+    "step": 8,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "bar"
+    },
+    "generated": "[GetUserToken(key='token')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "key": "token"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "AddAgenda-level-1-2.jsonl",
+    "step": 10,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "z9x8c7v6b5n4m3q2w1",
+      "content": "Meeting with John",
+      "time": "2023-09-21 15:00:00",
+      "location": "cafeteria"
+    },
+    "generated": "[AddAgenda(content='Meeting with John', datetime='2024-09-21T15:00', location='cafeteria')]",
+    "parsed": [
+      "AddAgenda",
+      {
+        "content": "Meeting with John",
+        "datetime": "2024-09-21T15:00",
+        "location": "cafeteria"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "AddAlarm-GetReminder-ModifyAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "admin",
+      "password": "adminpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "AddAlarm-GetReminder-ModifyAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 8,
+    "expected_api": "AddAlarm",
+    "expected_parameters": {
+      "token": "m9n8b7v6c5x4z3a2s1",
+      "time": "2023-03-25 08:30:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "AddAlarm-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "bar"
+    },
+    "generated": "[GetUserToken(username='foo', password='bar')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "foo",
+        "password": "bar"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "AddAlarm-level-1-1.jsonl",
+    "step": 8,
+    "expected_api": "AddAlarm",
+    "expected_parameters": {
+      "token": "z9x8c7v6b5n4m3q2w1",
+      "time": "2021-10-14 08:00:00"
+    },
+    "generated": "[AddAlarm(time='2021-10-14T08:00:00')]",
+    "parsed": [
+      "AddAlarm",
+      {
+        "time": "2021-10-14T08:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "AddMeeting-level-1-1.jsonl",
+    "step": 11,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AddMeeting-level-1-1.jsonl",
+    "step": 13,
+    "expected_api": "AddMeeting",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "meeting_topic": "project updates",
+      "start_time": "2022-12-15 14:00:00",
+      "end_time": "2022-12-15 16:00:00",
+      "location": "conference room",
+      "attendees": "['John Smith', 'Jane Doe', 'Adam Lee']"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AddReminder-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user1",
+      "password": "user1pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AddReminder-level-1-1.jsonl",
+    "step": 10,
+    "expected_api": "AddReminder",
+    "expected_parameters": {
+      "token": "n9m8k7j6h5g4f3d2s1a0",
+      "content": "Call mom",
+      "time": "2022-05-10 10:00:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AddReminder-level-1-2.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user1",
+      "password": "user1pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AddReminder-level-1-2.jsonl",
+    "step": 6,
+    "expected_api": "AddReminder",
+    "expected_parameters": {
+      "token": "n9m8k7j6h5g4f3d2s1a0",
+      "content": "Call John",
+      "time": "2022-05-25 15:00:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AddReminder-level-1-3.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user1",
+      "password": "user1pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AddReminder-level-1-3.jsonl",
+    "step": 6,
+    "expected_api": "AddReminder",
+    "expected_parameters": {
+      "token": "n9m8k7j6h5g4f3d2s1a0",
+      "content": "Meeting",
+      "time": "2022-05-06 14:00:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AppointmentRegistration-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "AppointmentRegistration",
+    "expected_parameters": {
+      "patient_name": "John Smith",
+      "date": "2022-06-01",
+      "doctor_name": "Dr. Johnson"
+    },
+    "generated": "[AppointmentRegistration(patient_name='John Smith', doctor_name='Dr. Johnson', date='June 1st, 2022')]",
+    "parsed": [
+      "AppointmentRegistration",
+      {
+        "patient_name": "John Smith",
+        "doctor_name": "Dr. Johnson",
+        "date": "June 1st, 2022"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "AppointmentRegistration-level-1-2.jsonl",
+    "step": 4,
+    "expected_api": "AppointmentRegistration",
+    "expected_parameters": {
+      "patient_name": "John",
+      "date": "2022-03-05",
+      "doctor_name": "Dr. Smith"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "AppointmentRegistration-level-1-3.jsonl",
+    "step": 6,
+    "expected_api": "AppointmentRegistration",
+    "expected_parameters": {
+      "patient_name": "John",
+      "date": "2022-08-15",
+      "doctor_name": "Smith"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "BookHotel-level-1-1.jsonl",
+    "step": 10,
+    "expected_api": "BookHotel",
+    "expected_parameters": {
+      "hotel_name": "Hilton San Francisco",
+      "check_in_time": "2023-08-10",
+      "check_out_time": "2023-08-15",
+      "room_count": "1",
+      "adult_count": "2",
+      "child_count": "1"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "BookHotel-level-1-2.jsonl",
+    "step": 8,
+    "expected_api": "BookHotel",
+    "expected_parameters": {
+      "hotel_name": "Hilton",
+      "check_in_time": "2023-06-01",
+      "check_out_time": "2023-06-10",
+      "room_count": "2",
+      "adult_count": "4",
+      "child_count": "2"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "BookHotel-level-1-3.jsonl",
+    "step": 10,
+    "expected_api": "BookHotel",
+    "expected_parameters": {
+      "hotel_name": "Marriott Hotel",
+      "check_in_time": "2022-05-20",
+      "check_out_time": "2022-05-22",
+      "room_count": "2",
+      "adult_count": "2",
+      "child_count": "0"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "BookHotel-level-1-4.jsonl",
+    "step": 11,
+    "expected_api": "BookHotel",
+    "expected_parameters": {
+      "hotel_name": "Hilton",
+      "check_in_time": "2022-03-14",
+      "check_out_time": "2022-03-18",
+      "room_count": "2",
+      "adult_count": "2",
+      "child_count": "1"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "BookHotel-level-1-5.jsonl",
+    "step": 8,
+    "expected_api": "BookHotel",
+    "expected_parameters": {
+      "hotel_name": "Sheraton Hotel",
+      "check_in_time": "2023-09-01",
+      "check_out_time": "2023-09-05",
+      "room_count": "1",
+      "adult_count": "2",
+      "child_count": "1"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "Calculator-QueryHistoryToday-level-2-1.jsonl",
+    "step": 2,
+    "expected_api": "Calculator",
+    "expected_parameters": {
+      "formula": "(5*6)/(2+3)"
+    },
+    "generated": "[Calculator(\"(5*6)/(2+3)\")]",
+    "parsed": [
+      "Calculator",
+      {}
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Calculator-QueryHistoryToday-level-2-1.jsonl",
+    "step": 6,
+    "expected_api": "QueryHistoryToday",
+    "expected_parameters": {
+      "date": "12-10"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "Calculator-QueryHistoryToday-level-2-2.jsonl",
+    "step": 4,
+    "expected_api": "Calculator",
+    "expected_parameters": {
+      "formula": "(5+10)*3"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "Calculator-QueryHistoryToday-level-2-2.jsonl",
+    "step": 10,
+    "expected_api": "QueryHistoryToday",
+    "expected_parameters": {
+      "date": "12-10"
+    },
+    "generated": "[QueryHistoryToday(date='December 10, 2023')]",
+    "parsed": [
+      "QueryHistoryToday",
+      {
+        "date": "December 10, 2023"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Calculator-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "Calculator",
+    "expected_parameters": {
+      "formula": "(5+6)*3"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Calculator-level-1-2.jsonl",
+    "step": 3,
+    "expected_api": "Calculator",
+    "expected_parameters": {
+      "formula": "(5+3)*6"
+    },
+    "generated": "[Calculator(key='(5+3)*6')]",
+    "parsed": [
+      "Calculator",
+      {
+        "key": "(5+3)*6"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Calculator-level-1-3.jsonl",
+    "step": 4,
+    "expected_api": "Calculator",
+    "expected_parameters": {
+      "formula": "(9+6)*3"
+    },
+    "generated": "[Calculator(45)]",
+    "parsed": [
+      "Calculator",
+      {}
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Calculator-level-1-3.jsonl",
+    "step": 10,
+    "expected_api": "Calculator",
+    "expected_parameters": {
+      "formula": "5*10"
+    },
+    "generated": "[Calculator(formula='5*10')]",
+    "parsed": [
+      "Calculator",
+      {
+        "formula": "5*10"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-QueryRegistration-level-2-1.jsonl",
+    "step": 2,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "78901234"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-QueryRegistration-level-2-1.jsonl",
+    "step": 7,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "12345",
+      "time": "2023-08-06 09:00:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "[RecordHealthData(user_id='12345', time='2023-08-06 09:00:00', health_data='blood_pressure 120/80 and heart_rate 80')]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "user_id": "12345",
+        "time": "2023-08-06 09:00:00",
+        "health_data": "blood_pressure 120/80 and heart_rate 80"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-QueryRegistration-level-2-1.jsonl",
+    "step": 11,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Jane Smith",
+      "date": "2023-05-20"
+    },
+    "generated": "[QueryRegistration(date='2023-05-20', doctor='Dr. Johnson')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "date": "2023-05-20",
+        "doctor": "Dr. Johnson"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-QueryRegistration-level-2-2.jsonl",
+    "step": 2,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "78901234"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-QueryRegistration-level-2-2.jsonl",
+    "step": 6,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "123456",
+      "time": "2023-07-15 09:00:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-QueryRegistration-level-2-2.jsonl",
+    "step": 10,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Jane Smith",
+      "date": "2023-05-20"
+    },
+    "generated": "[QueryRegistration(date='2023-05-20', name='Jane Smith')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "date": "2023-05-20",
+        "name": "Jane Smith"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "56789012"
+    },
+    "generated": "[CancelRegistration(appointment_id='56789012')]",
+    "parsed": [
+      "CancelRegistration",
+      {
+        "appointment_id": "56789012"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-level-2-1.jsonl",
+    "step": 12,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "12345",
+      "time": "2023-04-09 12:00:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "[RecordHealthData(key='{\"blood_pressure\": \"120/80\", \"heart_rate\": \"80\"}')]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "key": "{\"blood_pressure\": \"120/80\", \"heart_rate\": \"80\"}"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-level-2-2.jsonl",
+    "step": 2,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "56789012"
+    },
+    "generated": "[CancelRegistration(id='56789012')]",
+    "parsed": [
+      "CancelRegistration",
+      {
+        "id": "56789012"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-level-2-2.jsonl",
+    "step": 10,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "123456",
+      "time": "2023-04-26 09:00:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '130/90'}, {'name': 'heart_rate', 'value': '75'}]"
+    },
+    "generated": "[RecordHealthData(user_id='123456', time='2023-04-26 09:00:00', health_data=[{'name': 'blood_pressure', 'value': '130/90'}, {'name': 'heart_rate', 'value': '75'}])]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "user_id": "123456",
+        "time": "2023-04-26 09:00:00",
+        "health_data": [
+          {
+            "name": "blood_pressure",
+            "value": "130/90"
+          },
+          {
+            "name": "heart_rate",
+            "value": "75"
+          }
+        ]
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-level-2-3.jsonl",
+    "step": 2,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "56789012"
+    },
+    "generated": "[CancelRegistration(appointment_id='56789012')]",
+    "parsed": [
+      "CancelRegistration",
+      {
+        "appointment_id": "56789012"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-level-2-3.jsonl",
+    "step": 8,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "123456",
+      "time": "2023-04-12 10:30:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '130/90'}, {'name': 'heart_rate', 'value': '75'}]"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-level-2-4.jsonl",
+    "step": 3,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "56789012"
+    },
+    "generated": "[CancelRegistration(id='56789012')]",
+    "parsed": [
+      "CancelRegistration",
+      {
+        "id": "56789012"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-level-2-4.jsonl",
+    "step": 8,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "123456",
+      "time": "2023-04-11 10:30:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-RecordHealthData-level-2-5.jsonl",
+    "step": 4,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "56789012"
+    },
+    "generated": "[CancelRegistration(appointment_id='56789012')]",
+    "parsed": [
+      "CancelRegistration",
+      {
+        "appointment_id": "56789012"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "CancelRegistration-level-1-1.jsonl",
+    "step": 3,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456"
+    },
+    "generated": "[CancelRegistration(key='90123456')]",
+    "parsed": [
+      "CancelRegistration",
+      {
+        "key": "90123456"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-level-1-2.jsonl",
+    "step": 2,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456"
+    },
+    "generated": "[CancelRegistration(key='90123456')]",
+    "parsed": [
+      "CancelRegistration",
+      {
+        "key": "90123456"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelRegistration-level-1-3.jsonl",
+    "step": 2,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456"
+    },
+    "generated": "[CancelRegistration(key='appointment_id', value='90123456')]",
+    "parsed": [
+      "CancelRegistration",
+      {
+        "key": "appointment_id",
+        "value": "90123456"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelTimedSwitch-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "CancelTimedSwitch",
+    "expected_parameters": {
+      "device_id": "10000025",
+      "time": "2023-03-19 09:30:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelTimedSwitch-level-1-2.jsonl",
+    "step": 6,
+    "expected_api": "CancelTimedSwitch",
+    "expected_parameters": {
+      "device_id": "10000025",
+      "time": "2023-03-19 09:30:00"
+    },
+    "generated": "[CancelTimedSwitch(device_id='10000025', time='March 19th, 2023 at 9:30 AM')]",
+    "parsed": [
+      "CancelTimedSwitch",
+      {
+        "device_id": "10000025",
+        "time": "March 19th, 2023 at 9:30 AM"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "CancelTimedSwitch-level-1-3.jsonl",
+    "step": 3,
+    "expected_api": "CancelTimedSwitch",
+    "expected_parameters": {
+      "device_id": "10000025",
+      "time": "2023-03-19 09:30:00"
+    },
+    "generated": "[CancelTimedSwitch(device_id='10000025', time='2023-03-19 09:30:00')]",
+    "parsed": [
+      "CancelTimedSwitch",
+      {
+        "device_id": "10000025",
+        "time": "2023-03-19 09:30:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "CancelTimedSwitch-level-1-4.jsonl",
+    "step": 6,
+    "expected_api": "CancelTimedSwitch",
+    "expected_parameters": {
+      "device_id": "10000025",
+      "time": "2023-03-19 09:30:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "CancelTimedSwitch-level-1-5.jsonl",
+    "step": 2,
+    "expected_api": "CancelTimedSwitch",
+    "expected_parameters": {
+      "device_id": "10000025",
+      "time": "2023-03-19 09:30:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-ModifyPassword-GetUserToken-level-2-1.jsonl",
+    "step": 3,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "bar"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-ModifyPassword-GetUserToken-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "z9x8c7v6b5n4m3q2w1"
+    },
+    "generated": "[DeleteAccount(token='z9x8c7v6b5n4m3q2w1')]",
+    "parsed": [
+      "DeleteAccount",
+      {
+        "token": "z9x8c7v6b5n4m3q2w1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "DeleteAccount-ModifyPassword-GetUserToken-level-2-2.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "bar"
+    },
+    "generated": "[DeleteAccount(key='token')]",
+    "parsed": [
+      "DeleteAccount",
+      {
+        "key": "token"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-ModifyPassword-GetUserToken-level-2-2.jsonl",
+    "step": 7,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "z9x8c7v6b5n4m3q2w1"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-ModifyPassword-GetUserToken-level-2-3.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "bar"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-ModifyPassword-GetUserToken-level-2-3.jsonl",
+    "step": 7,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "z9x8c7v6b5n4m3q2w1"
+    },
+    "generated": "[DeleteAccount(key='",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-ModifyPassword-GetUserToken-level-2-4.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "bar"
+    },
+    "generated": "[DeleteAccount(key='foo')]",
+    "parsed": [
+      "DeleteAccount",
+      {
+        "key": "foo"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-ModifyPassword-GetUserToken-level-2-4.jsonl",
+    "step": 6,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "z9x8c7v6b5n4m3q2w1"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-ModifyPassword-GetUserToken-level-2-5.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "bar"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-ModifyPassword-GetUserToken-level-2-5.jsonl",
+    "step": 6,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "z9x8c7v6b5n4m3q2w1"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-RegisterUser-ForgotPassword-GetUserToken-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user1",
+      "password": "user1pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-RegisterUser-ForgotPassword-GetUserToken-level-2-1.jsonl",
+    "step": 7,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "n9m8k7j6h5g4f3d2s1a0"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-RegisterUser-ForgotPassword-GetUserToken-level-2-2.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user1",
+      "password": "user1pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-RegisterUser-ForgotPassword-GetUserToken-level-2-2.jsonl",
+    "step": 6,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "n9m8k7j6h5g4f3d2s1a0"
+    },
+    "generated": "[DeleteAccount(username='user1')]",
+    "parsed": [
+      "DeleteAccount",
+      {
+        "username": "user1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user3",
+      "password": "user3pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-level-1-1.jsonl",
+    "step": 7,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4r3e2w1q"
+    },
+    "generated": "[DeleteAccount(token='p9o8i7u6y5t4r3e2w1q')]",
+    "parsed": [
+      "DeleteAccount",
+      {
+        "token": "p9o8i7u6y5t4r3e2w1q"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "DeleteAccount-level-1-2.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user3",
+      "password": "user3pass"
+    },
+    "generated": "[GetUserToken(key='')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "key": ""
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-level-1-2.jsonl",
+    "step": 6,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4r3e2w1q"
+    },
+    "generated": "[DeleteAccount(username='user3')]",
+    "parsed": [
+      "DeleteAccount",
+      {
+        "username": "user3"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-level-1-3.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user3",
+      "password": "user3pass"
+    },
+    "generated": "[GetUserToken(key='username', value='user3')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "key": "username",
+        "value": "user3"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAccount-level-1-3.jsonl",
+    "step": 7,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4r3e2w1q"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DeleteAgenda-AddAlarm-DeleteMeeting-GetUserToken-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAgenda-AddAlarm-DeleteMeeting-GetUserToken-level-2-1.jsonl",
+    "step": 10,
+    "expected_api": "DeleteAgenda",
+    "expected_parameters": {
+      "token": "l9k8j7h6g5f4d3s2a1",
+      "content": "Pick up dry cleaning",
+      "time": "2023-03-21 15:00:00",
+      "location": "Cleaners"
+    },
+    "generated": "[DeleteAgenda(key='l9k8j7h6g5f4d3s2a1')]",
+    "parsed": [
+      "DeleteAgenda",
+      {
+        "key": "l9k8j7h6g5f4d3s2a1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAgenda-AddAlarm-DeleteMeeting-GetUserToken-level-2-2.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAgenda-AddAlarm-DeleteMeeting-GetUserToken-level-2-2.jsonl",
+    "step": 7,
+    "expected_api": "DeleteAgenda",
+    "expected_parameters": {
+      "content": "Pick up dry cleaning",
+      "time": "2023-03-21 10:00:00",
+      "location": "Cleaners",
+      "token": "l9k8j7h6g5f4d3s2a1"
+    },
+    "generated": "[DeleteAgenda(agenda_date='2023-03-21', time='10:00 AM', location='Cleaners')]",
+    "parsed": [
+      "DeleteAgenda",
+      {
+        "agenda_date": "2023-03-21",
+        "time": "10:00 AM",
+        "location": "Cleaners"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAgenda-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JaneSmith",
+      "password": "password"
+    },
+    "generated": "[DeleteAgenda(key='delete_gym_workout_2024-03-16_24h_fitness')]",
+    "parsed": [
+      "DeleteAgenda",
+      {
+        "key": "delete_gym_workout_2024-03-16_24h_fitness"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAgenda-level-1-1.jsonl",
+    "step": 12,
+    "expected_api": "DeleteAgenda",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "content": "Gym workout",
+      "time": "2023-03-16 10:00:00",
+      "location": "24 Hour Fitness"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAlarm-AddAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 3,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "[DeleteAlarm(key='March 16th at 7am', value='true')]",
+    "parsed": [
+      "DeleteAlarm",
+      {
+        "key": "March 16th at 7am",
+        "value": "true"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAlarm-AddAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 6,
+    "expected_api": "DeleteAlarm",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "time": "2023-03-16 07:00:00"
+    },
+    "generated": "[DeleteAlarm(time='2023-03-16 07:00:00')]",
+    "parsed": [
+      "DeleteAlarm",
+      {
+        "time": "2023-03-16 07:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAlarm-AddAgenda-GetUserToken-level-2-2.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "[DeleteAlarm(key='7:00 a.m. on March 16th')]",
+    "parsed": [
+      "DeleteAlarm",
+      {
+        "key": "7:00 a.m. on March 16th"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAlarm-AddAgenda-GetUserToken-level-2-2.jsonl",
+    "step": 8,
+    "expected_api": "DeleteAlarm",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "time": "2023-03-16 07:00:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAlarm-AddAgenda-GetUserToken-level-2-2.jsonl",
+    "step": 18,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "time": "2023-03-18 14:00:00",
+      "content": "Attend meeting",
+      "location": "Office downtown"
+    },
+    "generated": "[AddAgenda(content='attend a meeting', location='office downtown', time='2023-03-18 14:00:00')]",
+    "parsed": [
+      "AddAgenda",
+      {
+        "content": "attend a meeting",
+        "location": "office downtown",
+        "time": "2023-03-18 14:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAlarm-level-1-1.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JaneSmith",
+      "password": "password"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAlarm-level-1-1.jsonl",
+    "step": 10,
+    "expected_api": "DeleteAlarm",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "time": "2023-03-20 06:30:00"
+    },
+    "generated": "[DeleteAlarm(alarm_time='06:30', alarm_date='2023-03-20')]",
+    "parsed": [
+      "DeleteAlarm",
+      {
+        "alarm_time": "06:30",
+        "alarm_date": "2023-03-20"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAlarm-level-1-2.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JaneSmith",
+      "password": "password"
+    },
+    "generated": "[DeleteAlarm(key",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteAlarm-level-1-2.jsonl",
+    "step": 8,
+    "expected_api": "DeleteAlarm",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "time": "2023-03-20 06:30:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteMeeting-level-1-1.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "generated": "[DeleteMeeting(meeting_id='New Employee Orientation_2023-03-27_09:00:00')]",
+    "parsed": [
+      "DeleteMeeting",
+      {
+        "meeting_id": "New Employee Orientation_2023-03-27_09:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteMeeting-level-1-1.jsonl",
+    "step": 8,
+    "expected_api": "DeleteMeeting",
+    "expected_parameters": {
+      "token": "l9k8j7h6g5f4d3s2a1",
+      "meeting_topic": "New Employee Orientation",
+      "start_time": "2023-03-27 09:00:00",
+      "end_time": "2023-03-27 11:00:00",
+      "location": "Training Room",
+      "attendees": "['David Wang', 'Amy Chen', 'Erica Liu']"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DeleteReminder-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user4",
+      "password": "user4pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteReminder-level-1-1.jsonl",
+    "step": 9,
+    "expected_api": "DeleteReminder",
+    "expected_parameters": {
+      "token": "q9w8e7r6t5y4u3i2o1",
+      "content": "Call dentist",
+      "time": "2023-03-16 16:30:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteScene-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "DeleteScene",
+    "expected_parameters": {
+      "name": "Bedtime"
+    },
+    "generated": "[DeleteScene(key='Bedtime')]",
+    "parsed": [
+      "DeleteScene",
+      {
+        "key": "Bedtime"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteScene-level-1-2.jsonl",
+    "step": 3,
+    "expected_api": "DeleteScene",
+    "expected_parameters": {
+      "name": "Relaxing Time"
+    },
+    "generated": "[DeleteScene(key='Relaxing Time')]",
+    "parsed": [
+      "DeleteScene",
+      {
+        "key": "Relaxing Time"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DeleteScene-level-1-3.jsonl",
+    "step": 2,
+    "expected_api": "DeleteScene",
+    "expected_parameters": {
+      "name": "Movie Time"
+    },
+    "generated": "[DeleteScene(key='scene_name', value='Movie Time')]",
+    "parsed": [
+      "DeleteScene",
+      {
+        "key": "scene_name",
+        "value": "Movie Time"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Dictionary-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "Dictionary",
+    "expected_parameters": {
+      "keyword": "perplexed"
+    },
+    "generated": "[Dictionary(key='perplexed')]",
+    "parsed": [
+      "Dictionary",
+      {
+        "key": "perplexed"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Dictionary-level-1-2.jsonl",
+    "step": 2,
+    "expected_api": "Dictionary",
+    "expected_parameters": {
+      "keyword": "perplexed"
+    },
+    "generated": "[Dictionary(key='perplexed')]",
+    "parsed": [
+      "Dictionary",
+      {
+        "key": "perplexed"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Dictionary-level-1-3.jsonl",
+    "step": 2,
+    "expected_api": "Dictionary",
+    "expected_parameters": {
+      "keyword": "resilience"
+    },
+    "generated": "[Dictionary(key='resilience')]",
+    "parsed": [
+      "Dictionary",
+      {
+        "key": "resilience"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Dictionary-level-1-4.jsonl",
+    "step": 2,
+    "expected_api": "Dictionary",
+    "expected_parameters": {
+      "keyword": "plethora"
+    },
+    "generated": "[Dictionary(key='plethora')]",
+    "parsed": [
+      "Dictionary",
+      {
+        "key": "plethora"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Dictionary-level-1-4.jsonl",
+    "step": 6,
+    "expected_api": "Dictionary",
+    "expected_parameters": {
+      "keyword": "plethora"
+    },
+    "generated": "[Dictionary(key='plethora')]",
+    "parsed": [
+      "Dictionary",
+      {
+        "key": "plethora"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DocumentQA-level-1-1.jsonl",
+    "step": 3,
+    "expected_api": "DocumentQA",
+    "expected_parameters": {
+      "url": "https://www.example.com/article-4.txt",
+      "question": "What are the key features of this software?"
+    },
+    "generated": "[DocumentQA(document_url='https://www.example.com/article-4.txt', question='What are the key features of this software?')]",
+    "parsed": [
+      "DocumentQA",
+      {
+        "document_url": "https://www.example.com/article-4.txt",
+        "question": "What are the key features of this software?"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DocumentQA-level-1-1.jsonl",
+    "step": 6,
+    "expected_api": "DocumentQA",
+    "expected_parameters": {
+      "url": "https://www.example.com/article-4.txt",
+      "question": "What platforms is this software compatible with?"
+    },
+    "generated": "[DocumentQA(url='https://www.example.com/article-4.txt', question='What platforms does the software support?')]",
+    "parsed": [
+      "DocumentQA",
+      {
+        "url": "https://www.example.com/article-4.txt",
+        "question": "What platforms does the software support?"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DocumentQA-level-1-1.jsonl",
+    "step": 9,
+    "expected_api": "DocumentQA",
+    "expected_parameters": {
+      "url": "https://www.example.com/article-4.txt",
+      "question": "What is the customer support like for this software?"
+    },
+    "generated": "[DocumentQA(url='https://www.example.com/article-4.txt', question='What customer support does the software provide?')]",
+    "parsed": [
+      "DocumentQA",
+      {
+        "url": "https://www.example.com/article-4.txt",
+        "question": "What customer support does the software provide?"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DocumentQA-level-1-2.jsonl",
+    "step": 5,
+    "expected_api": "DocumentQA",
+    "expected_parameters": {
+      "url": "https://www.example.com/article-4.txt",
+      "question": "What operating systems is this software compatible with?"
+    },
+    "generated": "[DocumentQA(key='What operating systems is this software compatible with?')]",
+    "parsed": [
+      "DocumentQA",
+      {
+        "key": "What operating systems is this software compatible with?"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DocumentQA-level-1-3.jsonl",
+    "step": 3,
+    "expected_api": "DocumentQA",
+    "expected_parameters": {
+      "url": "https://www.example.com/article-4.txt",
+      "question": "What are the key features of this software?"
+    },
+    "generated": "[DocumentQA(key='{\"document_url\": \"https://www.example.com/article-4.txt\", \"question\": \"What are the key features of this software?\"}')]",
+    "parsed": [
+      "DocumentQA",
+      {
+        "key": "{\"document_url\": \"https://www.example.com/article-4.txt\", \"question\": \"What are the key features of this software?\"}"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DocumentQA-level-1-4.jsonl",
+    "step": 4,
+    "expected_api": "DocumentQA",
+    "expected_parameters": {
+      "url": "https://www.example.com/article-4.txt",
+      "question": "What are the key features of this software?"
+    },
+    "generated": "[DocumentQA(key='https://www.example.com/article-4.txt', value='key_features')]",
+    "parsed": [
+      "DocumentQA",
+      {
+        "key": "https://www.example.com/article-4.txt",
+        "value": "key_features"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "DocumentQA-level-1-4.jsonl",
+    "step": 10,
+    "expected_api": "DocumentQA",
+    "expected_parameters": {
+      "url": "https://www.example.com/article-4.txt",
+      "question": "What platforms is this software compatible with?"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "DocumentQA-level-1-4.jsonl",
+    "step": 16,
+    "expected_api": "DocumentQA",
+    "expected_parameters": {
+      "url": "https://www.example.com/article-4.txt",
+      "question": "What is the customer support like for this software?"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "shortness of breath"
+    },
+    "generated": "[EmergencyKnowledge(query='shortness of breath')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "query": "shortness of breath"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-1.jsonl",
+    "step": 12,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456",
+      "new_appointment_date": "2023-10-15",
+      "new_appointment_doctor": "Dr. Johnson"
+    },
+    "generated": "[ModifyRegistration(appointment_id='90123456', new_date='October 15th', doctor='Dr. Johnson')]",
+    "parsed": [
+      "ModifyRegistration",
+      {
+        "appointment_id": "90123456",
+        "new_date": "October 15th",
+        "doctor": "Dr. Johnson"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-2.jsonl",
+    "step": 3,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "Shortness of breath"
+    },
+    "generated": "[EmergencyKnowledge(key='shortness of breath')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "key": "shortness of breath"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-2.jsonl",
+    "step": 7,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456",
+      "new_appointment_date": "2023-10-15",
+      "new_appointment_doctor": "Dr. Brown"
+    },
+    "generated": "[ModifyRegistration(appointment_id='90123456', new_date='October 15th', doctor='Dr. Brown')]",
+    "parsed": [
+      "ModifyRegistration",
+      {
+        "appointment_id": "90123456",
+        "new_date": "October 15th",
+        "doctor": "Dr. Brown"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-2.jsonl",
+    "step": 12,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "12345",
+      "time": "2023-10-19 10:30:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "[RecordHealthData(user_id='12345', date_time='2023-10-19 10:30:00', blood_pressure='120/80', heart_rate=80)]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "user_id": "12345",
+        "date_time": "2023-10-19 10:30:00",
+        "blood_pressure": "120/80",
+        "heart_rate": 80
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-3.jsonl",
+    "step": 2,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "shortness of breath"
+    },
+    "generated": "[EmergencyKnowledge(key='shortness of breath')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "key": "shortness of breath"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-3.jsonl",
+    "step": 11,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456",
+      "new_appointment_date": "2023-10-15",
+      "new_appointment_doctor": "Dr. Johnson"
+    },
+    "generated": "[ModifyRegistration(appointment_id='90123456', new_date='October 15th', doctor='Dr. Johnson')]",
+    "parsed": [
+      "ModifyRegistration",
+      {
+        "appointment_id": "90123456",
+        "new_date": "October 15th",
+        "doctor": "Dr. Johnson"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-3.jsonl",
+    "step": 18,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "12345",
+      "time": "2023-10-13 09:30:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "[RecordHealthData(user_id='12345', timestamp='2023-10-13 09:30:00', blood_pressure='120/80', heart_rate='80')]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "user_id": "12345",
+        "timestamp": "2023-10-13 09:30:00",
+        "blood_pressure": "120/80",
+        "heart_rate": "80"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "EmergencyKnowledge-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "Headache"
+    },
+    "generated": "[EmergencyKnowledge(key='headache')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "key": "headache"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "EmergencyKnowledge-level-1-2.jsonl",
+    "step": 2,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "headache"
+    },
+    "generated": "[EmergencyKnowledge(key='headache_symptoms')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "key": "headache_symptoms"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ForgotPassword-ModifyPassword-GetUserToken-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "ForgotPassword",
+    "expected_parameters": {
+      "status": "Forgot Password",
+      "username": "admin",
+      "email": "admin@example.com"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ForgotPassword-ModifyPassword-GetUserToken-level-2-1.jsonl",
+    "step": 10,
+    "expected_api": "ForgotPassword",
+    "expected_parameters": {
+      "status": "Verification Code",
+      "verification_code": "970420",
+      "new_password": "mynewpassword"
+    },
+    "generated": "[ForgotPassword(status='Forgot Password', username='admin', email='admin@example.com', verification_code='970420', new_password='mynewpassword')]",
+    "parsed": [
+      "ForgotPassword",
+      {
+        "status": "Forgot Password",
+        "username": "admin",
+        "email": "admin@example.com",
+        "verification_code": "970420",
+        "new_password": "mynewpassword"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ForgotPassword-RegisterUser-DeleteAccount-GetUserToken-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "ForgotPassword",
+    "expected_parameters": {
+      "status": "Forgot Password",
+      "username": "foo",
+      "email": "foo@example.com"
+    },
+    "generated": "[ForgotPassword(username='foo', email='foo@example.com')]",
+    "parsed": [
+      "ForgotPassword",
+      {
+        "username": "foo",
+        "email": "foo@example.com"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ForgotPassword-RegisterUser-DeleteAccount-GetUserToken-level-2-1.jsonl",
+    "step": 10,
+    "expected_api": "ForgotPassword",
+    "expected_parameters": {
+      "status": "Verification Code",
+      "verification_code": "970420",
+      "new_password": "newpassword"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ForgotPassword-RegisterUser-DeleteAccount-GetUserToken-level-2-1.jsonl",
+    "step": 17,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "newpassword"
+    },
+    "generated": "[GetUserToken(username='foo')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "foo"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ForgotPassword-RegisterUser-DeleteAccount-GetUserToken-level-2-1.jsonl",
+    "step": 21,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "z9x8c7v6b5n4m3q2w1"
+    },
+    "generated": "[DeleteAccount(token='z9x8c7v6b5n4m3q2w1')]",
+    "parsed": [
+      "DeleteAccount",
+      {
+        "token": "z9x8c7v6b5n4m3q2w1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "ForgotPassword-RegisterUser-DeleteAccount-GetUserToken-level-2-1.jsonl",
+    "step": 27,
+    "expected_api": "RegisterUser",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "bar",
+      "email": "foo@example.com"
+    },
+    "generated": "[RegisterUser(username='foo', password='bar', email='foo@example.com')]",
+    "parsed": [
+      "RegisterUser",
+      {
+        "username": "foo",
+        "password": "bar",
+        "email": "foo@example.com"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "ForgotPassword-level-1-1.jsonl",
+    "step": 5,
+    "expected_api": "ForgotPassword",
+    "expected_parameters": {
+      "status": "Forgot Password",
+      "username": "JohnDoe",
+      "email": "johndoe@example.com"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ForgotPassword-level-1-1.jsonl",
+    "step": 10,
+    "expected_api": "ForgotPassword",
+    "expected_parameters": {
+      "status": "Verification Code",
+      "username": "JohnDoe",
+      "verification_code": "970420",
+      "new_password": "newpass123"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "GetMeeting-level-1-1.jsonl",
+    "step": 3,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetMeeting-level-1-1.jsonl",
+    "step": 5,
+    "expected_api": "QueryMeeting",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "meeting_topic": "Sales Meeting",
+      "start_time": "2023-03-20 14:00:00",
+      "end_time": "2023-03-20 16:00:00",
+      "location": "Conference Room A",
+      "attendees": "['John Smith', 'Jane Doe']"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetMeeting-level-1-2.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetMeeting-level-1-2.jsonl",
+    "step": 8,
+    "expected_api": "QueryMeeting",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "meeting_topic": "Sales Meeting",
+      "start_time": "2023-03-20 14:00:00",
+      "end_time": "2023-03-20 16:00:00",
+      "location": "Conference Room A",
+      "attendees": "['John Smith', 'Jane Doe']"
+    },
+    "generated": "[QueryMeeting(date='2024-03-20', startTime='14:00', endTime='16:00', location='Conference Room A', participants=['John Smith', 'Jane Doe'], topic='Sales Meeting')]",
+    "parsed": [
+      "QueryMeeting",
+      {
+        "date": "2024-03-20",
+        "startTime": "14:00",
+        "endTime": "16:00",
+        "location": "Conference Room A",
+        "participants": [
+          "John Smith",
+          "Jane Doe"
+        ],
+        "topic": "Sales Meeting"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetReminder-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetReminder-level-1-1.jsonl",
+    "step": 6,
+    "expected_api": "QueryReminder",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "content": "Call mom",
+      "time": "2023-03-16 14:30:00"
+    },
+    "generated": "[QueryReminder(key='call_mom_2024-03-16_14:30')]",
+    "parsed": [
+      "QueryReminder",
+      {
+        "key": "call_mom_2024-03-16_14:30"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetReminder-level-1-2.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "GetReminder-level-1-2.jsonl",
+    "step": 7,
+    "expected_api": "QueryReminder",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "content": "Call mom",
+      "time": "2023-03-16 14:30:00"
+    },
+    "generated": "[QueryReminder(key='call_mom_2024-03-16_14:30')]",
+    "parsed": [
+      "QueryReminder",
+      {
+        "key": "call_mom_2024-03-16_14:30"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetToday-ModifyMeeting-ModifyAlarm-GetUserToken-level-2-1.jsonl",
+    "step": 1,
+    "expected_api": "GetToday",
+    "expected_parameters": {},
+    "generated": "[GetToday(key='date')]",
+    "parsed": [
+      "GetToday",
+      {
+        "key": "date"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetToday-ModifyMeeting-ModifyAlarm-GetUserToken-level-2-1.jsonl",
+    "step": 7,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JaneSmith",
+      "password": "password"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetToday-ModifyMeeting-ModifyAlarm-GetUserToken-level-2-1.jsonl",
+    "step": 9,
+    "expected_api": "ModifyMeeting",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "meeting_topic": "Team Building Activity",
+      "start_time": "2023-04-01 10:00:00",
+      "end_time": "2023-04-01 12:00:00",
+      "location": "Recreation Center",
+      "attendees": "['Jackie Lee', 'Mike Chen']"
+    },
+    "generated": "[ModifyMeeting(meeting_id='2023-04-01_TeamBuilding', topic='Team Building Activity', start_time='2023-04-01T10:00', end_time='2023-04-01T12:00', location='Recreation center', attendees=['Jackie Lee', 'Mike Chen'], user='JaneSmith')]",
+    "parsed": [
+      "ModifyMeeting",
+      {
+        "meeting_id": "2023-04-01_TeamBuilding",
+        "topic": "Team Building Activity",
+        "start_time": "2023-04-01T10:00",
+        "end_time": "2023-04-01T12:00",
+        "location": "Recreation center",
+        "attendees": [
+          "Jackie Lee",
+          "Mike Chen"
+        ],
+        "user": "JaneSmith"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetToday-ModifyMeeting-ModifyAlarm-GetUserToken-level-2-1.jsonl",
+    "step": 15,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JaneSmith",
+      "password": "password"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetToday-ModifyMeeting-ModifyAlarm-GetUserToken-level-2-1.jsonl",
+    "step": 17,
+    "expected_api": "ModifyAlarm",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "from_time": "2023-03-20 06:30:00",
+      "to_time": "2023-03-20 07:30:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetToday-ModifyMeeting-ModifyAlarm-GetUserToken-level-2-2.jsonl",
+    "step": 1,
+    "expected_api": "GetToday",
+    "expected_parameters": {},
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "GetToday-ModifyMeeting-ModifyAlarm-GetUserToken-level-2-2.jsonl",
+    "step": 9,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JaneSmith",
+      "password": "password"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "GetToday-ModifyMeeting-ModifyAlarm-GetUserToken-level-2-2.jsonl",
+    "step": 13,
+    "expected_api": "ModifyMeeting",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "meeting_topic": "Team Building Activity",
+      "start_time": "2023-04-01 10:00:00",
+      "end_time": "2023-04-01 12:00:00",
+      "location": "Recreation Center",
+      "attendees": "['Jackie Lee', 'Mike Chen']"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetToday-ModifyMeeting-ModifyAlarm-GetUserToken-level-2-2.jsonl",
+    "step": 21,
+    "expected_api": "ModifyAlarm",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "from_time": "2023-03-20 06:30:00",
+      "to_time": "2023-03-20 07:00:00"
+    },
+    "generated": "[ModifyAlarm(alarm_time='2023-03-20 07:00:00')]",
+    "parsed": [
+      "ModifyAlarm",
+      {
+        "alarm_time": "2023-03-20 07:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetToday-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "GetToday",
+    "expected_parameters": {},
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "GetToday-level-1-2.jsonl",
+    "step": 2,
+    "expected_api": "GetToday",
+    "expected_parameters": {},
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "GetToday-level-1-3.jsonl",
+    "step": 2,
+    "expected_api": "GetToday",
+    "expected_parameters": {},
+    "generated": "[GetToday(key='date')]",
+    "parsed": [
+      "GetToday",
+      {
+        "key": "date"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "GetToday-level-1-4.jsonl",
+    "step": 2,
+    "expected_api": "GetToday",
+    "expected_parameters": {},
+    "generated": "[GetToday(key='date')]",
+    "parsed": [
+      "GetToday",
+      {
+        "key": "date"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ImageCaption-level-1-1.jsonl",
+    "step": 3,
+    "expected_api": "ImageCaption",
+    "expected_parameters": {
+      "url": "http://l7.alamy.com/zooms/278b12a987734ec285da7155397e0d0a/an-airplane-takes-off-from-terminal-1-at-manchester-international-h4b040.jpg"
+    },
+    "generated": "[ImageCaption(url='http://l7.alamy.com/zooms/278b12a987734ec285da7155397e0d0a/an-airplane-takes-off-from-terminal-1-at-manchester-international-h4b040.jpg')]",
+    "parsed": [
+      "ImageCaption",
+      {
+        "url": "http://l7.alamy.com/zooms/278b12a987734ec285da7155397e0d0a/an-airplane-takes-off-from-terminal-1-at-manchester-international-h4b040.jpg"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "ModifyAgenda-level-1-1.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyAgenda-level-1-1.jsonl",
+    "step": 8,
+    "expected_api": "ModifyAgenda",
+    "expected_parameters": {
+      "token": "l9k8j7h6g5f4d3s2a1",
+      "content": "Pick up dry cleaning",
+      "time": "2023-03-22 14:00:00",
+      "location": "Laundry"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyAgenda-level-1-2.jsonl",
+    "step": 7,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyAgenda-level-1-2.jsonl",
+    "step": 9,
+    "expected_api": "ModifyAgenda",
+    "expected_parameters": {
+      "token": "l9k8j7h6g5f4d3s2a1",
+      "content": "Pick up dry cleaning",
+      "time": "2023-03-23 14:00:00",
+      "location": "Laundry Time"
+    },
+    "generated": "[ModifyAgenda(event_content='Pick up dry cleaning', new_time='March 23, 2pm', new_location='Laundry Time')]",
+    "parsed": [
+      "ModifyAgenda",
+      {
+        "event_content": "Pick up dry cleaning",
+        "new_time": "March 23, 2pm",
+        "new_location": "Laundry Time"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyAlarm-AddAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user3",
+      "password": "user3pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyAlarm-AddAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 8,
+    "expected_api": "ModifyAlarm",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4r3e2w1q",
+      "from_time": "2023-03-24 09:00:00",
+      "to_time": "2023-03-24 10:00:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyAlarm-AddAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 14,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4r3e2w1q",
+      "content": "Lunch with friends",
+      "time": "2023-03-24 14:00:00",
+      "location": "Restaurant X"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyAlarm-AddAgenda-GetUserToken-level-2-2.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user3",
+      "password": "user3pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyAlarm-AddAgenda-GetUserToken-level-2-2.jsonl",
+    "step": 8,
+    "expected_api": "ModifyAlarm",
+    "expected_parameters": {
+      "from_time": "2023-03-24 09:00:00",
+      "to_time": "2023-03-24 10:30:00",
+      "token": "p9o8i7u6y5t4r3e2w1q"
+    },
+    "generated": "[ModifyAlarm(key='2023-03-24",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyAlarm-level-1-1.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "[ModifyAlarm(time='2023-03-16T07:00:00')]",
+    "parsed": [
+      "ModifyAlarm",
+      {
+        "time": "2023-03-16T07:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyAlarm-level-1-1.jsonl",
+    "step": 12,
+    "expected_api": "ModifyAlarm",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "from_time": "2023-03-16 07:00:00",
+      "to_time": "2023-03-16 07:15:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyAlarm-level-1-2.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyAlarm-level-1-2.jsonl",
+    "step": 10,
+    "expected_api": "ModifyAlarm",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "from_time": "2023-03-16 07:00:00",
+      "to_time": "2023-03-16 08:00:00"
+    },
+    "generated": "[ModifyAlarm(alarm_date='2023-03-16', start_time='09:00', end_time='10:00')]",
+    "parsed": [
+      "ModifyAlarm",
+      {
+        "alarm_date": "2023-03-16",
+        "start_time": "09:00",
+        "end_time": "10:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyMeeting-level-1-1.jsonl",
+    "step": 7,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyMeeting-level-1-1.jsonl",
+    "step": 9,
+    "expected_api": "ModifyMeeting",
+    "expected_parameters": {
+      "token": "l9k8j7h6g5f4d3s2a1",
+      "meeting_topic": "New Employee Orientation",
+      "start_time": "2023-03-27 09:00:00",
+      "end_time": "2023-03-27 11:00:00",
+      "location": "Training Room",
+      "attendees": "['David Wang', 'Amy Chen', 'Erica Liu']"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyMeeting-level-1-2.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyMeeting-level-1-2.jsonl",
+    "step": 10,
+    "expected_api": "ModifyMeeting",
+    "expected_parameters": {
+      "token": "l9k8j7h6g5f4d3s2a1",
+      "meeting_topic": "New Employee Orientation",
+      "start_time": "2023-03-27 09:00:00",
+      "end_time": "2023-03-27 11:00:00",
+      "location": "Training Room",
+      "attendees": "['David Wang', 'Amy Chen', 'Erica Liu']"
+    },
+    "generated": "[ModifyMeeting(topic='New Employee Orientation', start_time='2023-03-27 09:00:00', end_time='2023-03-27 11:00:00', location='Training Room', attendees='David Wang, Amy Chen, and Erica Liu')]",
+    "parsed": [
+      "ModifyMeeting",
+      {
+        "topic": "New Employee Orientation",
+        "start_time": "2023-03-27 09:00:00",
+        "end_time": "2023-03-27 11:00:00",
+        "location": "Training Room",
+        "attendees": "David Wang, Amy Chen, and Erica Liu"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyMeeting-level-1-3.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyMeeting-level-1-3.jsonl",
+    "step": 10,
+    "expected_api": "ModifyMeeting",
+    "expected_parameters": {
+      "token": "l9k8j7h6g5f4d3s2a1",
+      "meeting_topic": "New Employee Orientation",
+      "start_time": "2023-03-27 09:00:00",
+      "end_time": "2023-03-27 11:00:00",
+      "location": "Training Room",
+      "attendees": "['David Wang', 'Amy Chen', 'Erica Liu']"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-ForgotPassword-DeleteAccount-GetUserToken-level-2-1.jsonl",
+    "step": 3,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user1",
+      "password": "user1pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-ForgotPassword-DeleteAccount-GetUserToken-level-2-1.jsonl",
+    "step": 6,
+    "expected_api": "ModifyPassword",
+    "expected_parameters": {
+      "token": "n9m8k7j6h5g4f3d2s1a0",
+      "old_password": "user1pass",
+      "new_password": "newpassword123"
+    },
+    "generated": "[ModifyPassword(new_password='newpassword123')]",
+    "parsed": [
+      "ModifyPassword",
+      {
+        "new_password": "newpassword123"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-ForgotPassword-DeleteAccount-GetUserToken-level-2-2.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user1",
+      "password": "user1pass"
+    },
+    "generated": "[GetUserToken(key='user1')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "key": "user1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-ForgotPassword-DeleteAccount-GetUserToken-level-2-2.jsonl",
+    "step": 8,
+    "expected_api": "ModifyPassword",
+    "expected_parameters": {
+      "token": "n9m8k7j6h5g4f3d2s1a0",
+      "old_password": "user1pass",
+      "new_password": "newpass123"
+    },
+    "generated": "[ModifyPassword(username='user1', password='newpass123')]",
+    "parsed": [
+      "ModifyPassword",
+      {
+        "username": "user1",
+        "password": "newpass123"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-ForgotPassword-DeleteAccount-GetUserToken-level-2-3.jsonl",
+    "step": 4,
+    "expected_api": "ForgotPassword",
+    "expected_parameters": {
+      "status": "Forgot Password",
+      "username": "user1",
+      "email": "user1@example.com"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-ForgotPassword-DeleteAccount-GetUserToken-level-2-3.jsonl",
+    "step": 8,
+    "expected_api": "ForgotPassword",
+    "expected_parameters": {
+      "status": "Verification Code",
+      "verification_code": "970420",
+      "new_password": "user1newpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-ForgotPassword-DeleteAccount-GetUserToken-level-2-3.jsonl",
+    "step": 13,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user1",
+      "password": "user1newpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-ForgotPassword-DeleteAccount-GetUserToken-level-2-3.jsonl",
+    "step": 16,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "n9m8k7j6h5g4f3d2s1a0"
+    },
+    "generated": "[DeleteAccount(key='n9m8k7j6h5g4f3d2s1a0')]",
+    "parsed": [
+      "DeleteAccount",
+      {
+        "key": "n9m8k7j6h5g4f3d2s1a0"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-ForgotPassword-DeleteAccount-GetUserToken-level-2-4.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user1",
+      "password": "user1pass"
+    },
+    "generated": "[GetUserToken(key='user1')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "key": "user1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-ForgotPassword-DeleteAccount-GetUserToken-level-2-4.jsonl",
+    "step": 8,
+    "expected_api": "ModifyPassword",
+    "expected_parameters": {
+      "token": "n9m8k7j6h5g4f3d2s1a0",
+      "old_password": "user1pass",
+      "new_password": "newpassword123"
+    },
+    "generated": "[ModifyPassword(token='n9m8k7j6h5g4f3d2s1a0', new_password='newpassword123')]",
+    "parsed": [
+      "ModifyPassword",
+      {
+        "token": "n9m8k7j6h5g4f3d2s1a0",
+        "new_password": "newpassword123"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-RegisterUser-GetUserToken-level-2-1.jsonl",
+    "step": 2,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "admin",
+      "password": "adminpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-RegisterUser-GetUserToken-level-2-1.jsonl",
+    "step": 5,
+    "expected_api": "ModifyPassword",
+    "expected_parameters": {
+      "token": "m9n8b7v6c5x4z3a2s1",
+      "old_password": "adminpass",
+      "new_password": "654321"
+    },
+    "generated": "[ModifyPassword(username='admin', new_password='654321')]",
+    "parsed": [
+      "ModifyPassword",
+      {
+        "username": "admin",
+        "new_password": "654321"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-level-1-1.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user2",
+      "password": "user2pass"
+    },
+    "generated": "[ModifyPassword(username='user2', old_password='user2pass', new_password='newpassword')]",
+    "parsed": [
+      "ModifyPassword",
+      {
+        "username": "user2",
+        "old_password": "user2pass",
+        "new_password": "newpassword"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-level-1-1.jsonl",
+    "step": 7,
+    "expected_api": "ModifyPassword",
+    "expected_parameters": {
+      "token": "o9i8u7y6t5r4e3w2q1",
+      "old_password": "user2pass",
+      "new_password": "newpassword"
+    },
+    "generated": "[ModifyPassword(username='user2', old_password='user2pass', new_password='newpassword')]",
+    "parsed": [
+      "ModifyPassword",
+      {
+        "username": "user2",
+        "old_password": "user2pass",
+        "new_password": "newpassword"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-level-1-2.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user2",
+      "password": "user2pass"
+    },
+    "generated": "[GetUserToken(key='user2')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "key": "user2"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyPassword-level-1-2.jsonl",
+    "step": 8,
+    "expected_api": "ModifyPassword",
+    "expected_parameters": {
+      "token": "o9i8u7y6t5r4e3w2q1",
+      "old_password": "user2pass",
+      "new_password": "qwerty123"
+    },
+    "generated": "[ModifyPassword(username='user2', new_password='qwerty123')]",
+    "parsed": [
+      "ModifyPassword",
+      {
+        "username": "user2",
+        "new_password": "qwerty123"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-EmergencyKnowledge-level-2-1.jsonl",
+    "step": 5,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "12345678",
+      "new_appointment_date": "2023-04-15",
+      "new_appointment_doctor": "Dr. Johnson"
+    },
+    "generated": "[ModifyRegistration(appointment_id='12345678', new_date='2023-04-15', doctor_name='Dr. Johnson')]",
+    "parsed": [
+      "ModifyRegistration",
+      {
+        "appointment_id": "12345678",
+        "new_date": "2023-04-15",
+        "doctor_name": "Dr. Johnson"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-EmergencyKnowledge-level-2-1.jsonl",
+    "step": 10,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "fatigue"
+    },
+    "generated": "[EmergencyKnowledge(symptom='fatigue')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "symptom": "fatigue"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "ModifyRegistration-EmergencyKnowledge-level-2-1.jsonl",
+    "step": 13,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "fatigue"
+    },
+    "generated": "[EmergencyKnowledge(symptom='Chronic fatigue syndrome')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "symptom": "Chronic fatigue syndrome"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-EmergencyKnowledge-level-2-2.jsonl",
+    "step": 4,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "12345678",
+      "new_appointment_date": "2023-05-15",
+      "new_appointment_doctor": "Dr. Lee"
+    },
+    "generated": "[ModifyRegistration(id='12345678', date='May 15', doctor='Dr. Lee')]",
+    "parsed": [
+      "ModifyRegistration",
+      {
+        "id": "12345678",
+        "date": "May 15",
+        "doctor": "Dr. Lee"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-EmergencyKnowledge-level-2-2.jsonl",
+    "step": 8,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "fatigue"
+    },
+    "generated": "[EmergencyKnowledge(key='fatigue')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "key": "fatigue"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-EmergencyKnowledge-level-2-3.jsonl",
+    "step": 6,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "12345678",
+      "new_appointment_date": "2023-04-15",
+      "new_appointment_doctor": "Dr. Johnson"
+    },
+    "generated": "[ModifyRegistration(appointment_id='12345678', new_date='April 15th', new_doctor='Dr. Johnson')]",
+    "parsed": [
+      "ModifyRegistration",
+      {
+        "appointment_id": "12345678",
+        "new_date": "April 15th",
+        "new_doctor": "Dr. Johnson"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-EmergencyKnowledge-level-2-3.jsonl",
+    "step": 12,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "fatigue"
+    },
+    "generated": "[EmergencyKnowledge(symptom='general fatigue')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "symptom": "general fatigue"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-EmergencyKnowledge-level-2-4.jsonl",
+    "step": 4,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "12345678",
+      "new_appointment_date": "2023-05-13",
+      "new_appointment_doctor": "Dr. Lee"
+    },
+    "generated": "[ModifyRegistration(appointment_id='12345678', new_date='May 13, 2023', doctor_name='Dr. Lee')]",
+    "parsed": [
+      "ModifyRegistration",
+      {
+        "appointment_id": "12345678",
+        "new_date": "May 13, 2023",
+        "doctor_name": "Dr. Lee"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-EmergencyKnowledge-level-2-4.jsonl",
+    "step": 10,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "fatigue"
+    },
+    "generated": "[EmergencyKnowledge(query='fatigue')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "query": "fatigue"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-QueryHealthData-CancelRegistration-level-2-1.jsonl",
+    "step": 3,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "34567890",
+      "new_appointment_date": "2023-04-01",
+      "new_appointment_doctor": "Dr. William"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-QueryHealthData-CancelRegistration-level-2-1.jsonl",
+    "step": 8,
+    "expected_api": "QueryHealthData",
+    "expected_parameters": {
+      "user_id": "J46801",
+      "start_time": "2023-03-01 00:00:00",
+      "end_time": "2023-03-31 23:59:59"
+    },
+    "generated": "[QueryHealthData(user_id='J46801', start_date='2023-03-01', end_date='2023-03-31')]",
+    "parsed": [
+      "QueryHealthData",
+      {
+        "user_id": "J46801",
+        "start_date": "2023-03-01",
+        "end_date": "2023-03-31"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-QueryHealthData-CancelRegistration-level-2-1.jsonl",
+    "step": 13,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456"
+    },
+    "generated": "[CancelRegistration(appointment_id='90123456', patient_name='Olivia Davis')]",
+    "parsed": [
+      "CancelRegistration",
+      {
+        "appointment_id": "90123456",
+        "patient_name": "Olivia Davis"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2.jsonl",
+    "step": 4,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "34567890",
+      "new_appointment_date": "2023-03-26",
+      "new_appointment_doctor": "Dr. Lee"
+    },
+    "generated": "[ModifyRegistration(appointment_id='34567890', new_date='2025-03-26', doctor='Dr. Lee')]",
+    "parsed": [
+      "ModifyRegistration",
+      {
+        "appointment_id": "34567890",
+        "new_date": "2025-03-26",
+        "doctor": "Dr. Lee"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2.jsonl",
+    "step": 10,
+    "expected_api": "QueryHealthData",
+    "expected_parameters": {
+      "user_id": "J46801",
+      "start_time": "2023-03-05 00:00:00",
+      "end_time": "2023-03-12 00:00:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2.jsonl",
+    "step": 16,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456"
+    },
+    "generated": "[CancelRegistration(appointment_id='90123456', patient_name='Olivia Davis', appointment_date='2023-10-10', doctor_name='Dr. Smith')]",
+    "parsed": [
+      "CancelRegistration",
+      {
+        "appointment_id": "90123456",
+        "patient_name": "Olivia Davis",
+        "appointment_date": "2023-10-10",
+        "doctor_name": "Dr. Smith"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456",
+      "new_appointment_date": "2023-10-15",
+      "new_appointment_doctor": "Dr. Johnson"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-level-1-2.jsonl",
+    "step": 4,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456",
+      "new_appointment_date": "2023-10-20",
+      "new_appointment_doctor": "Dr. Johnson"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-level-1-3.jsonl",
+    "step": 4,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456",
+      "new_appointment_date": "2023-10-12",
+      "new_appointment_doctor": "Dr. Lee"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-level-1-4.jsonl",
+    "step": 4,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456",
+      "new_appointment_date": "2023-10-12",
+      "new_appointment_doctor": "Dr. Lee"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyRegistration-level-1-5.jsonl",
+    "step": 4,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "90123456",
+      "new_appointment_date": "2023-10-15",
+      "new_appointment_doctor": "Dr. Brown"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-DeleteAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "testuser",
+      "password": "testpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-DeleteAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 8,
+    "expected_api": "ModifyReminder",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4k3e2w1q",
+      "content": "Submit report",
+      "time": "2023-03-17 09:00:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-DeleteAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 14,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "testuser",
+      "password": "testpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-DeleteAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 18,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4k3e2w1q",
+      "content": "Dinner with friends",
+      "time": "2023-03-20 00:00:00",
+      "location": "Cheesecake Factory"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-DeleteAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 24,
+    "expected_api": "DeleteAgenda",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4k3e2w1q",
+      "content": "Dinner with friends",
+      "time": "2023-03-20 00:00:00",
+      "location": "Cheesecake Factory"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-DeleteAgenda-GetUserToken-level-2-2.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "testuser",
+      "password": "testpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-DeleteAgenda-GetUserToken-level-2-2.jsonl",
+    "step": 8,
+    "expected_api": "ModifyReminder",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4k3e2w1q",
+      "content": "Submit report",
+      "time": "2023-03-17 09:00:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-DeleteAgenda-GetUserToken-level-2-2.jsonl",
+    "step": 15,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "testuser",
+      "password": "testpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-DeleteAgenda-GetUserToken-level-2-2.jsonl",
+    "step": 18,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4k3e2w1q",
+      "content": "Dinner with friends",
+      "time": "2023-03-20 00:00:00",
+      "location": "Cheesecake Factory"
+    },
+    "generated": "[AddAgenda(token='p9o8i7u6y5t4k3e2w1q', content='Dinner with friends', time='2023-03-20', location='Cheesecake Factory')]",
+    "parsed": [
+      "AddAgenda",
+      {
+        "token": "p9o8i7u6y5t4k3e2w1q",
+        "content": "Dinner with friends",
+        "time": "2023-03-20",
+        "location": "Cheesecake Factory"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-DeleteAgenda-GetUserToken-level-2-2.jsonl",
+    "step": 23,
+    "expected_api": "DeleteAgenda",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4k3e2w1q",
+      "content": "Dinner with friends",
+      "time": "2023-03-20 00:00:00",
+      "location": "Cheesecake Factory"
+    },
+    "generated": "[DeleteAgenda(token='p9o8i7u6y5t4k3e2w1q', content='Dinner with friends', time='2023-03-20', location='Cheesecake Factory')]",
+    "parsed": [
+      "DeleteAgenda",
+      {
+        "token": "p9o8i7u6y5t4k3e2w1q",
+        "content": "Dinner with friends",
+        "time": "2023-03-20",
+        "location": "Cheesecake Factory"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "admin",
+      "password": "adminpass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 8,
+    "expected_api": "ModifyReminder",
+    "expected_parameters": {
+      "token": "m9n8b7v6c5x4z3a2s1",
+      "content": "Pay bills",
+      "time": "2023-03-20 12:00:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-GetUserToken-level-2-1.jsonl",
+    "step": 13,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "m9n8b7v6c5x4z3a2s1",
+      "content": "Pay bills",
+      "time": "2023-03-20 12:00:00",
+      "location": "my house"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-GetUserToken-level-2-2.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "admin",
+      "password": "adminpass"
+    },
+    "generated": "[GetUserToken(key='admin@example.com')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "key": "admin@example.com"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-GetUserToken-level-2-2.jsonl",
+    "step": 8,
+    "expected_api": "ModifyReminder",
+    "expected_parameters": {
+      "token": "m9n8b7v6c5x4z3a2s1",
+      "content": "Pay bills",
+      "time": "2023-03-20 12:00:00"
+    },
+    "generated": "[ModifyReminder(content='Pay bills', time='2023-03-20 12:00:00')]",
+    "parsed": [
+      "ModifyReminder",
+      {
+        "content": "Pay bills",
+        "time": "2023-03-20 12:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-GetUserToken-level-2-3.jsonl",
+    "step": 3,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "admin",
+      "password": "adminpass"
+    },
+    "generated": "[ModifyReminder(key='payment_bill_reminder_20240320_1200')]",
+    "parsed": [
+      "ModifyReminder",
+      {
+        "key": "payment_bill_reminder_20240320_1200"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-GetUserToken-level-2-3.jsonl",
+    "step": 6,
+    "expected_api": "ModifyReminder",
+    "expected_parameters": {
+      "token": "m9n8b7v6c5x4z3a2s1",
+      "content": "Pay utility bills",
+      "time": "2023-03-20 12:00:00"
+    },
+    "generated": "[ModifyReminder(content='Pay utility bills', time='2023-03-20 12:00:00')]",
+    "parsed": [
+      "ModifyReminder",
+      {
+        "content": "Pay utility bills",
+        "time": "2023-03-20 12:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-AddAgenda-GetUserToken-level-2-3.jsonl",
+    "step": 11,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "m9n8b7v6c5x4z3a2s1",
+      "content": "Meeting with project team",
+      "location": "Conference Room A",
+      "time": "2023-03-25 10:00:00"
+    },
+    "generated": "[AddAgenda(content='Meeting with project team', location='Conference Room A', time='2023-03-25 10:00:00')]",
+    "parsed": [
+      "AddAgenda",
+      {
+        "content": "Meeting with project team",
+        "location": "Conference Room A",
+        "time": "2023-03-25 10:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-level-1-1.jsonl",
+    "step": 8,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user3",
+      "password": "user3pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-level-1-1.jsonl",
+    "step": 11,
+    "expected_api": "ModifyReminder",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4r3e2w1q",
+      "content": "Submit documents",
+      "time": "2023-03-25 14:00:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-level-1-2.jsonl",
+    "step": 3,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user3",
+      "password": "user3pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-level-1-2.jsonl",
+    "step": 6,
+    "expected_api": "ModifyReminder",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4r3e2w1q",
+      "content": "Submit proposal",
+      "time": "2023-03-25 14:00:00"
+    },
+    "generated": "[ModifyReminder(content='Submit proposal', time='2023-03-25 14:00:00')]",
+    "parsed": [
+      "ModifyReminder",
+      {
+        "content": "Submit proposal",
+        "time": "2023-03-25 14:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-level-1-3.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user3",
+      "password": "user3pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "ModifyReminder-level-1-3.jsonl",
+    "step": 7,
+    "expected_api": "ModifyReminder",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4r3e2w1q",
+      "content": "Submit proposal",
+      "time": "2023-03-25 14:00:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-QueryBalance-QueryStock-GetUserToken-level-2-2.jsonl",
+    "step": 4,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "123456",
+      "password": "password123",
+      "name": "John Smith"
+    },
+    "generated": "[OpenBankAccount(account_number='123456', password='password123', name='John Smith')]",
+    "parsed": [
+      "OpenBankAccount",
+      {
+        "account_number": "123456",
+        "password": "password123",
+        "name": "John Smith"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-QueryBalance-QueryStock-GetUserToken-level-2-2.jsonl",
+    "step": 12,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user3",
+      "password": "user3pass"
+    },
+    "generated": "[GetUserToken(username='user3', password='user3pass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "user3",
+        "password": "user3pass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "OpenBankAccount-QueryBalance-QueryStock-GetUserToken-level-2-2.jsonl",
+    "step": 14,
+    "expected_api": "QueryBalance",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4r3e2w1q"
+    },
+    "generated": "[QueryBalance(account='123456')]",
+    "parsed": [
+      "QueryBalance",
+      {
+        "account": "123456"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-QueryBalance-QueryStock-GetUserToken-level-2-2.jsonl",
+    "step": 18,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "AMZN",
+      "date": "2022-03-12"
+    },
+    "generated": "[QueryStock(symbol='AMZN', date='2022-03-12')]",
+    "parsed": [
+      "QueryStock",
+      {
+        "symbol": "AMZN",
+        "date": "2022-03-12"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-QueryStock-QueryBalance-GetUserToken-level-2-1.jsonl",
+    "step": 7,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "johnsmith123",
+      "password": "p@ssw0rd",
+      "name": "John Smith"
+    },
+    "generated": "[OpenBankAccount(account_id='johnsmith123', password='p@ssw0rd', name='John Smith')]",
+    "parsed": [
+      "OpenBankAccount",
+      {
+        "account_id": "johnsmith123",
+        "password": "p@ssw0rd",
+        "name": "John Smith"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-QueryStock-QueryBalance-GetUserToken-level-2-1.jsonl",
+    "step": 12,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "AAPL",
+      "date": "2022-01-03"
+    },
+    "generated": "[QueryStock(symbol='AAPL', date='2022-01-03')]",
+    "parsed": [
+      "QueryStock",
+      {
+        "symbol": "AAPL",
+        "date": "2022-01-03"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-QueryStock-QueryBalance-GetUserToken-level-2-1.jsonl",
+    "step": 17,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "[GetUserToken(account='JohnDoe', password='pass123')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "account": "JohnDoe",
+        "password": "pass123"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-QueryStock-QueryBalance-GetUserToken-level-2-1.jsonl",
+    "step": 19,
+    "expected_api": "QueryBalance",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-QueryStock-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "12345",
+      "password": "secret123",
+      "name": "John Smith"
+    },
+    "generated": "[OpenBankAccount(account_number='12345', password='secret123', name='John Smith')]",
+    "parsed": [
+      "OpenBankAccount",
+      {
+        "account_number": "12345",
+        "password": "secret123",
+        "name": "John Smith"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-QueryStock-level-2-1.jsonl",
+    "step": 8,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "AMZN",
+      "date": "2022-03-10"
+    },
+    "generated": "[QueryStock(stock='Amazon', date='2022-03-10')]",
+    "parsed": [
+      "QueryStock",
+      {
+        "stock": "Amazon",
+        "date": "2022-03-10"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-level-1-1.jsonl",
+    "step": 8,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "john@example.com",
+      "password": "abc123",
+      "name": "John Smith"
+    },
+    "generated": "[OpenBankAccount(account_identifier='john@example.com', password='abc123', account_holder_name='John Smith')]",
+    "parsed": [
+      "OpenBankAccount",
+      {
+        "account_identifier": "john@example.com",
+        "password": "abc123",
+        "account_holder_name": "John Smith"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-level-1-2.jsonl",
+    "step": 8,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "johndoe123",
+      "password": "mypass123",
+      "name": "John Doe"
+    },
+    "generated": "[OpenBankAccount(account_identifier='johndoe123', password='mypass123', account_holder_name='John Doe')]",
+    "parsed": [
+      "OpenBankAccount",
+      {
+        "account_identifier": "johndoe123",
+        "password": "mypass123",
+        "account_holder_name": "John Doe"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-level-1-3.jsonl",
+    "step": 8,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "MyNewAccount",
+      "password": "Password123",
+      "name": "John Smith"
+    },
+    "generated": "[OpenBankAccount(account_identifier='MyNewAccount', password='Password123', name='John Smith')]",
+    "parsed": [
+      "OpenBankAccount",
+      {
+        "account_identifier": "MyNewAccount",
+        "password": "Password123",
+        "name": "John Smith"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-level-1-4.jsonl",
+    "step": 7,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "12345678",
+      "password": "p@ssw0rd123!",
+      "name": "John Smith"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "OpenBankAccount-level-1-5.jsonl",
+    "step": 7,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "My New Account",
+      "password": "password123",
+      "name": "John"
+    },
+    "generated": "[OpenBankAccount(account_name='My New Account', password='password123', owner_name='John')]",
+    "parsed": [
+      "OpenBankAccount",
+      {
+        "account_name": "My New Account",
+        "password": "password123",
+        "owner_name": "John"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "PlayMusic-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "PlayMusic",
+    "expected_parameters": {
+      "music_name": "Shape of You"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "PlayMusic-level-1-2.jsonl",
+    "step": 2,
+    "expected_api": "PlayMusic",
+    "expected_parameters": {
+      "music_name": "Shape of You"
+    },
+    "generated": "[PlayMusic(key='Shape of You')]",
+    "parsed": [
+      "PlayMusic",
+      {
+        "key": "Shape of You"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "PlayMusic-level-1-3.jsonl",
+    "step": 2,
+    "expected_api": "PlayMusic",
+    "expected_parameters": {
+      "music_name": "Shape of You"
+    },
+    "generated": "[PlayMusic(key='Shape of You')]",
+    "parsed": [
+      "PlayMusic",
+      {
+        "key": "Shape of You"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryAgenda-level-1-1.jsonl",
+    "step": 3,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryAgenda-level-1-1.jsonl",
+    "step": 6,
+    "expected_api": "QueryAgenda",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "content": "Meeting with client",
+      "time": "2023-03-18 15:00:00",
+      "location": "123 Main St"
+    },
+    "generated": "[QueryAgenda(date='2023-03-18')]",
+    "parsed": [
+      "QueryAgenda",
+      {
+        "date": "2023-03-18"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryAlarm-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JaneSmith",
+      "password": "password"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryAlarm-level-1-1.jsonl",
+    "step": 6,
+    "expected_api": "QueryAlarm",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "time": "2023-03-20 06:30:00"
+    },
+    "generated": "[QueryAlarm(key='2023-03-20 06:30')]",
+    "parsed": [
+      "QueryAlarm",
+      {
+        "key": "2023-03-20 06:30"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-OpenBankAccount-QueryStock-GetUserToken-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "testuser",
+      "password": "testpass"
+    },
+    "generated": "[GetUserToken(key='testuser,testpass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "key": "testuser,testpass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-OpenBankAccount-QueryStock-GetUserToken-level-2-1.jsonl",
+    "step": 10,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "newaccount",
+      "password": "newpassword",
+      "name": "John Doe"
+    },
+    "generated": "[OpenBankAccount(account_identifier='newaccount', password='newpassword', account_holder_name='John Doe')]",
+    "parsed": [
+      "OpenBankAccount",
+      {
+        "account_identifier": "newaccount",
+        "password": "newpassword",
+        "account_holder_name": "John Doe"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-OpenBankAccount-QueryStock-GetUserToken-level-2-1.jsonl",
+    "step": 14,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "NFLX",
+      "date": "2022-02-16"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-QueryStock-OpenBankAccount-GetUserToken-level-2-1.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user2",
+      "password": "user2pass"
+    },
+    "generated": "[GetUserToken(key='username', value='user2')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "key": "username",
+        "value": "user2"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-QueryStock-OpenBankAccount-GetUserToken-level-2-1.jsonl",
+    "step": 9,
+    "expected_api": "QueryBalance",
+    "expected_parameters": {
+      "token": "o9i8u7y6t5r4e3w2q1"
+    },
+    "generated": "[QueryBalance(token='o9i8u7y6t5r4e3w2q1')]",
+    "parsed": [
+      "QueryBalance",
+      {
+        "token": "o9i8u7y6t5r4e3w2q1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "QueryBalance-QueryStock-OpenBankAccount-GetUserToken-level-2-1.jsonl",
+    "step": 15,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "TSLA",
+      "date": "2022-03-01"
+    },
+    "generated": "[QueryStock(key='TSLA')]",
+    "parsed": [
+      "QueryStock",
+      {
+        "key": "TSLA"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-QueryStock-OpenBankAccount-GetUserToken-level-2-1.jsonl",
+    "step": 20,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "user2",
+      "password": "user2password",
+      "name": "John Smith"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-QueryStock-OpenBankAccount-GetUserToken-level-2-2.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user2",
+      "password": "user2pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-QueryStock-OpenBankAccount-GetUserToken-level-2-2.jsonl",
+    "step": 8,
+    "expected_api": "QueryBalance",
+    "expected_parameters": {
+      "token": "o9i8u7y6t5r4e3w2q1"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-QueryStock-OpenBankAccount-GetUserToken-level-2-2.jsonl",
+    "step": 12,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "TSLA",
+      "date": "2022-03-01"
+    },
+    "generated": "[QueryStock(stock='TSLA', date='2022-03-01')]",
+    "parsed": [
+      "QueryStock",
+      {
+        "stock": "TSLA",
+        "date": "2022-03-01"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-QueryStock-OpenBankAccount-GetUserToken-level-2-2.jsonl",
+    "step": 17,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "user3",
+      "password": "user3pass",
+      "name": "John Smith"
+    },
+    "generated": "[OpenBankAccount(username='user3', password='user3pass', account_holder_name='John Smith')]",
+    "parsed": [
+      "OpenBankAccount",
+      {
+        "username": "user3",
+        "password": "user3pass",
+        "account_holder_name": "John Smith"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-level-1-1.jsonl",
+    "step": 6,
+    "expected_api": "QueryBalance",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1"
+    },
+    "generated": "[QueryBalance()]",
+    "parsed": [
+      "QueryBalance",
+      {}
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryBalance-level-1-2.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "generated": "[GetUserToken(username='JohnDoe', password='pass123')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "JohnDoe",
+        "password": "pass123"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "QueryBalance-level-1-2.jsonl",
+    "step": 6,
+    "expected_api": "QueryBalance",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1"
+    },
+    "generated": "[QueryBalance(token='a9s8d7f6g5h4j3k2l1')]",
+    "parsed": [
+      "QueryBalance",
+      {
+        "token": "a9s8d7f6g5h4j3k2l1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "QueryHealthData-CancelRegistration-SymptomSearch-level-2-1.jsonl",
+    "step": 8,
+    "expected_api": "QueryHealthData",
+    "expected_parameters": {
+      "user_id": "E97531",
+      "start_time": "2023-03-05 10:00:00",
+      "end_time": "2023-03-18 20:00:00"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryHealthData-CancelRegistration-SymptomSearch-level-2-1.jsonl",
+    "step": 20,
+    "expected_api": "CancelRegistration",
+    "expected_parameters": {
+      "appointment_id": "12345678"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryHealthData-CancelRegistration-SymptomSearch-level-2-1.jsonl",
+    "step": 26,
+    "expected_api": "SymptomSearch",
+    "expected_parameters": {
+      "symptom": "nausea"
+    },
+    "generated": "[SymptomSearch(symptom='nausea')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "symptom": "nausea"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "QueryHealthData-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "QueryHealthData",
+    "expected_parameters": {
+      "user_id": "A12345",
+      "start_time": "2023-03-01 00:00:00",
+      "end_time": "2023-03-31 23:59:59"
+    },
+    "generated": "[QueryHealthData(user_id='A12345', start_date='2023-03-01', end_date='2023-03-31')]",
+    "parsed": [
+      "QueryHealthData",
+      {
+        "user_id": "A12345",
+        "start_date": "2023-03-01",
+        "end_date": "2023-03-31"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryHealthData-level-1-2.jsonl",
+    "step": 7,
+    "expected_api": "QueryHealthData",
+    "expected_parameters": {
+      "user_id": "A12345",
+      "start_time": "2023-03-08 00:00:00",
+      "end_time": "2023-03-15 23:59:59"
+    },
+    "generated": "[QueryHealthData(user_id='A12345', start_time='2023-03-08 00:00:00', end_time='2023-03-15 23:59:59')]",
+    "parsed": [
+      "QueryHealthData",
+      {
+        "user_id": "A12345",
+        "start_time": "2023-03-08 00:00:00",
+        "end_time": "2023-03-15 23:59:59"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "QueryHistoryToday-Calculator-level-2-1.jsonl",
+    "step": 2,
+    "expected_api": "QueryHistoryToday",
+    "expected_parameters": {
+      "date": "04-21"
+    },
+    "generated": "[QueryHistoryToday(key='2024-04-21')]",
+    "parsed": [
+      "QueryHistoryToday",
+      {
+        "key": "2024-04-21"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryHistoryToday-Calculator-level-2-1.jsonl",
+    "step": 6,
+    "expected_api": "Calculator",
+    "expected_parameters": {
+      "formula": "(4*2)/(1+3)"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryHistoryToday-Calculator-level-2-2.jsonl",
+    "step": 2,
+    "expected_api": "QueryHistoryToday",
+    "expected_parameters": {
+      "date": "04-21"
+    },
+    "generated": "[QueryHistoryToday(date='2024-04-21')]",
+    "parsed": [
+      "QueryHistoryToday",
+      {
+        "date": "2024-04-21"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryHistoryToday-Calculator-level-2-2.jsonl",
+    "step": 7,
+    "expected_api": "Calculator",
+    "expected_parameters": {
+      "formula": "(23+7)*3-42/6"
+    },
+    "generated": "[Calculator(value='83')]",
+    "parsed": [
+      "Calculator",
+      {
+        "value": "83"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryHistoryToday-Calculator-level-2-3.jsonl",
+    "step": 3,
+    "expected_api": "QueryHistoryToday",
+    "expected_parameters": {
+      "date": "04-21"
+    },
+    "generated": "[QueryHistoryToday(key='1903-04-21')]",
+    "parsed": [
+      "QueryHistoryToday",
+      {
+        "key": "1903-04-21"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryHistoryToday-Calculator-level-2-3.jsonl",
+    "step": 6,
+    "expected_api": "Calculator",
+    "expected_parameters": {
+      "formula": "(2+3)*5"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryHistoryToday-Calculator-level-2-4.jsonl",
+    "step": 4,
+    "expected_api": "QueryHistoryToday",
+    "expected_parameters": {
+      "date": "04-21"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryHistoryToday-level-1-1.jsonl",
+    "step": 3,
+    "expected_api": "QueryHistoryToday",
+    "expected_parameters": {
+      "date": "12-10"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryHistoryToday-level-1-2.jsonl",
+    "step": 4,
+    "expected_api": "QueryHistoryToday",
+    "expected_parameters": {
+      "date": "12-10"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryHistoryToday-level-1-3.jsonl",
+    "step": 7,
+    "expected_api": "QueryHistoryToday",
+    "expected_parameters": {
+      "date": "12-10"
+    },
+    "generated": "[QueryHistoryToday(key='12-10')]",
+    "parsed": [
+      "QueryHistoryToday",
+      {
+        "key": "12-10"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryMeeting-level-1-1.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user2",
+      "password": "user2pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryMeeting-level-1-1.jsonl",
+    "step": 7,
+    "expected_api": "QueryMeeting",
+    "expected_parameters": {
+      "token": "o9i8u7y6t5r4e3w2q1",
+      "meeting_topic": "Design Team Meeting",
+      "start_time": "2023-03-26 11:00:00",
+      "end_time": "2023-03-26 13:00:00",
+      "location": "Design Studio",
+      "attendees": "['Lucas Wang', 'Michelle Chen']"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-AppointmentRegistration-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "John Doe",
+      "date": "2023-04-12"
+    },
+    "generated": "[QueryRegistration(key='date=2023-04-12, doctor=Dr. Smith, patient=John Doe')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "key": "date=2023-04-12, doctor=Dr. Smith, patient=John Doe"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-AppointmentRegistration-level-2-1.jsonl",
+    "step": 8,
+    "expected_api": "AppointmentRegistration",
+    "expected_parameters": {
+      "patient_name": "John Doe",
+      "date": "2023-04-15",
+      "doctor_name": "Dr. Smith"
+    },
+    "generated": "[AppointmentRegistration(patient_name='John Doe', date='2023-04-15', time='10am', doctor_name='Dr. Smith')]",
+    "parsed": [
+      "AppointmentRegistration",
+      {
+        "patient_name": "John Doe",
+        "date": "2023-04-15",
+        "time": "10am",
+        "doctor_name": "Dr. Smith"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-EmergencyKnowledge-level-2-1.jsonl",
+    "step": 3,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Robert Lee",
+      "date": "2023-03-25"
+    },
+    "generated": "[QueryRegistration(key='Robert Lee', date='2023-03-25')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "key": "Robert Lee",
+        "date": "2023-03-25"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-EmergencyKnowledge-level-2-1.jsonl",
+    "step": 8,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "shortness of breath"
+    },
+    "generated": "[EmergencyKnowledge(key='shortness of breath')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "key": "shortness of breath"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-EmergencyKnowledge-level-2-2.jsonl",
+    "step": 4,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Robert Lee",
+      "date": "2023-03-25"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-EmergencyKnowledge-level-2-2.jsonl",
+    "step": 9,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "shortness of breath"
+    },
+    "generated": "[EmergencyKnowledge(key='shortness_of_breath_first_aid')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "key": "shortness_of_breath_first_aid"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-EmergencyKnowledge-level-2-3.jsonl",
+    "step": 3,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Robert Lee",
+      "date": "2023-03-25"
+    },
+    "generated": "[QueryRegistration(name='Robert Lee', date='2023-03-25', doctor='Dr. Kim')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "name": "Robert Lee",
+        "date": "2023-03-25",
+        "doctor": "Dr. Kim"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-EmergencyKnowledge-level-2-3.jsonl",
+    "step": 8,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "shortness of breath"
+    },
+    "generated": "[EmergencyKnowledge(symptom='difficulty breathing')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "symptom": "difficulty breathing"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-EmergencyKnowledge-level-2-4.jsonl",
+    "step": 6,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Robert Lee",
+      "date": "2023-03-25"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-EmergencyKnowledge-level-2-4.jsonl",
+    "step": 12,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "shortness of breath"
+    },
+    "generated": "[EmergencyKnowledge(key='Pneumonia')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "key": "Pneumonia"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-SymptomSearch-RecordHealthData-level-2-1.jsonl",
+    "step": 2,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Alice Chen",
+      "date": "2023-06-15"
+    },
+    "generated": "[QueryRegistration(date='2023-06-15', patient='Alice Chen')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "date": "2023-06-15",
+        "patient": "Alice Chen"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-SymptomSearch-RecordHealthData-level-2-1.jsonl",
+    "step": 6,
+    "expected_api": "SymptomSearch",
+    "expected_parameters": {
+      "symptom": "nausea"
+    },
+    "generated": "[SymptomSearch(symptom='nausea')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "symptom": "nausea"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "QueryRegistration-SymptomSearch-RecordHealthData-level-2-1.jsonl",
+    "step": 14,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "12345",
+      "time": "2023-06-14 13:30:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '130/80'}, {'name': 'heart_rate', 'value': '90'}]"
+    },
+    "generated": "[RecordHealthData(patient_id='12345', blood_pressure='130/80', heart_rate='90')]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "patient_id": "12345",
+        "blood_pressure": "130/80",
+        "heart_rate": "90"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-SymptomSearch-RecordHealthData-level-2-2.jsonl",
+    "step": 2,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Alice Chen",
+      "date": "2023-06-15"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-SymptomSearch-RecordHealthData-level-2-2.jsonl",
+    "step": 6,
+    "expected_api": "SymptomSearch",
+    "expected_parameters": {
+      "symptom": "nausea"
+    },
+    "generated": "[SymptomSearch(key='nausea')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "key": "nausea"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-SymptomSearch-RecordHealthData-level-2-2.jsonl",
+    "step": 13,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "1234",
+      "time": "2023-06-15 14:30:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "[RecordHealthData(patient_name='Alice Chen', blood_pressure='120/80', heart_rate=80, timestamp='2023-06-15 14:30:00')]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "patient_name": "Alice Chen",
+        "blood_pressure": "120/80",
+        "heart_rate": 80,
+        "timestamp": "2023-06-15 14:30:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Olivia Davis",
+      "date": "2023-10-10"
+    },
+    "generated": "[QueryRegistration(patient_name='Olivia Davis', doctor_name='Dr. Smith', date='2023-10-10')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "patient_name": "Olivia Davis",
+        "doctor_name": "Dr. Smith",
+        "date": "2023-10-10"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-level-1-2.jsonl",
+    "step": 2,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Olivia Davis",
+      "date": "2023-10-10"
+    },
+    "generated": "[QueryRegistration(patient_id='90123456', name='Olivia Davis', doctor='Dr. Smith', date='2023-10-10')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "patient_id": "90123456",
+        "name": "Olivia Davis",
+        "doctor": "Dr. Smith",
+        "date": "2023-10-10"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-level-1-3.jsonl",
+    "step": 6,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Olivia Davis",
+      "date": "2023-10-10"
+    },
+    "generated": "[QueryRegistration(key='patient_name', value='Olivia Davis')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "key": "patient_name",
+        "value": "Olivia Davis"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-level-1-4.jsonl",
+    "step": 2,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Olivia Davis",
+      "date": "2023-10-10"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryRegistration-level-1-5.jsonl",
+    "step": 2,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Olivia Davis",
+      "date": "2023-10-10"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryReminder-level-1-1.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "generated": "[GetUserToken(key='username', value='newuser')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "key": "username",
+        "value": "newuser"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryReminder-level-1-1.jsonl",
+    "step": 7,
+    "expected_api": "QueryReminder",
+    "expected_parameters": {
+      "token": "l9k8j7h6g5f4d3s2a1",
+      "content": "Attend meeting",
+      "time": "2023-03-18 10:30:00"
+    },
+    "generated": "[QueryReminder(token='l9k8j7h6g5f4d3s2a1')]",
+    "parsed": [
+      "QueryReminder",
+      {
+        "token": "l9k8j7h6g5f4d3s2a1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryReminder-level-1-2.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "generated": "[GetUserToken(username='newuser', password='newpass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "newuser",
+        "password": "newpass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "QueryReminder-level-1-2.jsonl",
+    "step": 10,
+    "expected_api": "QueryReminder",
+    "expected_parameters": {
+      "token": "l9k8j7h6g5f4d3s2a1",
+      "content": "Attend meeting",
+      "time": "2023-03-18 10:30:00"
+    },
+    "generated": "[QueryReminder(token='l9k8j7h6g5f4d3s2a1', date='2023-03-18', time='10:30', content='Attend meeting')]",
+    "parsed": [
+      "QueryReminder",
+      {
+        "token": "l9k8j7h6g5f4d3s2a1",
+        "date": "2023-03-18",
+        "time": "10:30",
+        "content": "Attend meeting"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryScene-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "QueryScene",
+    "expected_parameters": {
+      "name": "Morning Routine"
+    },
+    "generated": "[QueryScene(key='Morning Routine')]",
+    "parsed": [
+      "QueryScene",
+      {
+        "key": "Morning Routine"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryScene-level-1-2.jsonl",
+    "step": 2,
+    "expected_api": "QueryScene",
+    "expected_parameters": {
+      "name": "Morning Routine"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryScene-level-1-3.jsonl",
+    "step": 3,
+    "expected_api": "QueryScene",
+    "expected_parameters": {
+      "name": "Morning Routine"
+    },
+    "generated": "[QueryScene(key='Morning Routine')]",
+    "parsed": [
+      "QueryScene",
+      {
+        "key": "Morning Routine"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryScene-level-1-4.jsonl",
+    "step": 2,
+    "expected_api": "QueryScene",
+    "expected_parameters": {
+      "name": "Morning Routine"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryScene-level-1-5.jsonl",
+    "step": 3,
+    "expected_api": "QueryScene",
+    "expected_parameters": {
+      "name": "Morning Routine"
+    },
+    "generated": "[QueryScene(key='Morning Routine')]",
+    "parsed": [
+      "QueryScene",
+      {
+        "key": "Morning Routine"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-OpenBankAccount-QueryBalance-GetUserToken-level-2-1.jsonl",
+    "step": 2,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "AMZN",
+      "date": "2022-03-12"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-OpenBankAccount-QueryBalance-GetUserToken-level-2-1.jsonl",
+    "step": 11,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "user4",
+      "password": "user4pass",
+      "name": "John"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-OpenBankAccount-QueryBalance-GetUserToken-level-2-1.jsonl",
+    "step": 14,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user4",
+      "password": "user4pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-OpenBankAccount-QueryBalance-GetUserToken-level-2-1.jsonl",
+    "step": 15,
+    "expected_api": "QueryBalance",
+    "expected_parameters": {
+      "token": "q9w8e7r6t5y4u3i2o1"
+    },
+    "generated": "[QueryBalance(username='user4')]",
+    "parsed": [
+      "QueryBalance",
+      {
+        "username": "user4"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-OpenBankAccount-QueryBalance-GetUserToken-level-2-2.jsonl",
+    "step": 2,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "AMZN",
+      "date": "2022-03-11"
+    },
+    "generated": "[QueryStock(key='AMZN')]",
+    "parsed": [
+      "QueryStock",
+      {
+        "key": "AMZN"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-OpenBankAccount-QueryBalance-GetUserToken-level-2-2.jsonl",
+    "step": 11,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "user4",
+      "password": "user4pass",
+      "name": "John"
+    },
+    "generated": "[OpenBankAccount(account_id='user4', password='user4pass', name='John')]",
+    "parsed": [
+      "OpenBankAccount",
+      {
+        "account_id": "user4",
+        "password": "user4pass",
+        "name": "John"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-OpenBankAccount-QueryBalance-GetUserToken-level-2-2.jsonl",
+    "step": 14,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user4",
+      "password": "user4pass"
+    },
+    "generated": "[QueryBalance(account='user4')]",
+    "parsed": [
+      "QueryBalance",
+      {
+        "account": "user4"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-OpenBankAccount-QueryBalance-GetUserToken-level-2-2.jsonl",
+    "step": 15,
+    "expected_api": "QueryBalance",
+    "expected_parameters": {
+      "token": "q9w8e7r6t5y4u3i2o1"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-OpenBankAccount-level-2-1.jsonl",
+    "step": 11,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "johnsmith",
+      "password": "password123",
+      "name": "John Smith"
+    },
+    "generated": "[OpenBankAccount(account_id='johnsmith', password='password123', name='John Smith')]",
+    "parsed": [
+      "OpenBankAccount",
+      {
+        "account_id": "johnsmith",
+        "password": "password123",
+        "name": "John Smith"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-QueryBalance-GetUserToken-level-2-1.jsonl",
+    "step": 2,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "NFLX",
+      "date": "2022-02-17"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-QueryBalance-GetUserToken-level-2-1.jsonl",
+    "step": 7,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user1",
+      "password": "user1pass"
+    },
+    "generated": "[GetUserToken(username='user1', password='user1pass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "user1",
+        "password": "user1pass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "QueryStock-QueryBalance-GetUserToken-level-2-1.jsonl",
+    "step": 8,
+    "expected_api": "QueryBalance",
+    "expected_parameters": {
+      "token": "n9m8k7j6h5g4f3d2s1a0"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-QueryBalance-OpenBankAccount-GetUserToken-level-2-1.jsonl",
+    "step": 2,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "NFLX",
+      "date": "2022-02-21"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-QueryBalance-OpenBankAccount-GetUserToken-level-2-1.jsonl",
+    "step": 7,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user3",
+      "password": "user3pass"
+    },
+    "generated": "[GetUserToken(username='user3', password='user3pass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "user3",
+        "password": "user3pass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "QueryStock-QueryBalance-OpenBankAccount-GetUserToken-level-2-2.jsonl",
+    "step": 2,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "NFLX",
+      "date": "2022-02-23"
+    },
+    "generated": "[QueryStock(key='NFLX', date='2022-02-23')]",
+    "parsed": [
+      "QueryStock",
+      {
+        "key": "NFLX",
+        "date": "2022-02-23"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-QueryBalance-OpenBankAccount-GetUserToken-level-2-2.jsonl",
+    "step": 7,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user3",
+      "password": "user3pass"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-QueryBalance-OpenBankAccount-GetUserToken-level-2-2.jsonl",
+    "step": 9,
+    "expected_api": "QueryBalance",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4r3e2w1q"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-QueryBalance-OpenBankAccount-GetUserToken-level-2-2.jsonl",
+    "step": 13,
+    "expected_api": "OpenBankAccount",
+    "expected_parameters": {
+      "account": "123456",
+      "password": "secret123",
+      "name": "John Doe"
+    },
+    "generated": "[OpenBankAccount(account='123456', password='secret123', name='John Doe')]",
+    "parsed": [
+      "OpenBankAccount",
+      {
+        "account": "123456",
+        "password": "secret123",
+        "name": "John Doe"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "QueryStock-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "SQ",
+      "date": "2022-03-14"
+    },
+    "generated": "[QueryStock(key='SQ', value='2022-03-14')]",
+    "parsed": [
+      "QueryStock",
+      {
+        "key": "SQ",
+        "value": "2022-03-14"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-level-1-2.jsonl",
+    "step": 2,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "SQ",
+      "date": "2022-03-15"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-level-1-3.jsonl",
+    "step": 2,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "SQ",
+      "date": "2022-03-14"
+    },
+    "generated": "[QueryStock(stock_code='SQ', date='2022-03-14')]",
+    "parsed": [
+      "QueryStock",
+      {
+        "stock_code": "SQ",
+        "date": "2022-03-14"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "QueryStock-level-1-4.jsonl",
+    "step": 2,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "SQ",
+      "date": "2022-03-14"
+    },
+    "generated": "[QueryStock(symbol='SQ', date='2022-03-14')]",
+    "parsed": [
+      "QueryStock",
+      {
+        "symbol": "SQ",
+        "date": "2022-03-14"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "QueryStock-level-1-5.jsonl",
+    "step": 2,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "SQ",
+      "date": "2022-03-14"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "12345",
+      "time": "2023-08-15 12:30:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "[RecordHealthData(user_id='12345', date='August 15th, 2023 at 12:30 PM', health_data='blood pressure 120/80 and heart rate 80')]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "user_id": "12345",
+        "date": "August 15th, 2023 at 12:30 PM",
+        "health_data": "blood pressure 120/80 and heart rate 80"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-1.jsonl",
+    "step": 10,
+    "expected_api": "AppointmentRegistration",
+    "expected_parameters": {
+      "patient_name": "John",
+      "date": "2023-09-01",
+      "doctor_name": "Dr. Smith"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-1.jsonl",
+    "step": 16,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "fever"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-2.jsonl",
+    "step": 8,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "1234",
+      "time": "2023-04-03 10:00:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "[RecordHealthData(user_id='1234', date_time='2023-04-03T10:00:00', blood_pressure='120/80', heart_rate=80)]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "user_id": "1234",
+        "date_time": "2023-04-03T10:00:00",
+        "blood_pressure": "120/80",
+        "heart_rate": 80
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-2.jsonl",
+    "step": 18,
+    "expected_api": "AppointmentRegistration",
+    "expected_parameters": {
+      "patient_name": "John",
+      "date": "2023-04-05",
+      "doctor_name": "Dr. Smith"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-2.jsonl",
+    "step": 24,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "fever"
+    },
+    "generated": "[EmergencyKnowledge(query='fever over 100 degrees Fahrenheit')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "query": "fever over 100 degrees Fahrenheit"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-3.jsonl",
+    "step": 7,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "12345",
+      "time": "2023-07-10 09:15:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '140/90'}, {'name': 'heart_rate', 'value': '85'}]"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-3.jsonl",
+    "step": 16,
+    "expected_api": "AppointmentRegistration",
+    "expected_parameters": {
+      "patient_name": "John Smith",
+      "date": "2023-08-15",
+      "doctor_name": "Dr. Johnson"
+    },
+    "generated": "[AppointmentRegistration(user_id='12345', name='John Smith', doctor='Dr. Johnson', date='2023-08-15')]",
+    "parsed": [
+      "AppointmentRegistration",
+      {
+        "user_id": "12345",
+        "name": "John Smith",
+        "doctor": "Dr. Johnson",
+        "date": "2023-08-15"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-3.jsonl",
+    "step": 20,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "fever"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-4.jsonl",
+    "step": 8,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "1234",
+      "time": "2023-08-15 09:30:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-4.jsonl",
+    "step": 18,
+    "expected_api": "AppointmentRegistration",
+    "expected_parameters": {
+      "patient_name": "John",
+      "date": "2023-09-05",
+      "doctor_name": "Dr. Smith"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-4.jsonl",
+    "step": 22,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "fever"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-5.jsonl",
+    "step": 4,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "123",
+      "time": "2023-09-01 10:15:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "[RecordHealthData(user_id=123, timestamp='2023-09-01 10:15:00', health_data=[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}])]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "user_id": 123,
+        "timestamp": "2023-09-01 10:15:00",
+        "health_data": [
+          {
+            "name": "blood_pressure",
+            "value": "120/80"
+          },
+          {
+            "name": "heart_rate",
+            "value": "80"
+          }
+        ]
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-5.jsonl",
+    "step": 10,
+    "expected_api": "AppointmentRegistration",
+    "expected_parameters": {
+      "patient_name": "John",
+      "date": "2023-09-03",
+      "doctor_name": "Smith"
+    },
+    "generated": "[AppointmentRegistration(name='John', doctor='Dr. Smith', date='2023-09-03')]",
+    "parsed": [
+      "AppointmentRegistration",
+      {
+        "name": "John",
+        "doctor": "Dr. Smith",
+        "date": "2023-09-03"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-5.jsonl",
+    "step": 16,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "fever"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-QueryRegistration-level-2-1.jsonl",
+    "step": 6,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "12345",
+      "time": "2023-11-12 10:00:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-QueryRegistration-level-2-2.jsonl",
+    "step": 4,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "12345",
+      "time": "2023-11-12 10:30:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-QueryRegistration-level-2-2.jsonl",
+    "step": 10,
+    "expected_api": "AppointmentRegistration",
+    "expected_parameters": {
+      "patient_name": "Mary",
+      "date": "2023-11-15",
+      "doctor_name": "Dr. Lee"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-AppointmentRegistration-QueryRegistration-level-2-2.jsonl",
+    "step": 16,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "Mary",
+      "date": "2023-11-15"
+    },
+    "generated": "[QueryRegistration(patient_name='Mary', date='2023-11-15')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "patient_name": "Mary",
+        "date": "2023-11-15"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "RecordHealthData-level-1-1.jsonl",
+    "step": 3,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "1234",
+      "time": "2022-01-01 10:00:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '110/70'}, {'name': 'heart_rate', 'value': '90'}]"
+    },
+    "generated": "[RecordHealthData(userId='1234', timestamp='2022-01-01 10:00:00', bloodPressure='110/70', heartRate=90)]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "userId": "1234",
+        "timestamp": "2022-01-01 10:00:00",
+        "bloodPressure": "110/70",
+        "heartRate": 90
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "RecordHealthData-level-1-2.jsonl",
+    "step": 8,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "12345",
+      "time": "2021-09-17 10:30:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '75'}]"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RegisterUser-ForgotPassword-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "RegisterUser",
+    "expected_parameters": {
+      "username": "user123",
+      "password": "pass123",
+      "email": "user123@example.com"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RegisterUser-ForgotPassword-level-2-2.jsonl",
+    "step": 3,
+    "expected_api": "RegisterUser",
+    "expected_parameters": {
+      "username": "xyz",
+      "password": "abc123",
+      "email": "xyz@example.com"
+    },
+    "generated": "[RegisterUser(username='xyz', password='abc123', email='xyz@example.com')]",
+    "parsed": [
+      "RegisterUser",
+      {
+        "username": "xyz",
+        "password": "abc123",
+        "email": "xyz@example.com"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "RegisterUser-ForgotPassword-level-2-3.jsonl",
+    "step": 3,
+    "expected_api": "RegisterUser",
+    "expected_parameters": {
+      "username": "johnsmith123",
+      "password": "1234password",
+      "email": "johnsmith123@example.com"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RegisterUser-level-1-1.jsonl",
+    "step": 8,
+    "expected_api": "RegisterUser",
+    "expected_parameters": {
+      "username": "john123",
+      "password": "securepassword123",
+      "email": "john123@email.com"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "RegisterUser-level-1-2.jsonl",
+    "step": 7,
+    "expected_api": "RegisterUser",
+    "expected_parameters": {
+      "username": "johndoe",
+      "password": "mypassword123",
+      "email": "johndoe@email.com"
+    },
+    "generated": "[RegisterUser(username='johndoe', password='mypassword123', email='johndoe@email.com')]",
+    "parsed": [
+      "RegisterUser",
+      {
+        "username": "johndoe",
+        "password": "mypassword123",
+        "email": "johndoe@email.com"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "RegisterUser-level-1-3.jsonl",
+    "step": 7,
+    "expected_api": "RegisterUser",
+    "expected_parameters": {
+      "username": "JohnSmith123",
+      "password": "qwerty1234",
+      "email": "johnsmith123@gmail.com"
+    },
+    "generated": "[RegisterUser(value='{\"username\":\"JohnSmith123\",\"password\":\"qwerty1234\",\"email\":\"johnsmith123@gmail.com\"}')]",
+    "parsed": [
+      "RegisterUser",
+      {
+        "value": "{\"username\":\"JohnSmith123\",\"password\":\"qwerty1234\",\"email\":\"johnsmith123@gmail.com\"}"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "SearchEngine-level-1-2.jsonl",
+    "step": 4,
+    "expected_api": "SearchEngine",
+    "expected_parameters": {
+      "keyword": "the sustainable development"
+    },
+    "generated": "[SearchEngine(key='sustainable development goals news')]",
+    "parsed": [
+      "SearchEngine",
+      {
+        "key": "sustainable development goals news"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "SendEmail-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "SendEmail",
+    "expected_parameters": {
+      "receiver": "john@example.com",
+      "subject": "Meeting Reminder",
+      "content": "Don"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "SpeechRecognition-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "SpeechRecognition",
+    "expected_parameters": {
+      "url": "https://example.com/voice22.wav"
+    },
+    "generated": "[SpeechRecognition(url='https://example.com/voice22.wav')]",
+    "parsed": [
+      "SpeechRecognition",
+      {
+        "url": "https://example.com/voice22.wav"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": true
+  },
+  {
+    "file": "SymptomSearch-AppointmentRegistration-level-2-1.jsonl",
+    "step": 4,
+    "expected_api": "SymptomSearch",
+    "expected_parameters": {
+      "symptom": "fatigue"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "SymptomSearch-AppointmentRegistration-level-2-1.jsonl",
+    "step": 7,
+    "expected_api": "SymptomSearch",
+    "expected_parameters": {
+      "symptom": "fatigue"
+    },
+    "generated": "[SymptomSearch(symptom='Chronic fatigue syndrome')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "symptom": "Chronic fatigue syndrome"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "SymptomSearch-AppointmentRegistration-level-2-1.jsonl",
+    "step": 11,
+    "expected_api": "AppointmentRegistration",
+    "expected_parameters": {
+      "patient_name": "Emily Smith",
+      "date": "2023-10-15",
+      "doctor_name": "Dr. John"
+    },
+    "generated": "[AppointmentRegistration(patient_name='Emily Smith', doctor='Dr. John', date='2023-10-15')]",
+    "parsed": [
+      "AppointmentRegistration",
+      {
+        "patient_name": "Emily Smith",
+        "doctor": "Dr. John",
+        "date": "2023-10-15"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "SymptomSearch-level-1-1.jsonl",
+    "step": 4,
+    "expected_api": "SymptomSearch",
+    "expected_parameters": {
+      "symptom": "Abdominal pain"
+    },
+    "generated": "[SymptomSearch(key='abdominal pain')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "key": "abdominal pain"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "SymptomSearch-level-1-2.jsonl",
+    "step": 4,
+    "expected_api": "SymptomSearch",
+    "expected_parameters": {
+      "symptom": "Abdominal pain"
+    },
+    "generated": "[SymptomSearch(key='abdominal_pain')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "key": "abdominal_pain"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "TimedSwitch-level-1-1.jsonl",
+    "step": 10,
+    "expected_api": "TimedSwitch",
+    "expected_parameters": {
+      "device_id": "12345",
+      "time": "2021-08-05 19:00:00",
+      "on": "True"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "TimedSwitch-level-1-2.jsonl",
+    "step": 5,
+    "expected_api": "TimedSwitch",
+    "expected_parameters": {
+      "device_id": "1234",
+      "time": "2021-12-05 19:00:00",
+      "on": "True"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  },
+  {
+    "file": "TimedSwitch-level-1-3.jsonl",
+    "step": 6,
+    "expected_api": "TimedSwitch",
+    "expected_parameters": {
+      "device_id": "123456",
+      "time": "2022-03-01 22:00:00",
+      "on": "False"
+    },
+    "generated": "[TimedSwitch(device_id='123456', time='2022-03-01T22:00:00')]",
+    "parsed": [
+      "TimedSwitch",
+      {
+        "device_id": "123456",
+        "time": "2022-03-01T22:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Translate-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "Translate",
+    "expected_parameters": {
+      "src": "Hello, how are you?",
+      "tgt_lang": "fr"
+    },
+    "generated": "[Translate(\"Hello, how are you?\", \"fr\")]",
+    "parsed": [
+      "Translate",
+      {}
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Translate-level-1-2.jsonl",
+    "step": 2,
+    "expected_api": "Translate",
+    "expected_parameters": {
+      "src": "Hello",
+      "tgt_lang": "es"
+    },
+    "generated": "[Translate(text=\"Hello\", target=\"Spanish\")]",
+    "parsed": [
+      "Translate",
+      {
+        "text": "Hello",
+        "target": "Spanish"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Translate-level-1-3.jsonl",
+    "step": 3,
+    "expected_api": "Translate",
+    "expected_parameters": {
+      "src": "The quick brown fox jumps over the lazy dog.",
+      "tgt_lang": "es"
+    },
+    "generated": "[Translate(key='The quick brown fox jumps over the lazy dog.')]",
+    "parsed": [
+      "Translate",
+      {
+        "key": "The quick brown fox jumps over the lazy dog."
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Translate-level-1-4.jsonl",
+    "step": 2,
+    "expected_api": "Translate",
+    "expected_parameters": {
+      "src": "hello",
+      "tgt_lang": "fr"
+    },
+    "generated": "[Translate(key='hello', target='French')]",
+    "parsed": [
+      "Translate",
+      {
+        "key": "hello",
+        "target": "French"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "passed": false
+  },
+  {
+    "file": "Wiki-level-1-1.jsonl",
+    "step": 2,
+    "expected_api": "Wiki",
+    "expected_parameters": {
+      "keyword": "artificial intelligence"
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "passed": false
+  }
+]

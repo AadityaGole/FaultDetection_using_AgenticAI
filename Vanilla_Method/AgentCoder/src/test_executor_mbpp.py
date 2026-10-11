@@ -188,6 +188,10 @@ if __name__ == "__main__":
         evaluated_dataset = dataset
         for epoch in range(args.epochs):
             print(f"AgentCoder generation round {epoch + 1}/{args.epochs} using {model}")
+            for item in evaluated_dataset:
+                item["stored_completion"] = item.get("completion", "")
+                item["completion"] = ""
+                item["passed"] = False
             evaluated_dataset = call_completion(evaluated_dataset, model, "py")
             generated_count = sum(item.get("agent_request_status") == "success" for item in evaluated_dataset)
             status_counts = {}

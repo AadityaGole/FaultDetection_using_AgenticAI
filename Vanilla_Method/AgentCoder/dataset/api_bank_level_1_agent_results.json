@@ -9,8 +9,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -26,7 +26,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -37,17 +37,10 @@
       "token": "o8i7u6y5t4r3e2w1q0",
       "time": "2023-09-12 13:50:00"
     },
-    "generated": "[AddAlarm(token='o8i7u6y5t4r3e2w1q0', content='Reminder: Meeting with John', time='2023-09-12 13:50:00')]",
-    "parsed": [
-      "AddAlarm",
-      {
-        "token": "o8i7u6y5t4r3e2w1q0",
-        "content": "Reminder: Meeting with John",
-        "time": "2023-09-12 13:50:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -61,7 +54,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -77,7 +70,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -88,22 +81,10 @@
       "username": "JohnDoe",
       "password": "pass123"
     },
-    "generated": "[AddMeeting(date='2023-11-12', time='15:00', topic='new project launch', location='conference room', attendees=['John', 'Jane'])]",
-    "parsed": [
-      "AddMeeting",
-      {
-        "date": "2023-11-12",
-        "time": "15:00",
-        "topic": "new project launch",
-        "location": "conference room",
-        "attendees": [
-          "John",
-          "Jane"
-        ]
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -118,22 +99,10 @@
       "location": "conference room",
       "attendees": "['John', 'Jane']"
     },
-    "generated": "[AddMeeting(date='2023-11-12', time='15:00', topic='new project launch', location='conference room', attendees=['John', 'Jane'])]",
-    "parsed": [
-      "AddMeeting",
-      {
-        "date": "2023-11-12",
-        "time": "15:00",
-        "topic": "new project launch",
-        "location": "conference room",
-        "attendees": [
-          "John",
-          "Jane"
-        ]
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -147,7 +116,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -163,7 +132,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -174,17 +143,10 @@
       "username": "foo",
       "password": "bar"
     },
-    "generated": "[AddAgenda(title='Meeting with marketing team', location='conference room', time='2021-09-28T14:00')]",
-    "parsed": [
-      "AddAgenda",
-      {
-        "title": "Meeting with marketing team",
-        "location": "conference room",
-        "time": "2021-09-28T14:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -197,10 +159,10 @@
       "time": "2021-09-28 14:00:00",
       "location": "Conference room"
     },
-    "generated": "[AddAgenda(content='The meeting with the marketing team', location='conference room', time='202",
+    "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -211,15 +173,10 @@
       "username": "foo",
       "password": "bar"
     },
-    "generated": "[GetUserToken(key='token')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "key": "token"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -232,17 +189,10 @@
       "time": "2023-09-21 15:00:00",
       "location": "cafeteria"
     },
-    "generated": "[AddAgenda(content='Meeting with John', datetime='2024-09-21T15:00', location='cafeteria')]",
-    "parsed": [
-      "AddAgenda",
-      {
-        "content": "Meeting with John",
-        "datetime": "2024-09-21T15:00",
-        "location": "cafeteria"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -255,8 +205,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -269,8 +219,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -281,17 +231,11 @@
       "username": "foo",
       "password": "bar"
     },
-    "generated": "[GetUserToken(username='foo', password='bar')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "username": "foo",
-        "password": "bar"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "AddAlarm-level-1-1.jsonl",
@@ -301,15 +245,10 @@
       "token": "z9x8c7v6b5n4m3q2w1",
       "time": "2021-10-14 08:00:00"
     },
-    "generated": "[AddAlarm(time='2021-10-14T08:00:00')]",
-    "parsed": [
-      "AddAlarm",
-      {
-        "time": "2021-10-14T08:00:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -323,7 +262,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -341,7 +280,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -355,7 +294,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -370,7 +309,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -384,7 +323,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -399,7 +338,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -413,7 +352,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -428,7 +367,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -440,17 +379,10 @@
       "date": "2022-06-01",
       "doctor_name": "Dr. Johnson"
     },
-    "generated": "[AppointmentRegistration(patient_name='John Smith', doctor_name='Dr. Johnson', date='June 1st, 2022')]",
-    "parsed": [
-      "AppointmentRegistration",
-      {
-        "patient_name": "John Smith",
-        "doctor_name": "Dr. Johnson",
-        "date": "June 1st, 2022"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -465,7 +397,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -480,7 +412,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -498,7 +430,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -516,7 +448,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -534,7 +466,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -552,7 +484,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -570,7 +502,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -580,13 +512,10 @@
     "expected_parameters": {
       "formula": "(5*6)/(2+3)"
     },
-    "generated": "[Calculator(\"(5*6)/(2+3)\")]",
-    "parsed": [
-      "Calculator",
-      {}
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -599,7 +528,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -612,7 +541,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -622,15 +551,10 @@
     "expected_parameters": {
       "date": "12-10"
     },
-    "generated": "[QueryHistoryToday(date='December 10, 2023')]",
-    "parsed": [
-      "QueryHistoryToday",
-      {
-        "date": "December 10, 2023"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -642,8 +566,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -653,15 +577,10 @@
     "expected_parameters": {
       "formula": "(5+3)*6"
     },
-    "generated": "[Calculator(key='(5+3)*6')]",
-    "parsed": [
-      "Calculator",
-      {
-        "key": "(5+3)*6"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -671,13 +590,10 @@
     "expected_parameters": {
       "formula": "(9+6)*3"
     },
-    "generated": "[Calculator(45)]",
-    "parsed": [
-      "Calculator",
-      {}
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -687,16 +603,11 @@
     "expected_parameters": {
       "formula": "5*10"
     },
-    "generated": "[Calculator(formula='5*10')]",
-    "parsed": [
-      "Calculator",
-      {
-        "formula": "5*10"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "CancelRegistration-RecordHealthData-QueryRegistration-level-2-1.jsonl",
@@ -708,7 +619,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -720,17 +631,10 @@
       "time": "2023-08-06 09:00:00",
       "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
     },
-    "generated": "[RecordHealthData(user_id='12345', time='2023-08-06 09:00:00', health_data='blood_pressure 120/80 and heart_rate 80')]",
-    "parsed": [
-      "RecordHealthData",
-      {
-        "user_id": "12345",
-        "time": "2023-08-06 09:00:00",
-        "health_data": "blood_pressure 120/80 and heart_rate 80"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -741,16 +645,10 @@
       "patient_name": "Jane Smith",
       "date": "2023-05-20"
     },
-    "generated": "[QueryRegistration(date='2023-05-20', doctor='Dr. Johnson')]",
-    "parsed": [
-      "QueryRegistration",
-      {
-        "date": "2023-05-20",
-        "doctor": "Dr. Johnson"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -763,7 +661,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -777,8 +675,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -789,16 +687,10 @@
       "patient_name": "Jane Smith",
       "date": "2023-05-20"
     },
-    "generated": "[QueryRegistration(date='2023-05-20', name='Jane Smith')]",
-    "parsed": [
-      "QueryRegistration",
-      {
-        "date": "2023-05-20",
-        "name": "Jane Smith"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -808,16 +700,11 @@
     "expected_parameters": {
       "appointment_id": "56789012"
     },
-    "generated": "[CancelRegistration(appointment_id='56789012')]",
-    "parsed": [
-      "CancelRegistration",
-      {
-        "appointment_id": "56789012"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "CancelRegistration-RecordHealthData-level-2-1.jsonl",
@@ -828,15 +715,10 @@
       "time": "2023-04-09 12:00:00",
       "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
     },
-    "generated": "[RecordHealthData(key='{\"blood_pressure\": \"120/80\", \"heart_rate\": \"80\"}')]",
-    "parsed": [
-      "RecordHealthData",
-      {
-        "key": "{\"blood_pressure\": \"120/80\", \"heart_rate\": \"80\"}"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -846,15 +728,10 @@
     "expected_parameters": {
       "appointment_id": "56789012"
     },
-    "generated": "[CancelRegistration(id='56789012')]",
-    "parsed": [
-      "CancelRegistration",
-      {
-        "id": "56789012"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -866,26 +743,10 @@
       "time": "2023-04-26 09:00:00",
       "health_data": "[{'name': 'blood_pressure', 'value': '130/90'}, {'name': 'heart_rate', 'value': '75'}]"
     },
-    "generated": "[RecordHealthData(user_id='123456', time='2023-04-26 09:00:00', health_data=[{'name': 'blood_pressure', 'value': '130/90'}, {'name': 'heart_rate', 'value': '75'}])]",
-    "parsed": [
-      "RecordHealthData",
-      {
-        "user_id": "123456",
-        "time": "2023-04-26 09:00:00",
-        "health_data": [
-          {
-            "name": "blood_pressure",
-            "value": "130/90"
-          },
-          {
-            "name": "heart_rate",
-            "value": "75"
-          }
-        ]
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -895,16 +756,11 @@
     "expected_parameters": {
       "appointment_id": "56789012"
     },
-    "generated": "[CancelRegistration(appointment_id='56789012')]",
-    "parsed": [
-      "CancelRegistration",
-      {
-        "appointment_id": "56789012"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "CancelRegistration-RecordHealthData-level-2-3.jsonl",
@@ -917,8 +773,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -928,15 +784,10 @@
     "expected_parameters": {
       "appointment_id": "56789012"
     },
-    "generated": "[CancelRegistration(id='56789012')]",
-    "parsed": [
-      "CancelRegistration",
-      {
-        "id": "56789012"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -950,8 +801,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -961,16 +812,11 @@
     "expected_parameters": {
       "appointment_id": "56789012"
     },
-    "generated": "[CancelRegistration(appointment_id='56789012')]",
-    "parsed": [
-      "CancelRegistration",
-      {
-        "appointment_id": "56789012"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "CancelRegistration-level-1-1.jsonl",
@@ -979,15 +825,10 @@
     "expected_parameters": {
       "appointment_id": "90123456"
     },
-    "generated": "[CancelRegistration(key='90123456')]",
-    "parsed": [
-      "CancelRegistration",
-      {
-        "key": "90123456"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -997,15 +838,10 @@
     "expected_parameters": {
       "appointment_id": "90123456"
     },
-    "generated": "[CancelRegistration(key='90123456')]",
-    "parsed": [
-      "CancelRegistration",
-      {
-        "key": "90123456"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1015,16 +851,10 @@
     "expected_parameters": {
       "appointment_id": "90123456"
     },
-    "generated": "[CancelRegistration(key='appointment_id', value='90123456')]",
-    "parsed": [
-      "CancelRegistration",
-      {
-        "key": "appointment_id",
-        "value": "90123456"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1037,8 +867,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1049,16 +879,10 @@
       "device_id": "10000025",
       "time": "2023-03-19 09:30:00"
     },
-    "generated": "[CancelTimedSwitch(device_id='10000025', time='March 19th, 2023 at 9:30 AM')]",
-    "parsed": [
-      "CancelTimedSwitch",
-      {
-        "device_id": "10000025",
-        "time": "March 19th, 2023 at 9:30 AM"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1069,17 +893,11 @@
       "device_id": "10000025",
       "time": "2023-03-19 09:30:00"
     },
-    "generated": "[CancelTimedSwitch(device_id='10000025', time='2023-03-19 09:30:00')]",
-    "parsed": [
-      "CancelTimedSwitch",
-      {
-        "device_id": "10000025",
-        "time": "2023-03-19 09:30:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "CancelTimedSwitch-level-1-4.jsonl",
@@ -1092,7 +910,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1106,7 +924,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1119,8 +937,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1130,16 +948,11 @@
     "expected_parameters": {
       "token": "z9x8c7v6b5n4m3q2w1"
     },
-    "generated": "[DeleteAccount(token='z9x8c7v6b5n4m3q2w1')]",
-    "parsed": [
-      "DeleteAccount",
-      {
-        "token": "z9x8c7v6b5n4m3q2w1"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "DeleteAccount-ModifyPassword-GetUserToken-level-2-2.jsonl",
@@ -1149,15 +962,10 @@
       "username": "foo",
       "password": "bar"
     },
-    "generated": "[DeleteAccount(key='token')]",
-    "parsed": [
-      "DeleteAccount",
-      {
-        "key": "token"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1170,7 +978,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1184,7 +992,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1194,10 +1002,10 @@
     "expected_parameters": {
       "token": "z9x8c7v6b5n4m3q2w1"
     },
-    "generated": "[DeleteAccount(key='",
+    "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1208,15 +1016,10 @@
       "username": "foo",
       "password": "bar"
     },
-    "generated": "[DeleteAccount(key='foo')]",
-    "parsed": [
-      "DeleteAccount",
-      {
-        "key": "foo"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1229,7 +1032,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1243,7 +1046,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1256,7 +1059,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1270,7 +1073,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1283,7 +1086,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1297,7 +1100,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1307,15 +1110,10 @@
     "expected_parameters": {
       "token": "n9m8k7j6h5g4f3d2s1a0"
     },
-    "generated": "[DeleteAccount(username='user1')]",
-    "parsed": [
-      "DeleteAccount",
-      {
-        "username": "user1"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1329,7 +1127,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1339,16 +1137,11 @@
     "expected_parameters": {
       "token": "p9o8i7u6y5t4r3e2w1q"
     },
-    "generated": "[DeleteAccount(token='p9o8i7u6y5t4r3e2w1q')]",
-    "parsed": [
-      "DeleteAccount",
-      {
-        "token": "p9o8i7u6y5t4r3e2w1q"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "DeleteAccount-level-1-2.jsonl",
@@ -1358,15 +1151,10 @@
       "username": "user3",
       "password": "user3pass"
     },
-    "generated": "[GetUserToken(key='')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "key": ""
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1376,15 +1164,10 @@
     "expected_parameters": {
       "token": "p9o8i7u6y5t4r3e2w1q"
     },
-    "generated": "[DeleteAccount(username='user3')]",
-    "parsed": [
-      "DeleteAccount",
-      {
-        "username": "user3"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1395,16 +1178,10 @@
       "username": "user3",
       "password": "user3pass"
     },
-    "generated": "[GetUserToken(key='username', value='user3')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "key": "username",
-        "value": "user3"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1417,7 +1194,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1430,8 +1207,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1444,15 +1221,10 @@
       "time": "2023-03-21 15:00:00",
       "location": "Cleaners"
     },
-    "generated": "[DeleteAgenda(key='l9k8j7h6g5f4d3s2a1')]",
-    "parsed": [
-      "DeleteAgenda",
-      {
-        "key": "l9k8j7h6g5f4d3s2a1"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1465,8 +1237,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1479,17 +1251,10 @@
       "location": "Cleaners",
       "token": "l9k8j7h6g5f4d3s2a1"
     },
-    "generated": "[DeleteAgenda(agenda_date='2023-03-21', time='10:00 AM', location='Cleaners')]",
-    "parsed": [
-      "DeleteAgenda",
-      {
-        "agenda_date": "2023-03-21",
-        "time": "10:00 AM",
-        "location": "Cleaners"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1500,15 +1265,10 @@
       "username": "JaneSmith",
       "password": "password"
     },
-    "generated": "[DeleteAgenda(key='delete_gym_workout_2024-03-16_24h_fitness')]",
-    "parsed": [
-      "DeleteAgenda",
-      {
-        "key": "delete_gym_workout_2024-03-16_24h_fitness"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1523,8 +1283,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1535,16 +1295,10 @@
       "username": "JohnDoe",
       "password": "pass123"
     },
-    "generated": "[DeleteAlarm(key='March 16th at 7am', value='true')]",
-    "parsed": [
-      "DeleteAlarm",
-      {
-        "key": "March 16th at 7am",
-        "value": "true"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1555,15 +1309,10 @@
       "token": "a9s8d7f6g5h4j3k2l1",
       "time": "2023-03-16 07:00:00"
     },
-    "generated": "[DeleteAlarm(time='2023-03-16 07:00:00')]",
-    "parsed": [
-      "DeleteAlarm",
-      {
-        "time": "2023-03-16 07:00:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1574,15 +1323,10 @@
       "username": "JohnDoe",
       "password": "pass123"
     },
-    "generated": "[DeleteAlarm(key='7:00 a.m. on March 16th')]",
-    "parsed": [
-      "DeleteAlarm",
-      {
-        "key": "7:00 a.m. on March 16th"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1595,8 +1339,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1609,17 +1353,10 @@
       "content": "Attend meeting",
       "location": "Office downtown"
     },
-    "generated": "[AddAgenda(content='attend a meeting', location='office downtown', time='2023-03-18 14:00:00')]",
-    "parsed": [
-      "AddAgenda",
-      {
-        "content": "attend a meeting",
-        "location": "office downtown",
-        "time": "2023-03-18 14:00:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1632,8 +1369,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1644,16 +1381,10 @@
       "token": "o8i7u6y5t4r3e2w1q0",
       "time": "2023-03-20 06:30:00"
     },
-    "generated": "[DeleteAlarm(alarm_time='06:30', alarm_date='2023-03-20')]",
-    "parsed": [
-      "DeleteAlarm",
-      {
-        "alarm_time": "06:30",
-        "alarm_date": "2023-03-20"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1664,10 +1395,10 @@
       "username": "JaneSmith",
       "password": "password"
     },
-    "generated": "[DeleteAlarm(key",
+    "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1680,8 +1411,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1692,15 +1423,10 @@
       "username": "newuser",
       "password": "newpass"
     },
-    "generated": "[DeleteMeeting(meeting_id='New Employee Orientation_2023-03-27_09:00:00')]",
-    "parsed": [
-      "DeleteMeeting",
-      {
-        "meeting_id": "New Employee Orientation_2023-03-27_09:00:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1718,7 +1444,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1731,8 +1457,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1746,8 +1472,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1757,15 +1483,10 @@
     "expected_parameters": {
       "name": "Bedtime"
     },
-    "generated": "[DeleteScene(key='Bedtime')]",
-    "parsed": [
-      "DeleteScene",
-      {
-        "key": "Bedtime"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1775,15 +1496,10 @@
     "expected_parameters": {
       "name": "Relaxing Time"
     },
-    "generated": "[DeleteScene(key='Relaxing Time')]",
-    "parsed": [
-      "DeleteScene",
-      {
-        "key": "Relaxing Time"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1793,16 +1509,10 @@
     "expected_parameters": {
       "name": "Movie Time"
     },
-    "generated": "[DeleteScene(key='scene_name', value='Movie Time')]",
-    "parsed": [
-      "DeleteScene",
-      {
-        "key": "scene_name",
-        "value": "Movie Time"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1812,15 +1522,10 @@
     "expected_parameters": {
       "keyword": "perplexed"
     },
-    "generated": "[Dictionary(key='perplexed')]",
-    "parsed": [
-      "Dictionary",
-      {
-        "key": "perplexed"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1830,15 +1535,10 @@
     "expected_parameters": {
       "keyword": "perplexed"
     },
-    "generated": "[Dictionary(key='perplexed')]",
-    "parsed": [
-      "Dictionary",
-      {
-        "key": "perplexed"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1848,15 +1548,10 @@
     "expected_parameters": {
       "keyword": "resilience"
     },
-    "generated": "[Dictionary(key='resilience')]",
-    "parsed": [
-      "Dictionary",
-      {
-        "key": "resilience"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1866,15 +1561,10 @@
     "expected_parameters": {
       "keyword": "plethora"
     },
-    "generated": "[Dictionary(key='plethora')]",
-    "parsed": [
-      "Dictionary",
-      {
-        "key": "plethora"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1884,15 +1574,10 @@
     "expected_parameters": {
       "keyword": "plethora"
     },
-    "generated": "[Dictionary(key='plethora')]",
-    "parsed": [
-      "Dictionary",
-      {
-        "key": "plethora"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1903,16 +1588,10 @@
       "url": "https://www.example.com/article-4.txt",
       "question": "What are the key features of this software?"
     },
-    "generated": "[DocumentQA(document_url='https://www.example.com/article-4.txt', question='What are the key features of this software?')]",
-    "parsed": [
-      "DocumentQA",
-      {
-        "document_url": "https://www.example.com/article-4.txt",
-        "question": "What are the key features of this software?"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1923,16 +1602,10 @@
       "url": "https://www.example.com/article-4.txt",
       "question": "What platforms is this software compatible with?"
     },
-    "generated": "[DocumentQA(url='https://www.example.com/article-4.txt', question='What platforms does the software support?')]",
-    "parsed": [
-      "DocumentQA",
-      {
-        "url": "https://www.example.com/article-4.txt",
-        "question": "What platforms does the software support?"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1943,16 +1616,10 @@
       "url": "https://www.example.com/article-4.txt",
       "question": "What is the customer support like for this software?"
     },
-    "generated": "[DocumentQA(url='https://www.example.com/article-4.txt', question='What customer support does the software provide?')]",
-    "parsed": [
-      "DocumentQA",
-      {
-        "url": "https://www.example.com/article-4.txt",
-        "question": "What customer support does the software provide?"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1963,15 +1630,10 @@
       "url": "https://www.example.com/article-4.txt",
       "question": "What operating systems is this software compatible with?"
     },
-    "generated": "[DocumentQA(key='What operating systems is this software compatible with?')]",
-    "parsed": [
-      "DocumentQA",
-      {
-        "key": "What operating systems is this software compatible with?"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -1982,15 +1644,10 @@
       "url": "https://www.example.com/article-4.txt",
       "question": "What are the key features of this software?"
     },
-    "generated": "[DocumentQA(key='{\"document_url\": \"https://www.example.com/article-4.txt\", \"question\": \"What are the key features of this software?\"}')]",
-    "parsed": [
-      "DocumentQA",
-      {
-        "key": "{\"document_url\": \"https://www.example.com/article-4.txt\", \"question\": \"What are the key features of this software?\"}"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2001,16 +1658,10 @@
       "url": "https://www.example.com/article-4.txt",
       "question": "What are the key features of this software?"
     },
-    "generated": "[DocumentQA(key='https://www.example.com/article-4.txt', value='key_features')]",
-    "parsed": [
-      "DocumentQA",
-      {
-        "key": "https://www.example.com/article-4.txt",
-        "value": "key_features"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2024,7 +1675,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2038,7 +1689,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2048,15 +1699,10 @@
     "expected_parameters": {
       "symptom": "shortness of breath"
     },
-    "generated": "[EmergencyKnowledge(query='shortness of breath')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "query": "shortness of breath"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2068,17 +1714,10 @@
       "new_appointment_date": "2023-10-15",
       "new_appointment_doctor": "Dr. Johnson"
     },
-    "generated": "[ModifyRegistration(appointment_id='90123456', new_date='October 15th', doctor='Dr. Johnson')]",
-    "parsed": [
-      "ModifyRegistration",
-      {
-        "appointment_id": "90123456",
-        "new_date": "October 15th",
-        "doctor": "Dr. Johnson"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2088,15 +1727,10 @@
     "expected_parameters": {
       "symptom": "Shortness of breath"
     },
-    "generated": "[EmergencyKnowledge(key='shortness of breath')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "key": "shortness of breath"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2108,17 +1742,10 @@
       "new_appointment_date": "2023-10-15",
       "new_appointment_doctor": "Dr. Brown"
     },
-    "generated": "[ModifyRegistration(appointment_id='90123456', new_date='October 15th', doctor='Dr. Brown')]",
-    "parsed": [
-      "ModifyRegistration",
-      {
-        "appointment_id": "90123456",
-        "new_date": "October 15th",
-        "doctor": "Dr. Brown"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2130,18 +1757,10 @@
       "time": "2023-10-19 10:30:00",
       "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
     },
-    "generated": "[RecordHealthData(user_id='12345', date_time='2023-10-19 10:30:00', blood_pressure='120/80', heart_rate=80)]",
-    "parsed": [
-      "RecordHealthData",
-      {
-        "user_id": "12345",
-        "date_time": "2023-10-19 10:30:00",
-        "blood_pressure": "120/80",
-        "heart_rate": 80
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2151,15 +1770,10 @@
     "expected_parameters": {
       "symptom": "shortness of breath"
     },
-    "generated": "[EmergencyKnowledge(key='shortness of breath')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "key": "shortness of breath"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2171,17 +1785,10 @@
       "new_appointment_date": "2023-10-15",
       "new_appointment_doctor": "Dr. Johnson"
     },
-    "generated": "[ModifyRegistration(appointment_id='90123456', new_date='October 15th', doctor='Dr. Johnson')]",
-    "parsed": [
-      "ModifyRegistration",
-      {
-        "appointment_id": "90123456",
-        "new_date": "October 15th",
-        "doctor": "Dr. Johnson"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2193,18 +1800,10 @@
       "time": "2023-10-13 09:30:00",
       "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
     },
-    "generated": "[RecordHealthData(user_id='12345', timestamp='2023-10-13 09:30:00', blood_pressure='120/80', heart_rate='80')]",
-    "parsed": [
-      "RecordHealthData",
-      {
-        "user_id": "12345",
-        "timestamp": "2023-10-13 09:30:00",
-        "blood_pressure": "120/80",
-        "heart_rate": "80"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2214,15 +1813,10 @@
     "expected_parameters": {
       "symptom": "Headache"
     },
-    "generated": "[EmergencyKnowledge(key='headache')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "key": "headache"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2232,15 +1826,10 @@
     "expected_parameters": {
       "symptom": "headache"
     },
-    "generated": "[EmergencyKnowledge(key='headache_symptoms')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "key": "headache_symptoms"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2254,8 +1843,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2267,19 +1856,10 @@
       "verification_code": "970420",
       "new_password": "mynewpassword"
     },
-    "generated": "[ForgotPassword(status='Forgot Password', username='admin', email='admin@example.com', verification_code='970420', new_password='mynewpassword')]",
-    "parsed": [
-      "ForgotPassword",
-      {
-        "status": "Forgot Password",
-        "username": "admin",
-        "email": "admin@example.com",
-        "verification_code": "970420",
-        "new_password": "mynewpassword"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2291,16 +1871,10 @@
       "username": "foo",
       "email": "foo@example.com"
     },
-    "generated": "[ForgotPassword(username='foo', email='foo@example.com')]",
-    "parsed": [
-      "ForgotPassword",
-      {
-        "username": "foo",
-        "email": "foo@example.com"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2314,8 +1888,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2326,15 +1900,10 @@
       "username": "foo",
       "password": "newpassword"
     },
-    "generated": "[GetUserToken(username='foo')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "username": "foo"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2344,16 +1913,11 @@
     "expected_parameters": {
       "token": "z9x8c7v6b5n4m3q2w1"
     },
-    "generated": "[DeleteAccount(token='z9x8c7v6b5n4m3q2w1')]",
-    "parsed": [
-      "DeleteAccount",
-      {
-        "token": "z9x8c7v6b5n4m3q2w1"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "ForgotPassword-RegisterUser-DeleteAccount-GetUserToken-level-2-1.jsonl",
@@ -2364,18 +1928,11 @@
       "password": "bar",
       "email": "foo@example.com"
     },
-    "generated": "[RegisterUser(username='foo', password='bar', email='foo@example.com')]",
-    "parsed": [
-      "RegisterUser",
-      {
-        "username": "foo",
-        "password": "bar",
-        "email": "foo@example.com"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "ForgotPassword-level-1-1.jsonl",
@@ -2389,7 +1946,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2405,7 +1962,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2418,8 +1975,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2436,8 +1993,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2450,8 +2007,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2466,23 +2023,10 @@
       "location": "Conference Room A",
       "attendees": "['John Smith', 'Jane Doe']"
     },
-    "generated": "[QueryMeeting(date='2024-03-20', startTime='14:00', endTime='16:00', location='Conference Room A', participants=['John Smith', 'Jane Doe'], topic='Sales Meeting')]",
-    "parsed": [
-      "QueryMeeting",
-      {
-        "date": "2024-03-20",
-        "startTime": "14:00",
-        "endTime": "16:00",
-        "location": "Conference Room A",
-        "participants": [
-          "John Smith",
-          "Jane Doe"
-        ],
-        "topic": "Sales Meeting"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2495,8 +2039,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2508,15 +2052,10 @@
       "content": "Call mom",
       "time": "2023-03-16 14:30:00"
     },
-    "generated": "[QueryReminder(key='call_mom_2024-03-16_14:30')]",
-    "parsed": [
-      "QueryReminder",
-      {
-        "key": "call_mom_2024-03-16_14:30"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2530,7 +2069,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2542,15 +2081,10 @@
       "content": "Call mom",
       "time": "2023-03-16 14:30:00"
     },
-    "generated": "[QueryReminder(key='call_mom_2024-03-16_14:30')]",
-    "parsed": [
-      "QueryReminder",
-      {
-        "key": "call_mom_2024-03-16_14:30"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2558,15 +2092,10 @@
     "step": 1,
     "expected_api": "GetToday",
     "expected_parameters": {},
-    "generated": "[GetToday(key='date')]",
-    "parsed": [
-      "GetToday",
-      {
-        "key": "date"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2579,8 +2108,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2595,24 +2124,10 @@
       "location": "Recreation Center",
       "attendees": "['Jackie Lee', 'Mike Chen']"
     },
-    "generated": "[ModifyMeeting(meeting_id='2023-04-01_TeamBuilding', topic='Team Building Activity', start_time='2023-04-01T10:00', end_time='2023-04-01T12:00', location='Recreation center', attendees=['Jackie Lee', 'Mike Chen'], user='JaneSmith')]",
-    "parsed": [
-      "ModifyMeeting",
-      {
-        "meeting_id": "2023-04-01_TeamBuilding",
-        "topic": "Team Building Activity",
-        "start_time": "2023-04-01T10:00",
-        "end_time": "2023-04-01T12:00",
-        "location": "Recreation center",
-        "attendees": [
-          "Jackie Lee",
-          "Mike Chen"
-        ],
-        "user": "JaneSmith"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2625,8 +2140,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2640,8 +2155,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2652,7 +2167,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2666,7 +2181,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2683,8 +2198,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2696,15 +2211,10 @@
       "from_time": "2023-03-20 06:30:00",
       "to_time": "2023-03-20 07:00:00"
     },
-    "generated": "[ModifyAlarm(alarm_time='2023-03-20 07:00:00')]",
-    "parsed": [
-      "ModifyAlarm",
-      {
-        "alarm_time": "2023-03-20 07:00:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2715,7 +2225,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2726,7 +2236,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2734,15 +2244,10 @@
     "step": 2,
     "expected_api": "GetToday",
     "expected_parameters": {},
-    "generated": "[GetToday(key='date')]",
-    "parsed": [
-      "GetToday",
-      {
-        "key": "date"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2750,15 +2255,10 @@
     "step": 2,
     "expected_api": "GetToday",
     "expected_parameters": {},
-    "generated": "[GetToday(key='date')]",
-    "parsed": [
-      "GetToday",
-      {
-        "key": "date"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2768,16 +2268,11 @@
     "expected_parameters": {
       "url": "http://l7.alamy.com/zooms/278b12a987734ec285da7155397e0d0a/an-airplane-takes-off-from-terminal-1-at-manchester-international-h4b040.jpg"
     },
-    "generated": "[ImageCaption(url='http://l7.alamy.com/zooms/278b12a987734ec285da7155397e0d0a/an-airplane-takes-off-from-terminal-1-at-manchester-international-h4b040.jpg')]",
-    "parsed": [
-      "ImageCaption",
-      {
-        "url": "http://l7.alamy.com/zooms/278b12a987734ec285da7155397e0d0a/an-airplane-takes-off-from-terminal-1-at-manchester-international-h4b040.jpg"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "ModifyAgenda-level-1-1.jsonl",
@@ -2789,8 +2284,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2806,7 +2301,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2819,8 +2314,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2833,17 +2328,10 @@
       "time": "2023-03-23 14:00:00",
       "location": "Laundry Time"
     },
-    "generated": "[ModifyAgenda(event_content='Pick up dry cleaning', new_time='March 23, 2pm', new_location='Laundry Time')]",
-    "parsed": [
-      "ModifyAgenda",
-      {
-        "event_content": "Pick up dry cleaning",
-        "new_time": "March 23, 2pm",
-        "new_location": "Laundry Time"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2856,8 +2344,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2871,8 +2359,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2887,8 +2375,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2901,8 +2389,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2914,10 +2402,10 @@
       "to_time": "2023-03-24 10:30:00",
       "token": "p9o8i7u6y5t4r3e2w1q"
     },
-    "generated": "[ModifyAlarm(key='2023-03-24",
+    "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2928,15 +2416,10 @@
       "username": "JohnDoe",
       "password": "pass123"
     },
-    "generated": "[ModifyAlarm(time='2023-03-16T07:00:00')]",
-    "parsed": [
-      "ModifyAlarm",
-      {
-        "time": "2023-03-16T07:00:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2950,8 +2433,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2964,8 +2447,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -2977,17 +2460,10 @@
       "from_time": "2023-03-16 07:00:00",
       "to_time": "2023-03-16 08:00:00"
     },
-    "generated": "[ModifyAlarm(alarm_date='2023-03-16', start_time='09:00', end_time='10:00')]",
-    "parsed": [
-      "ModifyAlarm",
-      {
-        "alarm_date": "2023-03-16",
-        "start_time": "09:00",
-        "end_time": "10:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3000,8 +2476,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3018,8 +2494,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3033,7 +2509,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3048,19 +2524,10 @@
       "location": "Training Room",
       "attendees": "['David Wang', 'Amy Chen', 'Erica Liu']"
     },
-    "generated": "[ModifyMeeting(topic='New Employee Orientation', start_time='2023-03-27 09:00:00', end_time='2023-03-27 11:00:00', location='Training Room', attendees='David Wang, Amy Chen, and Erica Liu')]",
-    "parsed": [
-      "ModifyMeeting",
-      {
-        "topic": "New Employee Orientation",
-        "start_time": "2023-03-27 09:00:00",
-        "end_time": "2023-03-27 11:00:00",
-        "location": "Training Room",
-        "attendees": "David Wang, Amy Chen, and Erica Liu"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3073,8 +2540,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3091,8 +2558,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3105,8 +2572,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3118,15 +2585,10 @@
       "old_password": "user1pass",
       "new_password": "newpassword123"
     },
-    "generated": "[ModifyPassword(new_password='newpassword123')]",
-    "parsed": [
-      "ModifyPassword",
-      {
-        "new_password": "newpassword123"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3137,15 +2599,10 @@
       "username": "user1",
       "password": "user1pass"
     },
-    "generated": "[GetUserToken(key='user1')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "key": "user1"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3157,16 +2614,10 @@
       "old_password": "user1pass",
       "new_password": "newpass123"
     },
-    "generated": "[ModifyPassword(username='user1', password='newpass123')]",
-    "parsed": [
-      "ModifyPassword",
-      {
-        "username": "user1",
-        "password": "newpass123"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3180,8 +2631,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3195,8 +2646,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3210,7 +2661,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3220,15 +2671,10 @@
     "expected_parameters": {
       "token": "n9m8k7j6h5g4f3d2s1a0"
     },
-    "generated": "[DeleteAccount(key='n9m8k7j6h5g4f3d2s1a0')]",
-    "parsed": [
-      "DeleteAccount",
-      {
-        "key": "n9m8k7j6h5g4f3d2s1a0"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3239,15 +2685,10 @@
       "username": "user1",
       "password": "user1pass"
     },
-    "generated": "[GetUserToken(key='user1')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "key": "user1"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3259,16 +2700,10 @@
       "old_password": "user1pass",
       "new_password": "newpassword123"
     },
-    "generated": "[ModifyPassword(token='n9m8k7j6h5g4f3d2s1a0', new_password='newpassword123')]",
-    "parsed": [
-      "ModifyPassword",
-      {
-        "token": "n9m8k7j6h5g4f3d2s1a0",
-        "new_password": "newpassword123"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3281,8 +2716,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3294,16 +2729,10 @@
       "old_password": "adminpass",
       "new_password": "654321"
     },
-    "generated": "[ModifyPassword(username='admin', new_password='654321')]",
-    "parsed": [
-      "ModifyPassword",
-      {
-        "username": "admin",
-        "new_password": "654321"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3314,17 +2743,10 @@
       "username": "user2",
       "password": "user2pass"
     },
-    "generated": "[ModifyPassword(username='user2', old_password='user2pass', new_password='newpassword')]",
-    "parsed": [
-      "ModifyPassword",
-      {
-        "username": "user2",
-        "old_password": "user2pass",
-        "new_password": "newpassword"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3336,17 +2758,10 @@
       "old_password": "user2pass",
       "new_password": "newpassword"
     },
-    "generated": "[ModifyPassword(username='user2', old_password='user2pass', new_password='newpassword')]",
-    "parsed": [
-      "ModifyPassword",
-      {
-        "username": "user2",
-        "old_password": "user2pass",
-        "new_password": "newpassword"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3357,15 +2772,10 @@
       "username": "user2",
       "password": "user2pass"
     },
-    "generated": "[GetUserToken(key='user2')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "key": "user2"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3377,16 +2787,10 @@
       "old_password": "user2pass",
       "new_password": "qwerty123"
     },
-    "generated": "[ModifyPassword(username='user2', new_password='qwerty123')]",
-    "parsed": [
-      "ModifyPassword",
-      {
-        "username": "user2",
-        "new_password": "qwerty123"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3398,17 +2802,10 @@
       "new_appointment_date": "2023-04-15",
       "new_appointment_doctor": "Dr. Johnson"
     },
-    "generated": "[ModifyRegistration(appointment_id='12345678', new_date='2023-04-15', doctor_name='Dr. Johnson')]",
-    "parsed": [
-      "ModifyRegistration",
-      {
-        "appointment_id": "12345678",
-        "new_date": "2023-04-15",
-        "doctor_name": "Dr. Johnson"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3418,16 +2815,11 @@
     "expected_parameters": {
       "symptom": "fatigue"
     },
-    "generated": "[EmergencyKnowledge(symptom='fatigue')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "symptom": "fatigue"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "ModifyRegistration-EmergencyKnowledge-level-2-1.jsonl",
@@ -3436,15 +2828,10 @@
     "expected_parameters": {
       "symptom": "fatigue"
     },
-    "generated": "[EmergencyKnowledge(symptom='Chronic fatigue syndrome')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "symptom": "Chronic fatigue syndrome"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3456,17 +2843,10 @@
       "new_appointment_date": "2023-05-15",
       "new_appointment_doctor": "Dr. Lee"
     },
-    "generated": "[ModifyRegistration(id='12345678', date='May 15', doctor='Dr. Lee')]",
-    "parsed": [
-      "ModifyRegistration",
-      {
-        "id": "12345678",
-        "date": "May 15",
-        "doctor": "Dr. Lee"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3476,15 +2856,10 @@
     "expected_parameters": {
       "symptom": "fatigue"
     },
-    "generated": "[EmergencyKnowledge(key='fatigue')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "key": "fatigue"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3496,17 +2871,10 @@
       "new_appointment_date": "2023-04-15",
       "new_appointment_doctor": "Dr. Johnson"
     },
-    "generated": "[ModifyRegistration(appointment_id='12345678', new_date='April 15th', new_doctor='Dr. Johnson')]",
-    "parsed": [
-      "ModifyRegistration",
-      {
-        "appointment_id": "12345678",
-        "new_date": "April 15th",
-        "new_doctor": "Dr. Johnson"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3516,15 +2884,10 @@
     "expected_parameters": {
       "symptom": "fatigue"
     },
-    "generated": "[EmergencyKnowledge(symptom='general fatigue')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "symptom": "general fatigue"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3536,17 +2899,10 @@
       "new_appointment_date": "2023-05-13",
       "new_appointment_doctor": "Dr. Lee"
     },
-    "generated": "[ModifyRegistration(appointment_id='12345678', new_date='May 13, 2023', doctor_name='Dr. Lee')]",
-    "parsed": [
-      "ModifyRegistration",
-      {
-        "appointment_id": "12345678",
-        "new_date": "May 13, 2023",
-        "doctor_name": "Dr. Lee"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3556,15 +2912,10 @@
     "expected_parameters": {
       "symptom": "fatigue"
     },
-    "generated": "[EmergencyKnowledge(query='fatigue')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "query": "fatigue"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3578,8 +2929,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3591,17 +2942,10 @@
       "start_time": "2023-03-01 00:00:00",
       "end_time": "2023-03-31 23:59:59"
     },
-    "generated": "[QueryHealthData(user_id='J46801', start_date='2023-03-01', end_date='2023-03-31')]",
-    "parsed": [
-      "QueryHealthData",
-      {
-        "user_id": "J46801",
-        "start_date": "2023-03-01",
-        "end_date": "2023-03-31"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3611,16 +2955,10 @@
     "expected_parameters": {
       "appointment_id": "90123456"
     },
-    "generated": "[CancelRegistration(appointment_id='90123456', patient_name='Olivia Davis')]",
-    "parsed": [
-      "CancelRegistration",
-      {
-        "appointment_id": "90123456",
-        "patient_name": "Olivia Davis"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3632,17 +2970,10 @@
       "new_appointment_date": "2023-03-26",
       "new_appointment_doctor": "Dr. Lee"
     },
-    "generated": "[ModifyRegistration(appointment_id='34567890', new_date='2025-03-26', doctor='Dr. Lee')]",
-    "parsed": [
-      "ModifyRegistration",
-      {
-        "appointment_id": "34567890",
-        "new_date": "2025-03-26",
-        "doctor": "Dr. Lee"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3657,7 +2988,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3667,18 +2998,10 @@
     "expected_parameters": {
       "appointment_id": "90123456"
     },
-    "generated": "[CancelRegistration(appointment_id='90123456', patient_name='Olivia Davis', appointment_date='2023-10-10', doctor_name='Dr. Smith')]",
-    "parsed": [
-      "CancelRegistration",
-      {
-        "appointment_id": "90123456",
-        "patient_name": "Olivia Davis",
-        "appointment_date": "2023-10-10",
-        "doctor_name": "Dr. Smith"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3693,7 +3016,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3708,7 +3031,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3723,7 +3046,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3738,7 +3061,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3753,7 +3076,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3767,7 +3090,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3782,7 +3105,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3796,7 +3119,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3812,7 +3135,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3828,7 +3151,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3842,7 +3165,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3857,7 +3180,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3871,7 +3194,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3884,18 +3207,10 @@
       "time": "2023-03-20 00:00:00",
       "location": "Cheesecake Factory"
     },
-    "generated": "[AddAgenda(token='p9o8i7u6y5t4k3e2w1q', content='Dinner with friends', time='2023-03-20', location='Cheesecake Factory')]",
-    "parsed": [
-      "AddAgenda",
-      {
-        "token": "p9o8i7u6y5t4k3e2w1q",
-        "content": "Dinner with friends",
-        "time": "2023-03-20",
-        "location": "Cheesecake Factory"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3908,18 +3223,10 @@
       "time": "2023-03-20 00:00:00",
       "location": "Cheesecake Factory"
     },
-    "generated": "[DeleteAgenda(token='p9o8i7u6y5t4k3e2w1q', content='Dinner with friends', time='2023-03-20', location='Cheesecake Factory')]",
-    "parsed": [
-      "DeleteAgenda",
-      {
-        "token": "p9o8i7u6y5t4k3e2w1q",
-        "content": "Dinner with friends",
-        "time": "2023-03-20",
-        "location": "Cheesecake Factory"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3933,7 +3240,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3948,7 +3255,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3964,7 +3271,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3975,15 +3282,10 @@
       "username": "admin",
       "password": "adminpass"
     },
-    "generated": "[GetUserToken(key='admin@example.com')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "key": "admin@example.com"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -3995,16 +3297,10 @@
       "content": "Pay bills",
       "time": "2023-03-20 12:00:00"
     },
-    "generated": "[ModifyReminder(content='Pay bills', time='2023-03-20 12:00:00')]",
-    "parsed": [
-      "ModifyReminder",
-      {
-        "content": "Pay bills",
-        "time": "2023-03-20 12:00:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4015,15 +3311,10 @@
       "username": "admin",
       "password": "adminpass"
     },
-    "generated": "[ModifyReminder(key='payment_bill_reminder_20240320_1200')]",
-    "parsed": [
-      "ModifyReminder",
-      {
-        "key": "payment_bill_reminder_20240320_1200"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4035,16 +3326,10 @@
       "content": "Pay utility bills",
       "time": "2023-03-20 12:00:00"
     },
-    "generated": "[ModifyReminder(content='Pay utility bills', time='2023-03-20 12:00:00')]",
-    "parsed": [
-      "ModifyReminder",
-      {
-        "content": "Pay utility bills",
-        "time": "2023-03-20 12:00:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4057,17 +3342,10 @@
       "location": "Conference Room A",
       "time": "2023-03-25 10:00:00"
     },
-    "generated": "[AddAgenda(content='Meeting with project team', location='Conference Room A', time='2023-03-25 10:00:00')]",
-    "parsed": [
-      "AddAgenda",
-      {
-        "content": "Meeting with project team",
-        "location": "Conference Room A",
-        "time": "2023-03-25 10:00:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4081,7 +3359,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4096,7 +3374,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4110,7 +3388,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4122,16 +3400,10 @@
       "content": "Submit proposal",
       "time": "2023-03-25 14:00:00"
     },
-    "generated": "[ModifyReminder(content='Submit proposal', time='2023-03-25 14:00:00')]",
-    "parsed": [
-      "ModifyReminder",
-      {
-        "content": "Submit proposal",
-        "time": "2023-03-25 14:00:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4144,8 +3416,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4159,8 +3431,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4172,17 +3444,10 @@
       "password": "password123",
       "name": "John Smith"
     },
-    "generated": "[OpenBankAccount(account_number='123456', password='password123', name='John Smith')]",
-    "parsed": [
-      "OpenBankAccount",
-      {
-        "account_number": "123456",
-        "password": "password123",
-        "name": "John Smith"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4193,17 +3458,11 @@
       "username": "user3",
       "password": "user3pass"
     },
-    "generated": "[GetUserToken(username='user3', password='user3pass')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "username": "user3",
-        "password": "user3pass"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "OpenBankAccount-QueryBalance-QueryStock-GetUserToken-level-2-2.jsonl",
@@ -4212,15 +3471,10 @@
     "expected_parameters": {
       "token": "p9o8i7u6y5t4r3e2w1q"
     },
-    "generated": "[QueryBalance(account='123456')]",
-    "parsed": [
-      "QueryBalance",
-      {
-        "account": "123456"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4231,16 +3485,10 @@
       "stock_code": "AMZN",
       "date": "2022-03-12"
     },
-    "generated": "[QueryStock(symbol='AMZN', date='2022-03-12')]",
-    "parsed": [
-      "QueryStock",
-      {
-        "symbol": "AMZN",
-        "date": "2022-03-12"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4252,17 +3500,10 @@
       "password": "p@ssw0rd",
       "name": "John Smith"
     },
-    "generated": "[OpenBankAccount(account_id='johnsmith123', password='p@ssw0rd', name='John Smith')]",
-    "parsed": [
-      "OpenBankAccount",
-      {
-        "account_id": "johnsmith123",
-        "password": "p@ssw0rd",
-        "name": "John Smith"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4273,16 +3514,10 @@
       "stock_code": "AAPL",
       "date": "2022-01-03"
     },
-    "generated": "[QueryStock(symbol='AAPL', date='2022-01-03')]",
-    "parsed": [
-      "QueryStock",
-      {
-        "symbol": "AAPL",
-        "date": "2022-01-03"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4293,16 +3528,10 @@
       "username": "JohnDoe",
       "password": "pass123"
     },
-    "generated": "[GetUserToken(account='JohnDoe', password='pass123')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "account": "JohnDoe",
-        "password": "pass123"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4315,7 +3544,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4327,17 +3556,10 @@
       "password": "secret123",
       "name": "John Smith"
     },
-    "generated": "[OpenBankAccount(account_number='12345', password='secret123', name='John Smith')]",
-    "parsed": [
-      "OpenBankAccount",
-      {
-        "account_number": "12345",
-        "password": "secret123",
-        "name": "John Smith"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4348,16 +3570,10 @@
       "stock_code": "AMZN",
       "date": "2022-03-10"
     },
-    "generated": "[QueryStock(stock='Amazon', date='2022-03-10')]",
-    "parsed": [
-      "QueryStock",
-      {
-        "stock": "Amazon",
-        "date": "2022-03-10"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4369,17 +3585,10 @@
       "password": "abc123",
       "name": "John Smith"
     },
-    "generated": "[OpenBankAccount(account_identifier='john@example.com', password='abc123', account_holder_name='John Smith')]",
-    "parsed": [
-      "OpenBankAccount",
-      {
-        "account_identifier": "john@example.com",
-        "password": "abc123",
-        "account_holder_name": "John Smith"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4391,17 +3600,10 @@
       "password": "mypass123",
       "name": "John Doe"
     },
-    "generated": "[OpenBankAccount(account_identifier='johndoe123', password='mypass123', account_holder_name='John Doe')]",
-    "parsed": [
-      "OpenBankAccount",
-      {
-        "account_identifier": "johndoe123",
-        "password": "mypass123",
-        "account_holder_name": "John Doe"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4413,17 +3615,10 @@
       "password": "Password123",
       "name": "John Smith"
     },
-    "generated": "[OpenBankAccount(account_identifier='MyNewAccount', password='Password123', name='John Smith')]",
-    "parsed": [
-      "OpenBankAccount",
-      {
-        "account_identifier": "MyNewAccount",
-        "password": "Password123",
-        "name": "John Smith"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4438,7 +3633,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4450,17 +3645,10 @@
       "password": "password123",
       "name": "John"
     },
-    "generated": "[OpenBankAccount(account_name='My New Account', password='password123', owner_name='John')]",
-    "parsed": [
-      "OpenBankAccount",
-      {
-        "account_name": "My New Account",
-        "password": "password123",
-        "owner_name": "John"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4472,8 +3660,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4483,15 +3671,10 @@
     "expected_parameters": {
       "music_name": "Shape of You"
     },
-    "generated": "[PlayMusic(key='Shape of You')]",
-    "parsed": [
-      "PlayMusic",
-      {
-        "key": "Shape of You"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4501,15 +3684,10 @@
     "expected_parameters": {
       "music_name": "Shape of You"
     },
-    "generated": "[PlayMusic(key='Shape of You')]",
-    "parsed": [
-      "PlayMusic",
-      {
-        "key": "Shape of You"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4522,8 +3700,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4536,15 +3714,10 @@
       "time": "2023-03-18 15:00:00",
       "location": "123 Main St"
     },
-    "generated": "[QueryAgenda(date='2023-03-18')]",
-    "parsed": [
-      "QueryAgenda",
-      {
-        "date": "2023-03-18"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4558,7 +3731,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4569,15 +3742,10 @@
       "token": "o8i7u6y5t4r3e2w1q0",
       "time": "2023-03-20 06:30:00"
     },
-    "generated": "[QueryAlarm(key='2023-03-20 06:30')]",
-    "parsed": [
-      "QueryAlarm",
-      {
-        "key": "2023-03-20 06:30"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4588,15 +3756,10 @@
       "username": "testuser",
       "password": "testpass"
     },
-    "generated": "[GetUserToken(key='testuser,testpass')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "key": "testuser,testpass"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4608,17 +3771,10 @@
       "password": "newpassword",
       "name": "John Doe"
     },
-    "generated": "[OpenBankAccount(account_identifier='newaccount', password='newpassword', account_holder_name='John Doe')]",
-    "parsed": [
-      "OpenBankAccount",
-      {
-        "account_identifier": "newaccount",
-        "password": "newpassword",
-        "account_holder_name": "John Doe"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4631,8 +3787,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4643,16 +3799,10 @@
       "username": "user2",
       "password": "user2pass"
     },
-    "generated": "[GetUserToken(key='username', value='user2')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "key": "username",
-        "value": "user2"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4662,16 +3812,11 @@
     "expected_parameters": {
       "token": "o9i8u7y6t5r4e3w2q1"
     },
-    "generated": "[QueryBalance(token='o9i8u7y6t5r4e3w2q1')]",
-    "parsed": [
-      "QueryBalance",
-      {
-        "token": "o9i8u7y6t5r4e3w2q1"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "QueryBalance-QueryStock-OpenBankAccount-GetUserToken-level-2-1.jsonl",
@@ -4681,15 +3826,10 @@
       "stock_code": "TSLA",
       "date": "2022-03-01"
     },
-    "generated": "[QueryStock(key='TSLA')]",
-    "parsed": [
-      "QueryStock",
-      {
-        "key": "TSLA"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4704,7 +3844,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4717,8 +3857,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4731,7 +3871,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4742,16 +3882,10 @@
       "stock_code": "TSLA",
       "date": "2022-03-01"
     },
-    "generated": "[QueryStock(stock='TSLA', date='2022-03-01')]",
-    "parsed": [
-      "QueryStock",
-      {
-        "stock": "TSLA",
-        "date": "2022-03-01"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4763,17 +3897,10 @@
       "password": "user3pass",
       "name": "John Smith"
     },
-    "generated": "[OpenBankAccount(username='user3', password='user3pass', account_holder_name='John Smith')]",
-    "parsed": [
-      "OpenBankAccount",
-      {
-        "username": "user3",
-        "password": "user3pass",
-        "account_holder_name": "John Smith"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4786,8 +3913,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4797,13 +3924,10 @@
     "expected_parameters": {
       "token": "a9s8d7f6g5h4j3k2l1"
     },
-    "generated": "[QueryBalance()]",
-    "parsed": [
-      "QueryBalance",
-      {}
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4814,17 +3938,11 @@
       "username": "JohnDoe",
       "password": "pass123"
     },
-    "generated": "[GetUserToken(username='JohnDoe', password='pass123')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "username": "JohnDoe",
-        "password": "pass123"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "QueryBalance-level-1-2.jsonl",
@@ -4833,16 +3951,11 @@
     "expected_parameters": {
       "token": "a9s8d7f6g5h4j3k2l1"
     },
-    "generated": "[QueryBalance(token='a9s8d7f6g5h4j3k2l1')]",
-    "parsed": [
-      "QueryBalance",
-      {
-        "token": "a9s8d7f6g5h4j3k2l1"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "QueryHealthData-CancelRegistration-SymptomSearch-level-2-1.jsonl",
@@ -4855,8 +3968,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4868,8 +3981,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4879,16 +3992,11 @@
     "expected_parameters": {
       "symptom": "nausea"
     },
-    "generated": "[SymptomSearch(symptom='nausea')]",
-    "parsed": [
-      "SymptomSearch",
-      {
-        "symptom": "nausea"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "QueryHealthData-level-1-1.jsonl",
@@ -4899,17 +4007,10 @@
       "start_time": "2023-03-01 00:00:00",
       "end_time": "2023-03-31 23:59:59"
     },
-    "generated": "[QueryHealthData(user_id='A12345', start_date='2023-03-01', end_date='2023-03-31')]",
-    "parsed": [
-      "QueryHealthData",
-      {
-        "user_id": "A12345",
-        "start_date": "2023-03-01",
-        "end_date": "2023-03-31"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4921,18 +4022,11 @@
       "start_time": "2023-03-08 00:00:00",
       "end_time": "2023-03-15 23:59:59"
     },
-    "generated": "[QueryHealthData(user_id='A12345', start_time='2023-03-08 00:00:00', end_time='2023-03-15 23:59:59')]",
-    "parsed": [
-      "QueryHealthData",
-      {
-        "user_id": "A12345",
-        "start_time": "2023-03-08 00:00:00",
-        "end_time": "2023-03-15 23:59:59"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "QueryHistoryToday-Calculator-level-2-1.jsonl",
@@ -4941,15 +4035,10 @@
     "expected_parameters": {
       "date": "04-21"
     },
-    "generated": "[QueryHistoryToday(key='2024-04-21')]",
-    "parsed": [
-      "QueryHistoryToday",
-      {
-        "key": "2024-04-21"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4961,8 +4050,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4972,15 +4061,10 @@
     "expected_parameters": {
       "date": "04-21"
     },
-    "generated": "[QueryHistoryToday(date='2024-04-21')]",
-    "parsed": [
-      "QueryHistoryToday",
-      {
-        "date": "2024-04-21"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -4990,15 +4074,10 @@
     "expected_parameters": {
       "formula": "(23+7)*3-42/6"
     },
-    "generated": "[Calculator(value='83')]",
-    "parsed": [
-      "Calculator",
-      {
-        "value": "83"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5008,15 +4087,10 @@
     "expected_parameters": {
       "date": "04-21"
     },
-    "generated": "[QueryHistoryToday(key='1903-04-21')]",
-    "parsed": [
-      "QueryHistoryToday",
-      {
-        "key": "1903-04-21"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5029,7 +4103,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5041,8 +4115,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5054,8 +4128,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5068,7 +4142,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5078,15 +4152,10 @@
     "expected_parameters": {
       "date": "12-10"
     },
-    "generated": "[QueryHistoryToday(key='12-10')]",
-    "parsed": [
-      "QueryHistoryToday",
-      {
-        "key": "12-10"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5100,7 +4169,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5117,8 +4186,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5129,15 +4198,10 @@
       "patient_name": "John Doe",
       "date": "2023-04-12"
     },
-    "generated": "[QueryRegistration(key='date=2023-04-12, doctor=Dr. Smith, patient=John Doe')]",
-    "parsed": [
-      "QueryRegistration",
-      {
-        "key": "date=2023-04-12, doctor=Dr. Smith, patient=John Doe"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5149,18 +4213,10 @@
       "date": "2023-04-15",
       "doctor_name": "Dr. Smith"
     },
-    "generated": "[AppointmentRegistration(patient_name='John Doe', date='2023-04-15', time='10am', doctor_name='Dr. Smith')]",
-    "parsed": [
-      "AppointmentRegistration",
-      {
-        "patient_name": "John Doe",
-        "date": "2023-04-15",
-        "time": "10am",
-        "doctor_name": "Dr. Smith"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5171,16 +4227,10 @@
       "patient_name": "Robert Lee",
       "date": "2023-03-25"
     },
-    "generated": "[QueryRegistration(key='Robert Lee', date='2023-03-25')]",
-    "parsed": [
-      "QueryRegistration",
-      {
-        "key": "Robert Lee",
-        "date": "2023-03-25"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5190,15 +4240,10 @@
     "expected_parameters": {
       "symptom": "shortness of breath"
     },
-    "generated": "[EmergencyKnowledge(key='shortness of breath')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "key": "shortness of breath"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5211,8 +4256,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5222,15 +4267,10 @@
     "expected_parameters": {
       "symptom": "shortness of breath"
     },
-    "generated": "[EmergencyKnowledge(key='shortness_of_breath_first_aid')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "key": "shortness_of_breath_first_aid"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5241,17 +4281,10 @@
       "patient_name": "Robert Lee",
       "date": "2023-03-25"
     },
-    "generated": "[QueryRegistration(name='Robert Lee', date='2023-03-25', doctor='Dr. Kim')]",
-    "parsed": [
-      "QueryRegistration",
-      {
-        "name": "Robert Lee",
-        "date": "2023-03-25",
-        "doctor": "Dr. Kim"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5261,15 +4294,10 @@
     "expected_parameters": {
       "symptom": "shortness of breath"
     },
-    "generated": "[EmergencyKnowledge(symptom='difficulty breathing')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "symptom": "difficulty breathing"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5282,8 +4310,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5293,15 +4321,10 @@
     "expected_parameters": {
       "symptom": "shortness of breath"
     },
-    "generated": "[EmergencyKnowledge(key='Pneumonia')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "key": "Pneumonia"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5312,16 +4335,10 @@
       "patient_name": "Alice Chen",
       "date": "2023-06-15"
     },
-    "generated": "[QueryRegistration(date='2023-06-15', patient='Alice Chen')]",
-    "parsed": [
-      "QueryRegistration",
-      {
-        "date": "2023-06-15",
-        "patient": "Alice Chen"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5331,16 +4348,11 @@
     "expected_parameters": {
       "symptom": "nausea"
     },
-    "generated": "[SymptomSearch(symptom='nausea')]",
-    "parsed": [
-      "SymptomSearch",
-      {
-        "symptom": "nausea"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "QueryRegistration-SymptomSearch-RecordHealthData-level-2-1.jsonl",
@@ -5351,17 +4363,10 @@
       "time": "2023-06-14 13:30:00",
       "health_data": "[{'name': 'blood_pressure', 'value': '130/80'}, {'name': 'heart_rate', 'value': '90'}]"
     },
-    "generated": "[RecordHealthData(patient_id='12345', blood_pressure='130/80', heart_rate='90')]",
-    "parsed": [
-      "RecordHealthData",
-      {
-        "patient_id": "12345",
-        "blood_pressure": "130/80",
-        "heart_rate": "90"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5374,8 +4379,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5385,15 +4390,10 @@
     "expected_parameters": {
       "symptom": "nausea"
     },
-    "generated": "[SymptomSearch(key='nausea')]",
-    "parsed": [
-      "SymptomSearch",
-      {
-        "key": "nausea"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5405,18 +4405,10 @@
       "time": "2023-06-15 14:30:00",
       "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
     },
-    "generated": "[RecordHealthData(patient_name='Alice Chen', blood_pressure='120/80', heart_rate=80, timestamp='2023-06-15 14:30:00')]",
-    "parsed": [
-      "RecordHealthData",
-      {
-        "patient_name": "Alice Chen",
-        "blood_pressure": "120/80",
-        "heart_rate": 80,
-        "timestamp": "2023-06-15 14:30:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5427,17 +4419,10 @@
       "patient_name": "Olivia Davis",
       "date": "2023-10-10"
     },
-    "generated": "[QueryRegistration(patient_name='Olivia Davis', doctor_name='Dr. Smith', date='2023-10-10')]",
-    "parsed": [
-      "QueryRegistration",
-      {
-        "patient_name": "Olivia Davis",
-        "doctor_name": "Dr. Smith",
-        "date": "2023-10-10"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5448,18 +4433,10 @@
       "patient_name": "Olivia Davis",
       "date": "2023-10-10"
     },
-    "generated": "[QueryRegistration(patient_id='90123456', name='Olivia Davis', doctor='Dr. Smith', date='2023-10-10')]",
-    "parsed": [
-      "QueryRegistration",
-      {
-        "patient_id": "90123456",
-        "name": "Olivia Davis",
-        "doctor": "Dr. Smith",
-        "date": "2023-10-10"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5470,16 +4447,10 @@
       "patient_name": "Olivia Davis",
       "date": "2023-10-10"
     },
-    "generated": "[QueryRegistration(key='patient_name', value='Olivia Davis')]",
-    "parsed": [
-      "QueryRegistration",
-      {
-        "key": "patient_name",
-        "value": "Olivia Davis"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5492,8 +4463,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5507,7 +4478,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5518,16 +4489,10 @@
       "username": "newuser",
       "password": "newpass"
     },
-    "generated": "[GetUserToken(key='username', value='newuser')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "key": "username",
-        "value": "newuser"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5539,15 +4504,10 @@
       "content": "Attend meeting",
       "time": "2023-03-18 10:30:00"
     },
-    "generated": "[QueryReminder(token='l9k8j7h6g5f4d3s2a1')]",
-    "parsed": [
-      "QueryReminder",
-      {
-        "token": "l9k8j7h6g5f4d3s2a1"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5558,17 +4518,11 @@
       "username": "newuser",
       "password": "newpass"
     },
-    "generated": "[GetUserToken(username='newuser', password='newpass')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "username": "newuser",
-        "password": "newpass"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "QueryReminder-level-1-2.jsonl",
@@ -5579,18 +4533,10 @@
       "content": "Attend meeting",
       "time": "2023-03-18 10:30:00"
     },
-    "generated": "[QueryReminder(token='l9k8j7h6g5f4d3s2a1', date='2023-03-18', time='10:30', content='Attend meeting')]",
-    "parsed": [
-      "QueryReminder",
-      {
-        "token": "l9k8j7h6g5f4d3s2a1",
-        "date": "2023-03-18",
-        "time": "10:30",
-        "content": "Attend meeting"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5600,15 +4546,10 @@
     "expected_parameters": {
       "name": "Morning Routine"
     },
-    "generated": "[QueryScene(key='Morning Routine')]",
-    "parsed": [
-      "QueryScene",
-      {
-        "key": "Morning Routine"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5621,7 +4562,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5631,15 +4572,10 @@
     "expected_parameters": {
       "name": "Morning Routine"
     },
-    "generated": "[QueryScene(key='Morning Routine')]",
-    "parsed": [
-      "QueryScene",
-      {
-        "key": "Morning Routine"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5652,7 +4588,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5662,15 +4598,10 @@
     "expected_parameters": {
       "name": "Morning Routine"
     },
-    "generated": "[QueryScene(key='Morning Routine')]",
-    "parsed": [
-      "QueryScene",
-      {
-        "key": "Morning Routine"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5684,7 +4615,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5698,8 +4629,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5713,7 +4644,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5723,15 +4654,10 @@
     "expected_parameters": {
       "token": "q9w8e7r6t5y4u3i2o1"
     },
-    "generated": "[QueryBalance(username='user4')]",
-    "parsed": [
-      "QueryBalance",
-      {
-        "username": "user4"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5742,15 +4668,10 @@
       "stock_code": "AMZN",
       "date": "2022-03-11"
     },
-    "generated": "[QueryStock(key='AMZN')]",
-    "parsed": [
-      "QueryStock",
-      {
-        "key": "AMZN"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5762,17 +4683,10 @@
       "password": "user4pass",
       "name": "John"
     },
-    "generated": "[OpenBankAccount(account_id='user4', password='user4pass', name='John')]",
-    "parsed": [
-      "OpenBankAccount",
-      {
-        "account_id": "user4",
-        "password": "user4pass",
-        "name": "John"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5783,15 +4697,10 @@
       "username": "user4",
       "password": "user4pass"
     },
-    "generated": "[QueryBalance(account='user4')]",
-    "parsed": [
-      "QueryBalance",
-      {
-        "account": "user4"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5804,7 +4713,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5816,17 +4725,10 @@
       "password": "password123",
       "name": "John Smith"
     },
-    "generated": "[OpenBankAccount(account_id='johnsmith', password='password123', name='John Smith')]",
-    "parsed": [
-      "OpenBankAccount",
-      {
-        "account_id": "johnsmith",
-        "password": "password123",
-        "name": "John Smith"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5839,8 +4741,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5851,17 +4753,11 @@
       "username": "user1",
       "password": "user1pass"
     },
-    "generated": "[GetUserToken(username='user1', password='user1pass')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "username": "user1",
-        "password": "user1pass"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "QueryStock-QueryBalance-GetUserToken-level-2-1.jsonl",
@@ -5872,8 +4768,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5887,7 +4783,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5898,17 +4794,11 @@
       "username": "user3",
       "password": "user3pass"
     },
-    "generated": "[GetUserToken(username='user3', password='user3pass')]",
-    "parsed": [
-      "GetUserToken",
-      {
-        "username": "user3",
-        "password": "user3pass"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "QueryStock-QueryBalance-OpenBankAccount-GetUserToken-level-2-2.jsonl",
@@ -5918,16 +4808,10 @@
       "stock_code": "NFLX",
       "date": "2022-02-23"
     },
-    "generated": "[QueryStock(key='NFLX', date='2022-02-23')]",
-    "parsed": [
-      "QueryStock",
-      {
-        "key": "NFLX",
-        "date": "2022-02-23"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5941,7 +4825,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5954,7 +4838,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -5966,18 +4850,11 @@
       "password": "secret123",
       "name": "John Doe"
     },
-    "generated": "[OpenBankAccount(account='123456', password='secret123', name='John Doe')]",
-    "parsed": [
-      "OpenBankAccount",
-      {
-        "account": "123456",
-        "password": "secret123",
-        "name": "John Doe"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "QueryStock-level-1-1.jsonl",
@@ -5987,16 +4864,10 @@
       "stock_code": "SQ",
       "date": "2022-03-14"
     },
-    "generated": "[QueryStock(key='SQ', value='2022-03-14')]",
-    "parsed": [
-      "QueryStock",
-      {
-        "key": "SQ",
-        "value": "2022-03-14"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6010,7 +4881,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6021,17 +4892,11 @@
       "stock_code": "SQ",
       "date": "2022-03-14"
     },
-    "generated": "[QueryStock(stock_code='SQ', date='2022-03-14')]",
-    "parsed": [
-      "QueryStock",
-      {
-        "stock_code": "SQ",
-        "date": "2022-03-14"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "QueryStock-level-1-4.jsonl",
@@ -6041,16 +4906,10 @@
       "stock_code": "SQ",
       "date": "2022-03-14"
     },
-    "generated": "[QueryStock(symbol='SQ', date='2022-03-14')]",
-    "parsed": [
-      "QueryStock",
-      {
-        "symbol": "SQ",
-        "date": "2022-03-14"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6064,7 +4923,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6076,17 +4935,10 @@
       "time": "2023-08-15 12:30:00",
       "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
     },
-    "generated": "[RecordHealthData(user_id='12345', date='August 15th, 2023 at 12:30 PM', health_data='blood pressure 120/80 and heart rate 80')]",
-    "parsed": [
-      "RecordHealthData",
-      {
-        "user_id": "12345",
-        "date": "August 15th, 2023 at 12:30 PM",
-        "health_data": "blood pressure 120/80 and heart rate 80"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6101,7 +4953,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6114,7 +4966,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6126,18 +4978,10 @@
       "time": "2023-04-03 10:00:00",
       "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
     },
-    "generated": "[RecordHealthData(user_id='1234', date_time='2023-04-03T10:00:00', blood_pressure='120/80', heart_rate=80)]",
-    "parsed": [
-      "RecordHealthData",
-      {
-        "user_id": "1234",
-        "date_time": "2023-04-03T10:00:00",
-        "blood_pressure": "120/80",
-        "heart_rate": 80
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6152,7 +4996,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6162,15 +5006,10 @@
     "expected_parameters": {
       "symptom": "fever"
     },
-    "generated": "[EmergencyKnowledge(query='fever over 100 degrees Fahrenheit')]",
-    "parsed": [
-      "EmergencyKnowledge",
-      {
-        "query": "fever over 100 degrees Fahrenheit"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6185,7 +5024,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6197,18 +5036,10 @@
       "date": "2023-08-15",
       "doctor_name": "Dr. Johnson"
     },
-    "generated": "[AppointmentRegistration(user_id='12345', name='John Smith', doctor='Dr. Johnson', date='2023-08-15')]",
-    "parsed": [
-      "AppointmentRegistration",
-      {
-        "user_id": "12345",
-        "name": "John Smith",
-        "doctor": "Dr. Johnson",
-        "date": "2023-08-15"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6221,7 +5052,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6236,7 +5067,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6251,7 +5082,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6264,7 +5095,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6276,26 +5107,10 @@
       "time": "2023-09-01 10:15:00",
       "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
     },
-    "generated": "[RecordHealthData(user_id=123, timestamp='2023-09-01 10:15:00', health_data=[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}])]",
-    "parsed": [
-      "RecordHealthData",
-      {
-        "user_id": 123,
-        "timestamp": "2023-09-01 10:15:00",
-        "health_data": [
-          {
-            "name": "blood_pressure",
-            "value": "120/80"
-          },
-          {
-            "name": "heart_rate",
-            "value": "80"
-          }
-        ]
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6307,17 +5122,10 @@
       "date": "2023-09-03",
       "doctor_name": "Smith"
     },
-    "generated": "[AppointmentRegistration(name='John', doctor='Dr. Smith', date='2023-09-03')]",
-    "parsed": [
-      "AppointmentRegistration",
-      {
-        "name": "John",
-        "doctor": "Dr. Smith",
-        "date": "2023-09-03"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6330,7 +5138,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6345,7 +5153,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6360,7 +5168,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6375,7 +5183,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6386,17 +5194,11 @@
       "patient_name": "Mary",
       "date": "2023-11-15"
     },
-    "generated": "[QueryRegistration(patient_name='Mary', date='2023-11-15')]",
-    "parsed": [
-      "QueryRegistration",
-      {
-        "patient_name": "Mary",
-        "date": "2023-11-15"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "RecordHealthData-level-1-1.jsonl",
@@ -6407,18 +5209,10 @@
       "time": "2022-01-01 10:00:00",
       "health_data": "[{'name': 'blood_pressure', 'value': '110/70'}, {'name': 'heart_rate', 'value': '90'}]"
     },
-    "generated": "[RecordHealthData(userId='1234', timestamp='2022-01-01 10:00:00', bloodPressure='110/70', heartRate=90)]",
-    "parsed": [
-      "RecordHealthData",
-      {
-        "userId": "1234",
-        "timestamp": "2022-01-01 10:00:00",
-        "bloodPressure": "110/70",
-        "heartRate": 90
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6433,7 +5227,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6448,7 +5242,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6460,18 +5254,11 @@
       "password": "abc123",
       "email": "xyz@example.com"
     },
-    "generated": "[RegisterUser(username='xyz', password='abc123', email='xyz@example.com')]",
-    "parsed": [
-      "RegisterUser",
-      {
-        "username": "xyz",
-        "password": "abc123",
-        "email": "xyz@example.com"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "RegisterUser-ForgotPassword-level-2-3.jsonl",
@@ -6485,7 +5272,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6500,7 +5287,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6512,18 +5299,11 @@
       "password": "mypassword123",
       "email": "johndoe@email.com"
     },
-    "generated": "[RegisterUser(username='johndoe', password='mypassword123', email='johndoe@email.com')]",
-    "parsed": [
-      "RegisterUser",
-      {
-        "username": "johndoe",
-        "password": "mypassword123",
-        "email": "johndoe@email.com"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "RegisterUser-level-1-3.jsonl",
@@ -6534,15 +5314,10 @@
       "password": "qwerty1234",
       "email": "johnsmith123@gmail.com"
     },
-    "generated": "[RegisterUser(value='{\"username\":\"JohnSmith123\",\"password\":\"qwerty1234\",\"email\":\"johnsmith123@gmail.com\"}')]",
-    "parsed": [
-      "RegisterUser",
-      {
-        "value": "{\"username\":\"JohnSmith123\",\"password\":\"qwerty1234\",\"email\":\"johnsmith123@gmail.com\"}"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6552,15 +5327,10 @@
     "expected_parameters": {
       "keyword": "the sustainable development"
     },
-    "generated": "[SearchEngine(key='sustainable development goals news')]",
-    "parsed": [
-      "SearchEngine",
-      {
-        "key": "sustainable development goals news"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6575,7 +5345,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "Timeout(message=\"Request timed out: HTTPSConnectionPool(host='api.kilo.ai', port=443): Read timed out. (read timeout=15)\", http_status=None, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6585,16 +5355,11 @@
     "expected_parameters": {
       "url": "https://example.com/voice22.wav"
     },
-    "generated": "[SpeechRecognition(url='https://example.com/voice22.wav')]",
-    "parsed": [
-      "SpeechRecognition",
-      {
-        "url": "https://example.com/voice22.wav"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
-    "passed": true
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
+    "passed": false
   },
   {
     "file": "SymptomSearch-AppointmentRegistration-level-2-1.jsonl",
@@ -6605,8 +5370,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6616,15 +5381,10 @@
     "expected_parameters": {
       "symptom": "fatigue"
     },
-    "generated": "[SymptomSearch(symptom='Chronic fatigue syndrome')]",
-    "parsed": [
-      "SymptomSearch",
-      {
-        "symptom": "Chronic fatigue syndrome"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6636,17 +5396,10 @@
       "date": "2023-10-15",
       "doctor_name": "Dr. John"
     },
-    "generated": "[AppointmentRegistration(patient_name='Emily Smith', doctor='Dr. John', date='2023-10-15')]",
-    "parsed": [
-      "AppointmentRegistration",
-      {
-        "patient_name": "Emily Smith",
-        "doctor": "Dr. John",
-        "date": "2023-10-15"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6656,15 +5409,10 @@
     "expected_parameters": {
       "symptom": "Abdominal pain"
     },
-    "generated": "[SymptomSearch(key='abdominal pain')]",
-    "parsed": [
-      "SymptomSearch",
-      {
-        "key": "abdominal pain"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6674,15 +5422,10 @@
     "expected_parameters": {
       "symptom": "Abdominal pain"
     },
-    "generated": "[SymptomSearch(key='abdominal_pain')]",
-    "parsed": [
-      "SymptomSearch",
-      {
-        "key": "abdominal_pain"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6696,8 +5439,8 @@
     },
     "generated": "",
     "parsed": null,
-    "agent_request_status": "success",
-    "agent_error": "",
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6712,7 +5455,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6724,16 +5467,10 @@
       "time": "2022-03-01 22:00:00",
       "on": "False"
     },
-    "generated": "[TimedSwitch(device_id='123456', time='2022-03-01T22:00:00')]",
-    "parsed": [
-      "TimedSwitch",
-      {
-        "device_id": "123456",
-        "time": "2022-03-01T22:00:00"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6744,13 +5481,10 @@
       "src": "Hello, how are you?",
       "tgt_lang": "fr"
     },
-    "generated": "[Translate(\"Hello, how are you?\", \"fr\")]",
-    "parsed": [
-      "Translate",
-      {}
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6761,16 +5495,10 @@
       "src": "Hello",
       "tgt_lang": "es"
     },
-    "generated": "[Translate(text=\"Hello\", target=\"Spanish\")]",
-    "parsed": [
-      "Translate",
-      {
-        "text": "Hello",
-        "target": "Spanish"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6781,15 +5509,10 @@
       "src": "The quick brown fox jumps over the lazy dog.",
       "tgt_lang": "es"
     },
-    "generated": "[Translate(key='The quick brown fox jumps over the lazy dog.')]",
-    "parsed": [
-      "Translate",
-      {
-        "key": "The quick brown fox jumps over the lazy dog."
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6800,16 +5523,10 @@
       "src": "hello",
       "tgt_lang": "fr"
     },
-    "generated": "[Translate(key='hello', target='French')]",
-    "parsed": [
-      "Translate",
-      {
-        "key": "hello",
-        "target": "French"
-      }
-    ],
-    "agent_request_status": "success",
-    "agent_error": "",
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   },
   {
@@ -6822,7 +5539,7 @@
     "generated": "",
     "parsed": null,
     "agent_request_status": "failed",
-    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "agent_error": "APIError(message='HTTP code 404 from API ()', http_status=404, request_id=None)",
     "passed": false
   }
 ]

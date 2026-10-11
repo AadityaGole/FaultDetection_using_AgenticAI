@@ -1,0 +1,23 @@
+{
+  "level": 1,
+  "count": 389,
+  "passed": 216,
+  "accuracy": 0.5552699228791774,
+  "request_status": {
+    "empty": 48,
+    "success": 324,
+    "truncated": 6,
+    "failed": 11
+  },
+  "mock_checked": 287,
+  "mock_passed": 232,
+  "mock_accuracy": 0.8083623693379791,
+  "mock_status": {
+    "not_parseable": 70,
+    "success": 287,
+    "failed": 14,
+    "invalid_call": 9,
+    "skipped_external": 8,
+    "unavailable_dependency": 1
+  }
+}

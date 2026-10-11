@@ -1,0 +1,21 @@
+{
+  "level": 2,
+  "count": 119,
+  "passed": 34,
+  "accuracy": 0.2857142857142857,
+  "request_status": {
+    "empty": 41,
+    "success": 73,
+    "failed": 3,
+    "truncated": 2
+  },
+  "mock_checked": 52,
+  "mock_passed": 38,
+  "mock_accuracy": 0.7307692307692307,
+  "mock_status": {
+    "not_parseable": 45,
+    "success": 52,
+    "failed": 16,
+    "invalid_call": 6
+  }
+}

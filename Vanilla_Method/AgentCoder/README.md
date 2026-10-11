@@ -77,6 +77,46 @@ generated output, request status, parsed output, pass/fail results, and summary
 JSON files in `dataset/`.
 These scripts will execute the generated test cases against the code and provide feedback to the programmer agent for iterative code refinement.
 
+Run AgentCoder on BigCodeBench Instruct with a small smoke test:
+
+```
+python .\run_bigcodebench.py --limit 5
+```
+
+Run all 1,140 tasks with:
+
+```
+python .\run_bigcodebench.py
+```
+
+BigCodeBench solutions are evaluated by its official hosted evaluator. Generated
+samples, per-task results, the summary, and raw evaluator output are saved under
+`dataset/`. Re-evaluate saved generations without calling the model using:
+
+```
+python .\run_bigcodebench.py --reuse-samples ..\dataset\bigcodebench_instruct_agent_samples.jsonl
+```
+
+Install the hosted evaluator client with `pip install -r requirements.txt`.
+
+Latest full BigCodeBench Instruct result: `125/1,140` passed (`pass@1 = 11.0%`).
+Request statuses were 206 successful, 775 empty, 99 truncated, and 60 failed.
+The official evaluator's ground-truth pass rate was 99.65% (1,136/1,140), which
+validates the benchmark tests rather than measuring model accuracy. Per-task
+results include official evaluator status and failure details.
+
+Latest API-Bank run results (389 level-1 turns and 119 level-2 turns):
+
+| Split | Exact-match accuracy | Local mock accuracy | Mock coverage |
+|---|---:|---:|---:|
+| Level 1 | 55.5% (216/389) | 80.8% (232/287 checked) | 73.8% (287/389) |
+| Level 2 | 28.6% (34/119) | 73.1% (38/52 checked) | 43.7% (52/119) |
+
+Mock accuracy is conditional on a call being parseable and supported by an
+available local mock. Empty, truncated, invalid, externally-backed, and
+dependency-unavailable calls are reported separately. See
+`benchmark_comparison.md` for request-status counts and full benchmark context.
+
 
 ## Contributions
 

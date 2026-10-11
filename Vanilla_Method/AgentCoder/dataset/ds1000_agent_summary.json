@@ -1,7 +1,7 @@
 {
   "count": 1000,
-  "passed": 19,
-  "accuracy": 0.019,
+  "passed": 0,
+  "accuracy": 0.0,
   "by_library": {
     "Matplotlib": {
       "count": 155,
@@ -10,13 +10,13 @@
     },
     "Numpy": {
       "count": 220,
-      "passed": 8,
-      "accuracy": 0.03636363636363636
+      "passed": 0,
+      "accuracy": 0.0
     },
     "Pandas": {
       "count": 291,
-      "passed": 11,
-      "accuracy": 0.037800687285223365
+      "passed": 0,
+      "accuracy": 0.0
     },
     "Pytorch": {
       "count": 68,
@@ -40,7 +40,6 @@
     }
   },
   "request_status": {
-    "success": 510,
-    "failed": 490
+    "failed": 1000
   }
 }

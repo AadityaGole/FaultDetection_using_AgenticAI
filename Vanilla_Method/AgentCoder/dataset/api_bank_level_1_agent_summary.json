@@ -1,10 +1,9 @@
 {
   "level": 1,
   "count": 389,
-  "passed": 28,
-  "accuracy": 0.07197943444730077,
+  "passed": 0,
+  "accuracy": 0.0,
   "request_status": {
-    "success": 282,
-    "failed": 107
+    "failed": 389
   }
 }

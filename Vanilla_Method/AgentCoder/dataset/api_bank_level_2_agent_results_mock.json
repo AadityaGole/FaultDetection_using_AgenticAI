@@ -1,0 +1,5444 @@
+[
+  {
+    "file": "AddAgenda-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "add schedule"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "add schedule"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "AddAgenda",
+          "description": "The API for adding a schedule item includes parameters for token, content, time, and location.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "content": {
+              "type": "str",
+              "description": "The content of the agenda."
+            },
+            "time": {
+              "type": "str",
+              "description": "The time for agenda. Format: %Y-%m-%d %H:%M:%S"
+            },
+            "location": {
+              "type": "str",
+              "description": "The location of the agenda."
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AddAgenda-level-3-1.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "newuser",
+        "password": "newpass"
+      },
+      "output": {
+        "token": "l9k8j7h6g5f4d3s2a1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='newuser', password='newpass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "newuser",
+        "password": "newpass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"newuser\", \"password\": \"newpass\"}, \"output\": {\"token\": \"l9k8j7h6g5f4d3s2a1\"}, \"exception\": null}"
+  },
+  {
+    "file": "AddAgenda-level-3-1.jsonl",
+    "step": 8,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "l9k8j7h6g5f4d3s2a1",
+      "content": "Meeting with Client A",
+      "time": "2023-07-15 14:00:00",
+      "location": "Client"
+    },
+    "expected_result": {
+      "api_name": "AddAgenda",
+      "input": {
+        "token": "l9k8j7h6g5f4d3s2a1",
+        "content": "Meeting with Client A",
+        "time": "2023-07-15 14:00:00",
+        "location": "Client"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[AddAgenda(token='l9k8j7h6g5f4d3s2a1', content='Meeting with Client A', time='2024-07-15 14:00:00', location='their office')]",
+    "parsed": [
+      "AddAgenda",
+      {
+        "token": "l9k8j7h6g5f4d3s2a1",
+        "content": "Meeting with Client A",
+        "time": "2024-07-15 14:00:00",
+        "location": "their office"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"AddAgenda\", \"input\": {\"token\": \"l9k8j7h6g5f4d3s2a1\", \"content\": \"Meeting with Client A\", \"time\": \"2024-07-15 14:00:00\", \"location\": \"their office\"}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "AddAgenda-level-3-2.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "agenda meeting scheduler"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "agenda meeting scheduler"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "AddAgenda",
+          "description": "The API for adding a schedule item includes parameters for token, content, time, and location.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "content": {
+              "type": "str",
+              "description": "The content of the agenda."
+            },
+            "time": {
+              "type": "str",
+              "description": "The time for agenda. Format: %Y-%m-%d %H:%M:%S"
+            },
+            "location": {
+              "type": "str",
+              "description": "The location of the agenda."
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AddAgenda-level-3-2.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "newuser",
+        "password": "newpass"
+      },
+      "output": {
+        "token": "l9k8j7h6g5f4d3s2a1"
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AddAgenda-level-3-2.jsonl",
+    "step": 8,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "l9k8j7h6g5f4d3s2a1",
+      "content": "Meeting in conference room",
+      "time": "2023-07-15 15:00:00",
+      "location": "conference room"
+    },
+    "expected_result": {
+      "api_name": "AddAgenda",
+      "input": {
+        "token": "l9k8j7h6g5f4d3s2a1",
+        "content": "Meeting in conference room",
+        "time": "2023-07-15 15:00:00",
+        "location": "conference room"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[AddAgenda(token='l9k8j7h6g5f4d3s2a1', content='Meeting', time='2024-07-15 15:00:00', location='conference room')]",
+    "parsed": [
+      "AddAgenda",
+      {
+        "token": "l9k8j7h6g5f4d3s2a1",
+        "content": "Meeting",
+        "time": "2024-07-15 15:00:00",
+        "location": "conference room"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"AddAgenda\", \"input\": {\"token\": \"l9k8j7h6g5f4d3s2a1\", \"content\": \"Meeting\", \"time\": \"2024-07-15 15:00:00\", \"location\": \"conference room\"}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "AddAlarm-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "alarm"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "alarm"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "AddAlarm",
+          "description": "The API for setting an alarm includes a parameter for the time.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "time": {
+              "type": "str",
+              "description": "The time for alarm. Format: %Y-%m-%d %H:%M:%S"
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AddAlarm-level-3-1.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user4",
+      "password": "user4pass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "user4",
+        "password": "user4pass"
+      },
+      "output": {
+        "token": "q9w8e7r6t5y4u3i2o1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='user4', password='user4pass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "user4",
+        "password": "user4pass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"user4\", \"password\": \"user4pass\"}, \"output\": {\"token\": \"q9w8e7r6t5y4u3i2o1\"}, \"exception\": null}"
+  },
+  {
+    "file": "AddAlarm-level-3-1.jsonl",
+    "step": 7,
+    "expected_api": "AddAlarm",
+    "expected_parameters": {
+      "token": "q9w8e7r6t5y4u3i2o1",
+      "time": "2023-07-15 09:00:00"
+    },
+    "expected_result": {
+      "api_name": "AddAlarm",
+      "input": {
+        "token": "q9w8e7r6t5y4u3i2o1",
+        "time": "2023-07-15 09:00:00"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[AddAlarm(token='q9w8e7r6t5y4u3i2o1', time='2024-07-15 09:00:00')]",
+    "parsed": [
+      "AddAlarm",
+      {
+        "token": "q9w8e7r6t5y4u3i2o1",
+        "time": "2024-07-15 09:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"AddAlarm\", \"input\": {\"token\": \"q9w8e7r6t5y4u3i2o1\", \"time\": \"2024-07-15 09:00:00\"}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "AddAlarm-level-3-2.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "set alarm"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "set alarm"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "AddAlarm",
+          "description": "The API for setting an alarm includes a parameter for the time.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "time": {
+              "type": "str",
+              "description": "The time for alarm. Format: %Y-%m-%d %H:%M:%S"
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AddAlarm-level-3-2.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user4",
+      "password": "user4pass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "user4",
+        "password": "user4pass"
+      },
+      "output": {
+        "token": "q9w8e7r6t5y4u3i2o1"
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AddAlarm-level-3-2.jsonl",
+    "step": 8,
+    "expected_api": "AddAlarm",
+    "expected_parameters": {
+      "token": "q9w8e7r6t5y4u3i2o1",
+      "time": "2023-01-07 08:00:00"
+    },
+    "expected_result": {
+      "api_name": "AddAlarm",
+      "input": {
+        "token": "q9w8e7r6t5y4u3i2o1",
+        "time": "2023-01-07 08:00:00"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[AddAlarm(token='q9w8e7r6t5y4u3i2o1', time='2023-01-07 08:00:00')]",
+    "parsed": [
+      "AddAlarm",
+      {
+        "token": "q9w8e7r6t5y4u3i2o1",
+        "time": "2023-01-07 08:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"AddAlarm\", \"input\": {\"token\": \"q9w8e7r6t5y4u3i2o1\", \"time\": \"2023-01-07 08:00:00\"}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "AddMeeting-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "book meeting"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "book meeting"
+      },
+      "output": {
+        "name": "BookHotel",
+        "description": "This API orders a hotel room. Two rooms are ordered if the number of adults is greater than 2. Only one order can be made at same time.",
+        "input_parameters": {
+          "hotel_name": {
+            "type": "str",
+            "description": "The name of the hotel."
+          },
+          "check_in_time": {
+            "type": "str",
+            "description": "The time to check in. Format: %Y-%m-%d"
+          },
+          "check_out_time": {
+            "type": "str",
+            "description": "The time to check out. Format: %Y-%m-%d"
+          },
+          "room_count": {
+            "type": "int",
+            "description": "The number of rooms to order."
+          },
+          "adult_count": {
+            "type": "int",
+            "description": "The number of adults."
+          },
+          "child_count": {
+            "type": "int",
+            "description": "The number of children."
+          }
+        },
+        "output_parameters": {
+          "order_id": {
+            "type": "str",
+            "description": "The ID of the order."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AddMeeting-level-3-1.jsonl",
+    "step": 8,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "JohnDoe",
+        "password": "pass123"
+      },
+      "output": {
+        "token": "a9s8d7f6g5h4j3k2l1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='JohnDoe', password='pass123')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "JohnDoe",
+        "password": "pass123"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"JohnDoe\", \"password\": \"pass123\"}, \"output\": {\"token\": \"a9s8d7f6g5h4j3k2l1\"}, \"exception\": null}"
+  },
+  {
+    "file": "AddMeeting-level-3-1.jsonl",
+    "step": 10,
+    "expected_api": "AddMeeting",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "meeting_topic": "Project Update",
+      "start_time": "2023-03-15 15:00:00",
+      "end_time": "2023-03-15 16:00:00",
+      "location": "conference room on the 5th floor",
+      "attendees": "['John', 'Jane']"
+    },
+    "expected_result": {
+      "api_name": "AddMeeting",
+      "input": {
+        "token": "a9s8d7f6g5h4j3k2l1",
+        "start_time": "2023-03-15 15:00:00",
+        "end_time": "2023-03-15 16:00:00",
+        "location": "conference room on the 5th floor",
+        "attendees": [
+          "John",
+          "Jane"
+        ]
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[AddMeeting(token='a9s8d7f6g5h4j3k2l1', meeting_topic='Project Update', start_time='2025-03-15 15:00:00', end_time='2025-03-15 16:00:00', location='conference room on the 5th floor', attendees=['JohnDoe', 'Jane'])]",
+    "parsed": [
+      "AddMeeting",
+      {
+        "token": "a9s8d7f6g5h4j3k2l1",
+        "meeting_topic": "Project Update",
+        "start_time": "2025-03-15 15:00:00",
+        "end_time": "2025-03-15 16:00:00",
+        "location": "conference room on the 5th floor",
+        "attendees": [
+          "JohnDoe",
+          "Jane"
+        ]
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"AddMeeting\", \"input\": {\"token\": \"a9s8d7f6g5h4j3k2l1\", \"start_time\": \"2025-03-15 15:00:00\", \"end_time\": \"2025-03-15 16:00:00\", \"location\": \"conference room on the 5th floor\", \"attendees\": [\"JohnDoe\", \"Jane\"]}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "AddMeeting-level-3-2.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "schedule meeting"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "schedule meeting"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "QueryAgenda",
+          "description": "The API for getting a schedule item includes parameters for token, content, time, and location.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "content": {
+              "type": "str",
+              "description": "The content of the agenda."
+            },
+            "time": {
+              "type": "str",
+              "description": "The time for agenda. Format: %Y-%m-%d %H:%M:%S"
+            },
+            "location": {
+              "type": "str",
+              "description": "The location of the agenda."
+            }
+          },
+          "output_parameters": {
+            "info": {
+              "type": "json",
+              "description": "agenda info including username and time"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AddMeeting-level-3-2.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "JohnDoe",
+        "password": "pass123"
+      },
+      "output": {
+        "token": "a9s8d7f6g5h4j3k2l1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='JohnDoe', password='pass123')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "JohnDoe",
+        "password": "pass123"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"JohnDoe\", \"password\": \"pass123\"}, \"output\": {\"token\": \"a9s8d7f6g5h4j3k2l1\"}, \"exception\": null}"
+  },
+  {
+    "file": "AddMeeting-level-3-2.jsonl",
+    "step": 8,
+    "expected_api": "AddMeeting",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "meeting_topic": "Meeting with John",
+      "start_time": "2023-07-10 14:00:00",
+      "end_time": "2023-07-10 15:00:00",
+      "location": "meeting room",
+      "attendees": "['John']"
+    },
+    "expected_result": {
+      "api_name": "AddMeeting",
+      "input": {
+        "token": "a9s8d7f6g5h4j3k2l1",
+        "meeting_topic": "Meeting with John",
+        "start_time": "2023-07-10 14:00:00",
+        "end_time": "2023-07-10 15:00:00",
+        "location": "meeting room",
+        "attendees": [
+          "John"
+        ]
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AddReminder-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "add reminder"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "add reminder"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "AddReminder",
+          "description": "Add a reminder API that takes three parameters - 'token'\uff0c'content' and 'time'. The 'token' parameter refers to the user's token and the 'content' parameter refers to the description of the reminder and the 'time' parameter specifies the time at which the reminder should be triggered.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "content": {
+              "type": "str",
+              "description": "The content of the conference."
+            },
+            "time": {
+              "type": "str",
+              "description": "The time for conference. Format: %Y-%m-%d %H:%M:%S"
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AddReminder-level-3-1.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "newuser",
+      "password": "newpass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "newuser",
+        "password": "newpass"
+      },
+      "output": {
+        "token": "l9k8j7h6g5f4d3s2a1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='newuser', password='newpass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "newuser",
+        "password": "newpass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"newuser\", \"password\": \"newpass\"}, \"output\": {\"token\": \"l9k8j7h6g5f4d3s2a1\"}, \"exception\": null}"
+  },
+  {
+    "file": "AddReminder-level-3-1.jsonl",
+    "step": 8,
+    "expected_api": "AddReminder",
+    "expected_parameters": {
+      "token": "l9k8j7h6g5f4d3s2a1",
+      "content": "sales report",
+      "time": "2023-01-05 15:00:00"
+    },
+    "expected_result": {
+      "api_name": "AddReminder",
+      "input": {
+        "token": "l9k8j7h6g5f4d3s2a1",
+        "content": "sales report",
+        "time": "2023-01-05 15:00:00"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[AddReminder(token='l9k8j7h6g5f4d3s2a1', content='sales report', time='2023-01-05 15:00:00')]",
+    "parsed": [
+      "AddReminder",
+      {
+        "token": "l9k8j7h6g5f4d3s2a1",
+        "content": "sales report",
+        "time": "2023-01-05 15:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"AddReminder\", \"input\": {\"token\": \"l9k8j7h6g5f4d3s2a1\", \"content\": \"sales report\", \"time\": \"2023-01-05 15:00:00\"}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "AppointmentRegistration-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "hospital appointment registration"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "hospital appointment registration"
+      },
+      "output": {
+        "name": "AppointmentRegistration",
+        "description": "This API registers an appointment of hospital.",
+        "input_parameters": {
+          "patient_name": {
+            "type": "str",
+            "description": "The name of patient."
+          },
+          "date": {
+            "type": "str",
+            "description": "The date of appointment. Format be like %Y-%m-%d"
+          },
+          "doctor_name": {
+            "type": "str",
+            "description": "The name of appointed doctor."
+          }
+        },
+        "output_parameters": {
+          "appointment_id": {
+            "type": "str",
+            "description": "The ID of appointment."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AppointmentRegistration-level-3-1.jsonl",
+    "step": 6,
+    "expected_api": "AppointmentRegistration",
+    "expected_parameters": {
+      "patient_name": "John Doe",
+      "date": "2023-07-10",
+      "doctor_name": "Dr. Smith"
+    },
+    "expected_result": {
+      "api_name": "AppointmentRegistration",
+      "input": {
+        "patient_name": "John Doe",
+        "date": "2023-07-10",
+        "doctor_name": "Dr. Smith"
+      },
+      "output": "98260171",
+      "exception": null
+    },
+    "generated": "[AppointmentRegistration(patient_name='John Doe', date='2023-07-10', doctor_name='Dr. Smith')]",
+    "parsed": [
+      "AppointmentRegistration",
+      {
+        "patient_name": "John Doe",
+        "date": "2023-07-10",
+        "doctor_name": "Dr. Smith"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"AppointmentRegistration\", \"input\": {\"patient_name\": \"John Doe\", \"date\": \"2023-07-10\", \"doctor_name\": \"Dr. Smith\"}, \"output\": \"85033429\", \"exception\": null}"
+  },
+  {
+    "file": "BookHotel-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "book hotel"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "book hotel"
+      },
+      "output": {
+        "name": "BookHotel",
+        "description": "This API orders a hotel room. Two rooms are ordered if the number of adults is greater than 2. Only one order can be made at same time.",
+        "input_parameters": {
+          "hotel_name": {
+            "type": "str",
+            "description": "The name of the hotel."
+          },
+          "check_in_time": {
+            "type": "str",
+            "description": "The time to check in. Format: %Y-%m-%d"
+          },
+          "check_out_time": {
+            "type": "str",
+            "description": "The time to check out. Format: %Y-%m-%d"
+          },
+          "room_count": {
+            "type": "int",
+            "description": "The number of rooms to order."
+          },
+          "adult_count": {
+            "type": "int",
+            "description": "The number of adults."
+          },
+          "child_count": {
+            "type": "int",
+            "description": "The number of children."
+          }
+        },
+        "output_parameters": {
+          "order_id": {
+            "type": "str",
+            "description": "The ID of the order."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[BookHotel(hotel_name='Grand Hotel', check_in_time='2024-10-05', check_out_time='2024-10-07', room_count=1, adult_count=2, child_count=1)]",
+    "parsed": [
+      "BookHotel",
+      {
+        "hotel_name": "Grand Hotel",
+        "check_in_time": "2024-10-05",
+        "check_out_time": "2024-10-07",
+        "room_count": 1,
+        "adult_count": 2,
+        "child_count": 1
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"BookHotel\", \"input\": {\"hotel_name\": \"Grand Hotel\", \"check_in_time\": \"2024-10-05\", \"check_out_time\": \"2024-10-07\", \"room_count\": 1, \"adult_count\": 2, \"child_count\": 1}, \"output\": \"11\", \"exception\": null}"
+  },
+  {
+    "file": "BookHotel-level-3-1.jsonl",
+    "step": 4,
+    "expected_api": "BookHotel",
+    "expected_parameters": {
+      "hotel_name": "Grand Hotel",
+      "check_in_time": "2023-10-05",
+      "check_out_time": "2023-10-07",
+      "room_count": "1",
+      "adult_count": "2",
+      "child_count": "1"
+    },
+    "expected_result": {
+      "api_name": "BookHotel",
+      "input": {
+        "hotel_name": "Grand Hotel",
+        "check_in_time": "2023-10-05",
+        "check_out_time": "2023-10-07",
+        "room_count": 1,
+        "adult_count": 2,
+        "child_count": 1
+      },
+      "output": "11",
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "BookHotel-level-3-2.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "book hotel Hilton July 15 2023"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "book hotel Hilton July 15 2023"
+      },
+      "output": {
+        "name": "BookHotel",
+        "description": "This API orders a hotel room. Two rooms are ordered if the number of adults is greater than 2. Only one order can be made at same time.",
+        "input_parameters": {
+          "hotel_name": {
+            "type": "str",
+            "description": "The name of the hotel."
+          },
+          "check_in_time": {
+            "type": "str",
+            "description": "The time to check in. Format: %Y-%m-%d"
+          },
+          "check_out_time": {
+            "type": "str",
+            "description": "The time to check out. Format: %Y-%m-%d"
+          },
+          "room_count": {
+            "type": "int",
+            "description": "The number of rooms to order."
+          },
+          "adult_count": {
+            "type": "int",
+            "description": "The number of adults."
+          },
+          "child_count": {
+            "type": "int",
+            "description": "The number of children."
+          }
+        },
+        "output_parameters": {
+          "order_id": {
+            "type": "str",
+            "description": "The ID of the order."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[BookHotel(hotel_name='Hilton', check_in_time='2024-07-15', check_out_time='2024-07-16', room_count=2, adult_count=4, child_count=0)]",
+    "parsed": [
+      "BookHotel",
+      {
+        "hotel_name": "Hilton",
+        "check_in_time": "2024-07-15",
+        "check_out_time": "2024-07-16",
+        "room_count": 2,
+        "adult_count": 4,
+        "child_count": 0
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"BookHotel\", \"input\": {\"hotel_name\": \"Hilton\", \"check_in_time\": \"2024-07-15\", \"check_out_time\": \"2024-07-16\", \"room_count\": 2, \"adult_count\": 4, \"child_count\": 0}, \"output\": \"11\", \"exception\": null}"
+  },
+  {
+    "file": "BookHotel-level-3-2.jsonl",
+    "step": 3,
+    "expected_api": "BookHotel",
+    "expected_parameters": {
+      "hotel_name": "Hilton",
+      "check_in_time": "2023-07-15",
+      "check_out_time": "2023-07-16",
+      "room_count": "1",
+      "adult_count": "2",
+      "child_count": "2"
+    },
+    "expected_result": {
+      "api_name": "BookHotel",
+      "input": {
+        "hotel_name": "Hilton",
+        "check_in_time": "2023-07-15",
+        "check_out_time": "2023-07-16",
+        "room_count": 1,
+        "adult_count": 2,
+        "child_count": 2
+      },
+      "output": "11",
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "BookHotel-level-3-3.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "hotel booking"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "hotel booking"
+      },
+      "output": {
+        "name": "BookHotel",
+        "description": "This API orders a hotel room. Two rooms are ordered if the number of adults is greater than 2. Only one order can be made at same time.",
+        "input_parameters": {
+          "hotel_name": {
+            "type": "str",
+            "description": "The name of the hotel."
+          },
+          "check_in_time": {
+            "type": "str",
+            "description": "The time to check in. Format: %Y-%m-%d"
+          },
+          "check_out_time": {
+            "type": "str",
+            "description": "The time to check out. Format: %Y-%m-%d"
+          },
+          "room_count": {
+            "type": "int",
+            "description": "The number of rooms to order."
+          },
+          "adult_count": {
+            "type": "int",
+            "description": "The number of adults."
+          },
+          "child_count": {
+            "type": "int",
+            "description": "The number of children."
+          }
+        },
+        "output_parameters": {
+          "order_id": {
+            "type": "str",
+            "description": "The ID of the order."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[BookHotel(hotel_name='Hilton Hotel', check_in_time='2024-07-10', check_out_time='2024-07-15', room_count=1, adult_count=2, child_count=1)]",
+    "parsed": [
+      "BookHotel",
+      {
+        "hotel_name": "Hilton Hotel",
+        "check_in_time": "2024-07-10",
+        "check_out_time": "2024-07-15",
+        "room_count": 1,
+        "adult_count": 2,
+        "child_count": 1
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"BookHotel\", \"input\": {\"hotel_name\": \"Hilton Hotel\", \"check_in_time\": \"2024-07-10\", \"check_out_time\": \"2024-07-15\", \"room_count\": 1, \"adult_count\": 2, \"child_count\": 1}, \"output\": \"11\", \"exception\": null}"
+  },
+  {
+    "file": "BookHotel-level-3-3.jsonl",
+    "step": 3,
+    "expected_api": "BookHotel",
+    "expected_parameters": {
+      "hotel_name": "Hilton Hotel",
+      "check_in_time": "2023-07-10",
+      "check_out_time": "2023-07-15",
+      "room_count": "1",
+      "adult_count": "2",
+      "child_count": "1"
+    },
+    "expected_result": {
+      "api_name": "BookHotel",
+      "input": {
+        "hotel_name": "Hilton Hotel",
+        "check_in_time": "2023-07-10",
+        "check_out_time": "2023-07-15",
+        "room_count": 1,
+        "adult_count": 2,
+        "child_count": 1
+      },
+      "output": "11",
+      "exception": null
+    },
+    "generated": "[BookHotel(hotel_name='Hilton Hotel', check_in_time='2024-07-10', check_out_time='2024-07-15', room_count=1, adult_count=2, child_count=1)]",
+    "parsed": [
+      "BookHotel",
+      {
+        "hotel_name": "Hilton Hotel",
+        "check_in_time": "2024-07-10",
+        "check_out_time": "2024-07-15",
+        "room_count": 1,
+        "adult_count": 2,
+        "child_count": 1
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"BookHotel\", \"input\": {\"hotel_name\": \"Hilton Hotel\", \"check_in_time\": \"2024-07-10\", \"check_out_time\": \"2024-07-15\", \"room_count\": 1, \"adult_count\": 2, \"child_count\": 1}, \"output\": \"11\", \"exception\": null}"
+  },
+  {
+    "file": "Calculator-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "calculate 25*3+7/3"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "calculate 25*3+7/3"
+      },
+      "output": {
+        "name": "Calculator",
+        "description": "This API provides basic arithmetic operations: addition, subtraction, multiplication, and division.",
+        "input_parameters": {
+          "formula": {
+            "type": "str",
+            "description": "The formula that needs to be calculated. Only integers are supported. Valid operators are +, -, *, /, and (, ). For example, '(1 + 2) * 3'."
+          }
+        },
+        "output_parameters": {
+          "result": {
+            "type": "float",
+            "description": "The result of the formula."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[Calculator(formula='25*3+7/3')]",
+    "parsed": [
+      "Calculator",
+      {
+        "formula": "25*3+7/3"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('formula')"
+  },
+  {
+    "file": "Calculator-level-3-1.jsonl",
+    "step": 3,
+    "expected_api": "Calculator",
+    "expected_parameters": {
+      "formula": "25*3+7/3"
+    },
+    "expected_result": {
+      "api_name": "Calculator",
+      "input": {
+        "formula": "25*3+7/3"
+      },
+      "output": 77.33333333333333,
+      "exception": null
+    },
+    "generated": "[Calculator(key='25*3+7/3')]",
+    "parsed": [
+      "Calculator",
+      {
+        "key": "25*3+7/3"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "invalid_call",
+    "mock_passed": false,
+    "mock_result": "invalid parameter name: key"
+  },
+  {
+    "file": "Calculator-level-3-2.jsonl",
+    "step": 1,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "calculate the square of 8"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "calculate the square of 8"
+      },
+      "output": {
+        "name": "Calculator",
+        "description": "This API provides basic arithmetic operations: addition, subtraction, multiplication, and division.",
+        "input_parameters": {
+          "formula": {
+            "type": "str",
+            "description": "The formula that needs to be calculated. Only integers are supported. Valid operators are +, -, *, /, and (, ). For example, '(1 + 2) * 3'."
+          }
+        },
+        "output_parameters": {
+          "result": {
+            "type": "float",
+            "description": "The result of the formula."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[Calculator(key='(8 * 8)')]",
+    "parsed": [
+      "Calculator",
+      {
+        "key": "(8 * 8)"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "invalid_call",
+    "mock_passed": false,
+    "mock_result": "invalid parameter name: key"
+  },
+  {
+    "file": "Calculator-level-3-2.jsonl",
+    "step": 2,
+    "expected_api": "Calculator",
+    "expected_parameters": {
+      "formula": "8*8"
+    },
+    "expected_result": {
+      "api_name": "Calculator",
+      "input": {
+        "formula": "8*8"
+      },
+      "output": 64.0,
+      "exception": null
+    },
+    "generated": "[Calculator(key='(8 * 8)')]",
+    "parsed": [
+      "Calculator",
+      {
+        "key": "(8 * 8)"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "invalid_call",
+    "mock_passed": false,
+    "mock_result": "invalid parameter name: key"
+  },
+  {
+    "file": "DeleteAccount-level-3-1.jsonl",
+    "step": 1,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "delete account"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "delete account"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "DeleteAccount",
+          "description": "Delete an account.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteAccount-level-3-1.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user2",
+      "password": "user2pass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "user2",
+        "password": "user2pass"
+      },
+      "output": {
+        "token": "o9i8u7y6t5r4e3w2q1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='user2', password='user2pass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "user2",
+        "password": "user2pass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"user2\", \"password\": \"user2pass\"}, \"output\": {\"token\": \"o9i8u7y6t5r4e3w2q1\"}, \"exception\": null}"
+  },
+  {
+    "file": "DeleteAccount-level-3-1.jsonl",
+    "step": 6,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "o9i8u7y6t5r4e3w2q1"
+    },
+    "expected_result": {
+      "input": {
+        "token": "o9i8u7y6t5r4e3w2q1"
+      },
+      "output": {
+        "status": "success"
+      },
+      "exception": null
+    },
+    "generated": "[DeleteAccount(token='o9i8u7y6t5r4e3w2q1')]",
+    "parsed": [
+      "DeleteAccount",
+      {
+        "token": "o9i8u7y6t5r4e3w2q1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"input\": {\"token\": \"o9i8u7y6t5r4e3w2q1\"}, \"output\": {\"status\": \"success\"}, \"exception\": null}"
+  },
+  {
+    "file": "DeleteAccount-level-3-2.jsonl",
+    "step": 1,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "delete account"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "delete account"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "DeleteAccount",
+          "description": "Delete an account.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteAccount-level-3-2.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user2",
+      "password": "user2pass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "user2",
+        "password": "user2pass"
+      },
+      "output": {
+        "token": "o9i8u7y6t5r4e3w2q1"
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteAccount-level-3-2.jsonl",
+    "step": 7,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "o9i8u7y6t5r4e3w2q1"
+    },
+    "expected_result": {
+      "input": {
+        "token": "o9i8u7y6t5r4e3w2q1"
+      },
+      "output": {
+        "status": "success"
+      },
+      "exception": null
+    },
+    "generated": "[DeleteAccount(token='o9i8u7y6t5r4e3w2q1')]",
+    "parsed": [
+      "DeleteAccount",
+      {
+        "token": "o9i8u7y6t5r4e3w2q1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"input\": {\"token\": \"o9i8u7y6t5r4e3w2q1\"}, \"output\": {\"status\": \"success\"}, \"exception\": null}"
+  },
+  {
+    "file": "DeleteAccount-level-3-3.jsonl",
+    "step": 1,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "delete account"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "delete account"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "DeleteAccount",
+          "description": "Delete an account.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteAccount-level-3-3.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user2",
+      "password": "user2pass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "user2",
+        "password": "user2pass"
+      },
+      "output": {
+        "token": "o9i8u7y6t5r4e3w2q1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='user2', password='user2pass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "user2",
+        "password": "user2pass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"user2\", \"password\": \"user2pass\"}, \"output\": {\"token\": \"o9i8u7y6t5r4e3w2q1\"}, \"exception\": null}"
+  },
+  {
+    "file": "DeleteAccount-level-3-3.jsonl",
+    "step": 5,
+    "expected_api": "DeleteAccount",
+    "expected_parameters": {
+      "token": "o9i8u7y6t5r4e3w2q1"
+    },
+    "expected_result": {
+      "input": {
+        "token": "o9i8u7y6t5r4e3w2q1"
+      },
+      "output": {
+        "status": "success"
+      },
+      "exception": null
+    },
+    "generated": "[DeleteAccount(token='o9i8u7y6t5r4e3w2q1')]",
+    "parsed": [
+      "DeleteAccount",
+      {
+        "token": "o9i8u7y6t5r4e3w2q1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"input\": {\"token\": \"o9i8u7y6t5r4e3w2q1\"}, \"output\": {\"status\": \"success\"}, \"exception\": null}"
+  },
+  {
+    "file": "DeleteAgenda-level-3-1.jsonl",
+    "step": 1,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "delete agenda"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "delete agenda"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "DeleteAgenda",
+          "description": "The API for deleting a schedule item includes parameters for token, content, time, and location.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "content": {
+              "type": "str",
+              "description": "The content of the agenda."
+            },
+            "time": {
+              "type": "str",
+              "description": "The time for agenda. Format: %Y-%m-%d %H:%M:%S"
+            },
+            "location": {
+              "type": "str",
+              "description": "The location of the agenda."
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteAgenda-level-3-1.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "JohnDoe",
+        "password": "pass123"
+      },
+      "output": {
+        "token": "a9s8d7f6g5h4j3k2l1"
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteAgenda-level-3-1.jsonl",
+    "step": 9,
+    "expected_api": "DeleteAgenda",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "content": "Meeting with client",
+      "time": "2023-03-18 14:00:00",
+      "location": "123 Main St"
+    },
+    "expected_result": {
+      "api_name": "DeleteAgenda",
+      "input": {
+        "token": "a9s8d7f6g5h4j3k2l1",
+        "content": "Meeting with client",
+        "time": "2023-03-18 14:00:00",
+        "location": "123 Main St"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[DeleteAgenda(token='a9s8d7f6g5h4j3k2l1', content='Meeting with client', time='2023-03-18 14:00:00', location='123 Main St')]",
+    "parsed": [
+      "DeleteAgenda",
+      {
+        "token": "a9s8d7f6g5h4j3k2l1",
+        "content": "Meeting with client",
+        "time": "2023-03-18 14:00:00",
+        "location": "123 Main St"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"DeleteAgenda\", \"input\": {\"token\": \"a9s8d7f6g5h4j3k2l1\", \"content\": \"Meeting with client\", \"time\": \"2023-03-18 14:00:00\", \"location\": \"123 Main St\"}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "DeleteAgenda-level-3-2.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "delete agenda March 18th 2 pm 123 Main St client"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "delete agenda March 18th 2 pm 123 Main St client"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "DeleteAgenda",
+          "description": "The API for deleting a schedule item includes parameters for token, content, time, and location.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "content": {
+              "type": "str",
+              "description": "The content of the agenda."
+            },
+            "time": {
+              "type": "str",
+              "description": "The time for agenda. Format: %Y-%m-%d %H:%M:%S"
+            },
+            "location": {
+              "type": "str",
+              "description": "The location of the agenda."
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteAgenda-level-3-2.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "JohnDoe",
+        "password": "pass123"
+      },
+      "output": {
+        "token": "a9s8d7f6g5h4j3k2l1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='JohnDoe', password='pass123')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "JohnDoe",
+        "password": "pass123"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"JohnDoe\", \"password\": \"pass123\"}, \"output\": {\"token\": \"a9s8d7f6g5h4j3k2l1\"}, \"exception\": null}"
+  },
+  {
+    "file": "DeleteAgenda-level-3-2.jsonl",
+    "step": 10,
+    "expected_api": "DeleteAgenda",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "content": "Meeting with client",
+      "time": "2023-03-18 14:00:00",
+      "location": "123 Main St"
+    },
+    "expected_result": {
+      "api_name": "DeleteAgenda",
+      "input": {
+        "token": "a9s8d7f6g5h4j3k2l1",
+        "content": "Meeting with client",
+        "time": "2023-03-18 14:00:00",
+        "location": "123 Main St"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[DeleteAgenda(token='a9s8d7f6g5h4j3k2l1', content='Meeting with client', time='2023-03-18 14:00:00', location='123 Main St')]",
+    "parsed": [
+      "DeleteAgenda",
+      {
+        "token": "a9s8d7f6g5h4j3k2l1",
+        "content": "Meeting with client",
+        "time": "2023-03-18 14:00:00",
+        "location": "123 Main St"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"DeleteAgenda\", \"input\": {\"token\": \"a9s8d7f6g5h4j3k2l1\", \"content\": \"Meeting with client\", \"time\": \"2023-03-18 14:00:00\", \"location\": \"123 Main St\"}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "DeleteAlarm-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "delete alarm"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "delete alarm"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "DeleteAlarm",
+          "description": "The API for removing an alarm includes a parameter for the time.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "time": {
+              "type": "str",
+              "description": "The time for alarm. Format: %Y-%m-%d %H:%M:%S"
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteAlarm-level-3-1.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JaneSmith",
+      "password": "password"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "JaneSmith",
+        "password": "password"
+      },
+      "output": {
+        "token": "o8i7u6y5t4r3e2w1q0"
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteAlarm-level-3-1.jsonl",
+    "step": 10,
+    "expected_api": "DeleteAlarm",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "time": "2023-03-20 06:30:00"
+    },
+    "expected_result": {
+      "api_name": "DeleteAlarm",
+      "input": {
+        "token": "o8i7u6y5t4r3e2w1q0",
+        "time": "2023-03-20 06:30:00"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[DeleteAlarm(token='o8i7u6y5t4r3e2w1q0', time='2025-03-20 06:30:00')]",
+    "parsed": [
+      "DeleteAlarm",
+      {
+        "token": "o8i7u6y5t4r3e2w1q0",
+        "time": "2025-03-20 06:30:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"DeleteAlarm\", \"input\": {\"token\": \"o8i7u6y5t4r3e2w1q0\", \"time\": \"2025-03-20 06:30:00\"}, \"output\": null, \"exception\": \"You have no alarm clock at time : 2025-03-20 06:30:00\"}"
+  },
+  {
+    "file": "DeleteMeeting-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "delete reservation"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "delete reservation"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "DeleteMeeting",
+          "description": "This API allows users to delete a reservation for a meeting and remove the meeting information in the database.Function\uff1aDelete user's reservation for a meeting.Exception Handling\uff1a1. If the deletion is successful, return a success message.2. If the deletion fails, return a corresponding error message.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "meeting_topic": {
+              "type": "str",
+              "description": "The title of the meeting, no more than 50 characters."
+            },
+            "start_time": {
+              "type": "str",
+              "description": "The start time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S"
+            },
+            "end_time": {
+              "type": "str",
+              "description": "The end time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S"
+            },
+            "location": {
+              "type": "str",
+              "description": "The location where the meeting to be held, no more than 100 characters."
+            },
+            "attendees": {
+              "type": "list(str)",
+              "description": "The attendees of the meeting, including names, positions and other information."
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteMeeting-level-3-1.jsonl",
+    "step": 8,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "admin",
+      "password": "adminpass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "admin",
+        "password": "adminpass"
+      },
+      "output": {
+        "token": "m9n8b7v6c5x4z3a2s1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='admin', password='adminpass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "admin",
+        "password": "adminpass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"admin\", \"password\": \"adminpass\"}, \"output\": {\"token\": \"m9n8b7v6c5x4z3a2s1\"}, \"exception\": null}"
+  },
+  {
+    "file": "DeleteMeeting-level-3-1.jsonl",
+    "step": 10,
+    "expected_api": "DeleteMeeting",
+    "expected_parameters": {
+      "token": "m9n8b7v6c5x4z3a2s1",
+      "meeting_topic": "Board Meeting",
+      "start_time": "2023-04-05 15:00:00",
+      "end_time": "2023-04-05 17:00:00",
+      "location": "Boardroom",
+      "attendees": "['Board Members']"
+    },
+    "expected_result": {
+      "api_name": "DeleteMeeting",
+      "input": {
+        "token": "m9n8b7v6c5x4z3a2s1",
+        "meeting_topic": "Board Meeting",
+        "start_time": "2023-04-05 15:00:00",
+        "end_time": "2023-04-05 17:00:00",
+        "location": "Boardroom",
+        "attendees": [
+          "Board Members"
+        ]
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[DeleteMeeting(token='m9n8b7v6c5x4z3a2s1', meeting_topic='Board Meeting', start_time='2023-04-05 15:00:00', end_time='2023-04-05 17:00:00', location='Boardroom', attendees=['Board Members'])]",
+    "parsed": [
+      "DeleteMeeting",
+      {
+        "token": "m9n8b7v6c5x4z3a2s1",
+        "meeting_topic": "Board Meeting",
+        "start_time": "2023-04-05 15:00:00",
+        "end_time": "2023-04-05 17:00:00",
+        "location": "Boardroom",
+        "attendees": [
+          "Board Members"
+        ]
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('time')"
+  },
+  {
+    "file": "DeleteMeeting-level-3-2.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "meeting cancellation"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "meeting cancellation"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "ModifyMeeting",
+          "description": "This API allows users to modify a reservation for a meetingFunction\uff1aDelete user's reservation for a meeting.Exception Handling\uff1a1. If the modification is successful, return a success message.2. If the modification fails, return a corresponding error message.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "meeting_topic": {
+              "type": "str",
+              "description": "The title of the meeting, no more than 50 characters."
+            },
+            "start_time": {
+              "type": "str",
+              "description": "The start time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S"
+            },
+            "end_time": {
+              "type": "str",
+              "description": "The end time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S"
+            },
+            "location": {
+              "type": "str",
+              "description": "The location where the meeting to be held, no more than 100 characters."
+            },
+            "attendees": {
+              "type": "list(str)",
+              "description": "The attendees of the meeting, including names, positions and other information."
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteMeeting-level-3-2.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "admin",
+      "password": "adminpass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "admin",
+        "password": "adminpass"
+      },
+      "output": {
+        "token": "m9n8b7v6c5x4z3a2s1"
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteMeeting-level-3-2.jsonl",
+    "step": 9,
+    "expected_api": "DeleteMeeting",
+    "expected_parameters": {
+      "token": "m9n8b7v6c5x4z3a2s1",
+      "meeting_topic": "Board Meeting",
+      "start_time": "2023-04-05 15:00:00",
+      "end_time": "2023-04-05 17:00:00",
+      "location": "Boardroom",
+      "attendees": "['Board Members']"
+    },
+    "expected_result": {
+      "api_name": "DeleteMeeting",
+      "input": {
+        "token": "m9n8b7v6c5x4z3a2s1",
+        "meeting_topic": "Board Meeting",
+        "start_time": "2023-04-05 15:00:00",
+        "end_time": "2023-04-05 17:00:00",
+        "location": "Boardroom",
+        "attendees": [
+          "Board Members"
+        ]
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[DeleteMeeting(token='m9n8b7v6c5x4z3a2s1', meeting_topic='Board Meeting', start_time='2023-04-05 15:00:00', end_time='2023-04-05 17:00:00', location='Boardroom', attendees=['Board Members'])]",
+    "parsed": [
+      "DeleteMeeting",
+      {
+        "token": "m9n8b7v6c5x4z3a2s1",
+        "meeting_topic": "Board Meeting",
+        "start_time": "2023-04-05 15:00:00",
+        "end_time": "2023-04-05 17:00:00",
+        "location": "Boardroom",
+        "attendees": [
+          "Board Members"
+        ]
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('time')"
+  },
+  {
+    "file": "DeleteReminder-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "reminder"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "reminder"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "AddReminder",
+          "description": "Add a reminder API that takes three parameters - 'token'\uff0c'content' and 'time'. The 'token' parameter refers to the user's token and the 'content' parameter refers to the description of the reminder and the 'time' parameter specifies the time at which the reminder should be triggered.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "content": {
+              "type": "str",
+              "description": "The content of the conference."
+            },
+            "time": {
+              "type": "str",
+              "description": "The time for conference. Format: %Y-%m-%d %H:%M:%S"
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "DeleteReminder-level-3-1.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "admin",
+      "password": "adminpass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "admin",
+        "password": "adminpass"
+      },
+      "output": {
+        "token": "m9n8b7v6c5x4z3a2s1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='admin', password='adminpass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "admin",
+        "password": "adminpass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"admin\", \"password\": \"adminpass\"}, \"output\": {\"token\": \"m9n8b7v6c5x4z3a2s1\"}, \"exception\": null}"
+  },
+  {
+    "file": "DeleteReminder-level-3-1.jsonl",
+    "step": 8,
+    "expected_api": "DeleteReminder",
+    "expected_parameters": {
+      "token": "m9n8b7v6c5x4z3a2s1",
+      "content": "Pay bills",
+      "time": "2023-03-20 12:00:00"
+    },
+    "expected_result": {
+      "api_name": "DeleteReminder",
+      "input": {
+        "token": "m9n8b7v6c5x4z3a2s1",
+        "content": "Pay bills",
+        "time": "2023-03-20 12:00:00"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "EmergencyKnowledge-level-3-1.jsonl",
+    "step": 3,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "emergency knowledge"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "emergency knowledge"
+      },
+      "output": {
+        "name": "EmergencyKnowledge",
+        "description": "This API searches for a given symptom.",
+        "input_parameters": {
+          "symptom": {
+            "type": "str",
+            "description": "The symptom to search."
+          }
+        },
+        "output_parameters": {
+          "results": {
+            "type": "list",
+            "description": "The list of results. Format be like [{\"name\":possible disease name, \"aid\": first-aid method},...]"
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[EmergencyKnowledge(symptom='nauseous')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "symptom": "nauseous"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('symptom')"
+  },
+  {
+    "file": "EmergencyKnowledge-level-3-1.jsonl",
+    "step": 6,
+    "expected_api": "EmergencyKnowledge",
+    "expected_parameters": {
+      "symptom": "nausea"
+    },
+    "expected_result": {
+      "api_name": "EmergencyKnowledge",
+      "input": {
+        "symptom": "nausea"
+      },
+      "output": [
+        {
+          "name": "Gastroenteritis",
+          "aid": "Treatment may involve rest, fluids, and medications to manage symptoms and prevent dehydration."
+        },
+        {
+          "name": "Migraine",
+          "aid": "Treatment may involve medications to manage symptoms and prevent attacks, lifestyle changes to avoid triggers, and in some cases, preventive medications."
+        }
+      ],
+      "exception": null
+    },
+    "generated": "[EmergencyKnowledge(symptom='gastroenteritis')]",
+    "parsed": [
+      "EmergencyKnowledge",
+      {
+        "symptom": "gastroenteritis"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"EmergencyKnowledge\", \"input\": {\"symptom\": \"gastroenteritis\"}, \"output\": null, \"exception\": \"The symptom does not exist.\"}"
+  },
+  {
+    "file": "GetToday-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "current date"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "current date"
+      },
+      "output": {
+        "name": "GetToday",
+        "description": "This API gets the current date.",
+        "input_parameters": {},
+        "output_parameters": {
+          "date": {
+            "type": "str",
+            "description": "The current date. Format: %Y-%m-%d"
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[GetToday(key='')]",
+    "parsed": [
+      "GetToday",
+      {
+        "key": ""
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "invalid_call",
+    "mock_passed": false,
+    "mock_result": "invalid parameter name: key"
+  },
+  {
+    "file": "GetToday-level-3-1.jsonl",
+    "step": 4,
+    "expected_api": "GetToday",
+    "expected_parameters": {},
+    "expected_result": {
+      "api_name": "GetToday",
+      "input": null,
+      "output": "2023-03-31",
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "ModifyAgenda-level-3-1.jsonl",
+    "step": 4,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "modify schedule item"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "modify schedule item"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "ModifyAgenda",
+          "description": "The API for modifying a schedule item includes parameters for token, content, time, and location.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "content": {
+              "type": "str",
+              "description": "The content of the agenda."
+            },
+            "time": {
+              "type": "str",
+              "description": "The new time for agenda. Format: %Y-%m-%d %H:%M:%S"
+            },
+            "location": {
+              "type": "str",
+              "description": "The new location of the agenda."
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "ModifyAgenda-level-3-1.jsonl",
+    "step": 8,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "bar"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "foo",
+        "password": "bar"
+      },
+      "output": {
+        "token": "z9x8c7v6b5n4m3q2w1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='foo', password='bar')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "foo",
+        "password": "bar"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"foo\", \"password\": \"bar\"}, \"output\": {\"token\": \"z9x8c7v6b5n4m3q2w1\"}, \"exception\": null}"
+  },
+  {
+    "file": "ModifyAgenda-level-3-1.jsonl",
+    "step": 12,
+    "expected_api": "ModifyAgenda",
+    "expected_parameters": {
+      "token": "z9x8c7v6b5n4m3q2w1",
+      "content": "Shopping for groceries",
+      "time": "2023-03-17 00:00:00",
+      "location": "Walmart"
+    },
+    "expected_result": {
+      "api_name": "ModifyAgenda",
+      "input": {
+        "token": "z9x8c7v6b5n4m3q2w1",
+        "content": "Shopping for groceries",
+        "time": "2023-03-17 00:00:00",
+        "location": "Walmart"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "ModifyMeeting-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "modify reservation for a meeting"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "modify reservation for a meeting"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "ModifyMeeting",
+          "description": "This API allows users to modify a reservation for a meetingFunction\uff1aDelete user's reservation for a meeting.Exception Handling\uff1a1. If the modification is successful, return a success message.2. If the modification fails, return a corresponding error message.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "meeting_topic": {
+              "type": "str",
+              "description": "The title of the meeting, no more than 50 characters."
+            },
+            "start_time": {
+              "type": "str",
+              "description": "The start time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S"
+            },
+            "end_time": {
+              "type": "str",
+              "description": "The end time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S"
+            },
+            "location": {
+              "type": "str",
+              "description": "The location where the meeting to be held, no more than 100 characters."
+            },
+            "attendees": {
+              "type": "list(str)",
+              "description": "The attendees of the meeting, including names, positions and other information."
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "ModifyMeeting-level-3-1.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user4",
+      "password": "user4pass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "user4",
+        "password": "user4pass"
+      },
+      "output": {
+        "token": "q9w8e7r6t5y4u3i2o1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='user4', password='user4pass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "user4",
+        "password": "user4pass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"user4\", \"password\": \"user4pass\"}, \"output\": {\"token\": \"q9w8e7r6t5y4u3i2o1\"}, \"exception\": null}"
+  },
+  {
+    "file": "ModifyMeeting-level-3-1.jsonl",
+    "step": 8,
+    "expected_api": "ModifyMeeting",
+    "expected_parameters": {
+      "token": "q9w8e7r6t5y4u3i2o1",
+      "meeting_topic": "Product Development Meeting",
+      "start_time": "2023-03-29 10:00:00",
+      "end_time": "2023-03-29 12:00:00",
+      "location": "Research and Development Department",
+      "attendees": "['Robert Lee', 'Anna Zhang', 'Tony Wang']"
+    },
+    "expected_result": {
+      "api_name": "ModifyMeeting",
+      "input": {
+        "token": "q9w8e7r6t5y4u3i2o1",
+        "start_time": "2023-03-29 10:00:00",
+        "end_time": "2023-03-29 12:00:00",
+        "location": "Research and Development Department",
+        "attendees": [
+          "Robert Lee",
+          "Anna Zhang",
+          "Tony Wang"
+        ]
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[ModifyMeeting(token='q9w8e7r6t5y4u3i2o1', meeting_topic='Product Development Meeting', start_time='2023-03-29 10:00:00', end_time='2023-03-29 11:00:00', location='Research and Development Department', attendees=['Robert Lee', 'Anna Zhang', 'Tony Wang'])]",
+    "parsed": [
+      "ModifyMeeting",
+      {
+        "token": "q9w8e7r6t5y4u3i2o1",
+        "meeting_topic": "Product Development Meeting",
+        "start_time": "2023-03-29 10:00:00",
+        "end_time": "2023-03-29 11:00:00",
+        "location": "Research and Development Department",
+        "attendees": [
+          "Robert Lee",
+          "Anna Zhang",
+          "Tony Wang"
+        ]
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"ModifyMeeting\", \"input\": {\"token\": \"q9w8e7r6t5y4u3i2o1\", \"start_time\": \"2023-03-29 10:00:00\", \"end_time\": \"2023-03-29 11:00:00\", \"location\": \"Research and Development Department\", \"attendees\": [\"Robert Lee\", \"Anna Zhang\", \"Tony Wang\"]}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "ModifyRegistration-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "modify appointment"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "modify appointment"
+      },
+      "output": {
+        "name": "ModifyRegistration",
+        "description": "This API modifies the registration of a patient given appointment ID.",
+        "input_parameters": {
+          "appointment_id": {
+            "type": "str",
+            "description": "The ID of appointment."
+          },
+          "new_appointment_date": {
+            "type": "str",
+            "description": "The new appointment date. Format: %Y-%m-%d."
+          },
+          "new_appointment_doctor": {
+            "type": "str",
+            "description": "The new appointment doctor."
+          }
+        },
+        "output_parameters": {
+          "status": {
+            "type": "str",
+            "description": "The status of modification."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[ModifyRegistration(appointment_id='34567890', new_appointment_date='2023-03-28', new_appointment_doctor='Dr. Lee')]",
+    "parsed": [
+      "ModifyRegistration",
+      {
+        "appointment_id": "34567890",
+        "new_appointment_date": "2023-03-28",
+        "new_appointment_doctor": "Dr. Lee"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('appointment_id')"
+  },
+  {
+    "file": "ModifyRegistration-level-3-1.jsonl",
+    "step": 4,
+    "expected_api": "ModifyRegistration",
+    "expected_parameters": {
+      "appointment_id": "34567890",
+      "new_appointment_date": "2023-03-28",
+      "new_appointment_doctor": "Dr. Lee"
+    },
+    "expected_result": {
+      "api_name": "ModifyRegistration",
+      "input": {
+        "appointment_id": "34567890",
+        "new_appointment_date": "2023-03-28",
+        "new_appointment_doctor": "Dr. Lee"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[ModifyRegistration(appointment_id='34567890', new_appointment_date='2023-03-28', new_appointment_doctor='Dr. Lee')]",
+    "parsed": [
+      "ModifyRegistration",
+      {
+        "appointment_id": "34567890",
+        "new_appointment_date": "2023-03-28",
+        "new_appointment_doctor": "Dr. Lee"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"ModifyRegistration\", \"input\": {\"appointment_id\": \"34567890\", \"new_appointment_date\": \"2023-03-28\", \"new_appointment_doctor\": \"Dr. Lee\"}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "ModifyReminder-level-3-1.jsonl",
+    "step": 4,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "reminder modify"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "reminder modify"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "ModifyReminder",
+          "description": "Modify a reminder API that takes three parameters - 'token'\uff0c'content' and 'time'. The 'token' parameter refers to the user's token and the 'content' parameter refers to the description of the reminder and the 'time' parameter specifies the time at which the reminder should be triggered.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "content": {
+              "type": "str",
+              "description": "The content of the conference."
+            },
+            "time": {
+              "type": "str",
+              "description": "The time for conference. Format: %Y-%m-%d %H:%M:%S"
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "ModifyReminder-level-3-1.jsonl",
+    "step": 8,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JohnDoe",
+      "password": "pass123"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "JohnDoe",
+        "password": "pass123"
+      },
+      "output": {
+        "token": "a9s8d7f6g5h4j3k2l1"
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "failed",
+    "agent_error": "RateLimitError(message='Provider returned error', http_status=429, request_id=None)",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "ModifyReminder-level-3-1.jsonl",
+    "step": 12,
+    "expected_api": "ModifyReminder",
+    "expected_parameters": {
+      "token": "a9s8d7f6g5h4j3k2l1",
+      "content": "Call mom",
+      "time": "2023-03-17 14:30:00"
+    },
+    "expected_result": {
+      "api_name": "ModifyReminder",
+      "input": {
+        "token": "a9s8d7f6g5h4j3k2l1",
+        "content": "Call mom",
+        "time": "2023-03-17 14:30:00"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[ModifyReminder(token='a9s8d7f6g5h4j3k2l1', content='Call mom', time='2023-03-17 14:30:00')]",
+    "parsed": [
+      "ModifyReminder",
+      {
+        "token": "a9s8d7f6g5h4j3k2l1",
+        "content": "Call mom",
+        "time": "2023-03-17 14:30:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"ModifyReminder\", \"input\": {\"token\": \"a9s8d7f6g5h4j3k2l1\", \"content\": \"Call mom\", \"time\": \"2023-03-17 14:30:00\"}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "QueryAlarm-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "alarm clock"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "alarm clock"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "QueryAlarm",
+          "description": "The API for querying alarm clock, help user to check the alarm clock they have set.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "time": {
+              "type": "str",
+              "description": "The time for alarm. Format: %Y-%m-%d %H:%M:%S"
+            }
+          },
+          "output_parameters": {
+            "info": {
+              "type": "json",
+              "description": "alarm info including username, time, content and location"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "QueryAlarm-level-3-1.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user4",
+      "password": "user4pass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "user4",
+        "password": "user4pass"
+      },
+      "output": {
+        "token": "q9w8e7r6t5y4u3i2o1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='user4', password='user4pass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "user4",
+        "password": "user4pass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"user4\", \"password\": \"user4pass\"}, \"output\": {\"token\": \"q9w8e7r6t5y4u3i2o1\"}, \"exception\": null}"
+  },
+  {
+    "file": "QueryAlarm-level-3-1.jsonl",
+    "step": 10,
+    "expected_api": "QueryAlarm",
+    "expected_parameters": {
+      "token": "q9w8e7r6t5y4u3i2o1",
+      "time": "2023-03-25 14:10:00"
+    },
+    "expected_result": {
+      "api_name": "QueryAlarm",
+      "input": {
+        "token": "q9w8e7r6t5y4u3i2o1",
+        "time": "2023-03-25 14:10:00"
+      },
+      "output": {
+        "time": "2023-03-25 14:10:00",
+        "username": "user4"
+      },
+      "exception": null
+    },
+    "generated": "[QueryAlarm(token='q9w8e7r6t5y4u3i2o1', time='2023-03-25 14:10:00')]",
+    "parsed": [
+      "QueryAlarm",
+      {
+        "token": "q9w8e7r6t5y4u3i2o1",
+        "time": "2023-03-25 14:10:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"QueryAlarm\", \"input\": {\"token\": \"q9w8e7r6t5y4u3i2o1\", \"time\": \"2023-03-25 14:10:00\"}, \"output\": {\"time\": \"2023-03-25 14:10:00\", \"username\": \"user4\"}, \"exception\": null}"
+  },
+  {
+    "file": "QueryBalance-level-3-1.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "bar"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "foo",
+        "password": "bar"
+      },
+      "output": {
+        "token": "z9x8c7v6b5n4m3q2w1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='foo', password='bar')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "foo",
+        "password": "bar"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"foo\", \"password\": \"bar\"}, \"output\": {\"token\": \"z9x8c7v6b5n4m3q2w1\"}, \"exception\": null}"
+  },
+  {
+    "file": "QueryBalance-level-3-1.jsonl",
+    "step": 6,
+    "expected_api": "QueryBalance",
+    "expected_parameters": {
+      "token": "z9x8c7v6b5n4m3q2w1"
+    },
+    "expected_result": {
+      "api_name": "QueryBalance",
+      "input": {
+        "token": "z9x8c7v6b5n4m3q2w1"
+      },
+      "output": 682.01,
+      "exception": null
+    },
+    "generated": "[QueryBalance(token='z9x8c7v6b5n4m3q2w1')]",
+    "parsed": [
+      "QueryBalance",
+      {
+        "token": "z9x8c7v6b5n4m3q2w1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"QueryBalance\", \"input\": {\"token\": \"z9x8c7v6b5n4m3q2w1\"}, \"output\": 682.01, \"exception\": null}"
+  },
+  {
+    "file": "QueryBalance-level-3-2.jsonl",
+    "step": 4,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "foo",
+      "password": "bar"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "foo",
+        "password": "bar"
+      },
+      "output": {
+        "token": "z9x8c7v6b5n4m3q2w1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(key='{\"username\":\"foo\",\"password\":\"bar\"}')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "key": "{\"username\":\"foo\",\"password\":\"bar\"}"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "invalid_call",
+    "mock_passed": false,
+    "mock_result": "invalid parameter name: key"
+  },
+  {
+    "file": "QueryBalance-level-3-2.jsonl",
+    "step": 6,
+    "expected_api": "QueryBalance",
+    "expected_parameters": {
+      "token": "z9x8c7v6b5n4m3q2w1"
+    },
+    "expected_result": {
+      "api_name": "QueryBalance",
+      "input": {
+        "token": "z9x8c7v6b5n4m3q2w1"
+      },
+      "output": 682.01,
+      "exception": null
+    },
+    "generated": "[QueryBalance(token='z9x8c7v6b5n4m3q2w1')]",
+    "parsed": [
+      "QueryBalance",
+      {
+        "token": "z9x8c7v6b5n4m3q2w1"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"QueryBalance\", \"input\": {\"token\": \"z9x8c7v6b5n4m3q2w1\"}, \"output\": 682.01, \"exception\": null}"
+  },
+  {
+    "file": "QueryHealthData-level-3-1.jsonl",
+    "step": 4,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "QueryHealthData"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "QueryHealthData"
+      },
+      "output": {
+        "name": "QueryHealthData",
+        "description": "This API queries the recorded health data in database of a given user and time span.",
+        "input_parameters": {
+          "user_id": {
+            "type": "str",
+            "description": "The user id of the given user. Cases are ignored."
+          },
+          "start_time": {
+            "type": "str",
+            "description": "The start time of the time span. Format: %Y-%m-%d %H:%M:%S"
+          },
+          "end_time": {
+            "type": "str",
+            "description": "The end time of the time span. Format: %Y-%m-%d %H:%M:%S"
+          }
+        },
+        "output_parameters": {
+          "health_data": {
+            "type": "list",
+            "description": "The health data of the given user and time span."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[QueryHealthData(user_id='F24681', start_time='2023-03-13 00:00:00', end_time='2023-",
+    "parsed": null,
+    "agent_request_status": "truncated",
+    "agent_error": "The response reached the output token limit",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "QueryHealthData-level-3-1.jsonl",
+    "step": 8,
+    "expected_api": "QueryHealthData",
+    "expected_parameters": {
+      "user_id": "F24681",
+      "start_time": "2023-03-13 08:00:00",
+      "end_time": "2023-03-14 18:00:00"
+    },
+    "expected_result": {
+      "api_name": "QueryHealthData",
+      "input": {
+        "user_id": "F24681",
+        "start_time": "2023-03-13 08:00:00",
+        "end_time": "2023-03-14 18:00:00"
+      },
+      "output": [
+        {
+          "time": "2023-03-13 18:15:00",
+          "blood_sugar": 102,
+          "heart_rate": 95
+        }
+      ],
+      "exception": null
+    },
+    "generated": "[QueryHealthData(user_id='F24681', start_time='2023-03-13 08:00:00', end_time='2023-03-14 18:00:00')]",
+    "parsed": [
+      "QueryHealthData",
+      {
+        "user_id": "F24681",
+        "start_time": "2023-03-13 08:00:00",
+        "end_time": "2023-03-14 18:00:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"QueryHealthData\", \"input\": {\"user_id\": \"F24681\", \"start_time\": \"2023-03-13 08:00:00\", \"end_time\": \"2023-03-14 18:00:00\"}, \"output\": [{\"time\": \"2023-03-13 18:15:00\", \"blood_sugar\": 102, \"heart_rate\": 95}], \"exception\": null}"
+  },
+  {
+    "file": "QueryHistoryToday-level-3-2.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "history October 6 2023"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "history October 6 2023"
+      },
+      "output": {
+        "name": "QueryHistoryToday",
+        "description": "This API queries the history of a given user today.",
+        "input_parameters": {
+          "date": {
+            "type": "str",
+            "description": "The date of the history. Format: %m-%d"
+          }
+        },
+        "output_parameters": {
+          "history": {
+            "type": "list",
+            "description": "The history of the user today."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[QueryHistoryToday(date='10-06')]",
+    "parsed": [
+      "QueryHistoryToday",
+      {
+        "date": "10-06"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('date')"
+  },
+  {
+    "file": "QueryHistoryToday-level-3-2.jsonl",
+    "step": 3,
+    "expected_api": "QueryHistoryToday",
+    "expected_parameters": {
+      "date": "10-06"
+    },
+    "expected_result": {
+      "api_name": "QueryHistoryToday",
+      "input": {
+        "date": "10-06"
+      },
+      "output": [
+        "Title: The Opening of the Second Vatican Council, Date: 1962-10-06, Description: The Second Vatican Council, a meeting of Catholic bishops from around the world aimed at modernizing the Catholic Church, opened on this day in Rome.",
+        "Title: The Death of Ralph Vaughan Williams, Date: 1958-10-06, Description: Ralph Vaughan Williams, the English composer known for his works such as The Lark Ascending, Fantasia on a Theme by Thomas Tallis, and the opera Riders to the Sea, died on this day in London, England.",
+        "Title: The Birth of Carole Lombard, Date: 1908-10-06, Description: Carole Lombard, the American actress known for her roles in films such as My Man Godfrey, To Be or Not to Be, and Nothing Sacred, was born on this day in Fort Wayne, Indiana.",
+        "Title: The Death of Thomas Hodgkin, Date: 1866-10-06, Description: Thomas Hodgkin, the English physician and pathologist known for his work on diseases such as Hodgkin's lymphoma, died on this day in Jaffa, Palestine (now part of Israel).",
+        "Title: The Birth of Thor Heyerdahl, Date: 1914-10-06, Description: Thor Heyerdahl, the Norwegian adventurer and ethnographer known for his voyages on the Kon-Tiki and Ra II rafts, was born on this day in Larvik, Norway."
+      ],
+      "exception": null
+    },
+    "generated": "[QueryHistoryToday(date='10-06')]",
+    "parsed": [
+      "QueryHistoryToday",
+      {
+        "date": "10-06"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"QueryHistoryToday\", \"input\": {\"date\": \"10-06\"}, \"output\": [\"Title: The Opening of the Second Vatican Council, Date: 1962-10-06, Description: The Second Vatican Council, a meeting of Catholic bishops from around the world aimed at modernizing the Catholic Church, opened on this day in Rome.\", \"Title: The Death of Ralph Vaughan Williams, Date: 1958-10-06, Description: Ralph Vaughan Williams, the English composer known for his works such as The Lark Ascending, Fantasia on a Theme by Thomas Tallis, and the opera Riders to the Sea, died on this day in London, England.\", \"Title: The Birth of Carole Lombard, Date: 1908-10-06, Description: Carole Lombard, the American actress known for her roles in films such as My Man Godfrey, To Be or Not to Be, and Nothing Sacred, was born on this day in Fort Wayne, Indiana.\", \"Title: The Death of Thomas Hodgkin, Date: 1866-10-06, Description: Thomas Hodgkin, the English physician and pathologist known for his work on diseases such as Hodgkin's lymphoma, died on this day in Jaffa, Palestine (now part of Israel).\", \"Title: The Birth of Thor Heyerdahl, Date: 1914-10-06, Description: Thor Heyerdahl, the Norwegian adventurer and ethnographer known for his voyages on the Kon-Tiki and Ra II rafts, was born on this day in Larvik, Norway.\"], \"exception\": null}"
+  },
+  {
+    "file": "QueryHistoryToday-level-3-3.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "history October 6th"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "history October 6th"
+      },
+      "output": {
+        "name": "QueryHistoryToday",
+        "description": "This API queries the history of a given user today.",
+        "input_parameters": {
+          "date": {
+            "type": "str",
+            "description": "The date of the history. Format: %m-%d"
+          }
+        },
+        "output_parameters": {
+          "history": {
+            "type": "list",
+            "description": "The history of the user today."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[QueryHistoryToday(date='10-06')]",
+    "parsed": [
+      "QueryHistoryToday",
+      {
+        "date": "10-06"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('date')"
+  },
+  {
+    "file": "QueryHistoryToday-level-3-3.jsonl",
+    "step": 3,
+    "expected_api": "QueryHistoryToday",
+    "expected_parameters": {
+      "date": "10-06"
+    },
+    "expected_result": {
+      "api_name": "QueryHistoryToday",
+      "input": {
+        "date": "10-06"
+      },
+      "output": [
+        "Title: The Opening of the Second Vatican Council, Date: 1962-10-06, Description: The Second Vatican Council, a meeting of Catholic bishops from around the world aimed at modernizing the Catholic Church, opened on this day in Rome.",
+        "Title: The Death of Ralph Vaughan Williams, Date: 1958-10-06, Description: Ralph Vaughan Williams, the English composer known for his works such as The Lark Ascending, Fantasia on a Theme by Thomas Tallis, and the opera Riders to the Sea, died on this day in London, England.",
+        "Title: The Birth of Carole Lombard, Date: 1908-10-06, Description: Carole Lombard, the American actress known for her roles in films such as My Man Godfrey, To Be or Not to Be, and Nothing Sacred, was born on this day in Fort Wayne, Indiana.",
+        "Title: The Death of Thomas Hodgkin, Date: 1866-10-06, Description: Thomas Hodgkin, the English physician and pathologist known for his work on diseases such as Hodgkin's lymphoma, died on this day in Jaffa, Palestine (now part of Israel).",
+        "Title: The Birth of Thor Heyerdahl, Date: 1914-10-06, Description: Thor Heyerdahl, the Norwegian adventurer and ethnographer known for his voyages on the Kon-Tiki and Ra II rafts, was born on this day in Larvik, Norway."
+      ],
+      "exception": null
+    },
+    "generated": "[QueryHistoryToday(date='10-06')]",
+    "parsed": [
+      "QueryHistoryToday",
+      {
+        "date": "10-06"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"QueryHistoryToday\", \"input\": {\"date\": \"10-06\"}, \"output\": [\"Title: The Opening of the Second Vatican Council, Date: 1962-10-06, Description: The Second Vatican Council, a meeting of Catholic bishops from around the world aimed at modernizing the Catholic Church, opened on this day in Rome.\", \"Title: The Death of Ralph Vaughan Williams, Date: 1958-10-06, Description: Ralph Vaughan Williams, the English composer known for his works such as The Lark Ascending, Fantasia on a Theme by Thomas Tallis, and the opera Riders to the Sea, died on this day in London, England.\", \"Title: The Birth of Carole Lombard, Date: 1908-10-06, Description: Carole Lombard, the American actress known for her roles in films such as My Man Godfrey, To Be or Not to Be, and Nothing Sacred, was born on this day in Fort Wayne, Indiana.\", \"Title: The Death of Thomas Hodgkin, Date: 1866-10-06, Description: Thomas Hodgkin, the English physician and pathologist known for his work on diseases such as Hodgkin's lymphoma, died on this day in Jaffa, Palestine (now part of Israel).\", \"Title: The Birth of Thor Heyerdahl, Date: 1914-10-06, Description: Thor Heyerdahl, the Norwegian adventurer and ethnographer known for his voyages on the Kon-Tiki and Ra II rafts, was born on this day in Larvik, Norway.\"], \"exception\": null}"
+  },
+  {
+    "file": "QueryMeeting-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "meeting reservation query"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "meeting reservation query"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "AddMeeting",
+          "description": "This API allows users to make a reservation for a meeting and store the meeting information in the database.Function\uff1aAllow users to make a reservation for a meeting.Exception Handling\uff1a1. If the reservation is successful, return a success message.2. If the reservation fails, return a corresponding error message.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "meeting_topic": {
+              "type": "str",
+              "description": "The title of the meeting, no more than 50 characters."
+            },
+            "start_time": {
+              "type": "str",
+              "description": "The start time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S"
+            },
+            "end_time": {
+              "type": "str",
+              "description": "The end time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S"
+            },
+            "location": {
+              "type": "str",
+              "description": "The location where the meeting to be held, no more than 100 characters."
+            },
+            "attendees": {
+              "type": "list(str)",
+              "description": "The attendees of the meeting, including names, positions and other information."
+            }
+          },
+          "output_parameters": {
+            "status": {
+              "type": "str",
+              "description": "success or failed"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "QueryMeeting-level-3-1.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "testuser",
+      "password": "testpass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "testuser",
+        "password": "testpass"
+      },
+      "output": {
+        "token": "p9o8i7u6y5t4k3e2w1q"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='testuser', password='testpass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "testuser",
+        "password": "testpass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"testuser\", \"password\": \"testpass\"}, \"output\": {\"token\": \"p9o8i7u6y5t4k3e2w1q\"}, \"exception\": null}"
+  },
+  {
+    "file": "QueryMeeting-level-3-1.jsonl",
+    "step": 8,
+    "expected_api": "QueryMeeting",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4k3e2w1q",
+      "meeting_topic": "Marketing Campaign Planning",
+      "start_time": "2023-03-22 09:00:00",
+      "end_time": "2023-03-22 11:00:00",
+      "location": "Marketing Department",
+      "attendees": "['Karen Zhang', 'Mark Brown', 'Timothy Lee']"
+    },
+    "expected_result": {
+      "api_name": "QueryMeeting",
+      "input": {
+        "token": "p9o8i7u6y5t4k3e2w1q",
+        "meeting_topic": "Marketing Campaign Planning",
+        "start_time": "2023-03-22 09:00:00",
+        "end_time": "2023-03-22 11:00:00",
+        "location": "Marketing Department",
+        "attendees": [
+          "Karen Zhang",
+          "Mark Brown",
+          "Timothy Lee"
+        ]
+      },
+      "output": {
+        "meeting_topic": "Marketing Campaign Planning",
+        "start_time": "2023-03-22 09:00:00",
+        "end_time": "2023-03-22 11:00:00",
+        "location": "Marketing Department",
+        "attendees": [
+          "Karen Zhang",
+          "Mark Brown",
+          "Timothy Lee"
+        ],
+        "username": "testuser"
+      },
+      "exception": null
+    },
+    "generated": "[QueryMeeting(token='p9o8i7u6y5t4k3e2w1q', meeting_topic='Marketing Campaign Planning', start_time='2024-03-22 09:00:00', location='Marketing Department')]",
+    "parsed": [
+      "QueryMeeting",
+      {
+        "token": "p9o8i7u6y5t4k3e2w1q",
+        "meeting_topic": "Marketing Campaign Planning",
+        "start_time": "2024-03-22 09:00:00",
+        "location": "Marketing Department"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "TypeError(\"QueryMeeting.call() missing 2 required positional arguments: 'end_time' and 'attendees'\")"
+  },
+  {
+    "file": "QueryMeeting-level-3-2.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "query meeting"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "query meeting"
+      },
+      "output": [
+        {
+          "name": "GetUserToken",
+          "description": "Get the user token.",
+          "input_parameters": {
+            "username": {
+              "type": "str",
+              "description": "The username of the user."
+            },
+            "password": {
+              "type": "str",
+              "description": "The password of the user."
+            }
+          },
+          "output_parameters": {
+            "token": {
+              "type": "str",
+              "description": "The token of the user."
+            }
+          },
+          "desc_for_search": "get user tokenGet the user token."
+        },
+        {
+          "name": "QueryMeeting",
+          "description": "This API allows users to query a reservation for a meeting.Function\uff1aQuery infomation for a meeting.Exception Handling\uff1a1. If the Query is successful, return a meeting infomation with json.2. If the Query fails, return a error message.",
+          "input_parameters": {
+            "token": {
+              "type": "str",
+              "description": "User's token."
+            },
+            "meeting_topic": {
+              "type": "str",
+              "description": "The title of the meeting, no more than 50 characters."
+            },
+            "start_time": {
+              "type": "str",
+              "description": "The start time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S"
+            },
+            "end_time": {
+              "type": "str",
+              "description": "The end time of the meeting, in the pattern of %Y-%m-%d %H:%M:%S"
+            },
+            "location": {
+              "type": "str",
+              "description": "The location where the meeting to be held, no more than 100 characters."
+            },
+            "attendees": {
+              "type": "list(str)",
+              "description": "The attendees of the meeting, including names, positions and other information."
+            }
+          },
+          "output_parameters": {
+            "meeting_info": {
+              "type": "json",
+              "description": "meeting info"
+            }
+          }
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "QueryMeeting-level-3-2.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "testuser",
+      "password": "testpass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "testuser",
+        "password": "testpass"
+      },
+      "output": {
+        "token": "p9o8i7u6y5t4k3e2w1q"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='testuser', password='testpass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "testuser",
+        "password": "testpass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"testuser\", \"password\": \"testpass\"}, \"output\": {\"token\": \"p9o8i7u6y5t4k3e2w1q\"}, \"exception\": null}"
+  },
+  {
+    "file": "QueryMeeting-level-3-2.jsonl",
+    "step": 8,
+    "expected_api": "QueryMeeting",
+    "expected_parameters": {
+      "token": "p9o8i7u6y5t4k3e2w1q",
+      "meeting_topic": "Marketing Campaign Planning",
+      "start_time": "2023-03-22 09:00:00",
+      "end_time": "2023-03-22 11:00:00",
+      "location": "Marketing Department",
+      "attendees": "['Karen Zhang', 'Mark Brown', 'Timothy Lee']"
+    },
+    "expected_result": {
+      "api_name": "QueryMeeting",
+      "input": {
+        "token": "p9o8i7u6y5t4k3e2w1q",
+        "start_time": "2023-03-22 09:00:00",
+        "end_time": "2023-03-22 11:00:00",
+        "location": "Marketing Department",
+        "attendees": [
+          "Karen Zhang",
+          "Mark Brown",
+          "Timothy Lee"
+        ]
+      },
+      "output": {
+        "meeting_topic": "Marketing Campaign Planning",
+        "start_time": "2023-03-22 09:00:00",
+        "end_time": "2023-03-22 11:00:00",
+        "location": "Marketing Department",
+        "attendees": [
+          "Karen Zhang",
+          "Mark Brown",
+          "Timothy Lee"
+        ],
+        "username": "testuser"
+      },
+      "exception": null
+    },
+    "generated": "[QueryMeeting(token='p9o8i7u6y5t4k3e2w1q', meeting_topic='Marketing Campaign Planning', start_time='2023-03-22 09:00:00', end_time='2023-03-22 11:00:00', location='Marketing Department', attendees=['Karen Zhang', 'Mark Brown', 'Timothy Lee'])]",
+    "parsed": [
+      "QueryMeeting",
+      {
+        "token": "p9o8i7u6y5t4k3e2w1q",
+        "meeting_topic": "Marketing Campaign Planning",
+        "start_time": "2023-03-22 09:00:00",
+        "end_time": "2023-03-22 11:00:00",
+        "location": "Marketing Department",
+        "attendees": [
+          "Karen Zhang",
+          "Mark Brown",
+          "Timothy Lee"
+        ]
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"QueryMeeting\", \"input\": {\"token\": \"p9o8i7u6y5t4k3e2w1q\", \"start_time\": \"2023-03-22 09:00:00\", \"end_time\": \"2023-03-22 11:00:00\", \"location\": \"Marketing Department\", \"attendees\": [\"Karen Zhang\", \"Mark Brown\", \"Timothy Lee\"]}, \"output\": {\"meeting_topic\": \"Marketing Campaign Planning\", \"start_time\": \"2023-03-22 09:00:00\", \"end_time\": \"2023-03-22 11:00:00\", \"location\": \"Marketing Department\", \"attendees\": [\"Karen Zhang\", \"Mark Brown\", \"Timothy Lee\"], \"username\": \"testuser\"}, \"exception\": null}"
+  },
+  {
+    "file": "QueryRegistration-level-3-1.jsonl",
+    "step": 1,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "registration query patient"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "registration query patient"
+      },
+      "output": {
+        "name": "QueryRegistration",
+        "description": "This API queries the registration of a patient given patient ID.",
+        "input_parameters": {
+          "patient_name": {
+            "type": "str",
+            "description": "The name of patient."
+          },
+          "date": {
+            "type": "str",
+            "description": "The date of appointment. Format be like %Y-%m-%d"
+          }
+        },
+        "output_parameters": {
+          "appointments": {
+            "type": "list",
+            "description": "The dict where from appointment_id to a list like [\"patient_name\":xxx, \"date\":xxx, \"doctor_name\":xxx]"
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[QueryRegistration(patient_name='12345678', date='2023-04-12')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "patient_name": "12345678",
+        "date": "2023-04-12"
+      }
+    ],
+    "agent_request_status": "truncated",
+    "agent_error": "The response reached the output token limit",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('patient_name')"
+  },
+  {
+    "file": "QueryRegistration-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "John Doe",
+      "date": "2023-04-12"
+    },
+    "expected_result": {
+      "api_name": "QueryRegistration",
+      "input": {
+        "patient_name": "John Doe",
+        "date": "2023-04-12"
+      },
+      "output": {
+        "12345678": {
+          "patient_name": "John Doe",
+          "date": "2023-04-12",
+          "doctor_name": "Dr. Smith"
+        }
+      },
+      "exception": null
+    },
+    "generated": "[QueryRegistration(patient_name='12345678', date='2023-04-12')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "patient_name": "12345678",
+        "date": "2023-04-12"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"QueryRegistration\", \"input\": {\"patient_name\": \"12345678\", \"date\": \"2023-04-12\"}, \"output\": null, \"exception\": \"No appointments found.\"}"
+  },
+  {
+    "file": "QueryRegistration-level-3-2.jsonl",
+    "step": 3,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "Query Registration"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "Query Registration"
+      },
+      "output": {
+        "name": "QueryRegistration",
+        "description": "This API queries the registration of a patient given patient ID.",
+        "input_parameters": {
+          "patient_name": {
+            "type": "str",
+            "description": "The name of patient."
+          },
+          "date": {
+            "type": "str",
+            "description": "The date of appointment. Format be like %Y-%m-%d"
+          }
+        },
+        "output_parameters": {
+          "appointments": {
+            "type": "list",
+            "description": "The dict where from appointment_id to a list like [\"patient_name\":xxx, \"date\":xxx, \"doctor_name\":xxx]"
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[QueryRegistration(patient_name='John Doe', date='2026-04-12')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "patient_name": "John Doe",
+        "date": "2026-04-12"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('patient_name')"
+  },
+  {
+    "file": "QueryRegistration-level-3-2.jsonl",
+    "step": 4,
+    "expected_api": "QueryRegistration",
+    "expected_parameters": {
+      "patient_name": "John Doe",
+      "date": "2023-04-12"
+    },
+    "expected_result": {
+      "api_name": "QueryRegistration",
+      "input": {
+        "patient_name": "John Doe",
+        "date": "2023-04-12"
+      },
+      "output": {
+        "12345678": {
+          "patient_name": "John Doe",
+          "date": "2023-04-12",
+          "doctor_name": "Dr. Smith"
+        }
+      },
+      "exception": null
+    },
+    "generated": "[QueryRegistration(patient_name='John Doe', date='2024-04-12')]",
+    "parsed": [
+      "QueryRegistration",
+      {
+        "patient_name": "John Doe",
+        "date": "2024-04-12"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"QueryRegistration\", \"input\": {\"patient_name\": \"John Doe\", \"date\": \"2024-04-12\"}, \"output\": null, \"exception\": \"No appointments found.\"}"
+  },
+  {
+    "file": "QueryReminder-level-3-1.jsonl",
+    "step": 5,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user2",
+      "password": "user2pass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "user2",
+        "password": "user2pass"
+      },
+      "output": {
+        "token": "o9i8u7y6t5r4e3w2q1"
+      },
+      "exception": null
+    },
+    "generated": "[GetUserToken(username='user2', password='user2pass')]",
+    "parsed": [
+      "GetUserToken",
+      {
+        "username": "user2",
+        "password": "user2pass"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"GetUserToken\", \"input\": {\"username\": \"user2\", \"password\": \"user2pass\"}, \"output\": {\"token\": \"o9i8u7y6t5r4e3w2q1\"}, \"exception\": null}"
+  },
+  {
+    "file": "QueryReminder-level-3-2.jsonl",
+    "step": 2,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "user2",
+      "password": "user2pass"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "user2",
+        "password": "user2pass"
+      },
+      "output": {
+        "token": "o9i8u7y6t5r4e3w2q1"
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "QueryReminder-level-3-2.jsonl",
+    "step": 3,
+    "expected_api": "QueryReminder",
+    "expected_parameters": {
+      "token": "o9i8u7y6t5r4e3w2q1",
+      "content": "Book flight tickets",
+      "time": "2023-03-22 08:00:00"
+    },
+    "expected_result": {
+      "api_name": "QueryReminder",
+      "input": {
+        "token": "o9i8u7y6t5r4e3w2q1",
+        "content": "Book flight tickets",
+        "time": "2023-03-22 08:00:00"
+      },
+      "output": {
+        "content": "Book flight tickets",
+        "time": "2023-03-22 08:00:00",
+        "username": "user2"
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "QueryStock-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "Query Stock"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "Query Stock"
+      },
+      "output": {
+        "name": "QueryStock",
+        "description": "This API queries the stock price of a given stock.",
+        "input_parameters": {
+          "stock_code": {
+            "type": "str",
+            "description": "The stock code of the given stock."
+          },
+          "date": {
+            "type": "str",
+            "description": "The date of the stock price. Format: %Y-%m-%d"
+          }
+        },
+        "output_parameters": {
+          "stock_price": {
+            "type": "float",
+            "description": "The stock price of the given stock."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[QueryStock(stock_code='MSFT', date='2022-02-04')]",
+    "parsed": [
+      "QueryStock",
+      {
+        "stock_code": "MSFT",
+        "date": "2022-02-04"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('stock_code')"
+  },
+  {
+    "file": "QueryStock-level-3-1.jsonl",
+    "step": 3,
+    "expected_api": "QueryStock",
+    "expected_parameters": {
+      "stock_code": "MSFT",
+      "date": "2022-02-04"
+    },
+    "expected_result": {
+      "api_name": "QueryStock",
+      "input": {
+        "stock_code": "MSFT",
+        "date": "2022-02-04"
+      },
+      "output": 338.9,
+      "exception": null
+    },
+    "generated": "[QueryStock(stock_code='MSFT', date='2022-02-04')]",
+    "parsed": [
+      "QueryStock",
+      {
+        "stock_code": "MSFT",
+        "date": "2022-02-04"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": true,
+    "passed": true,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"QueryStock\", \"input\": {\"stock_code\": \"MSFT\", \"date\": \"2022-02-04\"}, \"output\": 338.9, \"exception\": null}"
+  },
+  {
+    "file": "RecordHealthData-level-3-1.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "health record"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "health record"
+      },
+      "output": {
+        "name": "RecordHealthData",
+        "description": "This API records the health history of a patient given user ID, time and health data.",
+        "input_parameters": {
+          "user_id": {
+            "type": "str",
+            "description": "The ID of user."
+          },
+          "time": {
+            "type": "str",
+            "description": "The time of health data. Format: %Y-%m-%d %H:%M:%S"
+          },
+          "health_data": {
+            "type": "list",
+            "description": "The health data, with the format like [{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+          }
+        },
+        "output_parameters": {
+          "status": {
+            "type": "str",
+            "description": "The status of recording."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "RecordHealthData-level-3-1.jsonl",
+    "step": 8,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "ABC123",
+      "time": "2023-10-18 09:30:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '140/80'}, {'name': 'heart_rate', 'value': '70'}]"
+    },
+    "expected_result": {
+      "api_name": "RecordHealthData",
+      "input": {
+        "user_id": "ABC123",
+        "time": "2023-10-18 09:30:00",
+        "health_data": [
+          {
+            "name": "blood_pressure",
+            "value": "140/80"
+          },
+          {
+            "name": "heart_rate",
+            "value": "70"
+          }
+        ]
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[RecordHealthData(user_id='ABC123', time='2023-10-18 09:30:00', health_data=[{'name': 'blood_pressure', 'value': '140/80'}, {'name': 'heart_rate', 'value': '70'}])]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "user_id": "ABC123",
+        "time": "2023-10-18 09:30:00",
+        "health_data": [
+          {
+            "name": "blood_pressure",
+            "value": "140/80"
+          },
+          {
+            "name": "heart_rate",
+            "value": "70"
+          }
+        ]
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"RecordHealthData\", \"input\": {\"user_id\": \"ABC123\", \"time\": \"2023-10-18 09:30:00\", \"health_data\": [{\"name\": \"blood_pressure\", \"value\": \"140/80\"}, {\"name\": \"heart_rate\", \"value\": \"70\"}]}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "RecordHealthData-level-3-2.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "record health data"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "record health data"
+      },
+      "output": {
+        "name": "RecordHealthData",
+        "description": "This API records the health history of a patient given user ID, time and health data.",
+        "input_parameters": {
+          "user_id": {
+            "type": "str",
+            "description": "The ID of user."
+          },
+          "time": {
+            "type": "str",
+            "description": "The time of health data. Format: %Y-%m-%d %H:%M:%S"
+          },
+          "health_data": {
+            "type": "list",
+            "description": "The health data, with the format like [{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+          }
+        },
+        "output_parameters": {
+          "status": {
+            "type": "str",
+            "description": "The status of recording."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "RecordHealthData-level-3-2.jsonl",
+    "step": 8,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "123ABC",
+      "time": "2023-10-15 09:00:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '70 bpm'}]"
+    },
+    "expected_result": {
+      "api_name": "RecordHealthData",
+      "input": {
+        "user_id": "123ABC",
+        "time": "2023-10-15 09:00:00",
+        "health_data": [
+          {
+            "name": "blood_pressure",
+            "value": "120/80"
+          },
+          {
+            "name": "heart_rate",
+            "value": "70 bpm"
+          }
+        ]
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[RecordHealthData(user_id='123ABC', time='2023-10-15 09:00:00', health_data=[{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '70'}])]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "user_id": "123ABC",
+        "time": "2023-10-15 09:00:00",
+        "health_data": [
+          {
+            "name": "blood_pressure",
+            "value": "120/80"
+          },
+          {
+            "name": "heart_rate",
+            "value": "70"
+          }
+        ]
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"RecordHealthData\", \"input\": {\"user_id\": \"123ABC\", \"time\": \"2023-10-15 09:00:00\", \"health_data\": [{\"name\": \"blood_pressure\", \"value\": \"120/80\"}, {\"name\": \"heart_rate\", \"value\": \"70\"}]}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "RecordHealthData-level-3-3.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "record health data"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "record health data"
+      },
+      "output": {
+        "name": "RecordHealthData",
+        "description": "This API records the health history of a patient given user ID, time and health data.",
+        "input_parameters": {
+          "user_id": {
+            "type": "str",
+            "description": "The ID of user."
+          },
+          "time": {
+            "type": "str",
+            "description": "The time of health data. Format: %Y-%m-%d %H:%M:%S"
+          },
+          "health_data": {
+            "type": "list",
+            "description": "The health data, with the format like [{'name': 'blood_pressure', 'value': '120/80'}, {'name': 'heart_rate', 'value': '80'}]"
+          }
+        },
+        "output_parameters": {
+          "status": {
+            "type": "str",
+            "description": "The status of recording."
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "RecordHealthData-level-3-3.jsonl",
+    "step": 10,
+    "expected_api": "RecordHealthData",
+    "expected_parameters": {
+      "user_id": "1234",
+      "time": "2023-06-05 14:30:00",
+      "health_data": "[{'name': 'blood_pressure', 'value': '130/85'}, {'name': 'heart_rate', 'value': '75'}]"
+    },
+    "expected_result": {
+      "api_name": "RecordHealthData",
+      "input": {
+        "user_id": "1234",
+        "time": "2023-06-05 14:30:00",
+        "health_data": [
+          {
+            "name": "blood_pressure",
+            "value": "130/85"
+          },
+          {
+            "name": "heart_rate",
+            "value": "75"
+          }
+        ]
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[RecordHealthData(user_id='1234', time='2023-06-05 14:30:00', health_data=[{'name': 'blood_pressure', 'value': '130/85'}, {'name': 'heart_rate', 'value': '75'}])]",
+    "parsed": [
+      "RecordHealthData",
+      {
+        "user_id": "1234",
+        "time": "2023-06-05 14:30:00",
+        "health_data": [
+          {
+            "name": "blood_pressure",
+            "value": "130/85"
+          },
+          {
+            "name": "heart_rate",
+            "value": "75"
+          }
+        ]
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": true,
+    "mock_result": "{\"api_name\": \"RecordHealthData\", \"input\": {\"user_id\": \"1234\", \"time\": \"2023-06-05 14:30:00\", \"health_data\": [{\"name\": \"blood_pressure\", \"value\": \"130/85\"}, {\"name\": \"heart_rate\", \"value\": \"75\"}]}, \"output\": \"success\", \"exception\": null}"
+  },
+  {
+    "file": "SymptomSearch-level-3-1.jsonl",
+    "step": 4,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "rash"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "rash"
+      },
+      "output": {
+        "name": "SymptomSearch",
+        "description": "This API searches for a given symptom.",
+        "input_parameters": {
+          "symptom": {
+            "type": "str",
+            "description": "The symptom to search."
+          }
+        },
+        "output_parameters": {
+          "results": {
+            "type": "list",
+            "description": "The list of results. Format be like [{\"name\":possible disease name, \"description\": disease details},...]"
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[SymptomSearch(symptom='rash')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "symptom": "rash"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('symptom')"
+  },
+  {
+    "file": "SymptomSearch-level-3-1.jsonl",
+    "step": 10,
+    "expected_api": "SymptomSearch",
+    "expected_parameters": {
+      "symptom": "rash"
+    },
+    "expected_result": {
+      "api_name": "SymptomSearch",
+      "input": {
+        "symptom": "rash"
+      },
+      "output": [
+        {
+          "name": "Contact dermatitis",
+          "description": "A type of rash that occurs when the skin comes into contact with an irritant or allergen."
+        },
+        {
+          "name": "Eczema",
+          "description": "A chronic skin condition that can cause dry, itchy patches of skin."
+        }
+      ],
+      "exception": null
+    },
+    "generated": "[SymptomSearch(symptom='Contact dermatitis')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "symptom": "Contact dermatitis"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "success",
+    "mock_passed": false,
+    "mock_result": "{\"api_name\": \"SymptomSearch\", \"input\": {\"symptom\": \"Contact dermatitis\"}, \"output\": null, \"exception\": \"The symptom does not exist.\"}"
+  },
+  {
+    "file": "SymptomSearch-level-3-2.jsonl",
+    "step": 4,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "skin rash"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "skin rash"
+      },
+      "output": {
+        "name": "SymptomSearch",
+        "description": "This API searches for a given symptom.",
+        "input_parameters": {
+          "symptom": {
+            "type": "str",
+            "description": "The symptom to search."
+          }
+        },
+        "output_parameters": {
+          "results": {
+            "type": "list",
+            "description": "The list of results. Format be like [{\"name\":possible disease name, \"description\": disease details},...]"
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[SymptomSearch(symptom='red, bumpy rash on my arm')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "symptom": "red, bumpy rash on my arm"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('symptom')"
+  },
+  {
+    "file": "SymptomSearch-level-3-2.jsonl",
+    "step": 5,
+    "expected_api": "SymptomSearch",
+    "expected_parameters": {
+      "symptom": "rash"
+    },
+    "expected_result": {
+      "api_name": "SymptomSearch",
+      "input": {
+        "symptom": "rash"
+      },
+      "output": [
+        {
+          "name": "Contact dermatitis",
+          "description": "A type of rash that occurs when the skin comes into contact with an irritant or allergen."
+        },
+        {
+          "name": "Eczema",
+          "description": "A chronic skin condition that can cause dry, itchy patches of skin."
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "SymptomSearch-level-3-3.jsonl",
+    "step": 4,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "rash"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "rash"
+      },
+      "output": {
+        "name": "SymptomSearch",
+        "description": "This API searches for a given symptom.",
+        "input_parameters": {
+          "symptom": {
+            "type": "str",
+            "description": "The symptom to search."
+          }
+        },
+        "output_parameters": {
+          "results": {
+            "type": "list",
+            "description": "The list of results. Format be like [{\"name\":possible disease name, \"description\": disease details},...]"
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[SymptomSearch(symptom='rash')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "symptom": "rash"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('symptom')"
+  },
+  {
+    "file": "SymptomSearch-level-3-3.jsonl",
+    "step": 5,
+    "expected_api": "SymptomSearch",
+    "expected_parameters": {
+      "symptom": "rash"
+    },
+    "expected_result": {
+      "api_name": "SymptomSearch",
+      "input": {
+        "symptom": "rash"
+      },
+      "output": [
+        {
+          "name": "Contact dermatitis",
+          "description": "A type of rash that occurs when the skin comes into contact with an irritant or allergen."
+        },
+        {
+          "name": "Eczema",
+          "description": "A chronic skin condition that can cause dry, itchy patches of skin."
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "SymptomSearch-level-3-4.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "rash"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "rash"
+      },
+      "output": {
+        "name": "SymptomSearch",
+        "description": "This API searches for a given symptom.",
+        "input_parameters": {
+          "symptom": {
+            "type": "str",
+            "description": "The symptom to search."
+          }
+        },
+        "output_parameters": {
+          "results": {
+            "type": "list",
+            "description": "The list of results. Format be like [{\"name\":possible disease name, \"description\": disease details},...]"
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[SymptomSearch(symptom='rash')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "symptom": "rash"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('symptom')"
+  },
+  {
+    "file": "SymptomSearch-level-3-4.jsonl",
+    "step": 3,
+    "expected_api": "SymptomSearch",
+    "expected_parameters": {
+      "symptom": "rash"
+    },
+    "expected_result": {
+      "api_name": "SymptomSearch",
+      "input": {
+        "symptom": "rash"
+      },
+      "output": [
+        {
+          "name": "Contact dermatitis",
+          "description": "A type of rash that occurs when the skin comes into contact with an irritant or allergen."
+        },
+        {
+          "name": "Eczema",
+          "description": "A chronic skin condition that can cause dry, itchy patches of skin."
+        }
+      ],
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "empty",
+    "agent_error": "The model returned no message content",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "SymptomSearch-level-3-5.jsonl",
+    "step": 2,
+    "expected_api": "ToolSearcher",
+    "expected_parameters": {
+      "keywords": "illness rash"
+    },
+    "expected_result": {
+      "api_name": "ToolSearcher",
+      "input": {
+        "keywords": "illness rash"
+      },
+      "output": {
+        "name": "SymptomSearch",
+        "description": "This API searches for a given symptom.",
+        "input_parameters": {
+          "symptom": {
+            "type": "str",
+            "description": "The symptom to search."
+          }
+        },
+        "output_parameters": {
+          "results": {
+            "type": "list",
+            "description": "The list of results. Format be like [{\"name\":possible disease name, \"description\": disease details},...]"
+          }
+        }
+      },
+      "exception": null
+    },
+    "generated": "[SymptomSearch(symptom='rash')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "symptom": "rash"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "failed",
+    "mock_passed": false,
+    "mock_result": "KeyError('symptom')"
+  },
+  {
+    "file": "SymptomSearch-level-3-5.jsonl",
+    "step": 3,
+    "expected_api": "SymptomSearch",
+    "expected_parameters": {
+      "symptom": "rash"
+    },
+    "expected_result": {
+      "api_name": "SymptomSearch",
+      "input": {
+        "symptom": "rash"
+      },
+      "output": [
+        {
+          "name": "Contact dermatitis",
+          "description": "A type of rash that occurs when the skin comes into contact with an irritant or allergen."
+        },
+        {
+          "name": "Eczema",
+          "description": "A chronic skin condition that can cause dry, itchy patches of skin."
+        }
+      ],
+      "exception": null
+    },
+    "generated": "[SymptomSearch(key='rash')]",
+    "parsed": [
+      "SymptomSearch",
+      {
+        "key": "rash"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "invalid_call",
+    "mock_passed": false,
+    "mock_result": "invalid parameter name: key"
+  }
+]

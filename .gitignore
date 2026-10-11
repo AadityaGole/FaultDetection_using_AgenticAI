@@ -5,6 +5,9 @@
 *.env
 Vanilla_Method/AgentCoder/.env
 Vanilla_Method\AgentCoder\.env
+Agent Coder 2.0/.env
+Agent Coder 2.0/.env.*
+!Agent Coder 2.0/.env.example
 
 # Python byte code and caches
 __pycache__/
@@ -17,6 +20,7 @@ __pycache__/
 venv/
 env/
 ENV/
+Agent Coder 2.0/.venv/
 
 # Testing & coverage
 .pytest_cache/
@@ -27,6 +31,7 @@ htmlcov/
 
 # Experiment runs, evaluation artifacts & logs
 runs/
+Agent Coder 2.0/runs/
 *.log
 temp_logs/
 downloaded_files/

@@ -1,0 +1,51 @@
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+*.env
+Vanilla_Method/AgentCoder/.env
+Vanilla_Method\AgentCoder\.env
+
+# Python byte code and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Testing & coverage
+.pytest_cache/
+.hypothesis/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Experiment runs, evaluation artifacts & logs
+runs/
+*.log
+temp_logs/
+downloaded_files/
+
+# Benchmark runtime output artifacts
+*.pkl
+*.zip
+*.xlsx
+*.csv
+histogram.png
+test_image.png
+
+# IDE and Editor configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db

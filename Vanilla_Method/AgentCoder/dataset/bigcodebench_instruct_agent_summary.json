@@ -1,0 +1,17 @@
+{
+  "benchmark": "BigCodeBench",
+  "split": "instruct",
+  "model": "liquid/lfm-2.5-2.6b:free",
+  "count": 1140,
+  "evaluated": 1140,
+  "passed": 125,
+  "accuracy": 0.10964912280701754,
+  "pass_at_1": 0.10964912280701754,
+  "groundtruth_pass_rate": 0.9964912280701754,
+  "request_status": {
+    "empty": 775,
+    "success": 206,
+    "truncated": 99,
+    "failed": 60
+  }
+}

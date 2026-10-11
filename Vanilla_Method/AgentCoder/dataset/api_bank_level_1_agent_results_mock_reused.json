@@ -1,0 +1,96 @@
+[
+  {
+    "file": "AddAgenda-AddAlarm-GetUserToken-level-2-1.jsonl",
+    "step": 6,
+    "expected_api": "GetUserToken",
+    "expected_parameters": {
+      "username": "JaneSmith",
+      "password": "password"
+    },
+    "expected_result": {
+      "api_name": "GetUserToken",
+      "input": {
+        "username": "JaneSmith",
+        "password": "password"
+      },
+      "output": {
+        "token": "o8i7u6y5t4r3e2w1q0"
+      },
+      "exception": null
+    },
+    "generated": "",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AddAgenda-AddAlarm-GetUserToken-level-2-1.jsonl",
+    "step": 8,
+    "expected_api": "AddAgenda",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "content": "Meeting with John at the office",
+      "time": "2023-09-12 14:00:00",
+      "location": "office"
+    },
+    "expected_result": {
+      "api_name": "AddAgenda",
+      "input": {
+        "token": "o8i7u6y5t4r3e2w1q0",
+        "content": "Meeting with John at the office",
+        "time": "2023-09-12 14:00:00",
+        "location": "office"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[AddAgenda(title='Meeting with John', datetime='2024-09",
+    "parsed": null,
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "not_parseable",
+    "mock_passed": false,
+    "mock_result": "Generated output did not parse as an API call"
+  },
+  {
+    "file": "AddAgenda-AddAlarm-GetUserToken-level-2-1.jsonl",
+    "step": 10,
+    "expected_api": "AddAlarm",
+    "expected_parameters": {
+      "token": "o8i7u6y5t4r3e2w1q0",
+      "time": "2023-09-12 13:50:00"
+    },
+    "expected_result": {
+      "api_name": "AddAlarm",
+      "input": {
+        "token": "o8i7u6y5t4r3e2w1q0",
+        "time": "2023-09-12 13:50:00"
+      },
+      "output": "success",
+      "exception": null
+    },
+    "generated": "[AddAlarm(token='o8i7u6y5t4r3e2w1q0', content='Reminder: Meeting with John at the office', time='2023-09-12 13:50:00')]",
+    "parsed": [
+      "AddAlarm",
+      {
+        "token": "o8i7u6y5t4r3e2w1q0",
+        "content": "Reminder: Meeting with John at the office",
+        "time": "2023-09-12 13:50:00"
+      }
+    ],
+    "agent_request_status": "success",
+    "agent_error": "",
+    "exact_match_passed": false,
+    "passed": false,
+    "mock_status": "invalid_call",
+    "mock_passed": false,
+    "mock_result": "invalid parameter name: content"
+  }
+]

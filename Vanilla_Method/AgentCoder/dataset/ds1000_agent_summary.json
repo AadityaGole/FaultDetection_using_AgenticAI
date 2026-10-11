@@ -1,0 +1,45 @@
+{
+  "count": 1000,
+  "passed": 0,
+  "accuracy": 0.0,
+  "by_library": {
+    "Matplotlib": {
+      "count": 155,
+      "passed": 0,
+      "accuracy": 0.0
+    },
+    "Numpy": {
+      "count": 220,
+      "passed": 0,
+      "accuracy": 0.0
+    },
+    "Pandas": {
+      "count": 291,
+      "passed": 0,
+      "accuracy": 0.0
+    },
+    "Pytorch": {
+      "count": 68,
+      "passed": 0,
+      "accuracy": 0.0
+    },
+    "Scipy": {
+      "count": 106,
+      "passed": 0,
+      "accuracy": 0.0
+    },
+    "Sklearn": {
+      "count": 115,
+      "passed": 0,
+      "accuracy": 0.0
+    },
+    "Tensorflow": {
+      "count": 45,
+      "passed": 0,
+      "accuracy": 0.0
+    }
+  },
+  "request_status": {
+    "failed": 1000
+  }
+}

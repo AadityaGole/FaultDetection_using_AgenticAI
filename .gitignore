@@ -3,6 +3,8 @@
 .env.*
 !.env.example
 *.env
+Vanilla_Method/AgentCoder/.env
+Vanilla_Method\AgentCoder\.env
 
 # Python byte code and caches
 __pycache__/

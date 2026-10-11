@@ -1,0 +1,16 @@
+{
+  "level": 1,
+  "count": 3,
+  "passed": 0,
+  "accuracy": 0.0,
+  "request_status": {
+    "success": 3
+  },
+  "mock_checked": 0,
+  "mock_passed": 0,
+  "mock_accuracy": 0,
+  "mock_status": {
+    "not_parseable": 2,
+    "invalid_call": 1
+  }
+}

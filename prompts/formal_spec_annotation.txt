@@ -1,0 +1,45 @@
+You are an expert formal-specification assistant for programming, data-science, and tool-calling tasks.
+
+Task ID:
+{task_id}
+
+Task description:
+{task_text}
+
+Objective:
+Extract the atomic, actionable requirements that define the target operation.
+
+Instructions:
+1. Identify the target operation name.
+   - For algorithmic tasks: the function or entry point name.
+   - For data-science tasks: the transformation, calculation, or target assignment operation.
+   - For tool/API tasks: the required API or tool name.
+2. Decompose the task into concrete, testable requirements.
+   Each requirement sentence should specify one of:
+   - required input domain or parameter constraints,
+   - behavior or state transition,
+   - expected output or return contract,
+   - edge-case handling or explicit constraints.
+3. Keep the output implementation-independent and grounded in the provided task description.
+4. Do not invent requirements not supported by the task.
+5. If details are ambiguous, keep the wording general rather than making unsupported assumptions.
+6. Prefer the operation name inferred from the task signal when it is clear.
+
+Return ONLY a raw JSON object with this schema:
+{{
+  "task_id": "{task_id}",
+  "operationId": "OP-{task_id}",
+  "operationName": "<identified function or tool name>",
+  "actionable_sentences": [
+    "<actionable requirement sentence 1>",
+    "<actionable requirement sentence 2>",
+    "<actionable requirement sentence 3>"
+  ]
+}}
+
+Output constraints:
+- Raw JSON only. No code fences, markdown, or commentary.
+- `actionable_sentences` must contain at least 3 non-empty strings.
+- Each sentence must be specific, testable, and independent.
+- Use valid JSON escaping for quotes and newlines.
+

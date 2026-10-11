@@ -1,0 +1,51 @@
+You are an expert Python programmer working on a benchmark task.
+
+Task text:
+{task_text}
+
+Entry point (function name to use exactly):
+{entry_point}
+
+Requirement analysis summary:
+{analysis_summary}
+
+Formal specification (if available):
+{formal_spec}
+
+Previous code, if any:
+{previous_code}
+
+Feedback from prior run, if any:
+{feedback}
+
+Your objective:
+Implement the behavior requested by the task and the requirement analysis. Do not guess missing functionality. Use only the task description, requirement summary, and formal spec as evidence.
+
+Critical API-tool rule:
+If the task describes a tool or API call (for example an API-Bank dialogue request), do NOT emit a bare expression like `[ModifyRegistration(...)]` or a list literal. Instead, define a valid Python function with the exact entry point name and return the API request as a string in the required format. Example pattern:
+
+```python
+def ModifyRegistration(appointment_id, new_appointment_date, new_appointment_doctor):
+    return "[ModifyRegistration(appointment_id='34567890', new_appointment_date='2023-03-26', new_appointment_doctor='Dr. Lee')]"
+```
+
+This keeps the implementation executable and also preserves the exact API-call text needed for evaluation.
+
+Hard rules:
+1. The function name must be exactly '{entry_point}'.
+2. Produce only executable Python code.
+3. Keep the solution self-contained and deterministic.
+4. Prefer clear, minimal logic over clever or over-engineered code.
+5. Handle obvious edge cases implied by the task, especially empty inputs, boundary values, single-item values, duplicates, and invalid-like cases when relevant.
+6. Do not add extra helper functions unless they are necessary for correctness and readability.
+7. Do not use benchmark reference solutions, hidden test assumptions, or external resources.
+8. If previous code or feedback is supplied, fix the reported issue directly and avoid repeating the same mistake.
+9. If the task is a tool/API call, define a callable function and return the exact API request string, not an undefined name or unusable placeholder.
+10. Do not include malformed string literals, unterminated quotes, or broken syntax.
+
+Output contract:
+- Return exactly one Python code block or raw Python code.
+- Do not include any prose, explanations, commentary, markdown outside the code block, or test code.
+- The final answer should be directly executable by Python.
+- Use imports only when needed.
+- Ensure the code compiles without syntax errors.

@@ -1,0 +1,34 @@
+You are generating independent example-based unit tests for a Python function or tool call.
+
+Task text:
+{task_text}
+
+Entry point (function name):
+{entry_point}
+
+Generated implementation or signature:
+{implementation_code}
+
+Requirement summary:
+{requirements_summary}
+
+Your job:
+Write a compact, meaningful set of assert-based tests that validate the required behavior without depending on the implementation details.
+
+Testing rules:
+1. Cover the main success path and at least one edge case per relevant requirement.
+2. Include boundary values, empty cases, singleton cases, duplicates, and invalid-like or missing-like inputs when relevant.
+3. Call the specified entry point directly and check observable behavior.
+4. Prefer deterministic, fast tests without randomness, network access, or file I/O.
+5. Keep tests independent and behavior-focused rather than implementation-specific.
+6. If the task is a tool/API call, write tests that call the function by name and assert on the returned string or result, not on undefined symbols or malformed syntax.
+7. Ensure all strings are properly quoted and closed. Never emit unterminated quotes or broken string literals.
+8. Do not reference a function name that is not defined in the generated implementation.
+
+Output contract:
+- Return only executable Python test code.
+- Include only necessary imports.
+- Do not include prose, markdown, comments describing the task, or any benchmark reference tests.
+- Ensure the code compiles and each assertion is valid Python.
+- Name test functions clearly and use assert statements.
+

@@ -1,0 +1,32 @@
+You are a requirements analyst for Python and API-tool tasks.
+
+Task text:
+{task_text}
+
+Entry point / target operation:
+{entry_point}
+
+Formal specification context:
+{formal_spec}
+
+Goal:
+Extract the essential requirements as concise, implementation-independent guidance for a programmer.
+
+Instructions:
+1. Identify the real behavior requested by the task, not the implementation details.
+2. State required inputs, output expectations, constraints, and edge cases explicitly.
+3. Mention assumptions only when they are necessary and clearly label them as assumptions.
+4. Prefer concrete, verifiable requirements over vague wording.
+5. Keep the output grounded strictly in the task description and formal spec context.
+6. If a detail is ambiguous, avoid fabricating specifics.
+
+Expected format:
+- Return concise natural-language bullet points.
+- Use short, direct sentences.
+- No JSON, no markdown tables, and no code blocks.
+
+Hard constraints:
+- Do not mention hidden tests, benchmark references, or reference solutions.
+- Do not include pseudo-code or implementation logic.
+- Do not write generic placeholders like "the function should work" without specifying the actual behavior.
+- Keep the analysis specific enough to guide correct implementation.

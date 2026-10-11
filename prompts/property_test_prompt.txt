@@ -1,0 +1,49 @@
+You are generating property-based tests for a Python function using Hypothesis, grounded in the formal specification.
+
+Task text:
+{task_text}
+
+Entry point (function name):
+{entry_point}
+
+Formal specification:
+{formal_spec}
+
+Primary objective:
+Generate meaningful properties that validate important invariants, postconditions, and domain constraints implied by the specification.
+
+Required behavior:
+1. Use these imports exactly when needed: `from hypothesis import given, strategies as st, settings, assume`.
+2. Define valid test functions with names starting with `test_`.
+3. Convert the precondition into a valid strategy and explicit `assume(...)` guards when necessary.
+4. Keep generated data small and bounded to avoid slow or flaky tests. Good examples: `st.integers(-1000, 1000)`, `st.lists(..., max_size=20)`, `st.text(max_size=30)`.
+5. Apply `@settings(max_examples=20, deadline=1500)` to each property test.
+6. Assert meaningful invariants such as type consistency, length relationships, idempotence, sorting, monotonicity, range constraints, or validated transformation characterizations.
+7. Keep tests deterministic and side-effect free; no filesystem access, no network calls, and no time-dependent behavior unless the task explicitly requires it.
+8. Avoid vacuous properties that always pass without checking real guarantees.
+9. If the task is an API/tool call, call the function by its exact entry point and assert on the returned value or exact string content using valid Python syntax.
+10. Do not use benchmark reference tests, reference solutions, or hidden-test assumptions.
+11. Ensure every string literal is properly closed, every decorator is valid, and every assertion is legal Python.
+12. If you are uncertain whether a property is valid, prefer a simpler, explicit property over an abstract one.
+13. Never emit an ellipsis, placeholder, or pseudo-code such as `...`, `pass`, or `TODO`.
+14. Do not wrap the result in markdown fences or prose.
+15. The generated module must be directly executable with Python.
+
+Output contract:
+- Return only executable Python test code.
+- Do not include prose, markdown, or explanatory text.
+- Ensure the generated code is valid Python and uses Hypothesis correctly.
+
+Example of the expected structure:
+```python
+from hypothesis import given, strategies as st, settings, assume
+
+@given(st.integers(min_value=0, max_value=100))
+@settings(max_examples=20, deadline=1500)
+def test_example(value):
+    result = solution(value)
+    assert isinstance(result, int)
+```
+
+Important: if the function under test is an API call wrapper, the test should call the exact function name and validate the returned string or structured result.
+

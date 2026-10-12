@@ -1,0 +1,31 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2_0",
+      "operationName": "ModifyRegistration",
+      "actionable_sentences": [
+        "The API call must include the appointment_id '34567890' as a required parameter.",
+        "The new_appointment_date must be set to '2023-03-26' in the correct YYYY-MM-DD format.",
+        "The new_appointment_doctor must be set to 'Dr. Lee' as specified by the user."
+      ],
+      "lifted_nl": [
+        "The ModifyRegistration operation must include the appointment_id '34567890' as a required parameter.",
+        "The ModifyRegistration operation shall set the new_appointment_date to '2023-03-26' using the YYYY-MM-DD date format.",
+        "The ModifyRegistration operation shall set the new_appointment_doctor to 'Dr. Lee' as specified by the user."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The appointment_id '34567890' must exist in the system and correspond to a valid appointment record. The new_appointment_date must conform to the YYYY-MM-DD format. The new_appointment_doctor must be a non-empty string.",
+      "Function": "modify_registration(appointment_id: str, new_appointment_date: str, new_appointment_doctor: str) -> str",
+      "Postcondition": "After successful execution, the appointment with ID '34567890' has its date updated to '2023-03-26' and the assigned doctor changed to 'Dr. Lee'. The operation returns a status indicating successful modification.",
+      "assumptions": [
+        "The appointment ID '34567890' is valid and associated with a patient in the system.",
+        "The user has authorization to modify this appointment.",
+        "The date '2023-03-26' is a valid calendar date within the supported range."
+      ],
+      "invariants": [
+        "The appointment record identified by appointment_id '34567890' maintains consistency between its stored date and doctor fields.",
+        "No other appointments are affected by this modification."
+      ]
+    }
+  ]
+}

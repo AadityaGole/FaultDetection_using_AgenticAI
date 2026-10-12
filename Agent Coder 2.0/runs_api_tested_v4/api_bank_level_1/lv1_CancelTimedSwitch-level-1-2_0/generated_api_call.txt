@@ -1,0 +1,1 @@
+<|tool_call_start|>[ApiCall(api_name='CancelTimedSwitch', arguments={'name': '10000025', 'time': '2023-03-19 09:30:00'})]<|tool_call_end|>

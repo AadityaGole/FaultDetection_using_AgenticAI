@@ -1,0 +1,1 @@
+<|tool_call_start|>[API_call(name='QueryRegistration', arguments={'patient_name': 'Alice Chen', 'date': '2023-06-15'})]<|tool_call_end|>

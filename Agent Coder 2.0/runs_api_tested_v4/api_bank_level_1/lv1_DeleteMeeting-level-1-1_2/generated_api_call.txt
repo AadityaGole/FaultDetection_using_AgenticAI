@@ -1,0 +1,1 @@
+[DeleteMeeting(token='l9k8j7h6g5f4d3s2a1', meeting_topic='New Employee Orientation', start_time='2023-03-27 09:00:00', end_time='2023-03-27 11:00:00', location='Training Room', attendees=['David Wang', 'Amy Chen', 'Erica Liu'])]

@@ -1,0 +1,18 @@
+{
+  "unit_tests": {
+    "passed": 5,
+    "failed": 0,
+    "failures": [],
+    "stdout": "",
+    "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.001s\n\nOK\n"
+  },
+  "property_tests": {
+    "passed": 2,
+    "failed": 0,
+    "failures": [],
+    "stdout": "",
+    "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.524s\n\nOK\n"
+  },
+  "runtime_errors": [],
+  "timeouts": []
+}

@@ -1,0 +1,1 @@
+<|tool_call_start|>[API_Request(name='Calculator', arguments={'formula': '(5*6)/(2+3)'})]<|tool_call_end|>

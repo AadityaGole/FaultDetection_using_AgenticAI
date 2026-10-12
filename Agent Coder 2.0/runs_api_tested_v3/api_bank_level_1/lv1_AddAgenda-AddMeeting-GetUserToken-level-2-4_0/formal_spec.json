@@ -1,0 +1,30 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_AddAgenda-AddMeeting-GetUserToken-level-2-4_0",
+      "operationName": "AddAgenda",
+      "actionable_sentences": [
+        "The API call must use the exact API name 'AddAgenda' as defined in its schema.",
+        "The call requires a token (string), content (string), time (formatted as %Y-%m-%d %H:%M:%S), and optionally a location (string) parameter."
+      ],
+      "lifted_nl": [
+        "The API call must use the exact API name 'AddAgenda' as defined in its schema.",
+        "The call requires a token (string), content (string), time (formatted as %Y-%m-%d %H:%M:%S), and optionally a location (string) parameter.",
+        "A valid timestamp such as '2023-12-15 14:00:00' must be provided in the required time field format for the call to be considered well-formed."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "A valid user token must exist and be usable for authentication, the content string must be non-empty, the time string must conform to the format YYYY-MM-DD HH:MM:SS, and location is optional.",
+      "Function": "add_agenda(token: str, content: str, time: str, location: str = None) -> str",
+      "Postcondition": "The API returns a success status indicating the agenda item was added with the specified content, time, and location.",
+      "assumptions": [
+        "The user has previously obtained a valid token through the GetUserToken API.",
+        "The token is currently valid and authenticates successfully with the backend system.",
+        "The time value '2023-12-15 14:00:00' represents a valid timestamp in the required format."
+      ],
+      "invariants": [
+        "If the API call succeeds, an agenda item with the given content, time, and location exists in the system.",
+        "The returned status field contains the string 'success' indicating a successful addition."
+      ]
+    }
+  ]
+}

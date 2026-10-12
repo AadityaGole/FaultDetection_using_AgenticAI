@@ -1,0 +1,17 @@
+import json
+from dataset.api_bank_loader import APIBankTurn
+from evaluation.api_bank_evaluator import evaluate_api_bank
+
+_api_bank_turn = APIBankTurn(**json.loads('{"task_id": "lv2_ModifyRegistration-level-3-1_2", "level": 2, "dialogue_id": "ModifyRegistration-level-3-1", "turn_id": 2, "api_descriptions": "\\nGenerate an API request in the format of [ApiName(key1=\'value1\', key2=\'value2\', ...)] based on the previous dialogue context.\\nThe current year is 2023.\\nInput: \\nUser: User\'s utterence\\nAI: AI\'s response\\n\\nExpected output:\\nAPI-Request: [ApiName(key1=\'value1\', key2=\'value2\', ...)]\\n\\nAPI descriptions:\\n{\\"name\\": \\"ToolSearcher\\", \\"description\\": \\"Searches for relevant tools in library based on the keywords.\\", \\"input_parameters\\": {\\"keywords\\": {\\"type\\": \\"str\\", \\"description\\": \\"The keyword to search for.\\"}}, \\"output_parameters\\": {\\"best_matchs\\": {\\"type\\": \\"Union[List[dict], dict]\\", \\"description\\": \\"The best match tool(s).\\"}}}", "dialogue_history": [], "expected_api_name": "ModifyRegistration", "expected_param_dict": {"appointment_id": "34567890", "new_appointment_date": "2023-03-28", "new_appointment_doctor": "Dr. Lee"}, "prompt": "Generate an API request in the format of [ApiName(key1=\'value1\', key2=\'value2\', ...)] based on the previous dialogue context.\\nThe current year is 2023.\\nInput: \\nUser: User\'s utterence\\nAI: AI\'s response\\n\\nExpected output:\\nAPI-Request: [ApiName(key1=\'value1\', key2=\'value2\', ...)]\\n\\nAPI descriptions:\\n{\\"name\\": \\"ToolSearcher\\", \\"description\\": \\"Searches for relevant tools in library based on the keywords.\\", \\"input_parameters\\": {\\"keywords\\": {\\"type\\": \\"str\\", \\"description\\": \\"The keyword to search for.\\"}}, \\"output_parameters\\": {\\"best_matchs\\": {\\"type\\": \\"Union[List[dict], dict]\\", \\"description\\": \\"The best match tool(s).\\"}}}\\n\\nUser: Can you help me modify my appointment with the details: appointment ID 34567890, new appointment date March 28th, 2023, and new doctor Dr. Lee?\\nAI: Sure, let me check.\\nAPI-Request: [ToolSearcher(keywords=\'modify appointment\')]->{\'name\': \'ModifyRegistration\', \'description\': \'This API modifies the registration of a patient given appointment ID.\', \'input_parameters\': {\'appointment_id\': {\'type\': \'str\', \'description\': \'The ID of appointment.\'}, \'new_appointment_date\': {\'type\': \'str\', \'description\': \'The new appointment date. Format: %Y-%m-%d.\'}, \'new_appointment_doctor\': {\'type\': \'str\', \'description\': \'The new appointment doctor.\'}}, \'output_parameters\': {\'status\': {\'type\': \'str\', \'description\': \'The status of modification.\'}}}\\nAI: Ok, I can help you with that.\\nGenerate API Request:"}'))
+_generated_api_call = '[ModifyRegistration('
+
+_expected_api_call = "[ModifyRegistration(appointment_id='34567890', new_appointment_date='2023-03-28', new_appointment_doctor='Dr. Lee')]"
+_wrong_api_call = "[DefinitelyNotModifyRegistration(appointment_id='34567890', new_appointment_date='2023-03-28', new_appointment_doctor='Dr. Lee')]"
+_wrong_params_call = "[ModifyRegistration(appointment_id='__different_value_for_test__', new_appointment_date='2023-03-28', new_appointment_doctor='Dr. Lee')]"
+
+def api_call():
+    return _generated_api_call
+
+def evaluate_api_call(candidate=None, turn=None):
+    output = api_call() if candidate is None else candidate
+    return evaluate_api_bank(_api_bank_turn if turn is None else turn, output)

@@ -1,0 +1,30 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_QueryAlarm-level-1-1_2",
+      "operationName": "QueryAlarm",
+      "actionable_sentences": [
+        "The QueryAlarm API must be invoked with a valid token and a time parameter formatted as '%Y-%m-%d %H:%M:%S'.",
+        "The API name must be matched case-insensitively during parsing, yet the canonical form 'QueryAlarm' is required for successful execution."
+      ],
+      "lifted_nl": [
+        "The QueryAlarm API shall be invoked only when both a valid token and a properly formatted time parameter (YYYY-MM-DD HH:MM:SS) are provided.",
+        "The API name must be matched case-insensitively during parsing, yet the canonical form 'QueryAlarm' is required for successful execution.",
+        "Before invoking the QueryAlarm API, both the token (a string) and the time parameter (formatted as YYYY-MM-DD HH:MM:SS) must be supplied with correct types."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "A valid token (string) and a time parameter (string) matching the format YYYY-MM-DD HH:MM:SS must be provided.",
+      "Function": "def QueryAlarm(token: str, time: str) -> dict:",
+      "Postcondition": "The API call returns a dictionary containing alarm information with keys 'username', 'time', 'content', and 'location'.",
+      "assumptions": [
+        "The user has been previously authenticated and possesses a valid token.",
+        "The time parameter conforms to the ISO-like format YYYY-MM-DD HH:MM:SS.",
+        "The QueryAlarm API endpoint is accessible and functional."
+      ],
+      "invariants": [
+        "After the query completes, the returned alarm info includes the requested time and associated user details.",
+        "The token used in the request matches the authenticated session's credentials."
+      ]
+    }
+  ]
+}

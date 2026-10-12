@@ -5,9 +5,10 @@ from __future__ import annotations
 import subprocess
 import sys
 import tempfile
+import os
 from dataclasses import dataclass, asdict
 from pathlib import Path
-from typing import Any
+from typing import Any, Sequence
 
 from dataset.mbpp_loader import MBPPProblem
 from evaluation.bigcodebench_evaluator import parse_unittest_output
@@ -52,7 +53,13 @@ class BenchmarkExecutor:
         except Exception as exc:  # pragma: no cover - defensive
             return False, f"{label} compile error: {type(exc).__name__}: {exc}"
 
-    def _run(self, code: str, entry_point: str | None = None, implementation: str = "") -> tuple[int | None, str, str, bool]:
+    def _run(
+        self,
+        code: str,
+        entry_point: str | None = None,
+        implementation: str = "",
+        python_paths: Sequence[Path] = (),
+    ) -> tuple[int | None, str, str, bool]:
         with tempfile.TemporaryDirectory() as tmpdir:
             path = Path(tmpdir) / "test_bundle.py"
             path.write_text(code, encoding="utf-8")
@@ -61,6 +68,13 @@ class BenchmarkExecutor:
                     (Path(tmpdir) / f"{entry_point}.py").write_text(implementation, encoding="utf-8")
                 except Exception:
                     pass
+            env = os.environ.copy()
+            if python_paths:
+                existing_pythonpath = env.get("PYTHONPATH", "")
+                paths = [str(path.resolve()) for path in python_paths]
+                if existing_pythonpath:
+                    paths.append(existing_pythonpath)
+                env["PYTHONPATH"] = os.pathsep.join(paths)
             try:
                 completed = subprocess.run(
                     [sys.executable, str(path)],
@@ -69,12 +83,90 @@ class BenchmarkExecutor:
                     timeout=self.timeout_seconds,
                     check=False,
                     cwd=tmpdir,
+                    env=env,
                 )
                 return completed.returncode, completed.stdout, completed.stderr, False
             except subprocess.TimeoutExpired as exc:
                 return None, exc.stdout or "", exc.stderr or "Timed out", True
 
-    def execute(self, *, implementation: str, unit_tests: str, property_tests: str | None, entry_point: str | None = None) -> ExecutionReport:
+    def _execute_suite(
+        self,
+        *,
+        label: str,
+        implementation: str,
+        tests: str,
+        auto_caller: str,
+        entry_point: str | None,
+        python_paths: Sequence[Path],
+    ) -> tuple[ExecutionSection, str | None, bool]:
+        if not tests.strip():
+            if label == "property_tests":
+                return ExecutionSection(), None, False
+            message = f"{label} source is empty; no tests were executed."
+            return (
+                ExecutionSection(
+                    failed=1,
+                    failures=[{"stderr": message, "stdout": ""}],
+                    stderr=message,
+                ),
+                message,
+                False,
+            )
+
+        bundle = implementation + "\n\n" + tests + auto_caller
+        compiled, compile_error = self._compile_bundle(bundle, label)
+        if not compiled:
+            error = compile_error or f"{label} bundle failed to compile."
+            return (
+                ExecutionSection(
+                    failed=1,
+                    failures=[{"stderr": error, "stdout": ""}],
+                    stderr=error,
+                ),
+                error,
+                False,
+            )
+
+        return_code, stdout, stderr, timed_out = self._run(
+            bundle,
+            entry_point=entry_point,
+            implementation=implementation,
+            python_paths=python_paths,
+        )
+        total, passed = parse_unittest_output(stderr)
+        if total > 0:
+            failed = total - passed
+        else:
+            passed = 1 if return_code == 0 else 0
+            failed = 0 if return_code == 0 else 1
+        failures = (
+            []
+            if failed == 0
+            else [{"stderr": stderr or f"{label} process exited with code {return_code}.", "stdout": stdout}]
+        )
+        runtime_error = (
+            stderr or f"{label} process exited with code {return_code}."
+            if return_code not in (0, None)
+            else None
+        )
+        section = ExecutionSection(
+            passed=passed,
+            failed=failed,
+            failures=failures,
+            stdout=stdout,
+            stderr=stderr,
+        )
+        return section, runtime_error, timed_out
+
+    def execute(
+        self,
+        *,
+        implementation: str,
+        unit_tests: str,
+        property_tests: str | None,
+        entry_point: str | None = None,
+        python_paths: Sequence[Path] = (),
+    ) -> ExecutionReport:
         auto_caller = """
 
 if __name__ == '__main__':
@@ -91,123 +183,31 @@ if __name__ == '__main__':
         result = runner.run(suite)
         sys.exit(0 if result.wasSuccessful() else 1)
 """
-
-        unit_bundle = implementation + "\n\n" + unit_tests + auto_caller
-        prop_bundle = (implementation + "\n\n" + property_tests + auto_caller) if property_tests and property_tests.strip() else ""
-
-        unit_ok, unit_compile_error = self._compile_bundle(unit_bundle, "unit_tests")
-        prop_ok, prop_compile_error = (True, None)
-        if prop_bundle.strip():
-            prop_ok, prop_compile_error = self._compile_bundle(prop_bundle, "property_tests")
-
-        if not unit_ok:
-            return ExecutionReport(
-                unit_tests=ExecutionSection(
-                    passed=0,
-                    failed=1,
-                    failures=[{"stderr": unit_compile_error or "Unit test bundle failed to compile", "stdout": ""}],
-                    stderr=unit_compile_error or "Unit test bundle failed to compile",
-                ),
-                property_tests=ExecutionSection(
-                    passed=0,
-                    failed=0 if not prop_bundle.strip() else 1,
-                    failures=[] if not prop_bundle.strip() else [{"stderr": "Skipped because unit tests did not compile", "stdout": ""}],
-                    stderr="" if not prop_bundle.strip() else "Skipped because unit tests did not compile",
-                ),
-                runtime_errors=[unit_compile_error] if unit_compile_error else [],
-                timeouts=[],
-            )
-
-        if prop_bundle.strip() and not prop_ok:
-            unit_rc, unit_out, unit_err, unit_timeout = self._run(unit_bundle, entry_point=entry_point, implementation=implementation)
-            unit_total, unit_passed = parse_unittest_output(unit_err)
-            if unit_total > 0:
-                unit_failed = unit_total - unit_passed
-                unit_failures = [] if unit_failed == 0 else [{"stderr": unit_err, "stdout": unit_out}]
-            else:
-                unit_passed = 1 if unit_rc == 0 else 0
-                unit_failed = 0 if unit_rc == 0 else 1
-                unit_failures = [] if unit_rc == 0 else [{"stderr": unit_err, "stdout": unit_out}]
-
-            return ExecutionReport(
-                unit_tests=ExecutionSection(
-                    passed=unit_passed,
-                    failed=unit_failed,
-                    failures=unit_failures,
-                    stdout=unit_out,
-                    stderr=unit_err,
-                ),
-                property_tests=ExecutionSection(
-                    passed=0,
-                    failed=1,
-                    failures=[{"stderr": prop_compile_error or "Property test bundle failed to compile", "stdout": ""}],
-                    stderr=prop_compile_error or "Property test bundle failed to compile",
-                ),
-                runtime_errors=[err for err in [unit_err if unit_rc not in (0, None) else None, prop_compile_error] if err],
-                timeouts=["unit_tests"] if unit_timeout else [],
-            )
-
-        unit_rc, unit_out, unit_err, unit_timeout = self._run(unit_bundle, entry_point=entry_point, implementation=implementation)
-
-        if prop_bundle.strip():
-            prop_rc, prop_out, prop_err, prop_timeout = self._run(prop_bundle, entry_point=entry_point, implementation=implementation)
-        else:
-            prop_rc, prop_out, prop_err, prop_timeout = 0, "", "", False
-
-        unit_total, unit_passed = parse_unittest_output(unit_err)
-        if unit_total > 0:
-            unit_failed = unit_total - unit_passed
-            unit_failures = [] if unit_failed == 0 else [{"stderr": unit_err, "stdout": unit_out}]
-        else:
-            unit_passed = 1 if unit_rc == 0 else 0
-            unit_failed = 0 if unit_rc == 0 else 1
-            unit_failures = [] if unit_rc == 0 else [{"stderr": unit_err, "stdout": unit_out}]
-
-        unit_section = ExecutionSection(
-            passed=unit_passed,
-            failed=unit_failed,
-            failures=unit_failures,
-            stdout=unit_out,
-            stderr=unit_err,
+        unit_section, unit_error, unit_timeout = self._execute_suite(
+            label="unit_tests",
+            implementation=implementation,
+            tests=unit_tests,
+            auto_caller=auto_caller,
+            entry_point=entry_point,
+            python_paths=python_paths,
         )
-
-        if prop_bundle.strip() == "":
-            property_section = ExecutionSection(
-                passed=0,
-                failed=0,
-                failures=[],
-                stdout="",
-                stderr="",
+        property_section, property_error, property_timeout = self._execute_suite(
+            label="property_tests",
+            implementation=implementation,
+            tests=property_tests or "",
+            auto_caller=auto_caller,
+            entry_point=entry_point,
+            python_paths=python_paths,
+        )
+        runtime_errors = [error for error in (unit_error, property_error) if error]
+        timeouts = [
+            label
+            for label, did_timeout in (
+                ("unit_tests", unit_timeout),
+                ("property_tests", property_timeout),
             )
-        else:
-            prop_total, prop_passed = parse_unittest_output(prop_err)
-            if prop_total > 0:
-                prop_failed = prop_total - prop_passed
-                prop_failures = [] if prop_failed == 0 else [{"stderr": prop_err, "stdout": prop_out}]
-            else:
-                prop_passed = 1 if prop_rc == 0 else 0
-                prop_failed = 0 if prop_rc == 0 else 1
-                prop_failures = [] if prop_rc == 0 else [{"stderr": prop_err, "stdout": prop_out}]
-
-            property_section = ExecutionSection(
-                passed=prop_passed,
-                failed=prop_failed,
-                failures=prop_failures,
-                stdout=prop_out,
-                stderr=prop_err,
-            )
-
-        runtime_errors: list[str] = []
-        timeouts: list[str] = []
-        if unit_err and unit_rc not in (0, None):
-            runtime_errors.append(unit_err)
-        if prop_err and prop_rc not in (0, None):
-            runtime_errors.append(prop_err)
-        if unit_timeout:
-            timeouts.append("unit_tests")
-        if prop_timeout:
-            timeouts.append("property_tests")
-
+            if did_timeout
+        ]
         return ExecutionReport(
             unit_tests=unit_section,
             property_tests=property_section,

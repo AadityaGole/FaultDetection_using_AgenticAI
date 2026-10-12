@@ -1,0 +1,17 @@
+import json
+from dataset.api_bank_loader import APIBankTurn
+from evaluation.api_bank_evaluator import evaluate_api_bank
+
+_api_bank_turn = APIBankTurn(**json.loads('{"task_id": "lv1_RecordHealthData-level-1-1_0", "level": 1, "dialogue_id": "RecordHealthData-level-1-1", "turn_id": 0, "api_descriptions": "\\nGenerate an API request in the format of [ApiName(key1=\'value1\', key2=\'value2\', ...)] based on the previous dialogue context.\\nThe current year is 2023.\\nInput: \\nUser: User\'s utterence\\nAI: AI\'s response\\n\\nExpected output:\\nAPI-Request: [ApiName(key1=\'value1\', key2=\'value2\', ...)]\\n\\nAPI descriptions:\\n{\\"name\\": \\"RecordHealthData\\", \\"description\\": \\"This API records the health data of a user.\\", \\"input_parameters\\": {\\"user_id\\": {\\"type\\": \\"str\\", \\"description\\": \\"The ID of user.\\"}, \\"time\\": {\\"type\\": \\"str\\", \\"description\\": \\"The time of health data. Format: %Y-%m-%d %H:%M:%S\\"}, \\"health_data\\": {\\"type\\": \\"list\\", \\"description\\": \\"The health data, with the format like [{\'name\': \'blood_pressure\', \'value\': \'120/80\'}, {\'name\': \'heart_rate\', \'value\': \'80\'}]\\"}}, \\"output_parameters\\": {\\"status\\": {\\"type\\": \\"str\\", \\"description\\": \\"The status of recording.\\"}}}", "dialogue_history": [], "expected_api_name": "RecordHealthData", "expected_param_dict": {"user_id": "1234", "time": "2022-01-01 10:00:00", "health_data": "[{"}, "prompt": "Generate an API request in the format of [ApiName(key1=\'value1\', key2=\'value2\', ...)] based on the previous dialogue context.\\nThe current year is 2023.\\nInput: \\nUser: User\'s utterence\\nAI: AI\'s response\\n\\nExpected output:\\nAPI-Request: [ApiName(key1=\'value1\', key2=\'value2\', ...)]\\n\\nAPI descriptions:\\n{\\"name\\": \\"RecordHealthData\\", \\"description\\": \\"This API records the health data of a user.\\", \\"input_parameters\\": {\\"user_id\\": {\\"type\\": \\"str\\", \\"description\\": \\"The ID of user.\\"}, \\"time\\": {\\"type\\": \\"str\\", \\"description\\": \\"The time of health data. Format: %Y-%m-%d %H:%M:%S\\"}, \\"health_data\\": {\\"type\\": \\"list\\", \\"description\\": \\"The health data, with the format like [{\'name\': \'blood_pressure\', \'value\': \'120/80\'}, {\'name\': \'heart_rate\', \'value\': \'80\'}]\\"}}, \\"output_parameters\\": {\\"status\\": {\\"type\\": \\"str\\", \\"description\\": \\"The status of recording.\\"}}}\\n\\nUser: Can you record my blood pressure and heart rate data?\\nAI: Sure, I can help you with that. Please provide me with your user ID, time, blood pressure, and heart rate data.\\nUser: My user ID is 1234, time is 2022-01-01 10:00:00, blood pressure is 110/70, and heart rate is 90.\\nGenerate API Request:"}'))
+_generated_api_call = "API-Request: RecordHealthData(user_id='1234', time='2022-01-01 10:00:00', health_data=[{'name': 'blood_pressure', 'value': '110/70'}, {'name': 'heart_rate', 'value': '90'}])"
+
+_expected_api_call = "[RecordHealthData(user_id='1234', time='2022-01-01 10:00:00', health_data='[{')]"
+_wrong_api_call = "[DefinitelyNotRecordHealthData(user_id='1234', time='2022-01-01 10:00:00', health_data='[{')]"
+_wrong_params_call = "[RecordHealthData(user_id='__different_value_for_test__', time='2022-01-01 10:00:00', health_data='[{')]"
+
+def api_call():
+    return _generated_api_call
+
+def evaluate_api_call(candidate=None, turn=None):
+    output = api_call() if candidate is None else candidate
+    return evaluate_api_bank(_api_bank_turn if turn is None else turn, output)

@@ -1,0 +1,17 @@
+import json
+from dataset.api_bank_loader import APIBankTurn
+from evaluation.api_bank_evaluator import evaluate_api_bank
+
+_api_bank_turn = APIBankTurn(**json.loads('{"task_id": "lv1_RegisterUser-ForgotPassword-level-2-2_0", "level": 1, "dialogue_id": "RegisterUser-ForgotPassword-level-2-2", "turn_id": 0, "api_descriptions": "\\nGenerate an API request in the format of [ApiName(key1=\'value1\', key2=\'value2\', ...)] based on the previous dialogue context.\\nThe current year is 2023.\\nInput: \\nUser: User\'s utterence\\nAI: AI\'s response\\n\\nExpected output:\\nAPI-Request: [ApiName(key1=\'value1\', key2=\'value2\', ...)]\\n\\nAPI descriptions:\\n{\\"name\\": \\"RegisterUser\\", \\"description\\": \\"The API for registering a account, given the username, password and email.\\", \\"input_parameters\\": {\\"username\\": {\\"type\\": \\"str\\", \\"description\\": \\"The username of the user.\\"}, \\"password\\": {\\"type\\": \\"str\\", \\"description\\": \\"The password of the user.\\"}, \\"email\\": {\\"type\\": \\"str\\", \\"description\\": \\"The email of the user.\\"}}, \\"output_parameters\\": {\\"token\\": {\\"type\\": \\"str\\", \\"description\\": \\"The token of the user.\\"}}}", "dialogue_history": [], "expected_api_name": "RegisterUser", "expected_param_dict": {"username": "xyz", "password": "abc123", "email": "xyz@example.com"}, "prompt": "Generate an API request in the format of [ApiName(key1=\'value1\', key2=\'value2\', ...)] based on the previous dialogue context.\\nThe current year is 2023.\\nInput: \\nUser: User\'s utterence\\nAI: AI\'s response\\n\\nExpected output:\\nAPI-Request: [ApiName(key1=\'value1\', key2=\'value2\', ...)]\\n\\nAPI descriptions:\\n{\\"name\\": \\"RegisterUser\\", \\"description\\": \\"The API for registering a account, given the username, password and email.\\", \\"input_parameters\\": {\\"username\\": {\\"type\\": \\"str\\", \\"description\\": \\"The username of the user.\\"}, \\"password\\": {\\"type\\": \\"str\\", \\"description\\": \\"The password of the user.\\"}, \\"email\\": {\\"type\\": \\"str\\", \\"description\\": \\"The email of the user.\\"}}, \\"output_parameters\\": {\\"token\\": {\\"type\\": \\"str\\", \\"description\\": \\"The token of the user.\\"}}}\\n\\nUser: Can you help me register on this app?\\nAI: Sure. Please provide your username, password, and email address.\\nUser: My username is xyz, password is abc123, and email is xyz@example.com.\\nGenerate API Request:"}'))
+_generated_api_call = "[ApiName(key1='xyz', key2='abc123', key3='xyz@example.com')]\n\nWait, I need to check the parameter names more carefully. The RegisterUser API expects:\n- username (str)\n- password (str)\n- email (str)\n\nSo the correct mapping would be:\n- key1 = username = 'xyz'\n- key2 = password = 'abc123'\n- key3 = email = 'xyz@example.com'\n\nThe API request should be formatted as:\n\n[ApiName(key1='xyz', key2='abc123', key3='xyz@example.com')][ApiName(key1='xyz', key2='abc123', key3='xyz@example.com')]"
+
+_expected_api_call = "[RegisterUser(username='xyz', password='abc123', email='xyz@example.com')]"
+_wrong_api_call = "[DefinitelyNotRegisterUser(username='xyz', password='abc123', email='xyz@example.com')]"
+_wrong_params_call = "[RegisterUser(username='__different_value_for_test__', password='abc123', email='xyz@example.com')]"
+
+def api_call():
+    return _generated_api_call
+
+def evaluate_api_call(candidate=None, turn=None):
+    output = api_call() if candidate is None else candidate
+    return evaluate_api_bank(_api_bank_turn if turn is None else turn, output)

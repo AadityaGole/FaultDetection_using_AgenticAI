@@ -1,0 +1,1 @@
+[QueryStock(key1='MSFT', key2='2022-02-04')]

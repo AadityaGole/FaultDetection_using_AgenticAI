@@ -1,0 +1,30 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-3_4",
+      "operationName": "ModifyRegistration",
+      "actionable_sentences": [
+        "The API name must be exactly 'ModifyRegistration' (case-sensitive) as defined in the schema.",
+        "All three required parameters must be provided: appointment_id (string), new_appointment_date (string in YYYY-MM-DD format), and new_appointment_doctor (string)."
+      ],
+      "lifted_nl": [
+        "The ModifyRegistration API shall use the exact name 'ModifyRegistration' and no variations or case changes.",
+        "The ModifyRegistration operation must include all three required parameters: appointment_id, new_appointment_date, and new_appointment_doctor.",
+        "The new_appointment_date parameter must follow the ISO format YYYY-MM-DD, and the new_appointment_doctor parameter must contain a non-empty string."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The caller provides valid appointment_id (non-empty string), new_appointment_date in ISO format YYYY-MM-DD, and new_appointment_doctor (non-empty string). All parameters must be present and correctly typed.",
+      "Function": "ModifyRegistration(appointment_id: str, new_appointment_date: str, new_appointment_doctor: str) -> str",
+      "Postcondition": "The appointment with the specified appointment_id has been successfully modified to the new_appointment_date with the new_appointment_doctor. The operation returns a status indicating success.",
+      "assumptions": [
+        "The system maintains a persistent storage of appointments indexed by appointment_id.",
+        "The date format YYYY-MM-DD is unambiguous and matches the expected ISO standard.",
+        "The doctor name is a valid non-empty string without special formatting restrictions."
+      ],
+      "invariants": [
+        "After a successful ModifyRegistration call, the appointment record retains its original appointment_id while being updated with the new_appointment_date and new_appointment_doctor.",
+        "The function always returns a status string indicating the outcome of the modification."
+      ]
+    }
+  ]
+}

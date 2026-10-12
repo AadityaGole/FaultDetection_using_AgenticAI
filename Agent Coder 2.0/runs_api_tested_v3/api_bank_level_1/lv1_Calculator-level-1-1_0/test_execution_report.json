@@ -1,0 +1,25 @@
+{
+  "unit_tests": {
+    "passed": 1,
+    "failed": 0,
+    "failures": [],
+    "stdout": "",
+    "stderr": ""
+  },
+  "property_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "property_tests SyntaxError: unterminated string literal (detected at line 57) (line 57, column 29)",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "property_tests SyntaxError: unterminated string literal (detected at line 57) (line 57, column 29)"
+  },
+  "runtime_errors": [
+    "property_tests SyntaxError: unterminated string literal (detected at line 57) (line 57, column 29)"
+  ],
+  "timeouts": []
+}

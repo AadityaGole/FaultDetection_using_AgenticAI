@@ -1,0 +1,17 @@
+[ApiName(name="QueryRegistration", patient_name='Alice Chen', date='2023-06-15')]
+
+Wait, I need to look more carefully at the API description. The QueryRegistration API has these input parameters:
+- patient_name (str) - The name of patient
+- date (str) - The date of appointment. Format be like %Y-%m-%d
+
+So my request should be:
+[ApiName(name="QueryRegistration", patient_name='Alice Chen', date='2023-06-15')]
+
+Actually, looking at the expected output format again, it should include all the parameter names as keys. Let me make sure I have the correct format:
+
+[ApiName(patient_name='Alice Chen', date='2023-06-15')]
+
+But wait, the example shows key-value pairs like `key1='value1', key2='value2'`. So I should use descriptive keys that match what the API expects. The API expects `patient_name` and `date` as parameters, so those would be the keys.
+
+Final answer:
+[ApiName(patient_name='Alice Chen', date='2023-06-15')][ApiName(patient_name='Alice Chen', date='2023-06-15')]

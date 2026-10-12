@@ -1,0 +1,1 @@
+<|tool_call_start|>[ApiCall(name='ModifyRegistration', arguments={'appointment_id': '12345678', 'new_appointment_date': '2023-04-15', 'new_appointment_doctor': 'Dr. Johnson'})]<|tool_call_end|>

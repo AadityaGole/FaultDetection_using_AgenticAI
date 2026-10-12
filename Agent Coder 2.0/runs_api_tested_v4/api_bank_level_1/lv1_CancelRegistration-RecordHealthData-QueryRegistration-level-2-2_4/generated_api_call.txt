@@ -1,0 +1,1 @@
+[QueryRegistration(patient_name='Jane Smith', date='2023-05-20')]

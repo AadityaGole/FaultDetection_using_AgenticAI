@@ -1,0 +1,17 @@
+import json
+from dataset.api_bank_loader import APIBankTurn
+from evaluation.api_bank_evaluator import evaluate_api_bank
+
+_api_bank_turn = APIBankTurn(**json.loads('{"task_id": "lv1_AppointmentRegistration-level-1-3_0", "level": 1, "dialogue_id": "AppointmentRegistration-level-1-3", "turn_id": 0, "api_descriptions": "\\nGenerate an API request in the format of [ApiName(key1=\'value1\', key2=\'value2\', ...)] based on the previous dialogue context.\\nThe current year is 2023.\\nInput: \\nUser: User\'s utterence\\nAI: AI\'s response\\n\\nExpected output:\\nAPI-Request: [ApiName(key1=\'value1\', key2=\'value2\', ...)]\\n\\nAPI descriptions:\\n{\\"name\\": \\"AppointmentRegistration\\", \\"description\\": \\"This API registers an appointment of hospital.\\", \\"input_parameters\\": {\\"patient_name\\": {\\"type\\": \\"str\\", \\"description\\": \\"The name of patient.\\"}, \\"date\\": {\\"type\\": \\"str\\", \\"description\\": \\"The date of appointment. Format be like %Y-%m-%d\\"}, \\"doctor_name\\": {\\"type\\": \\"str\\", \\"description\\": \\"The name of appointed doctor.\\"}}, \\"output_parameters\\": {\\"appointment_id\\": {\\"type\\": \\"str\\", \\"description\\": \\"The ID of appointment.\\"}}}", "dialogue_history": [], "expected_api_name": "AppointmentRegistration", "expected_param_dict": {"patient_name": "John", "date": "2022-08-15", "doctor_name": "Smith"}, "prompt": "Generate an API request in the format of [ApiName(key1=\'value1\', key2=\'value2\', ...)] based on the previous dialogue context.\\nThe current year is 2023.\\nInput: \\nUser: User\'s utterence\\nAI: AI\'s response\\n\\nExpected output:\\nAPI-Request: [ApiName(key1=\'value1\', key2=\'value2\', ...)]\\n\\nAPI descriptions:\\n{\\"name\\": \\"AppointmentRegistration\\", \\"description\\": \\"This API registers an appointment of hospital.\\", \\"input_parameters\\": {\\"patient_name\\": {\\"type\\": \\"str\\", \\"description\\": \\"The name of patient.\\"}, \\"date\\": {\\"type\\": \\"str\\", \\"description\\": \\"The date of appointment. Format be like %Y-%m-%d\\"}, \\"doctor_name\\": {\\"type\\": \\"str\\", \\"description\\": \\"The name of appointed doctor.\\"}}, \\"output_parameters\\": {\\"appointment_id\\": {\\"type\\": \\"str\\", \\"description\\": \\"The ID of appointment.\\"}}}\\n\\nUser: Can you help me book an appointment with Dr. Smith?\\nAI: Sure, I can help you with that. To register the appointment, I need the name of the patient, doctor, and date of appointment. What is your name, the doctor\'s name, and the date you want to book?\\nUser: My name is John, the doctor\'s name is Smith and I want to book the appointment on 2022-08-15.\\nAI: Great! To confirm, you want to book an appointment with Dr. Smith on Monday. What time would you prefer?\\nUser: At 2 PM.\\nAI: Thank you.\\nGenerate API Request:"}'))
+_generated_api_call = "[ApiName(key1='John', key2='Smith', key3='2022-08-15')]"
+
+_expected_api_call = "[AppointmentRegistration(patient_name='John', date='2022-08-15', doctor_name='Smith')]"
+_wrong_api_call = "[DefinitelyNotAppointmentRegistration(patient_name='John', date='2022-08-15', doctor_name='Smith')]"
+_wrong_params_call = "[AppointmentRegistration(patient_name='__different_value_for_test__', date='2022-08-15', doctor_name='Smith')]"
+
+def api_call():
+    return _generated_api_call
+
+def evaluate_api_call(candidate=None, turn=None):
+    output = api_call() if candidate is None else candidate
+    return evaluate_api_bank(_api_bank_turn if turn is None else turn, output)

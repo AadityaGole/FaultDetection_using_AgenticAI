@@ -1,0 +1,30 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_SymptomSearch-AppointmentRegistration-level-2-1_2",
+      "operationName": "AppointmentRegistration",
+      "actionable_sentences": [
+        "The operation generates an appointment registration request for a hospital appointment.",
+        "It requires patient_name, date (in YYYY-MM-DD format), and doctor_name to create a new appointment."
+      ],
+      "lifted_nl": [
+        "The API name used in the request must match 'AppointmentRegistration', with case-insensitive matching permitted.",
+        "The request must include exactly three parameters: patient_name (a string), date (a string formatted as YYYY-MM-DD), and doctor_name (a string)."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The user provides a non-empty patient_name string, a date string conforming to YYYY-MM-DD format, and a non-empty doctor_name string. All three parameters are present and non-empty.",
+      "Function": "AppointmentRegistration(patient_name: str, date: str, doctor_name: str) -> str",
+      "Postcondition": "Upon successful execution, the function returns an appointment_id string corresponding to the newly created appointment. The returned appointment_id is unique and identifies the registered appointment with the specified patient, date, and doctor.",
+      "assumptions": [
+        "The user supplies a valid patient name (non-empty string)",
+        "The date value follows the ISO 8601 format YYYY-MM-DD",
+        "The doctor_name is a valid string identifier",
+        "The API service is operational and capable of processing the registration request"
+      ],
+      "invariants": [
+        "After registration completes successfully, the appointment exists with the exact patient_name, date, and doctor_name provided as inputs.",
+        "The returned appointment_id is a non-empty string representing the unique identifier of the newly created appointment."
+      ]
+    }
+  ]
+}

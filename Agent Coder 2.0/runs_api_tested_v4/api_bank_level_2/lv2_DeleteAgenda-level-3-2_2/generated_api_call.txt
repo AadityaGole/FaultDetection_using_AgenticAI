@@ -1,0 +1,1 @@
+<|tool_call_start|>[ToolSearcher(keywords='delete agenda March 18th 2 pm 123 Main St client'), GetUserToken(username='JohnDoe', password='pass123')]<|tool_call_end|>

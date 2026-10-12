@@ -1,0 +1,1 @@
+[DeleteAgenda(token='l9k8j7h6g5f4d3s2a1', content='picking up my dry cleaning', time='2023-03-21 10:00:00', location='Cleaners')]

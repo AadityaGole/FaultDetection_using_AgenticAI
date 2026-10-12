@@ -1,0 +1,1 @@
+API-Request: [QueryStock(stock_code='SQ', date='2022-03-14')]

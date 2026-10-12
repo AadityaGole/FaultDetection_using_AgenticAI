@@ -1,0 +1,34 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-3_2",
+      "operationName": "ModifyRegistration",
+      "actionable_sentences": [
+        "The ModifyRegistration API must be invoked with the exact name 'ModifyRegistration' as specified in the schema.",
+        "The call must include all required parameters: appointment_id (string), new_appointment_date (string in YYYY-MM-DD format), and new_appointment_doctor (string).",
+        "For this specific request, the new_appointment_date must be formatted as '2023-10-15' (October 15th, 2023) and the new_appointment_doctor must be 'Dr. Johnson'."
+      ],
+      "lifted_nl": [
+        "The ModifyRegistration API must be invoked with the exact name 'ModifyRegistration' as specified in the schema.",
+        "The ModifyRegistration call must include the appointment_id parameter as a string.",
+        "The ModifyRegistration call must include the new_appointment_date parameter formatted in YYYY-MM-DD pattern.",
+        "The ModifyRegistration call must include the new_appointment_doctor parameter as a string.",
+        "In this operation, the new_appointment_date must be set to '2023-10-15'.",
+        "In this operation, the new_appointment_doctor must be set to 'Dr. Johnson'."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The appointment_id must refer to an existing appointment record, new_appointment_date must conform to the YYYY-MM-DD date format, and new_appointment_doctor must be a non-empty string.",
+      "Function": "modify_registration(appointment_id: str, new_appointment_date: str, new_appointment_doctor: str) -> str",
+      "Postcondition": "After successful execution, the appointment with the given appointment_id has been updated to the new_appointment_date '2023-10-15' and new_appointment_doctor 'Dr. Johnson'.",
+      "assumptions": [
+        "The appointment system maintains a unique identifier for each appointment.",
+        "The date format YYYY-MM-DD is strictly enforced by the API validation layer.",
+        "The doctor name 'Dr. Johnson' is a valid string value within the system's allowed characters."
+      ],
+      "invariants": [
+        "An appointment's date and doctor fields remain non-null after initial recording.",
+        "All modifications to appointments are atomic and consistent across the database."
+      ]
+    }
+  ]
+}

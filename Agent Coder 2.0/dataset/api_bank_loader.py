@@ -4,12 +4,26 @@ from __future__ import annotations
 
 import ast
 import json
+import os
 import re
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
 from datasets import load_dataset
+
+
+def api_bank_cache_dir() -> Path:
+    from huggingface_hub.constants import HF_HUB_CACHE
+
+    return Path(os.environ.get("HF_HUB_CACHE", str(HF_HUB_CACHE))).expanduser()
+
+
+def _cached_api_bank_file(level: int) -> Path | None:
+    cache_root = api_bank_cache_dir()
+    snapshot_root = cache_root / "datasets--liminghao1630--API-Bank" / "snapshots"
+    candidates = list(snapshot_root.glob(f"*/test-data/level-{level}-api.json"))
+    return max(candidates, key=lambda path: path.stat().st_mtime) if candidates else None
 
 
 @dataclass(frozen=True)
@@ -82,30 +96,31 @@ def load_api_bank(
 
     raw_samples: list[dict[str, Any]] = []
 
-    if local_path and Path(local_path).exists():
-        raw_data = json.loads(Path(local_path).read_text(encoding="utf-8"))
+    if local_path:
+        path = Path(local_path)
+        if not path.is_file():
+            raise FileNotFoundError(f"API-Bank local dataset file does not exist: {path}")
+        raw_data = json.loads(path.read_text(encoding="utf-8"))
         if isinstance(raw_data, list):
             raw_samples = raw_data
         elif isinstance(raw_data, dict) and "turns" in raw_data:
             raw_samples = raw_data["turns"]
     else:
-        try:
-            ds = load_dataset(
-                "liminghao1630/API-Bank",
-                data_files={"test": f"test-data/level-{level}-api.json"},
-            )
-            raw_samples = [dict(item) for item in ds["test"]]
-        except Exception:
-            # Fallback to local HuggingFace cache
-            import glob
-            files = glob.glob(
-                f"/home/chandrima/.cache/huggingface/hub/datasets--liminghao1630--API-Bank/snapshots/**/level-{level}-api.json",
-                recursive=True,
-            )
-            if files:
-                raw_samples = json.load(open(files[0], encoding="utf-8"))
-            else:
-                raw_samples = []
+        cached_file = _cached_api_bank_file(level)
+        if cached_file is not None:
+            raw_samples = json.loads(cached_file.read_text(encoding="utf-8"))
+        else:
+            try:
+                ds = load_dataset(
+                    "liminghao1630/API-Bank",
+                    data_files={"test": f"test-data/level-{level}-api.json"},
+                )
+                raw_samples = [dict(item) for item in ds["test"]]
+            except Exception as exc:
+                raise RuntimeError(
+                    f"Could not load API-Bank level {level} from Hugging Face or "
+                    f"the configured cache ({os.environ.get('HF_HUB_CACHE', 'default Hugging Face cache')})."
+                ) from exc
 
     turns: list[APIBankTurn] = []
     for idx, item in enumerate(raw_samples):

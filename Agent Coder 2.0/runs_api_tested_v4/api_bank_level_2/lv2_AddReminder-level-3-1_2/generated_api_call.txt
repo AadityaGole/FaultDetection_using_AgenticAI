@@ -1,0 +1,1 @@
+<|tool_call_start|>[ToolSearcher(keywords='add reminder'), ToolSearcher(keywords='get user token')]<|tool_call_end|>

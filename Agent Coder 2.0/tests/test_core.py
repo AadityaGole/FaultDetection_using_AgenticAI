@@ -6,14 +6,21 @@ from pathlib import Path
 import pytest
 
 from config import AppConfig
-from dataset.api_bank_loader import APIBankTurn
+from api_bank_direct_runner import (
+    RequestPacer,
+    _generate_and_run_tests,
+    _run_task,
+    run_api_bank_direct,
+)
+from api_bank_direct_runner import _property_tests_passed, _unit_tests_passed
+from dataset.api_bank_loader import _cached_api_bank_file, APIBankTurn, load_api_bank
 from dataset.bigcodebench_loader import BigCodeBenchProblem, load_bigcodebench
 from dataset.ds1000_loader import DS1000Problem
 from dataset.mbpp_loader import MBPPProblem, load_mbpp, sanitize_for_generation
 from evaluation.api_bank_evaluator import evaluate_api_bank, parse_api_call
 from evaluation.bigcodebench_evaluator import evaluate_bigcodebench, parse_unittest_output
 from agents.test_executor import BenchmarkExecutor
-from llm.client import LLMClientError, build_llm_client
+from llm.client import LLMClientError, OpenAICompatibleLLMClient, build_llm_client
 from utils.artifact_manager import ArtifactManager
 
 
@@ -98,6 +105,519 @@ def test_api_bank_call_parser():
     api_name, params = parse_api_call(text)
     assert api_name == "SearchEngine"
     assert params == {"query": "machine learning", "limit": 5}
+
+
+@pytest.mark.parametrize(
+    ("unit_passed", "property_passed", "expected_passed"),
+    [(True, True, True), (False, True, False), (True, False, False)],
+)
+def test_api_bank_runner_requires_api_match_and_both_test_suites(
+    monkeypatch,
+    unit_passed: bool,
+    property_passed: bool,
+    expected_passed: bool,
+):
+    import api_bank_direct_runner
+    from api_bank_direct_runner import _run_task
+
+    turn = APIBankTurn(
+        task_id="turn_1",
+        level=1,
+        dialogue_id="dialogue_1",
+        turn_id=0,
+        api_descriptions='{"name":"OpenBankAccount","input_parameters":{"account":{"type":"str"},"password":{"type":"str"},"name":{"type":"str"}}}',
+        dialogue_history=[],
+        expected_api_name="OpenBankAccount",
+        expected_param_dict={"account": "123", "password": "secret", "name": "Ada"},
+        prompt="Call OpenBankAccount with account=123, password=secret, name=Ada.",
+    )
+
+    class FakeClient:
+        def chat(self, **kwargs):
+            raise AssertionError("A saved API call should not trigger a new model request")
+
+    def fake_test_stages(*args, **kwargs):
+        return (
+            "def api_call(*args, **kwargs): return 'call'",
+            {"operations": []},
+            "def test_unit(): assert True",
+            "def test_property(): assert True",
+            {
+                "report": {},
+                "unit_tests_passed": unit_passed,
+                "property_tests_passed": property_passed,
+                "test_validation_errors": [],
+            },
+        )
+
+    monkeypatch.setattr(api_bank_direct_runner, "_generate_and_run_tests", fake_test_stages)
+    result = _run_task(
+        turn,
+        FakeClient(),
+        "test-model",
+        RequestPacer(1000000),
+        AppConfig(),
+        cached_call="[OpenBankAccount(account='123', password='secret', name='Ada')]",
+    )
+    assert result["request_status"] == "reused"
+    assert result["evaluation"]["passed"] is expected_passed
+    assert result["evaluation"]["params_match"] is True
+    assert result["evaluation"]["unit_tests_passed"] is unit_passed
+    assert result["evaluation"]["property_tests_passed"] is property_passed
+
+
+def test_api_bank_runner_records_worker_exception_and_continues(
+    tmp_path: Path, monkeypatch
+):
+    import api_bank_direct_runner
+
+    problems = [
+        APIBankTurn(
+            task_id="worker_error",
+            level=1,
+            dialogue_id="dialogue_1",
+            turn_id=0,
+            api_descriptions="{}",
+            dialogue_history=[],
+            expected_api_name="Expected",
+            expected_param_dict={},
+            prompt="",
+        ),
+        APIBankTurn(
+            task_id="worker_ok",
+            level=1,
+            dialogue_id="dialogue_2",
+            turn_id=0,
+            api_descriptions="{}",
+            dialogue_history=[],
+            expected_api_name="Expected",
+            expected_param_dict={},
+            prompt="",
+        ),
+    ]
+
+    def fake_run_task(problem, *_args):
+        if problem.task_id == "worker_error":
+            raise RuntimeError("simulated worker exception")
+        return {
+            "pipeline_version": api_bank_direct_runner.PIPELINE_VERSION,
+            "task_id": problem.task_id,
+            "pipeline_status": "completed",
+            "api_call_source": "generated",
+            "api_call_status": "valid",
+            "request_status": "success",
+            "generated_api_call": "[Expected()]",
+            "evaluation": {
+                "passed": True,
+                "api_match": True,
+                "params_match": True,
+                "unit_tests_passed": True,
+                "property_tests_passed": True,
+            },
+        }
+
+    monkeypatch.setattr(api_bank_direct_runner, "_run_task", fake_run_task)
+    summary = run_api_bank_direct(
+        problems,
+        client=object(),
+        model="test-model",
+        output_root=tmp_path,
+        config=AppConfig(),
+        workers=2,
+        requests_per_minute=25,
+    )
+
+    results = {result["task_id"]: result for result in summary["results"]}
+    assert summary["total"] == 2
+    assert summary["passed"] == 1
+    assert summary["worker_failures"] == 1
+    assert results["worker_error"]["pipeline_status"] == "failed"
+    assert results["worker_error"]["failure_stage"] == "worker_execution"
+    assert results["worker_error"]["api_call_status"] == "worker_error"
+    assert "RuntimeError: simulated worker exception" in results["worker_error"]["evaluation"]["error"]
+    assert "Traceback" in (
+        tmp_path / "worker_error" / "worker_error.txt"
+    ).read_text(encoding="utf-8")
+    assert results["worker_ok"]["pipeline_status"] == "completed"
+
+
+def test_api_bank_runner_recovers_newer_temporary_checkpoint(
+    tmp_path: Path, monkeypatch, capsys
+):
+    import api_bank_direct_runner
+
+    problems = [
+        APIBankTurn(
+            task_id=f"task_{index}",
+            level=1,
+            dialogue_id=f"dialogue_{index}",
+            turn_id=0,
+            api_descriptions="{}",
+            dialogue_history=[],
+            expected_api_name="Expected",
+            expected_param_dict={},
+            prompt="",
+        )
+        for index in range(3)
+    ]
+
+    def completed_result(problem):
+        return {
+            "pipeline_version": api_bank_direct_runner.PIPELINE_VERSION,
+            "task_id": problem.task_id,
+            "pipeline_status": "completed",
+            "api_call_source": "generated",
+            "api_call_status": "valid",
+            "request_status": "success",
+            "generated_api_call": "[Expected()]",
+            "evaluation": {
+                "passed": True,
+                "api_match": True,
+                "params_match": True,
+                "unit_tests_passed": True,
+                "property_tests_passed": True,
+            },
+        }
+
+    output_root = tmp_path / "level"
+    output_root.mkdir()
+    summary_path = output_root / "run_summary.json"
+    summary_path.write_text(
+        json.dumps({"results": [completed_result(problems[0])]}),
+        encoding="utf-8",
+    )
+    temporary_path = summary_path.with_suffix(".json.tmp")
+    temporary_path.write_text(
+        json.dumps(
+            {
+                "results": [
+                    completed_result(problems[0]),
+                    completed_result(problems[1]),
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    invoked = []
+
+    def fake_run_task(problem, *_args):
+        invoked.append(problem.task_id)
+        return completed_result(problem)
+
+    monkeypatch.setattr(api_bank_direct_runner, "_run_task", fake_run_task)
+    summary = run_api_bank_direct(
+        problems,
+        client=object(),
+        model="test-model",
+        output_root=output_root,
+        config=AppConfig(),
+        workers=1,
+        requests_per_minute=25,
+        resume=True,
+    )
+
+    assert invoked == ["task_2"]
+    assert summary["total"] == 3
+    assert "Recovering 2 saved task results" in capsys.readouterr().out
+
+
+def test_api_bank_runner_continues_when_windows_denies_summary_replace(
+    tmp_path: Path, monkeypatch, capsys
+):
+    import api_bank_direct_runner
+
+    problem = APIBankTurn(
+        task_id="replace_denied",
+        level=1,
+        dialogue_id="dialogue_1",
+        turn_id=0,
+        api_descriptions="{}",
+        dialogue_history=[],
+        expected_api_name="Expected",
+        expected_param_dict={},
+        prompt="",
+    )
+    result = {
+        "pipeline_version": api_bank_direct_runner.PIPELINE_VERSION,
+        "task_id": problem.task_id,
+        "pipeline_status": "completed",
+        "api_call_source": "generated",
+        "api_call_status": "valid",
+        "request_status": "success",
+        "generated_api_call": "[Expected()]",
+        "evaluation": {
+            "passed": True,
+            "api_match": True,
+            "params_match": True,
+            "unit_tests_passed": True,
+            "property_tests_passed": True,
+        },
+    }
+    monkeypatch.setattr(api_bank_direct_runner, "_run_task", lambda *_args: result)
+    original_replace = Path.replace
+
+    def deny_summary_replace(path, target):
+        if path.name == "run_summary.json.tmp":
+            raise PermissionError("simulated Windows file lock")
+        return original_replace(path, target)
+
+    monkeypatch.setattr(Path, "replace", deny_summary_replace)
+    summary = run_api_bank_direct(
+        [problem],
+        client=object(),
+        model="test-model",
+        output_root=tmp_path,
+        config=AppConfig(),
+        workers=1,
+        requests_per_minute=25,
+    )
+
+    assert summary["total"] == 1
+    assert (tmp_path / "run_summary.json.tmp").is_file()
+    assert "checkpoint remains at" in capsys.readouterr().out
+
+
+def test_request_pacer_rejects_nonpositive_rate():
+    with pytest.raises(ValueError, match="greater than zero"):
+        RequestPacer(0)
+
+
+def test_empty_test_sources_do_not_count_as_passed():
+    from types import SimpleNamespace
+
+    section = SimpleNamespace(passed=1, failed=0)
+    assert not _unit_tests_passed("", section)
+    assert not _property_tests_passed("", section)
+    assert not _unit_tests_passed("def test_vacuous(): assert True", section)
+    assert not _property_tests_passed("def test_plain(): pass", section)
+
+
+def test_api_bank_suites_are_generated_against_the_real_evaluator():
+    turn = APIBankTurn(
+        task_id="turn_1",
+        level=1,
+        dialogue_id="dialogue_1",
+        turn_id=0,
+        api_descriptions=(
+            '{"name":"OpenBankAccount","input_parameters":'
+            '{"account":{"type":"str"},"password":{"type":"str"},"name":{"type":"str"}}}'
+        ),
+        dialogue_history=[],
+        expected_api_name="OpenBankAccount",
+        expected_param_dict={"account": "123", "password": "secret", "name": "Ada"},
+        prompt="Call OpenBankAccount.",
+    )
+
+    implementation, formal_spec, unit_tests, property_tests, test_results = (
+        _generate_and_run_tests(
+            turn,
+            "[OpenBankAccount(account='123', password='secret', name='Ada')]",
+            config=AppConfig(test_timeout_seconds=20),
+        )
+    )
+
+    assert "evaluation.api_bank_evaluator import evaluate_api_bank" in implementation
+    assert formal_spec["operations"][0]["operationName"] == "OpenBankAccount"
+    assert test_results["unit_tests_passed"] is True
+    assert test_results["property_tests_passed"] is True, test_results["report"]["property_tests"]["stderr"]
+    assert "test_mock_execution_rejects_schema_invalid_value" in unit_tests
+    assert "@given" in property_tests
+
+
+def test_api_bank_suite_uses_evaluator_ground_truth_not_conflicting_prompt_text():
+    turn = APIBankTurn(
+        task_id="turn_conflicting_text",
+        level=1,
+        dialogue_id="AddAgenda-GetUserToken",
+        turn_id=0,
+        api_descriptions=json.dumps(
+            {
+                "apis": [
+                    {
+                        "name": "GetUserToken",
+                        "input_parameters": {
+                            "username": {"type": "str"},
+                            "password": {"type": "str"},
+                        },
+                    },
+                    {
+                        "name": "AddAgenda",
+                        "input_parameters": {
+                            "token": {"type": "str"},
+                            "content": {"type": "str"},
+                            "time": {"type": "str"},
+                        },
+                    },
+                ]
+            }
+        ),
+        dialogue_history=[],
+        expected_api_name="GetUserToken",
+        expected_param_dict={"username": "JohnDoe", "password": "pass123"},
+        prompt="Add 'Meeting with clients' to the agenda using AddAgenda.",
+    )
+
+    implementation, formal_spec, unit_tests, property_tests, test_results = (
+        _generate_and_run_tests(
+            turn,
+            "",
+            config=AppConfig(test_timeout_seconds=20),
+        )
+    )
+
+    assert formal_spec["operations"][0]["operationName"] == "GetUserToken"
+    assert "_expected_api_call = \"[GetUserToken(username='JohnDoe', password='pass123')]\"" in implementation
+    assert "evaluate_api_call()" in unit_tests
+    assert test_results["unit_tests_passed"] is False
+    assert test_results["property_tests_passed"] is True
+    assert "SyntaxError" not in test_results["report"]["unit_tests"]["stderr"]
+    assert test_results["report"]["property_tests"]["passed"] > 0
+
+
+def test_api_bank_empty_model_response_is_not_a_successful_request():
+    turn = APIBankTurn(
+        task_id="turn_1",
+        level=1,
+        dialogue_id="dialogue_1",
+        turn_id=0,
+        api_descriptions="",
+        dialogue_history=[],
+        expected_api_name="Calculator",
+        expected_param_dict={"formula": "(5+6)*3"},
+        prompt="Call Calculator.",
+    )
+
+    class EmptyClient:
+        def chat(self, **kwargs):
+            return ""
+
+    result = _run_task(
+        turn,
+        EmptyClient(),
+        "test-model",
+        RequestPacer(1000000),
+        AppConfig(test_timeout_seconds=5),
+    )
+    assert result["request_status"] == "failed"
+    assert result["api_call_status"] == "empty_response"
+    assert result["evaluation"]["passed"] is False
+    assert result["evaluation"]["unit_tests_passed"] is False
+    assert result["evaluation"]["property_tests_passed"] is True, result["test_execution_report"]["property_tests"]
+
+    class FailingClient:
+        def chat(self, **kwargs):
+            raise RuntimeError("provider unavailable")
+
+    failed_request = _run_task(
+        turn,
+        FailingClient(),
+        "test-model",
+        RequestPacer(1000000),
+        AppConfig(test_timeout_seconds=5),
+    )
+    assert failed_request["request_status"] == "failed"
+    assert failed_request["api_call_status"] == "request_failed"
+    assert failed_request["pipeline_status"] == "incomplete"
+    assert "provider unavailable" in failed_request["evaluation"]["error"]
+
+
+def test_llm_client_honors_retry_after_seconds():
+    from types import SimpleNamespace
+
+    error = SimpleNamespace(response=SimpleNamespace(headers={"retry-after": "4"}))
+    assert OpenAICompatibleLLMClient._retry_after_seconds(error) == 4
+
+
+def test_llm_client_calls_request_hook_before_each_retry(monkeypatch):
+    from types import SimpleNamespace
+    import llm.client as llm_client_module
+
+    class FakeCompletions:
+        calls = 0
+
+        def create(self, **kwargs):
+            self.calls += 1
+            if self.calls == 1:
+                raise RuntimeError("temporary failure")
+            return SimpleNamespace(
+                choices=[SimpleNamespace(message=SimpleNamespace(content="response"))]
+            )
+
+    completions = FakeCompletions()
+    client = OpenAICompatibleLLMClient.__new__(OpenAICompatibleLLMClient)
+    client._client = SimpleNamespace(
+        chat=SimpleNamespace(completions=completions)
+    )
+    hooks = []
+    monkeypatch.setattr(llm_client_module.time, "sleep", lambda _: None)
+
+    response = client.chat(
+        messages=[],
+        model="test-model",
+        retries=2,
+        request_hook=lambda: hooks.append("requested"),
+    )
+
+    assert response == "response"
+    assert hooks == ["requested", "requested"]
+
+
+def test_llm_client_raises_after_empty_responses(monkeypatch):
+    from types import SimpleNamespace
+    import llm.client as llm_client_module
+
+    class EmptyCompletions:
+        calls = 0
+
+        def create(self, **kwargs):
+            self.calls += 1
+            return SimpleNamespace(
+                choices=[SimpleNamespace(message=SimpleNamespace(content="  "))]
+            )
+
+    completions = EmptyCompletions()
+    client = OpenAICompatibleLLMClient.__new__(OpenAICompatibleLLMClient)
+    client._client = SimpleNamespace(chat=SimpleNamespace(completions=completions))
+    hooks = []
+    monkeypatch.setattr(llm_client_module.time, "sleep", lambda _: None)
+
+    with pytest.raises(LLMClientError, match="returned empty content"):
+        client.chat(messages=[], model="test-model", retries=2, request_hook=lambda: hooks.append(1))
+
+    assert completions.calls == 2
+    assert hooks == [1, 1]
+
+
+def test_api_bank_loader_uses_configured_hub_cache(tmp_path: Path, monkeypatch):
+    cache_file = (
+        tmp_path
+        / "datasets--liminghao1630--API-Bank"
+        / "snapshots"
+        / "test-revision"
+        / "test-data"
+        / "level-1-api.json"
+    )
+    cache_file.parent.mkdir(parents=True)
+    cache_file.write_text(
+        json.dumps(
+            [
+                {
+                    "file": "sample.jsonl",
+                    "id": 0,
+                    "instruction": "Generate a call",
+                    "input": "User: hello",
+                    "expected_output": "[Hello(name='Ada')]",
+                }
+            ]
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setenv("HF_HUB_CACHE", str(tmp_path))
+
+    assert _cached_api_bank_file(1) == cache_file
+    turns = load_api_bank(level=1, limit=1)
+    assert len(turns) == 1
+    assert turns[0].expected_api_name == "Hello"
 
 
 def test_benchmark_table_generation(tmp_path: Path):
@@ -246,6 +766,61 @@ def test_api_bank_requires_mock_execution_success():
     assert bad.error in {"Parameter mismatch", "API call failed mock execution"}
 
 
+def test_api_bank_test_executor_uses_the_canonical_evaluator():
+    project_root = Path(__file__).resolve().parents[1]
+    turn = APIBankTurn(
+        task_id="turn_1",
+        level=1,
+        dialogue_id="diag_1",
+        turn_id=0,
+        api_descriptions="",
+        dialogue_history=[],
+        expected_api_name="Calculator",
+        expected_param_dict={"formula": "(5+6)*3"},
+        prompt="Calculate the formula.",
+    )
+    implementation = (
+        "from dataset.api_bank_loader import APIBankTurn\n"
+        "from evaluation.api_bank_evaluator import evaluate_api_bank\n"
+        f"_turn = APIBankTurn(**{turn.evaluation_view()!r})\n"
+        "def api_call():\n"
+        "    return \"[Calculator(formula='(5+6)*3')]\"\n"
+        "def evaluate_api_call(candidate=None):\n"
+        "    output = api_call() if candidate is None else candidate\n"
+        "    return evaluate_api_bank(_turn, output)\n"
+    )
+    unit_tests = (
+        "def test_exact_evaluator_checks():\n"
+        "    result = evaluate_api_call()\n"
+        "    assert result.passed\n"
+        "    assert result.api_match\n"
+        "    assert result.params_match\n"
+        "    assert not evaluate_api_call('[Other(formula=\"(5+6)*3\")]').passed\n"
+        "    assert not evaluate_api_call('[Calculator(formula=\"wrong\")]').passed\n"
+    )
+    property_tests = (
+        "from hypothesis import given, strategies as st, settings\n"
+        "@given(prefix=st.text(alphabet=' \\t\\n', max_size=8), "
+        "suffix=st.text(alphabet=' \\t\\n', max_size=8))\n"
+        "@settings(max_examples=10, deadline=1500)\n"
+        "def test_evaluator_accepts_surrounding_whitespace(prefix, suffix):\n"
+        "    assert evaluate_api_call(prefix + api_call() + suffix).passed\n"
+    )
+
+    report = BenchmarkExecutor(timeout_seconds=5).execute(
+        implementation=implementation,
+        unit_tests=unit_tests,
+        property_tests=property_tests,
+        entry_point="evaluate_api_call",
+        python_paths=(project_root,),
+    )
+
+    assert report.unit_tests.failed == 0
+    assert report.unit_tests.passed == 1
+    assert report.property_tests.failed == 0
+    assert report.property_tests.passed == 1
+
+
 def test_executor_reports_property_syntax_error():
     executor = BenchmarkExecutor(timeout_seconds=5)
     report = executor.execute(
@@ -258,6 +833,19 @@ def test_executor_reports_property_syntax_error():
     assert report.unit_tests.passed == 1
     assert report.property_tests.failed == 1
     assert any("SyntaxError" in err for err in report.runtime_errors)
+
+
+def test_executor_runs_property_suite_when_unit_tests_do_not_compile():
+    report = BenchmarkExecutor(timeout_seconds=5).execute(
+        implementation="def foo():\n    return 1\n",
+        unit_tests="def test_invalid(:\n    assert foo() == 1\n",
+        property_tests="def test_property():\n    assert foo() == 1\n",
+        entry_point="foo",
+    )
+
+    assert report.unit_tests.failed == 1
+    assert report.property_tests.passed == 1
+    assert report.property_tests.failed == 0
 
 
 def test_bigcodebench_loader_reads_instruct_prompt(tmp_path: Path):

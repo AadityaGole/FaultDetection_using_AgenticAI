@@ -1,0 +1,3 @@
+[AddAgenda(token='l9k8j7h6g5f4d3s2a1', content='Meeting with Client A', time='2023-07-15 14:00:00', location='their office']]
+
+This API request will add the agenda item "Meeting with Client A" to the user's schedule for July 15th at 2pm at their office, using the obtained token for authentication.

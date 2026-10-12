@@ -1,0 +1,25 @@
+{
+  "unit_tests": {
+    "passed": 1,
+    "failed": 0,
+    "failures": [],
+    "stdout": "",
+    "stderr": ""
+  },
+  "property_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "property_tests SyntaxError: unterminated string literal (detected at line 161) (line 161, column 23)",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "property_tests SyntaxError: unterminated string literal (detected at line 161) (line 161, column 23)"
+  },
+  "runtime_errors": [
+    "property_tests SyntaxError: unterminated string literal (detected at line 161) (line 161, column 23)"
+  ],
+  "timeouts": []
+}

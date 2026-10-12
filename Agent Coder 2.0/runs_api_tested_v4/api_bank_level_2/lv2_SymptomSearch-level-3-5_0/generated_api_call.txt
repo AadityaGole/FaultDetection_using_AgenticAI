@@ -1,0 +1,1 @@
+<|tool_call_start|>[ApiCall(api_name='ToolSearcher', input_parameters={'keywords': 'illnesses that cause rash'})]<|tool_call_end|>

@@ -1,0 +1,9 @@
+[ApiName(key1='url', key2='question')] = [DocumentQA(url='https://www.example.com/article-4.txt', question='what platforms is this software compatible with?')]
+
+Wait, I need to look more carefully at the expected output format. The example shows:
+
+`API-Request: [ApiName(key1='value1', key2='value2', ...)]`
+
+So it should be a single JSON-like string inside brackets. Let me provide the correct format:
+
+[DocumentQA(url='https://www.example.com/article-4.txt', question='what platforms is this software compatible with?')]

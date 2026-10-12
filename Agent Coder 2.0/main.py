@@ -14,8 +14,9 @@ from agents.property_test_agent import PropertyTestAgent
 from agents.requirement_analyzer import RequirementAnalyzer
 from agents.test_executor import BenchmarkExecutor
 from agents.unit_test_agent import UnitTestAgent
+from api_bank_direct_runner import run_api_bank_direct
 from config import AppConfig
-from dataset.api_bank_loader import load_api_bank
+from dataset.api_bank_loader import api_bank_cache_dir, load_api_bank
 from dataset.bigcodebench_loader import load_bigcodebench
 from dataset.ds1000_loader import load_ds1000
 from dataset.mbpp_loader import load_mbpp, sanitize_for_generation
@@ -63,6 +64,24 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", default=None)
     parser.add_argument("--test-timeout-seconds", type=int, default=None)
     parser.add_argument("--resume", action="store_true", help="Resume from previously evaluated tasks")
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=3,
+        help="Concurrent API-Bank tasks; the shared request cap still applies",
+    )
+    parser.add_argument(
+        "--requests-per-minute",
+        type=float,
+        default=5,
+        help="Shared API-Bank request cap; defaults to a cautious 5 requests/minute",
+    )
+    parser.add_argument(
+        "--reuse-generated-dir",
+        type=Path,
+        default=None,
+        help="Reuse prior API-Bank generated calls in this output directory while generating and running tests.",
+    )
     return parser.parse_args()
 
 
@@ -442,6 +461,25 @@ def main() -> None:
     artifact_manager = ArtifactManager(config.output_dir, dataset_name=config.artifact_root_name)
 
     problems = load_dataset_by_name(config, args)
+    if config.dataset_name == "api_bank":
+        print(
+            f"Loaded {len(problems)} tasks from API-Bank level {args.level} "
+            f"using Hugging Face cache {api_bank_cache_dir()}",
+            flush=True,
+        )
+        run_api_bank_direct(
+            problems,
+            client=client,
+            model=config.resolve_model("code_generation"),
+            output_root=artifact_manager.root,
+            config=config,
+            workers=args.workers,
+            requests_per_minute=args.requests_per_minute,
+            resume=args.resume,
+            reuse_generated_dir=args.reuse_generated_dir,
+        )
+        return
+
     print(f"Loaded {len(problems)} tasks from {config.dataset_name} ({args.mode} mode)")
 
     results: list[dict[str, Any]] = []

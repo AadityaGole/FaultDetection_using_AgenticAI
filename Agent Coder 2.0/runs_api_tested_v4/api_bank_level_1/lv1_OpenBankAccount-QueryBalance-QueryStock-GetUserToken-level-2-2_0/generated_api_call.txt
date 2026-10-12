@@ -1,0 +1,1 @@
+[OpenBankAccount(account='123456', password='password123', name='John Smith')]

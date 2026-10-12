@@ -1,0 +1,1 @@
+<|tool_call_start|>[ApiCall(name='GetUserToken', arguments={'username': 'user1', 'password': 'user1pass'})]<|tool_call_end|>

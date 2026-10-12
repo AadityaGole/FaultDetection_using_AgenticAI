@@ -1,0 +1,17 @@
+import json
+from dataset.api_bank_loader import APIBankTurn
+from evaluation.api_bank_evaluator import evaluate_api_bank
+
+_api_bank_turn = APIBankTurn(**json.loads('{"task_id": "lv1_TimedSwitch-level-1-1_0", "level": 1, "dialogue_id": "TimedSwitch-level-1-1", "turn_id": 0, "api_descriptions": "\\nGenerate an API request in the format of [ApiName(key1=\'value1\', key2=\'value2\', ...)] based on the previous dialogue context.\\nThe current year is 2023.\\nInput: \\nUser: User\'s utterence\\nAI: AI\'s response\\n\\nExpected output:\\nAPI-Request: [ApiName(key1=\'value1\', key2=\'value2\', ...)]\\n\\nAPI descriptions:\\n{\\"name\\": \\"TimedSwitch\\", \\"description\\": \\"This API for setting a timed switch for a smart device.\\", \\"input_parameters\\": {\\"name\\": {\\"type\\": \\"str\\", \\"description\\": \\"The name of the smart device.\\"}, \\"time\\": {\\"type\\": \\"str\\", \\"description\\": \\"The time to switch the device on or off. Format: %Y-%m-%d %H:%M:%S\\"}, \\"on\\": {\\"type\\": \\"bool\\", \\"description\\": \\"Whether to switch the device on or off.\\"}}, \\"output_parameters\\": {\\"status\\": {\\"type\\": \\"str\\", \\"description\\": \\"Whether the time switch is successful.\\"}}}", "dialogue_history": [], "expected_api_name": "TimedSwitch", "expected_param_dict": {"device_id": "12345", "time": "2021-08-05 19:00:00", "on": "True"}, "prompt": "Generate an API request in the format of [ApiName(key1=\'value1\', key2=\'value2\', ...)] based on the previous dialogue context.\\nThe current year is 2023.\\nInput: \\nUser: User\'s utterence\\nAI: AI\'s response\\n\\nExpected output:\\nAPI-Request: [ApiName(key1=\'value1\', key2=\'value2\', ...)]\\n\\nAPI descriptions:\\n{\\"name\\": \\"TimedSwitch\\", \\"description\\": \\"This API for setting a timed switch for a smart device.\\", \\"input_parameters\\": {\\"name\\": {\\"type\\": \\"str\\", \\"description\\": \\"The name of the smart device.\\"}, \\"time\\": {\\"type\\": \\"str\\", \\"description\\": \\"The time to switch the device on or off. Format: %Y-%m-%d %H:%M:%S\\"}, \\"on\\": {\\"type\\": \\"bool\\", \\"description\\": \\"Whether to switch the device on or off.\\"}}, \\"output_parameters\\": {\\"status\\": {\\"type\\": \\"str\\", \\"description\\": \\"Whether the time switch is successful.\\"}}}\\n\\nUser: Can you turn on my living room light at 7 pm tonight? Today is 2021-08-05.\\nAI: Sure, I can help you with that. What is the ID of your living room light?\\nUser: The ID is 12345.\\nAI: Got it. And at what time do you want me to turn it on?\\nUser: 7 pm.\\nAI: Okay. Is that AM or PM?\\nUser: PM.\\nAI: Great. Lastly, do you want me to turn it on or off at that time?\\nUser: I want you to turn it on.\\nAI: Understood. I will turn on your living room light at 7 pm tonight.\\nGenerate API Request:"}'))
+_generated_api_call = "[ApiName(name='living room light', time='2021-08-05 19:00:00', on=True)]"
+
+_expected_api_call = "[TimedSwitch(device_id='12345', time='2021-08-05 19:00:00', on='True')]"
+_wrong_api_call = "[DefinitelyNotTimedSwitch(device_id='12345', time='2021-08-05 19:00:00', on='True')]"
+_wrong_params_call = "[TimedSwitch(device_id='__different_value_for_test__', time='2021-08-05 19:00:00', on='True')]"
+
+def api_call():
+    return _generated_api_call
+
+def evaluate_api_call(candidate=None, turn=None):
+    output = api_call() if candidate is None else candidate
+    return evaluate_api_bank(_api_bank_turn if turn is None else turn, output)

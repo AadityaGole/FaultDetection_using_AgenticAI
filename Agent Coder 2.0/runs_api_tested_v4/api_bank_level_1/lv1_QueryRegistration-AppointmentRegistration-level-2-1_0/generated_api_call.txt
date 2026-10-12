@@ -1,0 +1,1 @@
+[QueryRegistration(key1='John Doe', key2='2023-04-12')]

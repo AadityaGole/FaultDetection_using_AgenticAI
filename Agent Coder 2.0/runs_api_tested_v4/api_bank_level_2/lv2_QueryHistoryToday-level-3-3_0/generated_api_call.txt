@@ -1,0 +1,1 @@
+<|tool_call_start|>[ToolSearcher(keywords='October 6th history')]<|tool_call_end|>

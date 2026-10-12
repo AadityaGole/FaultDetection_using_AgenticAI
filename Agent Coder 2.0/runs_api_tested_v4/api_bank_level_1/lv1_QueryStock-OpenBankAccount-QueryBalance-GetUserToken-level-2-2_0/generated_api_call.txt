@@ -1,0 +1,1 @@
+<|tool_call_start|>[API_Request(ApiName='QueryStock', key1='stock_code', value='AMZN', key2='date', value='2022-03-11')]<|tool_call_end|>

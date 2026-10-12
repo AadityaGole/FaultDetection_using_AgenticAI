@@ -1,0 +1,1 @@
+[ApiName(name="ForgotPassword", key1='Forgot Password', key2='foo', key3='foo@example.com')]

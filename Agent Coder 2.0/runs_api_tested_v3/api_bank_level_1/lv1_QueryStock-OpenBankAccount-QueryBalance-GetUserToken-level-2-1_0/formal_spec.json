@@ -1,0 +1,30 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_QueryStock-OpenBankAccount-QueryBalance-GetUserToken-level-2-1_0",
+      "operationName": "QueryStock",
+      "actionable_sentences": [
+        "The API name must be 'QueryStock' (case-insensitive match) for the stock price query.",
+        "The stock_code parameter must be provided as a string representing the ticker symbol of the target security (e.g., 'AMZN').",
+        "The date parameter must be provided as a string in YYYY-MM-DD format (e.g., '2022-03-12')."
+      ],
+      "lifted_nl": [
+        "The QueryStock API shall be invoked for any stock price query, with case-insensitive matching permitted for the API name.",
+        "The stock_code parameter shall be provided as a string representing the ticker symbol of the target security (e.g., 'AMZN').",
+        "The date parameter shall be provided as a string in YYYY-MM-DD format (for example, '2022-03-12')."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The stock_code parameter must be a non-empty string and the date parameter must be a string matching the pattern YYYY-MM-DD with valid numeric components.",
+      "Function": "query_stock(stock_code: str, date: str) -> float",
+      "Postcondition": "The function returns a float representing the stock price for the specified stock on the specified date.",
+      "assumptions": [
+        "The OpenBankAccount API service is accessible and operational.",
+        "Network connectivity between client and API endpoint is established."
+      ],
+      "invariants": [
+        "The returned stock_price is a finite floating-point number.",
+        "If the stock_code is not a valid ticker symbol, the API will indicate an error."
+      ]
+    }
+  ]
+}

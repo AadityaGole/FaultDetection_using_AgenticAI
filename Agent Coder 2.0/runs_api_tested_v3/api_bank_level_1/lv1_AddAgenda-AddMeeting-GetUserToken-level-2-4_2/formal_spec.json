@@ -1,0 +1,30 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_AddAgenda-AddMeeting-GetUserToken-level-2-4_2",
+      "operationName": "AddAgenda",
+      "actionable_sentences": [
+        "The AddAgenda API must be invoked with a valid token obtained from GetUserToken, along with the agenda content, time in YYYY-MM-DD HH:MM:SS format, and location.",
+        "All four parameters (token, content, time, location) are required for the AddAgenda API call and must be present in the request."
+      ],
+      "lifted_nl": [
+        "The AddAgenda API must be invoked with a valid token obtained from GetUserToken, along with agenda content, a time value in YYYY-MM-DD HH:MM:SS format, and a location.",
+        "For the AddAgenda API call, the token, content, time, and location parameters must all be present in the request.",
+        "The API name 'AddAgenda' must match case-insensitively against the evaluator's expected name."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "A valid token string is available from GetUserToken, and all three additional parameters (content, time, location) are non-empty strings meeting the required format specifications.",
+      "Function": "add_agenda(token: str, content: str, time: str, location: str) -> dict",
+      "Postcondition": "The agenda was successfully added to the system with the specified content, time, and location; the response contains a status indicating success.",
+      "assumptions": [
+        "The user has already obtained a valid token via GetUserToken and possesses it in the session.",
+        "The time string conforms to the YYYY-MM-DD HH:MM:SS format.",
+        "The location string is a non-empty descriptive text."
+      ],
+      "invariants": [
+        "After the AddAgenda call completes, the stored agenda record retains the original content, time, and location values without modification.",
+        "The token used for the call remains valid and associated with the requesting user."
+      ]
+    }
+  ]
+}

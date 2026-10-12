@@ -1,0 +1,31 @@
+{
+  "unit_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpbyglk6oo\\test_bundle.py\", line 135, in <module>\n    test_addagenda_success()\n    ~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpbyglk6oo\\test_bundle.py\", line 60, in test_addagenda_success\n    result = evaluate_api_call()\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpbyglk6oo\\test_bundle.py\", line 55, in evaluate_api_call\n    return evaluate_api_bank(_api_bank_turn, output)\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\Agent Coder 2.0\\evaluation\\api_bank_evaluator.py\", line 151, in evaluate_api_bank\n    api_name, params = parse_api_call(generated_output)\n                       ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\Agent Coder 2.0\\evaluation\\api_bank_evaluator.py\", line 119, in parse_api_call\n    match = re.search(r\"\\[([A-Za-z_]\\w*)\\s*\\((.*?)\\)\\]\", text, re.DOTALL)\n  File \"C:\\Users\\aadit\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\re\\__init__.py\", line 177, in search\n    return _compile(pattern, flags).search(string)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\nTypeError: expected string or bytes-like object, got 'function'\n",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpbyglk6oo\\test_bundle.py\", line 135, in <module>\n    test_addagenda_success()\n    ~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpbyglk6oo\\test_bundle.py\", line 60, in test_addagenda_success\n    result = evaluate_api_call()\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpbyglk6oo\\test_bundle.py\", line 55, in evaluate_api_call\n    return evaluate_api_bank(_api_bank_turn, output)\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\Agent Coder 2.0\\evaluation\\api_bank_evaluator.py\", line 151, in evaluate_api_bank\n    api_name, params = parse_api_call(generated_output)\n                       ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\Agent Coder 2.0\\evaluation\\api_bank_evaluator.py\", line 119, in parse_api_call\n    match = re.search(r\"\\[([A-Za-z_]\\w*)\\s*\\((.*?)\\)\\]\", text, re.DOTALL)\n  File \"C:\\Users\\aadit\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\re\\__init__.py\", line 177, in search\n    return _compile(pattern, flags).search(string)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\nTypeError: expected string or bytes-like object, got 'function'\n"
+  },
+  "property_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpg9rhmlm_\\test_bundle.py\", line 21, in <module>\n    time=st.fixed(\"2023-12-15 14:00:00\"),\n         ^^^^^^^^\nAttributeError: module 'hypothesis.strategies' has no attribute 'fixed'\n",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpg9rhmlm_\\test_bundle.py\", line 21, in <module>\n    time=st.fixed(\"2023-12-15 14:00:00\"),\n         ^^^^^^^^\nAttributeError: module 'hypothesis.strategies' has no attribute 'fixed'\n"
+  },
+  "runtime_errors": [
+    "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpbyglk6oo\\test_bundle.py\", line 135, in <module>\n    test_addagenda_success()\n    ~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpbyglk6oo\\test_bundle.py\", line 60, in test_addagenda_success\n    result = evaluate_api_call()\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpbyglk6oo\\test_bundle.py\", line 55, in evaluate_api_call\n    return evaluate_api_bank(_api_bank_turn, output)\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\Agent Coder 2.0\\evaluation\\api_bank_evaluator.py\", line 151, in evaluate_api_bank\n    api_name, params = parse_api_call(generated_output)\n                       ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\Agent Coder 2.0\\evaluation\\api_bank_evaluator.py\", line 119, in parse_api_call\n    match = re.search(r\"\\[([A-Za-z_]\\w*)\\s*\\((.*?)\\)\\]\", text, re.DOTALL)\n  File \"C:\\Users\\aadit\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\re\\__init__.py\", line 177, in search\n    return _compile(pattern, flags).search(string)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\nTypeError: expected string or bytes-like object, got 'function'\n",
+    "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpg9rhmlm_\\test_bundle.py\", line 21, in <module>\n    time=st.fixed(\"2023-12-15 14:00:00\"),\n         ^^^^^^^^\nAttributeError: module 'hypothesis.strategies' has no attribute 'fixed'\n"
+  ],
+  "timeouts": []
+}

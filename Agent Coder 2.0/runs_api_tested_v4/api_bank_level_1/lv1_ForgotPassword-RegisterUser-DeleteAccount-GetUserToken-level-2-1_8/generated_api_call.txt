@@ -1,0 +1,1 @@
+[RegisterUser(username='foo', password='bar', email='foo@example.com')]

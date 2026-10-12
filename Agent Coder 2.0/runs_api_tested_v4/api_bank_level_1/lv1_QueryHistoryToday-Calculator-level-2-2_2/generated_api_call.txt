@@ -1,0 +1,1 @@
+<|tool_call_start|>[API_call(name='Calculator', arguments={'formula': '(23+7)*3-42/6'})]<|tool_call_end|>

@@ -1,0 +1,1 @@
+API-Request: [QueryRegistration(patient_name='Robert Lee', date='2023-03-25')]

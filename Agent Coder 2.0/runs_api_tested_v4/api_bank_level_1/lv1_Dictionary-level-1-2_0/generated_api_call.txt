@@ -1,0 +1,8 @@
+[ApiName(keyword='perplexed')]
+
+The API request has been generated. Let me verify the format matches what was requested - it should be in the format `[ApiName(key1='value1', key2='value2', ...)]` where the keys correspond to the parameters defined in the API description.
+
+Looking at the Dictionary API:
+- `key1` corresponds to `keyword` (the main required parameter)
+
+The request is correct: `[ApiName(keyword='perplexed')]` will search the dictionary for the word "perplexed".

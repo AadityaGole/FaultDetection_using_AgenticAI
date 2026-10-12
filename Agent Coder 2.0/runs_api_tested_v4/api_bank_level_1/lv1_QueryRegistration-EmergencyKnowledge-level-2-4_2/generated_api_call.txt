@@ -1,0 +1,1 @@
+[EmergencyKnowledge(symptom='shortness of breath')]

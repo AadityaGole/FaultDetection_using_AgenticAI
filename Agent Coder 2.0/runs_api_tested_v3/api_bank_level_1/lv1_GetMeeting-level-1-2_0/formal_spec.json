@@ -1,0 +1,33 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_GetMeeting-level-1-2_0",
+      "operationName": "QueryMeeting",
+      "actionable_sentences": [
+        "The API name 'QueryMeeting' must be used exactly as specified (case-insensitive matching is allowed), corresponding to the API described in the task.",
+        "All required parameters must be provided: token (string), meeting_topic (string), start_time (string in %Y-%m-%d %H:%M:%S format), end_time (string in %Y-%m-%d %H:%M:%S format), location (string up to 100 characters), and attendees (list of strings).",
+        "For the given meeting, the start_time should be '2023-03-20 14:00:00', end_time should be '2023-03-20 16:00:00', location should be 'Conference Room A', meeting_topic should be 'Sales Meeting', and attendees should be exactly ['John Smith', 'Jane Doe']."
+      ],
+      "lifted_nl": [
+        "The QueryMeeting API must be invoked using the exact identifier \"QueryMeeting\" (case-insensitive matching is permitted).",
+        "The call must supply all required parameters: a token string, a meeting_topic string, a start_time in %Y-%m-%d %H:%M:%S format, an end_time in %Y-%m-%d %H:%M:%S format, a location string not exceeding 100 characters, and an attendees list of strings.",
+        "For this specific meeting instance, start_time must equal \"2023-03-20 14:00:00\", end_time must equal \"2023-03-20 16:00:00\", location must be \"Conference Room A\", meeting_topic must be \"Sales Meeting\", and attendees must be exactly [\"John Smith\", \"Jane Doe\"]. "
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "A valid user token must exist (obtained via GetUserToken with username='JohnDoe' and password='pass123') and the meeting details (topic, times, location, attendees) must be fully specified.",
+      "Function": "query_meeting(api_name='QueryMeeting', token='str', meeting_topic='str', start_time='%Y-%m-%d %H:%M:%S', end_time='%Y-%m-%d %H:%M:%S', location='str', attendees='list of str') -> [ApiName(key1='QueryMeeting', key2='token', key3='meeting_topic', key4='start_time', key5='end_time', key6='location', key7='attendees')]",
+      "Postcondition": "The returned value must be a valid API request array containing an ApiName key with the key 'QueryMeeting' and associated parameter values matching the specified meeting details.",
+      "assumptions": [
+        "The system has access to the GetUserToken API to obtain a valid token for the authenticated user.",
+        "The meeting topic, dates, location, and attendee list are all within the specified constraints.",
+        "The evaluator can parse the API call string and extract parameters according to the schema."
+      ],
+      "invariants": [
+        "The API name remains constant as 'QueryMeeting' throughout the operation.",
+        "All required parameters are present with correct types and value ranges.",
+        "Location string length does not exceed 100 characters.",
+        "Attendees list contains only string elements."
+      ]
+    }
+  ]
+}

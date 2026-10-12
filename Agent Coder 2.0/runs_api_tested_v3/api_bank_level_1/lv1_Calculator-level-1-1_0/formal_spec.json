@@ -1,0 +1,31 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_Calculator-level-1-1_0",
+      "operationName": "Calculator",
+      "actionable_sentences": [
+        "The API name must match 'Calculator' case-insensitively.",
+        "The formula parameter must be provided as a string containing the arithmetic expression '(5+6)*3'.",
+        "The evaluator must successfully parse the formula parameter and return the computed result as a float."
+      ],
+      "lifted_nl": [
+        "The Calculator API must have an identifier that matches 'Calculator' case-insensitively.",
+        "The formula parameter must be supplied as a string literal containing exactly the arithmetic expression '(5+6)*3'.",
+        "The evaluator is required to parse the formula parameter correctly and return its evaluated result as a floating-point number."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The formula string contains only digits, spaces, and the operators +, -, *, /, and parentheses '(', ')', forming a valid arithmetic expression with integer operands.",
+      "Function": "calculate(formula: str) -> float",
+      "Postcondition": "The function returns a float equal to the mathematically correct evaluation of the given arithmetic expression.",
+      "assumptions": [
+        "The formula contains valid integer literals and operator symbols without syntax errors.",
+        "No division by zero occurs during evaluation.",
+        "The current year 2023 is contextual but does not affect the arithmetic computation."
+      ],
+      "invariants": [
+        "After execution, the returned float value equals the sum/product/quotient/difference of the integer operands according to standard arithmetic precedence rules.",
+        "The function terminates successfully for any well-formed expression within the allowed character set."
+      ]
+    }
+  ]
+}

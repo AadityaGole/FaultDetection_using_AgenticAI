@@ -1,0 +1,1 @@
+[ModifyPassword(token='m9n8b7v6c5x4z3a2s1', old_password='adminpass', new_password='654321')]

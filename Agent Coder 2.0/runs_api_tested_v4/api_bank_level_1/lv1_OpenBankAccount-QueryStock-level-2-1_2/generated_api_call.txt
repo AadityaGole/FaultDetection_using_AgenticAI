@@ -1,0 +1,1 @@
+[QueryStock(stock_code='AMZN', date='2022-03-10')]

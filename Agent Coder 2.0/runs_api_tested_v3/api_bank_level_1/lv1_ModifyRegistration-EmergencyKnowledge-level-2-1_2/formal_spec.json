@@ -1,0 +1,31 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_ModifyRegistration-EmergencyKnowledge-level-2-1_2",
+      "operationName": "ModifyRegistration",
+      "actionable_sentences": [
+        "The API name must be 'ModifyRegistration' with case-insensitive matching permitted.",
+        "All three required parameters—appointment_id (string), new_appointment_date (YYYY-MM-DD), and new_appointment_doctor (string)—must be provided.",
+        "The response must include a status field indicating the modification outcome."
+      ],
+      "lifted_nl": [
+        "The ModifyRegistration API shall use the identifier 'ModifyRegistration' for its name, with case-insensitive matching permitted.",
+        "The ModifyRegistration operation shall require three mandatory parameters: appointment_id (a string), new_appointment_date (in YYYY-MM-DD format), and new_appointment_doctor (a string).",
+        "The ModifyRegistration operation shall return a response containing a status field that accurately reflects whether the modification was successful."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The appointment_id is a non-empty string, new_appointment_date conforms to ISO 8601 date format YYYY-MM-DD, and new_appointment_doctor is a non-empty string. The ModifyRegistration API endpoint is accessible.",
+      "Function": "modify_registration(appointment_id: str, new_appointment_date: str, new_appointment_doctor: str) -> str",
+      "Postcondition": "The returned value is a string representing the status of the modification (e.g., 'success' or 'failed'), confirming the operation completed.",
+      "assumptions": [
+        "The system has proper authorization to modify appointments.",
+        "The appointment_id corresponds to an existing appointment record.",
+        "The date format YYYY-MM-DD is correctly interpreted by the backend."
+      ],
+      "invariants": [
+        "If the modification succeeds, the appointment with the given appointment_id will have its date updated to new_appointment_date and doctor changed to new_appointment_doctor.",
+        "The status field in the response will be either 'success' or 'failure' depending on the outcome."
+      ]
+    }
+  ]
+}

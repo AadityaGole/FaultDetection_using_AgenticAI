@@ -1,0 +1,25 @@
+{
+  "unit_tests": {
+    "passed": 1,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "F.\n======================================================================\nFAIL: test_modify_registration_edge_case_empty_values (__main__.TestModifyRegistration.test_modify_registration_edge_case_empty_values)\nTest edge case with empty string values (boundary condition).\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpwn9z76_u\\test_bundle.py\", line 30, in test_modify_registration_edge_case_empty_values\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: \"[ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\" != \"[ModifyRegistration(key1='', key2='', key3='')]\"\n- [ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\n?                           --------         ----------         -------\n+ [ModifyRegistration(key1='', key2='', key3='')]\n\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "F.\n======================================================================\nFAIL: test_modify_registration_edge_case_empty_values (__main__.TestModifyRegistration.test_modify_registration_edge_case_empty_values)\nTest edge case with empty string values (boundary condition).\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpwn9z76_u\\test_bundle.py\", line 30, in test_modify_registration_edge_case_empty_values\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: \"[ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\" != \"[ModifyRegistration(key1='', key2='', key3='')]\"\n- [ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\n?                           --------         ----------         -------\n+ [ModifyRegistration(key1='', key2='', key3='')]\n\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n"
+  },
+  "property_tests": {
+    "passed": 1,
+    "failed": 0,
+    "failures": [],
+    "stdout": "",
+    "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 1.206s\n\nOK\n"
+  },
+  "runtime_errors": [
+    "F.\n======================================================================\nFAIL: test_modify_registration_edge_case_empty_values (__main__.TestModifyRegistration.test_modify_registration_edge_case_empty_values)\nTest edge case with empty string values (boundary condition).\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpwn9z76_u\\test_bundle.py\", line 30, in test_modify_registration_edge_case_empty_values\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: \"[ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\" != \"[ModifyRegistration(key1='', key2='', key3='')]\"\n- [ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\n?                           --------         ----------         -------\n+ [ModifyRegistration(key1='', key2='', key3='')]\n\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n"
+  ],
+  "timeouts": []
+}

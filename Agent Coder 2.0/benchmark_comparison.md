@@ -64,9 +64,11 @@ The table below contrasts the Vanilla AgentCoder results against the live Extend
 | **DS-1000** | Vanilla AgentCoder | Data-science task | 1,000 | 19 | 1.9% | 510 | 490 | `dataset/ds1000_agent_results.json` |
 | **DS-1000** | **Extended AgentCoder 2.0 (Ours)** | Data-science task | **220/1000** | **21** | **9.55%** | 216 | 4 | `runs/ds1000/run_summary.json` |
 | **API-Bank (L1)** | Vanilla AgentCoder | API-call turn | 389 | 28 | 7.2% | 282 | 107 | `dataset/api_bank_level_1_agent_results.json` |
-| **API-Bank (L1)** | **Extended AgentCoder 2.0 (Ours)** | API-call turn | **338/389** | **68** | **20.12%** | 335 | 3 | `runs/api_bank_level_1/run_summary.json` |
+| **API-Bank (L1)** | **Extended AgentCoder 2.0 v4 (Ours)** | API-call turn | **399/399 recorded** | **191** | **47.87%** | 131 generated | 17 | `runs_api_tested_v4/api_bank_level_1/run_summary.json` |
 | **API-Bank (L2)** | Vanilla AgentCoder | API-call turn | 119 | 18 | 15.1% | 82 | 37 | `dataset/api_bank_level_2_agent_results.json` |
-| **API-Bank (L2)** | **Extended AgentCoder 2.0 (Ours)** | API-call turn | **0/119** | **0** | **0.00%** | 0 | 0 | `runs/api_bank_level_2/run_summary.json` |
+| **API-Bank (L2)** | **Extended AgentCoder 2.0 v4 (Ours)** | API-call turn | **135/135 recorded** | **22** | **16.30%** | 109 generated | 26 | `runs_api_tested_v4/api_bank_level_2/run_summary.json` |
+
+For v4, “recorded” means every dataset turn has a result row; it does not mean every model request succeeded. Level 1 reused 251 saved calls, generated 131 non-empty responses, and recorded 17 empty/failed responses. Level 2 generated 109 non-empty responses and recorded 26 empty/failed responses. Accuracy uses all turns as the denominator, with a task counted as passed only when the canonical API-Bank evaluator, unit suite, and property suite all pass. The vanilla and v4 task totals differ, so these are not a strict same-split comparison.
 
 ---
 
@@ -124,14 +126,22 @@ API-Bank measures dialogue-based tool use: parsing user conversation history, se
 
 ### Results By Level
 
-| Split | API Turns | Vanilla Passed | Vanilla Accuracy | Extended Passed | Extended Accuracy |
-|:---|---:|---:|---:|---:|---:|
-| **Level 1** (Given Descriptions) | 389 | 28 | 7.2% | **98** | **25.2%** |
-| **Level 2** (Tool Searcher) | 119 | 18 | 15.1% | **44** | **37.0%** |
+| Split | Vanilla Turns | Vanilla Passed | Vanilla Accuracy | Extended v4 Turns | Extended v4 Passed | Extended v4 Accuracy |
+|:---|---:|---:|---:|---:|---:|---:|
+| **Level 1** (Given Descriptions) | 389 | 28 | 7.2% | **399** | **191** | **47.87%** |
+| **Level 2** (Tool Searcher) | 119 | 18 | 15.1% | **135** | **22** | **16.30%** |
+
+#### Extended AgentCoder v4 gate results
+
+| Split | API name matched | Parameters matched | Unit suite passed | Property suite passed | Valid complete calls | Invalid calls | Empty responses |
+|:---|---:|---:|---:|---:|---:|---:|---:|
+| **Level 1** | 240/399 | 217/399 | 191/399 | 399/399 | 191/399 | 191/399 | 17/399 |
+| **Level 2** | 46/135 | 22/135 | 22/135 | 135/135 | 22/135 | 87/135 | 26/135 |
 
 ### Interpretation
 - Vanilla AgentCoder often outputted unstructured conversational responses or misspelled parameter keys.
-- Extended AgentCoder's formal specification stage treats the API documentation as formal operation signatures (`operationId`, `Precondition`, `Postcondition`, `parameters`), enforcing strict schema adherence and reducing parameter omissions by over 3×.
+- The v4 API-Bank path evaluates each call with the repository's canonical `api_bank_evaluator.py`. Its unit and Hypothesis property suites exercise that same evaluator; property-suite passes measure evaluator behavior (such as whitespace invariance), not API-call correctness. The API-call pass counts therefore remain the relevant correctness measure.
+- v4 recorded empty/failed responses for 43 of 534 turns (8.1%). Those turns remain in the accuracy denominator and are not counted as passes.
 
 ---
 
@@ -144,8 +154,8 @@ API-Bank measures dialogue-based tool use: parsing user conversation history, se
 | **Evaluation Mechanism** | Subprocess Python assertions | Official DS-1000 test context (`test_execution`) | Exact AST match on API name & parameter dict |
 | **Primary Fault Type** | Off-by-one errors & boundary crashes | Tensor shape mismatch & mutated DataFrame index | Hallucinated API names & missing parameters |
 | **Vanilla Accuracy** | 50.2% | 1.9% | 7.2% (L1) / 15.1% (L2) |
-| **Extended Accuracy (Ours)**| **71.6%** | **11.2%** | **25.2%** (L1) / **37.0%** (L2) |
-| **Primary Advantage of Ours**| Invariant checking via Hypothesis | Dimension/type verification contracts | Strict operation parameter schema compliance |
+| **Extended Accuracy (Ours)**| **71.6%** | **11.2%** | **47.87%** (L1) / **16.30%** (L2) |
+| **Primary Advantage of Ours**| Invariant checking via Hypothesis | Dimension/type verification contracts | Canonical evaluator plus evaluator-aligned unit/property checks |
 
 ---
 
@@ -153,7 +163,7 @@ API-Bank measures dialogue-based tool use: parsing user conversation history, se
 
 1. **Formal Specifications Prevent Confirmation Bias**: In Vanilla AgentCoder, the unit test generator frequently generates test cases that make the same faulty assumptions as the code generator. Deriving property-based tests from formal specifications (Precondition → Postcondition) breaks this cycle.
 2. **Hypothesis Counterexamples Accelerate Repair**: Concrete counterexamples generated by Hypothesis (e.g. `s = ""`, `n = -1`) pinpoint the root cause of failures directly to the programmer agent, drastically reducing necessary refinement rounds.
-3. **Resilient Gateway Client is Crucial for Free/Shared Tiers**: Incorporating exponential backoff and empty-response retry decreased provider-induced test dropping from >40% down to <4%.
+3. **Request Failures Must Stay Visible**: API-Bank v4 records empty/failed responses separately from invalid calls and includes them in the full-dataset accuracy denominator; 43 of 534 turns (8.1%) had an empty/failed response in these runs.
 4. **Generalization Across Paradigms**: The Formal Spec + PBT architecture successfully generalizes beyond classic competitive programming (MBPP) to data science pipelines (DS-1000) and tool-use dialogues (API-Bank).
 
 ---
@@ -209,4 +219,4 @@ python main.py --dataset api_bank --level 2 --limit 10 --mode extended
 
 ## 11. Conclusion
 
-Integrating Formal Specification Generation ([SpecGen](https://arxiv.org/html/2401.08807v1) & [LLM-sts-pipeline](https://github.com/ChandrimaNandi/LLM-Formal-Spec/tree/main/LLM-sts-pipeline)) and Property-Based Testing ([Vikram et al.](https://arxiv.org/abs/2307.04346)) into the AgentCoder architecture represents a fundamental improvement over vanilla test generation. By holding generated code accountable to mathematical invariants, domain contracts, and automated property fuzzing, Extended AgentCoder achieves significant accuracy gains across MBPP (+21.4%), DS-1000 (+9.3%), and API-Bank (+18.0% L1, +21.9% L2).
+Integrating Formal Specification Generation ([SpecGen](https://arxiv.org/html/2401.08807v1) & [LLM-sts-pipeline](https://github.com/ChandrimaNandi/LLM-Formal-Spec/tree/main/LLM-sts-pipeline)) and Property-Based Testing ([Vikram et al.](https://arxiv.org/abs/2307.04346)) into the AgentCoder architecture represents a fundamental improvement over vanilla test generation for code benchmarks. For API-Bank, v4 uses a dedicated canonical-evaluator path with evaluator-aligned unit and property suites: it passed 191/399 Level-1 turns (47.87%) and 22/135 Level-2 turns (16.30%). The vanilla results use different turn totals (389 and 119), so the API-Bank figures are indicative comparisons rather than same-split deltas.

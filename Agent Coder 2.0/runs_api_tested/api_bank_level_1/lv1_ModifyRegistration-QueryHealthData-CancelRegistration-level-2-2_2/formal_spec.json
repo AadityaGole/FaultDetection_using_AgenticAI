@@ -1,0 +1,31 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2",
+      "operationName": "QueryHealthData",
+      "actionable_sentences": [
+        "The QueryHealthData API requires the user_id parameter to be set to 'J46801'.",
+        "The start_time parameter must be formatted as '%Y-%m-%d %H:%M:%S'.",
+        "The end_time parameter must be formatted as '%Y-%m-%d %H:%M:%S'."
+      ],
+      "lifted_nl": [
+        "The QueryHealthData API call must include the user_id parameter set to 'J46801'.",
+        "The start_time parameter must be formatted according to the pattern '%Y-%m-%d %H:%M:%S'.",
+        "The end_time parameter must be formatted according to the pattern '%Y-%m-%d %H:%M:%S'."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The user_id 'J46801' exists in the system and the start_time and end_time are valid datetime strings in the format '%Y-%m-%d %H:%M:%S' representing a time span within 2023.",
+      "Function": "query_health_data(user_id: str, start_time: str, end_time: str) -> list",
+      "Postcondition": "The API returns a list of health data records for user J46801 covering the period from 2023-03-05 to 2023-03-12.",
+      "assumptions": [
+        "The user account with ID 'J46801' is active and accessible.",
+        "The system has access to the health data database for the specified time range.",
+        "The date range 2023-03-05 to 2023-03-12 is valid and within the supported timeframe."
+      ],
+      "invariants": [
+        "If query_health_data is called with valid parameters, the returned health_data list contains records matching the user_id and time range.",
+        "The function preserves the integrity of the health data records without modification."
+      ]
+    }
+  ]
+}

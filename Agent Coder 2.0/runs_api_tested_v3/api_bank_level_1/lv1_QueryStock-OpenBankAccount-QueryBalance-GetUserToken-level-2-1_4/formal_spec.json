@@ -1,0 +1,28 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_QueryStock-OpenBankAccount-QueryBalance-GetUserToken-level-2-1_4",
+      "operationName": "QueryBalance",
+      "actionable_sentences": [
+        "The operation must be identified as 'QueryBalance' and require a mandatory token parameter of type string.",
+        "When invoking QueryBalance, the caller must provide a valid token (e.g., obtained via GetUserToken) as the token argument."
+      ],
+      "lifted_nl": [
+        "The operation QueryBalance must be identified by its name and require a mandatory token parameter of type string.",
+        "Any invocation of QueryBalance must supply a valid token argument, such as one obtained via GetUserToken."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The token parameter must be a non-empty string and correspond to a valid authenticated user session.",
+      "Function": "query_balance(token: str) -> float",
+      "Postcondition": "The function returns the current balance of the user's account as a non-negative floating-point number.",
+      "assumptions": [
+        "The token is a valid, non-empty string that grants access to the user's account.",
+        "The system has access to the OpenBankAccount API for executing the query."
+      ],
+      "invariants": [
+        "The returned balance is always >= 0",
+        "The token parameter is used exclusively for authentication and authorization"
+      ]
+    }
+  ]
+}

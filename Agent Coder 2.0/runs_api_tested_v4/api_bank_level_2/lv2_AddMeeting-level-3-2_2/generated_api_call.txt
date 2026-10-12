@@ -1,0 +1,1 @@
+[ApiName(name='GetUserToken', input_parameters={'username': 'JohnDoe', 'password': 'pass123'})]

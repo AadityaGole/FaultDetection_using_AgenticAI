@@ -1,0 +1,1 @@
+<|tool_call_start|>[GetUserToken(username='newuser', password='newpass')]<|tool_call_end|>

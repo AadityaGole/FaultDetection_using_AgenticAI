@@ -1,0 +1,2 @@
+def api_call(*args, **kwargs):
+    return "[ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]"

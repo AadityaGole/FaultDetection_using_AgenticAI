@@ -1,0 +1,30 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2_4",
+      "operationName": "CancelRegistration",
+      "actionable_sentences": [
+        "The API name 'CancelRegistration' must be used exactly (case-insensitive) when constructing the API call.",
+        "A required parameter 'appointment_id' must be supplied as a string value representing the unique identifier of the appointment to be canceled.",
+        "The API response must include a 'status' field containing the outcome of the cancellation operation."
+      ],
+      "lifted_nl": [
+        "The API call must use the exact string \"CancelRegistration\" (case-insensitively) as the operation identifier.",
+        "The request must include a parameter named \"appointment_id\" whose value is a string that uniquely identifies the appointment to be canceled.",
+        "The API response must contain a field called \"status\" that includes a value describing the outcome of the cancellation operation."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "appointment_id is a non-empty string and refers to an existing appointment record in the system.",
+      "Function": "CancelRegistration(appointment_id: str) -> str",
+      "Postcondition": "The API returns a status field with a value indicating the cancellation outcome (e.g., 'success' or 'cancelled').",
+      "assumptions": [
+        "The system maintains records of appointments with unique IDs.",
+        "The CancelRegistration API is accessible and functional for the given appointment_id."
+      ],
+      "invariants": [
+        "After a successful cancellation, the appointment is no longer active under the given appointment_id.",
+        "The returned status reflects the cancellation result."
+      ]
+    }
+  ]
+}

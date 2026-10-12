@@ -1,0 +1,34 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_GetMeeting-level-1-2_2",
+      "operationName": "QueryMeeting",
+      "actionable_sentences": [
+        "The API name must be \"QueryMeeting\" (case-insensitive matching is acceptable).",
+        "All required parameters must be supplied: token (string), meeting_topic (string up to 50 characters), start_time (string in %Y-%m-%d %H:%M:%S format), end_time (string in %Y-%m-%d %H:%M:%S format), location (string up to 100 characters), and attendees (list of strings)."
+      ],
+      "lifted_nl": [
+        "The QueryMeeting API shall use the identifier \"QueryMeeting\" for its reference, allowing case-insensitive matching during validation.",
+        "The QueryMeeting API shall require a token parameter of type string.",
+        "The QueryMeeting API shall require a meeting_topic parameter constrained to a maximum of 50 characters.",
+        "The QueryMeeting API shall require a start_time parameter formatted according to the pattern YYYY-MM-DD HH:MM:SS.",
+        "The QueryMeeting API shall require an end_time parameter formatted according to the pattern YYYY-MM-DD HH:MM:SS.",
+        "The QueryMeeting API shall require a location parameter constrained to a maximum of 100 characters.",
+        "The QueryMeeting API shall require an attendees parameter expressed as a list of strings."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "All required parameters (token, meeting_topic, start_time, end_time, location, attendees) must be provided with correct types and formats. token is a string, meeting_topic is a string ≤ 50 characters, start_time and end_time are strings matching YYYY-MM-DD HH:MM:SS, location is a string ≤ 100 characters, and attendees is a list of strings.",
+      "Function": "query_meeting(token: str, meeting_topic: str, start_time: str, end_time: str, location: str, attendees: List[str]) -> dict",
+      "Postcondition": "The API returns a JSON object with meeting_info as the top-level result containing the queried meeting details.",
+      "assumptions": [
+        "The system has network connectivity to the QueryMeeting API endpoint.",
+        "Authentication tokens are properly generated and valid.",
+        "Date strings conform to the specified YYYY-MM-DD HH:MM:SS format."
+      ],
+      "invariants": [
+        "If the API call succeeds, the returned meeting_info contains the requested meeting details.",
+        "All input parameters passed to the API are within their specified constraints."
+      ]
+    }
+  ]
+}

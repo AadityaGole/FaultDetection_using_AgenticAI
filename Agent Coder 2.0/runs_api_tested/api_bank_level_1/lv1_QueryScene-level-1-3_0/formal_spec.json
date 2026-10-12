@@ -1,0 +1,30 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_QueryScene-level-1-3_0",
+      "operationName": "QueryScene",
+      "actionable_sentences": [
+        "The QueryScene API requires a 'name' parameter of type string to identify the scene being queried.",
+        "The scene name to pass to the API is 'Morning Routine' as specified by the user's question.",
+        "The API call should return a list of smart devices including each device's name and description."
+      ],
+      "lifted_nl": [
+        "The QueryScene API must require a 'name' parameter of type string to identify the scene being queried.",
+        "When calling the QueryScene API, the scene name must be supplied as a string argument.",
+        "The QueryScene API response must be a list of smart devices, where each device contains both a name and a description."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "A valid scene name string is provided as input to the QueryScene operation.",
+      "Function": "query_scene(name: str) -> str",
+      "Postcondition": "The returned API call string includes the scene name 'Morning Routine' and requests a list of smart devices with name and description fields.",
+      "assumptions": [
+        "The scene 'Morning Routine' exists in the smart home system and can be queried.",
+        "The QueryScene API is available and implements the described functionality."
+      ],
+      "invariants": [
+        "The API response contains a list of device dictionaries, each having 'name' and 'description' keys.",
+        "All device names and descriptions are non-empty strings."
+      ]
+    }
+  ]
+}

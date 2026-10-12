@@ -1,0 +1,30 @@
+{
+  "unit_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "unit_tests SyntaxError: unterminated string literal (detected at line 40) (line 40, column 12)",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "unit_tests SyntaxError: unterminated string literal (detected at line 40) (line 40, column 12)"
+  },
+  "property_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "Skipped because unit tests did not compile",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "Skipped because unit tests did not compile"
+  },
+  "runtime_errors": [
+    "unit_tests SyntaxError: unterminated string literal (detected at line 40) (line 40, column 12)"
+  ],
+  "timeouts": []
+}

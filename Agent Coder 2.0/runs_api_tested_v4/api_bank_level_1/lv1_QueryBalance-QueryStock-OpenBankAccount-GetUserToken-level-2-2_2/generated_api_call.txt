@@ -1,0 +1,1 @@
+<|tool_call_start|>[QueryBalance(token='o9i8u7y6t5r4e3w2q1')]<|tool_call_end|>

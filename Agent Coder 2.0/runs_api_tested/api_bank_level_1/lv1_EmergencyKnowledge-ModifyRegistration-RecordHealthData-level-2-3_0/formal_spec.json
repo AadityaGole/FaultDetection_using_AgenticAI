@@ -1,0 +1,28 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-3_0",
+      "operationName": "EmergencyKnowledge",
+      "actionable_sentences": [
+        "The EmergencyKnowledge API must be called with the symptom parameter set to 'shortness of breath'.",
+        "The symptom parameter is required and must be a string value representing the medical condition."
+      ],
+      "lifted_nl": [
+        "The EmergencyKnowledge API must include a symptom parameter when it is called.",
+        "The symptom parameter must be supplied as part of the API call."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The symptom parameter is provided as a non-empty string representing a medical condition, and the EmergencyKnowledge API is accessible and operational.",
+      "Function": "emergency_knowledge(symptom: str) -> List[Dict[str, Union[str, List[str]]]]",
+      "Postcondition": "The API returns a list of result dictionaries, each containing at least a 'name' (string) for a possible disease and an 'aid' (string) for the corresponding first-aid method.",
+      "assumptions": [
+        "The EmergencyKnowledge API endpoint is reachable and functioning correctly.",
+        "The symptom parameter is a valid string that describes a medical condition."
+      ],
+      "invariants": [
+        "After the API call completes, the system holds a list of result entries.",
+        "Each result entry contains a disease name and a first-aid method string."
+      ]
+    }
+  ]
+}

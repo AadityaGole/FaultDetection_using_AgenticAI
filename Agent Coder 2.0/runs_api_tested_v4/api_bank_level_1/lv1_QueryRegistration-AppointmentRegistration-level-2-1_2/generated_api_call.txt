@@ -1,0 +1,1 @@
+[ApiName(name='AppointmentRegistration', key1='patient_name', value='John Doe', key2='date', value='2023-04-15', key3='doctor_name', value='Dr. Smith')]

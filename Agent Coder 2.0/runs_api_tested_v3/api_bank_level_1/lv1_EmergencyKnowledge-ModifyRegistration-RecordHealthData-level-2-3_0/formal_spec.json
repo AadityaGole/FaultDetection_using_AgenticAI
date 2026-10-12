@@ -1,0 +1,31 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-3_0",
+      "operationName": "ModifyRegistration",
+      "actionable_sentences": [
+        "The API requires an appointment_id parameter of type string to uniquely identify the existing appointment being modified.",
+        "The API requires a new_appointment_date parameter formatted as YYYY-MM-DD to specify the rescheduled appointment date.",
+        "The API requires a new_appointment_doctor parameter of type string to specify the doctor assigned to the newly scheduled appointment."
+      ],
+      "lifted_nl": [
+        "De ModifyRegistration operatie vereist een appointment_id parameter van type string om de bestaande bezoeksbeurt uniek te identificeren.",
+        "De ModifyRegistration operatie vereist een new_appointment_date parameter geformat als YYYY-MM-DD om de herplannenbezoekst te specificeren.",
+        "De ModifyRegistration operatie vereist een new_appointment_doctor parameter van type string om de arts toe te wijzen die voor de nieuw geplande bezoekst wordt aangesteld."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "appointment_id is a non-empty string, new_appointment_date matches the pattern \\d{4}-\\d{2}-\\d{2}, and new_appointment_doctor is a non-empty string.",
+      "Function": "modify_registration(appointment_id: str, new_appointment_date: str, new_appointment_doctor: str) -> str",
+      "Postcondition": "The API returns a status string indicating the success or failure of the modification operation.",
+      "assumptions": [
+        "The appointment_id corresponds to an existing appointment in the system.",
+        "The new_appointment_date is a valid calendar date in ISO 8601 format (YYYY-MM-DD).",
+        "The new_appointment_doctor is a non-empty string representing a valid medical professional identifier."
+      ],
+      "invariants": [
+        "If the operation succeeds, the appointment record is updated with the new date and doctor values.",
+        "The original appointment_id remains associated with the updated appointment record."
+      ]
+    }
+  ]
+}

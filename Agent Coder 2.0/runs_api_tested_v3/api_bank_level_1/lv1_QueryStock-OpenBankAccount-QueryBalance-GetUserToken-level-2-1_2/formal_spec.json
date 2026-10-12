@@ -1,0 +1,30 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_QueryStock-OpenBankAccount-QueryBalance-GetUserToken-level-2-1_2",
+      "operationName": "OpenBankAccount",
+      "actionable_sentences": [
+        "The API call must use the OpenBankAccount API with account='user4', password='user4pass', and name='John'.",
+        "All three required parameters (account, password, name) must be provided as string values."
+      ],
+      "lifted_nl": [
+        "The API call shall invoke the OpenBankAccount API with account set to 'user4', password set to 'user4pass', and name set to 'John'.",
+        "The parameters account, password, and name must each be supplied as string values.",
+        "The identifier used for the API must be equivalent to 'OpenBankAccount' regardless of letter casing."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The user provides account identifier 'user4', password 'user4pass', and name 'John' as non-empty strings. The OpenBankAccount API endpoint is accessible.",
+      "Function": "open_account(account: str, password: str, name: str) -> str",
+      "Postcondition": "The API returns a status of 'success' confirming the account was created with the specified parameters.",
+      "assumptions": [
+        "The OpenBankAccount API accepts account, password, and name as required string parameters.",
+        "The user credentials (account='user4', password='user4pass', name='John') are valid and authorized.",
+        "The API returns a success status upon successful account creation."
+      ],
+      "invariants": [
+        "If the account creation succeeds, the resulting account has identifier 'user4'.",
+        "The returned status from the API call is 'success'."
+      ]
+    }
+  ]
+}

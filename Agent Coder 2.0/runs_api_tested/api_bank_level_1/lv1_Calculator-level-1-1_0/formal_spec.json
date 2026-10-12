@@ -1,0 +1,28 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_Calculator-level-1-1_0",
+      "operationName": "Calculator",
+      "actionable_sentences": [
+        "The Calculator API should be called with the formula parameter set to \"(5+6)*3\".",
+        "The formula parameter must be a string containing only integers and valid arithmetic operators (+, -, *, /, parentheses)."
+      ],
+      "lifted_nl": [
+        "The Calculator API must be called with a formula parameter set to a valid arithmetic expression string.",
+        "The formula parameter must contain only integers and the operators +, -, *, /, and parentheses."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The formula parameter must be a non-empty string containing only digits, whitespace, and the operators +, -, *, /, and parentheses '(' and ')', with no other characters.",
+      "Function": "calculator(formula: str) -> str",
+      "Postcondition": "The Calculator API returns a float value equal to the evaluated result of the given formula string.",
+      "assumptions": [
+        "The Calculator API endpoint is reachable and accepts arithmetic expressions.",
+        "The formula string follows standard mathematical notation with proper operator precedence."
+      ],
+      "invariants": [
+        "After each successful API call, the system retains the computed result as a floating-point number.",
+        "The formula parameter always consists solely of permitted characters: digits, '+', '-', '*', '/', '(', and ')'. "
+      ]
+    }
+  ]
+}

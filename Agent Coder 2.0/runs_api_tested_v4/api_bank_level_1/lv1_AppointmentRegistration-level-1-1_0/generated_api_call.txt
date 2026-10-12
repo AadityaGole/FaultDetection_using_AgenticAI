@@ -1,0 +1,1 @@
+API-Request: [AppointmentRegistration(patient_name='John Smith', date='2022-06-01', doctor_name='Dr. Johnson')]

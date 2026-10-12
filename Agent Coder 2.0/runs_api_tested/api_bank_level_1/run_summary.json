@@ -1,0 +1,479 @@
+{
+  "dataset": "api_bank",
+  "mode": "extended_api_call",
+  "workers": 3,
+  "requests_per_minute": 25.0,
+  "total": 6,
+  "expected_total": 399,
+  "passed": 0,
+  "accuracy": "0.00%",
+  "successful_requests": 6,
+  "failed_requests": 0,
+  "results": [
+    {
+      "task_id": "lv1_ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2_0",
+      "request_status": "success",
+      "generated_api_call": "[ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]",
+      "generated_code": "def api_call(*args, **kwargs):\n    return \"[ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\"\n",
+      "formal_spec": {
+        "operations": [
+          {
+            "operationId": "OP-lv1_ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2_0",
+            "operationName": "ModifyRegistration",
+            "actionable_sentences": [
+              "The API call must include the appointment_id '34567890' as a required parameter.",
+              "The new_appointment_date must be set to '2023-03-26' in the correct YYYY-MM-DD format.",
+              "The new_appointment_doctor must be set to 'Dr. Lee' as specified by the user."
+            ],
+            "lifted_nl": [
+              "The ModifyRegistration operation must include the appointment_id '34567890' as a required parameter.",
+              "The ModifyRegistration operation shall set the new_appointment_date to '2023-03-26' using the YYYY-MM-DD date format.",
+              "The ModifyRegistration operation shall set the new_appointment_doctor to 'Dr. Lee' as specified by the user."
+            ],
+            "LABEL": "FUNCTIONAL_SPEC",
+            "Precondition": "The appointment_id '34567890' must exist in the system and correspond to a valid appointment record. The new_appointment_date must conform to the YYYY-MM-DD format. The new_appointment_doctor must be a non-empty string.",
+            "Function": "modify_registration(appointment_id: str, new_appointment_date: str, new_appointment_doctor: str) -> str",
+            "Postcondition": "After successful execution, the appointment with ID '34567890' has its date updated to '2023-03-26' and the assigned doctor changed to 'Dr. Lee'. The operation returns a status indicating successful modification.",
+            "assumptions": [
+              "The appointment ID '34567890' is valid and associated with a patient in the system.",
+              "The user has authorization to modify this appointment.",
+              "The date '2023-03-26' is a valid calendar date within the supported range."
+            ],
+            "invariants": [
+              "The appointment record identified by appointment_id '34567890' maintains consistency between its stored date and doctor fields.",
+              "No other appointments are affected by this modification."
+            ]
+          }
+        ]
+      },
+      "unit_tests": "import unittest\n\n# The implementation function as defined in the task\ndef api_call(*args, **kwargs):\n    return \"[ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\"\n\nclass TestModifyRegistration(unittest.TestCase):\n    def test_modify_registration_success(self):\n        \"\"\"Test successful modification of appointment with correct parameters.\"\"\"\n        result = api_call(\n            appointment_id='34567890',\n            new_appointment_date='2023-03-26',\n            new_appointment_doctor='Dr. Lee'\n        )\n        expected = '[ModifyRegistration(key1=\\'34567890\\', key2=\\'2023-03-26\\', key3=\\'Dr. Lee\\')]'\n        self.assertEqual(result, expected)\n\n    def test_modify_registration_edge_case_empty_values(self):\n        \"\"\"Test edge case with empty string values (boundary condition).\"\"\"\n        result = api_call(\n            appointment_id='',\n            new_appointment_date='',\n            new_appointment_doctor=''\n        )\n        expected = '[ModifyRegistration(key1=\\'\\', key2=\\'\\', key3=\\'\\')]'\n        self.assertEqual(result, expected)\n\nif __name__ == '__main__':\n    unittest.main()\n",
+      "property_tests": "from hypothesis import given, strategies as st, settings, assume\n\n@given(\n    appointment_id=st.text(min_size=1, max_size=50),\n    new_appointment_date=st.sampled_from([\"2023-01-15\", \"2023-02-28\", \"2023-03-26\"]),\n    new_appointment_doctor=st.sampled_from([\"Dr. Smith\", \"Dr. Lee\", \"Dr. Kim\"])\n)\n@settings(max_examples=20, deadline=1500)\ndef test_modify_registration(appointment_id, new_appointment_date, new_appointment_doctor):\n    \"\"\"\n    Property-based test for ModifyRegistration API.\n\n    Verifies that the API call is made with correct parameters and returns\n    a successful status string matching the specification.\n    \"\"\"\n    result = api_call(\"modify_registration\", appointment_id=appointment_id, new_appointment_date=new_appointment_date, new_appointment_doctor=new_appointment_doctor)\n    assert isinstance(result, str), f\"Expected string status, got {type(result).__name__}\"\n    assert len(result) > 0, \"Status message should not be empty\"\n",
+      "test_execution_report": {
+        "unit_tests": {
+          "passed": 1,
+          "failed": 1,
+          "failures": [
+            {
+              "stderr": "F.\n======================================================================\nFAIL: test_modify_registration_edge_case_empty_values (__main__.TestModifyRegistration.test_modify_registration_edge_case_empty_values)\nTest edge case with empty string values (boundary condition).\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpwn9z76_u\\test_bundle.py\", line 30, in test_modify_registration_edge_case_empty_values\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: \"[ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\" != \"[ModifyRegistration(key1='', key2='', key3='')]\"\n- [ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\n?                           --------         ----------         -------\n+ [ModifyRegistration(key1='', key2='', key3='')]\n\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n",
+              "stdout": ""
+            }
+          ],
+          "stdout": "",
+          "stderr": "F.\n======================================================================\nFAIL: test_modify_registration_edge_case_empty_values (__main__.TestModifyRegistration.test_modify_registration_edge_case_empty_values)\nTest edge case with empty string values (boundary condition).\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpwn9z76_u\\test_bundle.py\", line 30, in test_modify_registration_edge_case_empty_values\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: \"[ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\" != \"[ModifyRegistration(key1='', key2='', key3='')]\"\n- [ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\n?                           --------         ----------         -------\n+ [ModifyRegistration(key1='', key2='', key3='')]\n\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n"
+        },
+        "property_tests": {
+          "passed": 1,
+          "failed": 0,
+          "failures": [],
+          "stdout": "",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 1.206s\n\nOK\n"
+        },
+        "runtime_errors": [
+          "F.\n======================================================================\nFAIL: test_modify_registration_edge_case_empty_values (__main__.TestModifyRegistration.test_modify_registration_edge_case_empty_values)\nTest edge case with empty string values (boundary condition).\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpwn9z76_u\\test_bundle.py\", line 30, in test_modify_registration_edge_case_empty_values\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: \"[ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\" != \"[ModifyRegistration(key1='', key2='', key3='')]\"\n- [ModifyRegistration(key1='34567890', key2='2023-03-26', key3='Dr. Lee')]\n?                           --------         ----------         -------\n+ [ModifyRegistration(key1='', key2='', key3='')]\n\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n"
+        ],
+        "timeouts": []
+      },
+      "evaluation": {
+        "passed": false,
+        "parsed_api_name": "ModifyRegistration",
+        "parsed_params": {
+          "key1": "34567890",
+          "key2": "2023-03-26",
+          "key3": "Dr. Lee"
+        },
+        "api_match": true,
+        "params_match": false,
+        "unit_tests_passed": false,
+        "property_tests_passed": true,
+        "error": "Parameter mismatch"
+      }
+    },
+    {
+      "task_id": "lv1_ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2_2",
+      "request_status": "success",
+      "generated_api_call": "[ApiName(query_health",
+      "generated_code": "def api_call(*args, **kwargs):\n    return '[ApiName(query_health'\n",
+      "formal_spec": {
+        "operations": [
+          {
+            "operationId": "OP-lv1_ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2",
+            "operationName": "QueryHealthData",
+            "actionable_sentences": [
+              "The QueryHealthData API requires the user_id parameter to be set to 'J46801'.",
+              "The start_time parameter must be formatted as '%Y-%m-%d %H:%M:%S'.",
+              "The end_time parameter must be formatted as '%Y-%m-%d %H:%M:%S'."
+            ],
+            "lifted_nl": [
+              "The QueryHealthData API call must include the user_id parameter set to 'J46801'.",
+              "The start_time parameter must be formatted according to the pattern '%Y-%m-%d %H:%M:%S'.",
+              "The end_time parameter must be formatted according to the pattern '%Y-%m-%d %H:%M:%S'."
+            ],
+            "LABEL": "FUNCTIONAL_SPEC",
+            "Precondition": "The user_id 'J46801' exists in the system and the start_time and end_time are valid datetime strings in the format '%Y-%m-%d %H:%M:%S' representing a time span within 2023.",
+            "Function": "query_health_data(user_id: str, start_time: str, end_time: str) -> list",
+            "Postcondition": "The API returns a list of health data records for user J46801 covering the period from 2023-03-05 to 2023-03-12.",
+            "assumptions": [
+              "The user account with ID 'J46801' is active and accessible.",
+              "The system has access to the health data database for the specified time range.",
+              "The date range 2023-03-05 to 2023-03-12 is valid and within the supported timeframe."
+            ],
+            "invariants": [
+              "If query_health_data is called with valid parameters, the returned health_data list contains records matching the user_id and time range.",
+              "The function preserves the integrity of the health data records without modification."
+            ]
+          }
+        ]
+      },
+      "unit_tests": "from unittest import TestCase\n\nclass TestAPICall(TestCase):\n    def test_modify_registration_success(self):\n        \"\"\"Test ModifyRegistration with all required parameters.\"\"\"\n        result = api_call(\n            appointment_id='34567890',\n            new_appointment_date='2023-03-26',\n            new_appointment_doctor='Dr. Lee'\n        )\n        expected = \"[ModifyRegistration(appointment_id='34567890', new_appointment_date='2023-03-26', new_appointment_doctor='Dr. Lee')]->success\"\n        self.assertEqual(result, expected)\n\n    def test_query_health_data_success(self):\n        \"\"\"Test QueryHealthData with all required parameters.\"\"\"\n        result = api_call(\n            user_id='J46801',\n            start_time='2023-03-05 00:00:00',\n            end_time='2023-03-12 23:59:59'\n        )\n        expected = \"[QueryHealthData(user_id='J46801', start_time='2023-03-05 00:00:00', end_time='2023-03-12 23:59:59')]\"\n        self.assertEqual(result, expected)\n\n    def test_modify_registration_missing_doctor(self):\n        \"\"\"Test ModifyRegistration with missing required parameter (doctor).\"\"\"\n        result = api_call(\n            appointment_id='34567890',\n            new_appointment_date='2023-03-26'\n        )\n        # The call is constructed but validation occurs downstream\n        self.assertIn('ModifyRegistration', result)\n\n    def test_query_health_data_empty_user_id(self):\n        \"\"\"Test QueryHealthData with empty user_id.\"\"\"\n        result = api_call(\n            user_id='',\n            start_time='2023-03-05 00:00:00',\n            end_time='2023-03-12 23:59:59'\n        )\n        expected = \"[QueryHealthData(user_id='', start_time='2023-03-05 00:00:00', end_time='2023-03-12 23:59:59')]\"\n        self.assertEqual(result, expected)\n",
+      "property_tests": "from hypothesis import given, strategies as st, settings, assume\n\n@given(\n    appointment_id=st.text(min_size=1, max_size=50),\n    new_appointment_date=st.sampled_from([\n        \"2023-03-26\",\n        \"2023-04-15\",\n        \"2023-02-28\",\n        \"2023-07-01\"\n    ]),\n    new_appointment_doctor=st.sampled_from([\"Dr. Kim\", \"Dr. Lee\", \"Dr. Smith\", \"Dr. Patel\"])\n)\n@settings(max_examples=20, deadline=1500)\ndef test_modify_registration_valid_params(appointment_id, new_appointment_date, new_appointment_doctor):\n    # The spec requires these parameters to be present and correctly typed\n    # We construct the call exactly as described in the ModifyRegistration API\n    call = f\"ModifyRegistration(appointment_id='{appointment_id}', new_appointment_date='{new_appointment_date}', new_appointment_doctor='{new_appointment_doctor}')\"\n    # Note: In reality this would call the actual api_call function\n    # Here we simulate the expected behavior by asserting the constructed call matches\n    # the expected format and parameter types\n    assert isinstance(appointment_id, str)\n    assert isinstance(new_appointment_date, str)\n    assert isinstance(new_appointment_doctor, str)\n    assert len(appointment_id) > 0\n    assert len(new_appointment_date) == 10  # YYYY-MM-DD format\n    assert len(new_appointment_doctor) >= 1\n\n@given(\n    user_id=st.text(min_size=1, max_size=50),\n    start_time=st.fixed_str(\"2023-03-05 00:00:00\"),\n    end_time=st.fixed_str(\"2023-03-12 23:59:59\")\n)\n@settings(max_examples=20, deadline=1500)\ndef test_query_health_data_valid_params(user_id, start_time, end_time):\n    # The QueryHealthData API requires specific formatting for times\n    # Start time: %Y-%m-%d %H:%M:%S\n    # End time:   %Y-%m-%d %H:%M:%S\n\n    call = f\"QueryHealthData(user_id='{user_id}', start_time='{start_time}', end_time='{end_time}')\"\n\n    # Validate the format patterns\n    assert len(user_id) > 0\n    assert len(start_time) == 19  # %Y-%m-%d %H:%M:%S is 19 characters\n    assert len(end_time) == 19\n\n    # The postcondition expects a list of health data records\n    # Since this is a property test, we verify the call structure matches the spec\n    assert \"QueryHealthData\" in call\n    assert \"user_id\" in call\n    assert \"start_time\" in call\n    assert \"end_time\" in call\n\n@given(\n    user_id=st.text(min_size=1, max_size=50),\n    start_time=st.fixed_str(\"2023-03-05 00:00:00\"),\n    end_time=st.fixed_str(\"2023-03-12 23:59:59\")\n)\n@settings(max_examples=20, deadline=1500)\ndef test_query_health_data_type_and_length():\n    \"\"\"Test that QueryHealthData returns a list of health data records.\"\"\"\n    call = f\"QueryHealthData(user_id='{user_id}', start_time='{start_time}', end_time='{end_time}')\"\n\n    # The function signature specifies health_data as a list\n    # We verify the call includes all required parameters\n    assert \"QueryHealthData\" in call\n    assert \"user_id\" in call\n    assert \"start_time\" in call\n    assert \"end_time\" in call\n\n    # Additional invariant: if the call is made with valid params,\n    # the response should be a list (as per the formal specification)\n    # Since we're testing the API call itself, we focus on parameter validation\n    assert len(user_id) > 0\n    assert len(start_time) == 19\n    assert len(end_time) == 19\n\n@given(\n    appointment_id=st.text(min_size=1, max_size=50),\n    new_appointment_date=st.sampled_from([\"2023-03-26\"]),\n    new_appointment_doctor=st.sampled_from([\"Dr. Lee\"])\n)\n@settings(max_examples=10, deadline=1500)\ndef test_modify_registration_with_dr_lee():\n    \"\"\"Test modifying registration with Dr. Lee as the new doctor.\"\"\"\n    call = f\"ModifyRegistration(appointment_id='34567890', new_appointment_date='2023-03-26', new_appointment_doctor='Dr. Lee')\"\n    # Verify the call structure matches the expected API format\n    assert call.startswith(\"ModifyRegistration\")\n    assert \"appointment_id='34567890'\" in call\n    assert \"new_appointment_date='2023-03-26'\" in call\n    assert \"new_appointment_doctor='Dr. Lee'\" in call\n\n# Additional property tests for robustness\n@given(\n    appointment_id=st.text(min_size=1, max_size=50),\n    new_appointment_date=st.sampled_from([\"2023-04-15\", \"2023-02-28\"]),\n    new_appointment_doctor=st.sampled_from([\"Dr. Smith\", \"Dr. Patel\"])\n)\n@settings(max_examples=15, deadline=1500)\ndef test_modify_registration_various_dates_and_doctors():\n    \"\"\"Test ModifyRegistration with various dates and doctors.\"\"\"\n    call = f\"ModifyRegistration(appointment_id='{appointment_id}', new_appointment_date='{new_appointment_date}', new_appointment_doctor='{new_appointment_doctor}')\"\n    # All parameters should be non-empty strings\n    assert isinstance(appointment_id, str) and len(appointment_id) > 0\n    assert isinstance(new_appointment_date, str) and len(new_appointment_date) == 10\n    assert isinstance(new_appointment_doctor, str) and len(new_appointment_doctor) > 0\n\n@given(\n    user_id=st.text(min_size=1, max_size=50),\n    start_time=st.fixed_str(\"2023-03-05 00:00:00\"),\n    end_time=st.fixed_str(\"2023-03-12 23:59:59\")\n)\n@settings(max_examples=15, deadline=1500)\ndef test_query_health_data_min_max_range():\n    \"\"\"Test QueryHealthData with boundary dates.\"\"\"\n    call = f\"QueryHealthData(user_id='J46801', start_time='{start_time}', end_time='{end_time}')\"\n    # Verify the time range covers at least some days\n    assert len(start_time) == 19\n    assert len(end_time) == 19\n    assert start_time < end_time  # Start should be before end\n",
+      "test_execution_report": {
+        "unit_tests": {
+          "passed": 0,
+          "failed": 4,
+          "failures": [
+            {
+              "stderr": "FFFF\n======================================================================\nFAIL: test_modify_registration_missing_doctor (__main__.TestAPICall.test_modify_registration_missing_doctor)\nTest ModifyRegistration with missing required parameter (doctor).\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmphp1wd0o7\\test_bundle.py\", line 35, in test_modify_registration_missing_doctor\n    self.assertIn('ModifyRegistration', result)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'ModifyRegistration' not found in '[ApiName(query_health'\n\n======================================================================\nFAIL: test_modify_registration_success (__main__.TestAPICall.test_modify_registration_success)\nTest ModifyRegistration with all required parameters.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmphp1wd0o7\\test_bundle.py\", line 16, in test_modify_registration_success\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: '[ApiName(query_health' != \"[ModifyRegistration(appointment_id='3456[81 chars]cess\"\n- [ApiName(query_health\n+ [ModifyRegistration(appointment_id='34567890', new_appointment_date='2023-03-26', new_appointment_doctor='Dr. Lee')]->success\n\n\n======================================================================\nFAIL: test_query_health_data_empty_user_id (__main__.TestAPICall.test_query_health_data_empty_user_id)\nTest QueryHealthData with empty user_id.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmphp1wd0o7\\test_bundle.py\", line 45, in test_query_health_data_empty_user_id\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: '[ApiName(query_health' != \"[QueryHealthData(user_id='', start_time=[51 chars]9')]\"\n- [ApiName(query_health\n+ [QueryHealthData(user_id='', start_time='2023-03-05 00:00:00', end_time='2023-03-12 23:59:59')]\n\n\n======================================================================\nFAIL: test_query_health_data_success (__main__.TestAPICall.test_query_health_data_success)\nTest QueryHealthData with all required parameters.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmphp1wd0o7\\test_bundle.py\", line 26, in test_query_health_data_success\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: '[ApiName(query_health' != \"[QueryHealthData(user_id='J46801', start[57 chars]9')]\"\n- [ApiName(query_health\n+ [QueryHealthData(user_id='J46801', start_time='2023-03-05 00:00:00', end_time='2023-03-12 23:59:59')]\n\n\n----------------------------------------------------------------------\nRan 4 tests in 0.002s\n\nFAILED (failures=4)\n",
+              "stdout": ""
+            }
+          ],
+          "stdout": "",
+          "stderr": "FFFF\n======================================================================\nFAIL: test_modify_registration_missing_doctor (__main__.TestAPICall.test_modify_registration_missing_doctor)\nTest ModifyRegistration with missing required parameter (doctor).\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmphp1wd0o7\\test_bundle.py\", line 35, in test_modify_registration_missing_doctor\n    self.assertIn('ModifyRegistration', result)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'ModifyRegistration' not found in '[ApiName(query_health'\n\n======================================================================\nFAIL: test_modify_registration_success (__main__.TestAPICall.test_modify_registration_success)\nTest ModifyRegistration with all required parameters.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmphp1wd0o7\\test_bundle.py\", line 16, in test_modify_registration_success\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: '[ApiName(query_health' != \"[ModifyRegistration(appointment_id='3456[81 chars]cess\"\n- [ApiName(query_health\n+ [ModifyRegistration(appointment_id='34567890', new_appointment_date='2023-03-26', new_appointment_doctor='Dr. Lee')]->success\n\n\n======================================================================\nFAIL: test_query_health_data_empty_user_id (__main__.TestAPICall.test_query_health_data_empty_user_id)\nTest QueryHealthData with empty user_id.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmphp1wd0o7\\test_bundle.py\", line 45, in test_query_health_data_empty_user_id\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: '[ApiName(query_health' != \"[QueryHealthData(user_id='', start_time=[51 chars]9')]\"\n- [ApiName(query_health\n+ [QueryHealthData(user_id='', start_time='2023-03-05 00:00:00', end_time='2023-03-12 23:59:59')]\n\n\n======================================================================\nFAIL: test_query_health_data_success (__main__.TestAPICall.test_query_health_data_success)\nTest QueryHealthData with all required parameters.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmphp1wd0o7\\test_bundle.py\", line 26, in test_query_health_data_success\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: '[ApiName(query_health' != \"[QueryHealthData(user_id='J46801', start[57 chars]9')]\"\n- [ApiName(query_health\n+ [QueryHealthData(user_id='J46801', start_time='2023-03-05 00:00:00', end_time='2023-03-12 23:59:59')]\n\n\n----------------------------------------------------------------------\nRan 4 tests in 0.002s\n\nFAILED (failures=4)\n"
+        },
+        "property_tests": {
+          "passed": 0,
+          "failed": 1,
+          "failures": [
+            {
+              "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpweiy8cd8\\test_bundle.py\", line 34, in <module>\n    start_time=st.fixed_str(\"2023-03-05 00:00:00\"),\n               ^^^^^^^^^^^^\nAttributeError: module 'hypothesis.strategies' has no attribute 'fixed_str'\n",
+              "stdout": ""
+            }
+          ],
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpweiy8cd8\\test_bundle.py\", line 34, in <module>\n    start_time=st.fixed_str(\"2023-03-05 00:00:00\"),\n               ^^^^^^^^^^^^\nAttributeError: module 'hypothesis.strategies' has no attribute 'fixed_str'\n"
+        },
+        "runtime_errors": [
+          "FFFF\n======================================================================\nFAIL: test_modify_registration_missing_doctor (__main__.TestAPICall.test_modify_registration_missing_doctor)\nTest ModifyRegistration with missing required parameter (doctor).\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmphp1wd0o7\\test_bundle.py\", line 35, in test_modify_registration_missing_doctor\n    self.assertIn('ModifyRegistration', result)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'ModifyRegistration' not found in '[ApiName(query_health'\n\n======================================================================\nFAIL: test_modify_registration_success (__main__.TestAPICall.test_modify_registration_success)\nTest ModifyRegistration with all required parameters.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmphp1wd0o7\\test_bundle.py\", line 16, in test_modify_registration_success\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: '[ApiName(query_health' != \"[ModifyRegistration(appointment_id='3456[81 chars]cess\"\n- [ApiName(query_health\n+ [ModifyRegistration(appointment_id='34567890', new_appointment_date='2023-03-26', new_appointment_doctor='Dr. Lee')]->success\n\n\n======================================================================\nFAIL: test_query_health_data_empty_user_id (__main__.TestAPICall.test_query_health_data_empty_user_id)\nTest QueryHealthData with empty user_id.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmphp1wd0o7\\test_bundle.py\", line 45, in test_query_health_data_empty_user_id\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: '[ApiName(query_health' != \"[QueryHealthData(user_id='', start_time=[51 chars]9')]\"\n- [ApiName(query_health\n+ [QueryHealthData(user_id='', start_time='2023-03-05 00:00:00', end_time='2023-03-12 23:59:59')]\n\n\n======================================================================\nFAIL: test_query_health_data_success (__main__.TestAPICall.test_query_health_data_success)\nTest QueryHealthData with all required parameters.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmphp1wd0o7\\test_bundle.py\", line 26, in test_query_health_data_success\n    self.assertEqual(result, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\nAssertionError: '[ApiName(query_health' != \"[QueryHealthData(user_id='J46801', start[57 chars]9')]\"\n- [ApiName(query_health\n+ [QueryHealthData(user_id='J46801', start_time='2023-03-05 00:00:00', end_time='2023-03-12 23:59:59')]\n\n\n----------------------------------------------------------------------\nRan 4 tests in 0.002s\n\nFAILED (failures=4)\n",
+          "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpweiy8cd8\\test_bundle.py\", line 34, in <module>\n    start_time=st.fixed_str(\"2023-03-05 00:00:00\"),\n               ^^^^^^^^^^^^\nAttributeError: module 'hypothesis.strategies' has no attribute 'fixed_str'\n"
+        ],
+        "timeouts": []
+      },
+      "evaluation": {
+        "passed": false,
+        "parsed_api_name": null,
+        "parsed_params": null,
+        "api_match": false,
+        "params_match": false,
+        "unit_tests_passed": false,
+        "property_tests_passed": false,
+        "error": "Could not parse API call syntax [ApiName(...)] from output"
+      }
+    },
+    {
+      "task_id": "lv1_ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2_4",
+      "request_status": "success",
+      "generated_api_call": "[CancelRegistration(appointment_id='90123456')]",
+      "generated_code": "def api_call(*args, **kwargs):\n    return \"[CancelRegistration(appointment_id='90123456')]\"\n",
+      "formal_spec": {
+        "operations": [
+          {
+            "operationId": "OP-lv1_ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2_4",
+            "operationName": "CancelRegistration",
+            "actionable_sentences": [
+              "The API call to cancel registration must include the appointment_id parameter with value '90123456'.",
+              "The system shall process any cancellation request and return a status indicating whether the cancellation was successful."
+            ],
+            "lifted_nl": [
+              "The API call to cancel registration must include the appointment_id parameter with value '90123456'.",
+              "The system shall process any cancellation request and return a status indicating whether the cancellation was successful.",
+              "After a cancellation is completed, no further modifications to the associated appointment may be made until a new appointment record is created."
+            ],
+            "LABEL": "FUNCTIONAL_SPEC",
+            "Precondition": [
+              "The appointment_id '90123456' refers to an existing appointment in the system.",
+              "The appointment must be in a cancellable state (not already cancelled)."
+            ],
+            "Function": "CancelRegistration(appointment_id: str) -> str",
+            "Postcondition": [
+              "The appointment with ID '90123456' is marked as cancelled.",
+              "No further modifications to this appointment can be performed until a new appointment is created."
+            ],
+            "assumptions": [
+              "The system supports cancellation operations for appointments.",
+              "The appointment_id '90123456' is a valid identifier in the system."
+            ],
+            "invariants": [
+              "An appointment cannot be modified once its cancellation status is set to true.",
+              "A cancelled appointment remains in a cancelled state until a new appointment record replaces it."
+            ]
+          }
+        ]
+      },
+      "unit_tests": "\n",
+      "property_tests": "from hypothesis import given, strategies as st, settings, assume\n\n@given(st.text(min_length=1), st.text(min_length=1), st.text(min_length=1))\n@settings(max_examples=20, deadline=1500)\ndef test_cancel_registration_makes_appointment_cancelled(appointment_id, old_date, old_doctor):\n    \"\"\"\n    Test that CancelRegistration marks the appointment as cancelled.\n    Verifies the postcondition that the appointment is in a cancelled state.\n    \"\"\"\n    result = api_call(\"CancelRegistration\", {\"appointment_id\": appointment_id})\n    # The result should indicate the cancellation was successful and the appointment is now cancelled\n    assert \"cancelled\" in result.lower(), f\"Expected cancelled status in result: {result}\"\n\n@given(st.text(min_length=1), st.text(min_length=1))\n@settings(max_examples=20, deadline=1500)\ndef test_cancel_already_cancelled(appointment_id):\n    \"\"\"\n    Test that cancelling an already cancelled appointment is handled correctly.\n    Verifies the invariant that a cancelled appointment remains in a cancelled state.\n    \"\"\"\n    # First cancel the appointment\n    api_call(\"CancelRegistration\", {\"appointment_id\": appointment_id})\n\n    # Try to cancel again - should not change state (remains cancelled)\n    result = api_call(\"CancelRegistration\", {\"appointment_id\": appointment_id})\n    assert \"cancelled\" in result.lower(), f\"After re-cancellation, expected cancelled status: {result}\"\n\n@given(st.text(min_length=1), st.text(min_length=1))\n@settings(max_examples=20, deadline=1500)\ndef test_cannot_modify_after_cancellation(appointment_id):\n    \"\"\"\n    Test that an appointment cannot be modified after it has been cancelled.\n    Verifies the invariant that cancelled appointments cannot be modified.\n    \"\"\"\n    # First cancel the appointment\n    api_call(\"CancelRegistration\", {\"appointment_id\": appointment_id})\n\n    # Attempt to modify - should leave the appointment in cancelled state\n    result = api_call(\"ModifyRegistration\", {\n        \"appointment_id\": appointment_id,\n        \"new_appointment_date\": \"2023-04-01\",\n        \"new_appointment_doctor\": \"Dr. Brown\"\n    })\n    # The result should indicate failure or unchanged state (still cancelled)\n    assert \"cancelled\" in result.lower(), f\"After cancellation, expected cancelled status during modification: {result}\"\n\n@given(st.text(min_length=1), st.text(min_length=1), st.text(min_length=1))\n@settings(max_examples=20, deadline=1500)\ndef test_cancel_with_valid_parameters(appointment_id, new_date, new_doctor):\n    \"\"\"\n    Test that CancelRegistration with valid parameters produces the expected result.\n    Verifies basic functionality with different inputs.\n    \"\"\"\n    result = api_call(\"CancelRegistration\", {\n        \"appointment_id\": appointment_id,\n        \"new_appointment_date\": new_date,\n        \"new_appointment_doctor\": new_doctor\n    })\n    # The result should indicate success\n    assert \"success\" in result.lower(), f\"Expected success status: {result}\"\n",
+      "test_execution_report": {
+        "unit_tests": {
+          "passed": 1,
+          "failed": 0,
+          "failures": [],
+          "stdout": "",
+          "stderr": ""
+        },
+        "property_tests": {
+          "passed": 0,
+          "failed": 1,
+          "failures": [
+            {
+              "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmp4qnkxbo8\\test_bundle.py\", line 7, in <module>\n    @given(st.text(min_length=1), st.text(min_length=1), st.text(min_length=1))\n           ~~~~~~~^^^^^^^^^^^^^^\nTypeError: text() got an unexpected keyword argument 'min_length'\n",
+              "stdout": ""
+            }
+          ],
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmp4qnkxbo8\\test_bundle.py\", line 7, in <module>\n    @given(st.text(min_length=1), st.text(min_length=1), st.text(min_length=1))\n           ~~~~~~~^^^^^^^^^^^^^^\nTypeError: text() got an unexpected keyword argument 'min_length'\n"
+        },
+        "runtime_errors": [
+          "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmp4qnkxbo8\\test_bundle.py\", line 7, in <module>\n    @given(st.text(min_length=1), st.text(min_length=1), st.text(min_length=1))\n           ~~~~~~~^^^^^^^^^^^^^^\nTypeError: text() got an unexpected keyword argument 'min_length'\n"
+        ],
+        "timeouts": []
+      },
+      "evaluation": {
+        "passed": false,
+        "parsed_api_name": "CancelRegistration",
+        "parsed_params": {
+          "appointment_id": "90123456"
+        },
+        "api_match": true,
+        "params_match": true,
+        "unit_tests_passed": true,
+        "property_tests_passed": false,
+        "error": "Generated property tests failed"
+      }
+    },
+    {
+      "task_id": "lv1_Calculator-level-1-1_0",
+      "request_status": "success",
+      "generated_api_call": "[Calculator(formula='(5+6)*3')]",
+      "generated_code": "def api_call(*args, **kwargs):\n    return \"[Calculator(formula='(5+6)*3')]\"\n",
+      "formal_spec": {
+        "operations": [
+          {
+            "operationId": "OP-lv1_Calculator-level-1-1_0",
+            "operationName": "Calculator",
+            "actionable_sentences": [
+              "The Calculator API should be called with the formula parameter set to \"(5+6)*3\".",
+              "The formula parameter must be a string containing only integers and valid arithmetic operators (+, -, *, /, parentheses)."
+            ],
+            "lifted_nl": [
+              "The Calculator API must be called with a formula parameter set to a valid arithmetic expression string.",
+              "The formula parameter must contain only integers and the operators +, -, *, /, and parentheses."
+            ],
+            "LABEL": "FUNCTIONAL_SPEC",
+            "Precondition": "The formula parameter must be a non-empty string containing only digits, whitespace, and the operators +, -, *, /, and parentheses '(' and ')', with no other characters.",
+            "Function": "calculator(formula: str) -> str",
+            "Postcondition": "The Calculator API returns a float value equal to the evaluated result of the given formula string.",
+            "assumptions": [
+              "The Calculator API endpoint is reachable and accepts arithmetic expressions.",
+              "The formula string follows standard mathematical notation with proper operator precedence."
+            ],
+            "invariants": [
+              "After each successful API call, the system retains the computed result as a floating-point number.",
+              "The formula parameter always consists solely of permitted characters: digits, '+', '-', '*', '/', '(', and ')'. "
+            ]
+          }
+        ]
+      },
+      "unit_tests": "\n",
+      "property_tests": "from hypothesis import given, strategies as st, settings, assume\n\nALLOWED_CHARS = set(\"0123456789+-*/() \")\n\n@given(st.text(min_size=1, max_size=50))\n@settings(max_examples=20, deadline=1500)\ndef test_calculator_formula_precondition_and_postcondition(value):\n    \"\"\"\n    Test that valid formulas produce float results.\n    Encodes the precondition using assume: non-empty and only allowed characters.\n    \"\"\"\n    formula = value.strip()\n    # Precondition: formula must be non-empty and contain only digits, whitespace,\n    # operators (+, -, *, /, parentheses).\n    assume(len(formula) > 0, \"Formula must be non-empty\")\n    assume(all(c in ALLOWED_CHARS for c in formula), \"Formula must contain only allowed characters\")\n\n    result = api_call(formula=formula)\n    # Postcondition: API returns a float equal to the evaluated formula.\n    assert isinstance(result, float), f\"Expected float result, got {type(result)}\"\n\n@given(st.text(min_size=1, max_size=50))\n@settings(max_examples=20, deadline=1500)\ndef test_calculator_returns_float_for_various_formulas(value):\n    \"\"\"\n    Verify the API consistently returns float values for different valid formulas.\n    \"\"\"\n    result = api_call(formula=value)\n    assert isinstance(result, float), f\"Expected float result, got {type(result)}\"\n",
+      "test_execution_report": {
+        "unit_tests": {
+          "passed": 1,
+          "failed": 0,
+          "failures": [],
+          "stdout": "",
+          "stderr": ""
+        },
+        "property_tests": {
+          "passed": 0,
+          "failed": 2,
+          "failures": [
+            {
+              "stderr": "EF\n======================================================================\nERROR: unittest.case.FunctionTestCase (test_calculator_formula_precondition_and_postcondition)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpswdjvbr8\\test_bundle.py\", line 10, in test_calculator_formula_precondition_and_postcondition\n    @settings(max_examples=20, deadline=1500)\n                   ^^^\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\.venv\\Lib\\site-packages\\hypothesis\\core.py\", line 2294, in wrapped_test\n    raise the_error_hypothesis_found\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpswdjvbr8\\test_bundle.py\", line 19, in test_calculator_formula_precondition_and_postcondition\n    assume(len(formula) > 0, \"Formula must be non-empty\")\n    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: assume() takes 1 positional argument but 2 were given\nFailing test case: test_calculator_formula_precondition_and_postcondition(\n    value='0',  # or any other generated value\n)\n\n======================================================================\nFAIL: unittest.case.FunctionTestCase (test_calculator_returns_float_for_various_formulas)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpswdjvbr8\\test_bundle.py\", line 27, in test_calculator_returns_float_for_various_formulas\n    @settings(max_examples=20, deadline=1500)\n                   ^^^\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\.venv\\Lib\\site-packages\\hypothesis\\core.py\", line 2294, in wrapped_test\n    raise the_error_hypothesis_found\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpswdjvbr8\\test_bundle.py\", line 33, in test_calculator_returns_float_for_various_formulas\n    assert isinstance(result, float), f\"Expected float result, got {type(result)}\"\n           ~~~~~~~~~~^^^^^^^^^^^^^^^\nAssertionError: Expected float result, got <class 'str'>\nFailing test case: test_calculator_returns_float_for_various_formulas(\n    value='0',  # or any other generated value\n)\n\n----------------------------------------------------------------------\nRan 2 tests in 2.074s\n\nFAILED (failures=1, errors=1)\n",
+              "stdout": ""
+            }
+          ],
+          "stdout": "",
+          "stderr": "EF\n======================================================================\nERROR: unittest.case.FunctionTestCase (test_calculator_formula_precondition_and_postcondition)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpswdjvbr8\\test_bundle.py\", line 10, in test_calculator_formula_precondition_and_postcondition\n    @settings(max_examples=20, deadline=1500)\n                   ^^^\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\.venv\\Lib\\site-packages\\hypothesis\\core.py\", line 2294, in wrapped_test\n    raise the_error_hypothesis_found\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpswdjvbr8\\test_bundle.py\", line 19, in test_calculator_formula_precondition_and_postcondition\n    assume(len(formula) > 0, \"Formula must be non-empty\")\n    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: assume() takes 1 positional argument but 2 were given\nFailing test case: test_calculator_formula_precondition_and_postcondition(\n    value='0',  # or any other generated value\n)\n\n======================================================================\nFAIL: unittest.case.FunctionTestCase (test_calculator_returns_float_for_various_formulas)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpswdjvbr8\\test_bundle.py\", line 27, in test_calculator_returns_float_for_various_formulas\n    @settings(max_examples=20, deadline=1500)\n                   ^^^\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\.venv\\Lib\\site-packages\\hypothesis\\core.py\", line 2294, in wrapped_test\n    raise the_error_hypothesis_found\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpswdjvbr8\\test_bundle.py\", line 33, in test_calculator_returns_float_for_various_formulas\n    assert isinstance(result, float), f\"Expected float result, got {type(result)}\"\n           ~~~~~~~~~~^^^^^^^^^^^^^^^\nAssertionError: Expected float result, got <class 'str'>\nFailing test case: test_calculator_returns_float_for_various_formulas(\n    value='0',  # or any other generated value\n)\n\n----------------------------------------------------------------------\nRan 2 tests in 2.074s\n\nFAILED (failures=1, errors=1)\n"
+        },
+        "runtime_errors": [
+          "EF\n======================================================================\nERROR: unittest.case.FunctionTestCase (test_calculator_formula_precondition_and_postcondition)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpswdjvbr8\\test_bundle.py\", line 10, in test_calculator_formula_precondition_and_postcondition\n    @settings(max_examples=20, deadline=1500)\n                   ^^^\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\.venv\\Lib\\site-packages\\hypothesis\\core.py\", line 2294, in wrapped_test\n    raise the_error_hypothesis_found\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpswdjvbr8\\test_bundle.py\", line 19, in test_calculator_formula_precondition_and_postcondition\n    assume(len(formula) > 0, \"Formula must be non-empty\")\n    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: assume() takes 1 positional argument but 2 were given\nFailing test case: test_calculator_formula_precondition_and_postcondition(\n    value='0',  # or any other generated value\n)\n\n======================================================================\nFAIL: unittest.case.FunctionTestCase (test_calculator_returns_float_for_various_formulas)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpswdjvbr8\\test_bundle.py\", line 27, in test_calculator_returns_float_for_various_formulas\n    @settings(max_examples=20, deadline=1500)\n                   ^^^\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\.venv\\Lib\\site-packages\\hypothesis\\core.py\", line 2294, in wrapped_test\n    raise the_error_hypothesis_found\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpswdjvbr8\\test_bundle.py\", line 33, in test_calculator_returns_float_for_various_formulas\n    assert isinstance(result, float), f\"Expected float result, got {type(result)}\"\n           ~~~~~~~~~~^^^^^^^^^^^^^^^\nAssertionError: Expected float result, got <class 'str'>\nFailing test case: test_calculator_returns_float_for_various_formulas(\n    value='0',  # or any other generated value\n)\n\n----------------------------------------------------------------------\nRan 2 tests in 2.074s\n\nFAILED (failures=1, errors=1)\n"
+        ],
+        "timeouts": []
+      },
+      "evaluation": {
+        "passed": false,
+        "parsed_api_name": "Calculator",
+        "parsed_params": {
+          "formula": "(5+6)*3"
+        },
+        "api_match": true,
+        "params_match": true,
+        "unit_tests_passed": true,
+        "property_tests_passed": false,
+        "error": "Generated property tests failed"
+      }
+    },
+    {
+      "task_id": "lv1_QueryScene-level-1-3_0",
+      "request_status": "success",
+      "generated_api_call": "[ApiName(name='Morning Routine')]",
+      "generated_code": "def api_call(*args, **kwargs):\n    return \"[ApiName(name='Morning Routine')]\"\n",
+      "formal_spec": {
+        "operations": [
+          {
+            "operationId": "OP-lv1_QueryScene-level-1-3_0",
+            "operationName": "QueryScene",
+            "actionable_sentences": [
+              "The QueryScene API requires a 'name' parameter of type string to identify the scene being queried.",
+              "The scene name to pass to the API is 'Morning Routine' as specified by the user's question.",
+              "The API call should return a list of smart devices including each device's name and description."
+            ],
+            "lifted_nl": [
+              "The QueryScene API must require a 'name' parameter of type string to identify the scene being queried.",
+              "When calling the QueryScene API, the scene name must be supplied as a string argument.",
+              "The QueryScene API response must be a list of smart devices, where each device contains both a name and a description."
+            ],
+            "LABEL": "FUNCTIONAL_SPEC",
+            "Precondition": "A valid scene name string is provided as input to the QueryScene operation.",
+            "Function": "query_scene(name: str) -> str",
+            "Postcondition": "The returned API call string includes the scene name 'Morning Routine' and requests a list of smart devices with name and description fields.",
+            "assumptions": [
+              "The scene 'Morning Routine' exists in the smart home system and can be queried.",
+              "The QueryScene API is available and implements the described functionality."
+            ],
+            "invariants": [
+              "The API response contains a list of device dictionaries, each having 'name' and 'description' keys.",
+              "All device names and descriptions are non-empty strings."
+            ]
+          }
+        ]
+      },
+      "unit_tests": "from api import api_call\n\ndef test_query_scene_morning_routine():\n    \"\"\"Test querying the Morning Routine scene returns the correct API call.\"\"\"\n    result = api_call(name='Morning Routine')\n    expected = '[ApiName(name=\\'Morning Routine\\')]'\n    assert result == expected\n\ndef test_query_scene_empty_string():\n    \"\"\"Test querying with an empty scene name.\"\"\"\n    result = api_call(name='')\n    # The API should handle empty string gracefully or return an error\n    # We verify the call was made with the expected parameter\n\ndef test_query_scene_non_string():\n    \"\"\"Test that passing a non-string name is rejected.\"\"\"\n    try:\n        api_call(name=123)\n        # If no exception is raised, the API accepts non-string input\n        # This may be acceptable depending on implementation\n    except TypeError:\n        # Expected failure - API enforces string type for the name parameter\n        pass\n",
+      "property_tests": "from hypothesis import given, strategies as st, settings\n\n@given(name=st.text(min_size=1, max_size=50))\n@settings(max_examples=20, deadline=1500)\ndef test_query_scene_api_call(name):\n    \"\"\"\n    Test that the QueryScene API call includes the provided scene name.\n\n    Precondition: name is a non-empty string (enforced by min_size=1).\n    Postcondition: The API response string contains the scene name.\n    \"\"\"\n    result = api_call(name=name)\n    assert isinstance(result, str), f\"Expected string response, got {type(result)}\"\n    assert name in result, f\"Scene name '{name}' not found in API response: {result}\"\n\n@given(name=st.text(min_size=1, max_size=50))\n@settings(max_examples=20, deadline=1500)\ndef test_various_scenes():\n    \"\"\"\n    Test that various scene names produce API calls with those names.\n    \"\"\"\n    for name in (\"Morning Routine\", \"Evening Relax\", \"Work Day\", \"Night Rest\"):\n        result = api_call(name=name)\n        assert isinstance(result, str), f\"Expected string response for scene '{name}', got {type(result)}\"\n        assert name in result, f\"Scene name '{name}' not found in API response: {result}\"\n",
+      "test_execution_report": {
+        "unit_tests": {
+          "passed": 0,
+          "failed": 1,
+          "failures": [
+            {
+              "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpoggd2wcn\\test_bundle.py\", line 5, in <module>\n    from api import api_call\nModuleNotFoundError: No module named 'api'\n",
+              "stdout": ""
+            }
+          ],
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpoggd2wcn\\test_bundle.py\", line 5, in <module>\n    from api import api_call\nModuleNotFoundError: No module named 'api'\n"
+        },
+        "property_tests": {
+          "passed": 0,
+          "failed": 2,
+          "failures": [
+            {
+              "stderr": "FE\n======================================================================\nERROR: unittest.case.FunctionTestCase (test_various_scenes)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpp21jsika\\test_bundle.py\", line 22, in wrapped_test\n    def test_various_scenes():\n            ^^^^^^^^^^^^^^^^^^\nhypothesis.errors.InvalidArgument: test_various_scenes() got an unexpected keyword argument 'name', from `name=text(min_size=1, max_size=50)` in @given\n\n======================================================================\nFAIL: unittest.case.FunctionTestCase (test_query_scene_api_call)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpp21jsika\\test_bundle.py\", line 8, in test_query_scene_api_call\n    @settings(max_examples=20, deadline=1500)\n                   ^^^\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\.venv\\Lib\\site-packages\\hypothesis\\core.py\", line 2294, in wrapped_test\n    raise the_error_hypothesis_found\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpp21jsika\\test_bundle.py\", line 18, in test_query_scene_api_call\n    assert name in result, f\"Scene name '{name}' not found in API response: {result}\"\n           ^^^^^^^^^^^^^^\nAssertionError: Scene name '0' not found in API response: [ApiName(name='Morning Routine')]\nFailing test case: test_query_scene_api_call(\n    name='0',  # or any other generated value\n)\n\n----------------------------------------------------------------------\nRan 2 tests in 1.545s\n\nFAILED (failures=1, errors=1)\n",
+              "stdout": ""
+            }
+          ],
+          "stdout": "",
+          "stderr": "FE\n======================================================================\nERROR: unittest.case.FunctionTestCase (test_various_scenes)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpp21jsika\\test_bundle.py\", line 22, in wrapped_test\n    def test_various_scenes():\n            ^^^^^^^^^^^^^^^^^^\nhypothesis.errors.InvalidArgument: test_various_scenes() got an unexpected keyword argument 'name', from `name=text(min_size=1, max_size=50)` in @given\n\n======================================================================\nFAIL: unittest.case.FunctionTestCase (test_query_scene_api_call)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpp21jsika\\test_bundle.py\", line 8, in test_query_scene_api_call\n    @settings(max_examples=20, deadline=1500)\n                   ^^^\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\.venv\\Lib\\site-packages\\hypothesis\\core.py\", line 2294, in wrapped_test\n    raise the_error_hypothesis_found\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpp21jsika\\test_bundle.py\", line 18, in test_query_scene_api_call\n    assert name in result, f\"Scene name '{name}' not found in API response: {result}\"\n           ^^^^^^^^^^^^^^\nAssertionError: Scene name '0' not found in API response: [ApiName(name='Morning Routine')]\nFailing test case: test_query_scene_api_call(\n    name='0',  # or any other generated value\n)\n\n----------------------------------------------------------------------\nRan 2 tests in 1.545s\n\nFAILED (failures=1, errors=1)\n"
+        },
+        "runtime_errors": [
+          "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpoggd2wcn\\test_bundle.py\", line 5, in <module>\n    from api import api_call\nModuleNotFoundError: No module named 'api'\n",
+          "FE\n======================================================================\nERROR: unittest.case.FunctionTestCase (test_various_scenes)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpp21jsika\\test_bundle.py\", line 22, in wrapped_test\n    def test_various_scenes():\n            ^^^^^^^^^^^^^^^^^^\nhypothesis.errors.InvalidArgument: test_various_scenes() got an unexpected keyword argument 'name', from `name=text(min_size=1, max_size=50)` in @given\n\n======================================================================\nFAIL: unittest.case.FunctionTestCase (test_query_scene_api_call)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpp21jsika\\test_bundle.py\", line 8, in test_query_scene_api_call\n    @settings(max_examples=20, deadline=1500)\n                   ^^^\n  File \"C:\\Users\\aadit\\work\\clg\\20 credit\\FaultDetection_using_AgenticAI\\.venv\\Lib\\site-packages\\hypothesis\\core.py\", line 2294, in wrapped_test\n    raise the_error_hypothesis_found\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpp21jsika\\test_bundle.py\", line 18, in test_query_scene_api_call\n    assert name in result, f\"Scene name '{name}' not found in API response: {result}\"\n           ^^^^^^^^^^^^^^\nAssertionError: Scene name '0' not found in API response: [ApiName(name='Morning Routine')]\nFailing test case: test_query_scene_api_call(\n    name='0',  # or any other generated value\n)\n\n----------------------------------------------------------------------\nRan 2 tests in 1.545s\n\nFAILED (failures=1, errors=1)\n"
+        ],
+        "timeouts": []
+      },
+      "evaluation": {
+        "passed": false,
+        "parsed_api_name": "ApiName",
+        "parsed_params": {
+          "name": "Morning Routine"
+        },
+        "api_match": false,
+        "params_match": true,
+        "unit_tests_passed": false,
+        "property_tests_passed": false,
+        "error": "API name mismatch"
+      }
+    },
+    {
+      "task_id": "lv1_EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-3_0",
+      "request_status": "success",
+      "generated_api_call": "[ApiName(symptom='shortness of breath')]",
+      "generated_code": "def api_call(*args, **kwargs):\n    return \"[ApiName(symptom='shortness of breath')]\"\n",
+      "formal_spec": {
+        "operations": [
+          {
+            "operationId": "OP-lv1_EmergencyKnowledge-ModifyRegistration-RecordHealthData-level-2-3_0",
+            "operationName": "EmergencyKnowledge",
+            "actionable_sentences": [
+              "The EmergencyKnowledge API must be called with the symptom parameter set to 'shortness of breath'.",
+              "The symptom parameter is required and must be a string value representing the medical condition."
+            ],
+            "lifted_nl": [
+              "The EmergencyKnowledge API must include a symptom parameter when it is called.",
+              "The symptom parameter must be supplied as part of the API call."
+            ],
+            "LABEL": "FUNCTIONAL_SPEC",
+            "Precondition": "The symptom parameter is provided as a non-empty string representing a medical condition, and the EmergencyKnowledge API is accessible and operational.",
+            "Function": "emergency_knowledge(symptom: str) -> List[Dict[str, Union[str, List[str]]]]",
+            "Postcondition": "The API returns a list of result dictionaries, each containing at least a 'name' (string) for a possible disease and an 'aid' (string) for the corresponding first-aid method.",
+            "assumptions": [
+              "The EmergencyKnowledge API endpoint is reachable and functioning correctly.",
+              "The symptom parameter is a valid string that describes a medical condition."
+            ],
+            "invariants": [
+              "After the API call completes, the system holds a list of result entries.",
+              "Each result entry contains a disease name and a first-aid method string."
+            ]
+          }
+        ]
+      },
+      "unit_tests": "from api_call import api_call\n\ndef test_api_call_shortness_of_breath():\n    \"\"\"Test the main success path: query for shortness of breath.\"\"\"\n    result = api_call(symptom='shortness of breath')\n    expected = \"[ApiName(symptom='shortness of breath')]\"\n    assert result == expected\n\ndef test_api_call_empty_symptom():\n    \"\"\"Edge case: empty symptom string should still produce a valid API call.\"\"\"\n    result = api_call(symptom='')\n    assert isinstance(result, str)\n    assert \"ApiName\" in result\n\ndef test_api_call_none_symptom():\n    \"\"\"Edge case: None symptom should be handled gracefully.\"\"\"\n    result = api_call(symptom=None)\n    assert isinstance(result, str)\n    # Even with None, the API call string should be valid\n    assert \"ApiName\" in result\n\ndef test_api_call_invalid_type_symptom():\n    \"\"\"Edge case: non-string symptom type should still produce a call (though may fail later).\"\"\"\n    result = api_call(symptom=123)\n    assert isinstance(result, str)\n    # The API call format should still be generated even with wrong type\n",
+      "property_tests": "from hypothesis import given, strategies as st, settings, assume\n\n@given(st.text(min_length=1))\n@settings(max_examples=20, deadline=1500)\ndef test_emergency_knowledge_returns_list_of_results():\n    \"\"\"Test that EmergencyKnowledge returns a list of result dictionaries.\"\"\"\n    result = emergency_knowledge(\"shortness of breath\")\n    assert isinstance(result, list), \"API should return a list of results\"\n\n    for item in result:\n        assert isinstance(item, dict), \"Each result should be a dictionary\"\n        assert \"name\" in item, \"Result must contain 'name' key\"\n        assert \"aid\" in item, \"Result must contain 'aid' key\"\n\n@given(st.text(min_length=1))\n@settings(max_examples=20, deadline=1500)\ndef test_emergency_knowledge_non_empty_symptom():\n    \"\"\"Test that the symptom parameter must be a non-empty string.\"\"\"\n    result = emergency_knowledge(\"headache\")\n    assert isinstance(result, list), \"Should return list of results for any non-empty symptom\"\n    for item in result:\n        assert isinstance(item, dict), \"Results must be dictionaries\"\n        assert \"name\" in item, \"Result must have name field\"\n        assert \"aid\" in item, \"Result must have aid field\"\n\n@given(st.text(min_length=1))\n@settings(max_examples=20, deadline=1500)\ndef test_emergency_knowledge_various_symptoms():\n    \"\"\"Test various medical symptoms to ensure consistent response format.\"\"\"\n    symptoms = [\"shortness of breath\", \"chest pain\", \"fever\", \"nausea\", \"diabetes\"]\n    for symptom in symptoms:\n        result = emergency_knowledge(symptom)\n        assert isinstance(result, list), f\"Symptom '{symptom}' should yield a list\"\n        assert len(result) >= 0, f\"Symptom '{symptom}' should return a list (possibly empty)\"\n        for item in result:\n            assert isinstance(item, dict), \"Each result should be a dictionary\"\n            assert \"name\" in item, f\"Result for '{symptom}' missing 'name'\"\n            assert \"aid\" in item, f\"Result for '{symptom}' missing 'aid'\"\n\n@given(st.text(min_length=1))\n@settings(max_examples=10, deadline=1500)\ndef test_emergency_knowledge_minimal_input():\n    \"\"\"Test with minimal valid symptom input.\"\"\"\n    result = emergency_knowledge(\"asthma\")\n    assert isinstance(result, list), \"Minimal symptom should return list of results\"\n    assert all(isinstance(item, dict) for item in result), \"All items must be dictionaries\"\n    for item in result:\n        assert \"name\" in item, \"Each result must have 'name'\"\n        assert \"aid\" in item, \"Each result must have 'aid'\"\n",
+      "test_execution_report": {
+        "unit_tests": {
+          "passed": 4,
+          "failed": 0,
+          "failures": [],
+          "stdout": "",
+          "stderr": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+        },
+        "property_tests": {
+          "passed": 0,
+          "failed": 1,
+          "failures": [
+            {
+              "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpe6txp6wv\\test_bundle.py\", line 7, in <module>\n    @given(st.text(min_length=1))\n           ~~~~~~~^^^^^^^^^^^^^^\nTypeError: text() got an unexpected keyword argument 'min_length'\n",
+              "stdout": ""
+            }
+          ],
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpe6txp6wv\\test_bundle.py\", line 7, in <module>\n    @given(st.text(min_length=1))\n           ~~~~~~~^^^^^^^^^^^^^^\nTypeError: text() got an unexpected keyword argument 'min_length'\n"
+        },
+        "runtime_errors": [
+          "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpe6txp6wv\\test_bundle.py\", line 7, in <module>\n    @given(st.text(min_length=1))\n           ~~~~~~~^^^^^^^^^^^^^^\nTypeError: text() got an unexpected keyword argument 'min_length'\n"
+        ],
+        "timeouts": []
+      },
+      "evaluation": {
+        "passed": false,
+        "parsed_api_name": "ApiName",
+        "parsed_params": {
+          "symptom": "shortness of breath"
+        },
+        "api_match": false,
+        "params_match": true,
+        "unit_tests_passed": true,
+        "property_tests_passed": false,
+        "error": "API name mismatch"
+      }
+    }
+  ]
+}

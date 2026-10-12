@@ -1,0 +1,31 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_SymptomSearch-AppointmentRegistration-level-2-1_0",
+      "operationName": "SymptomSearch",
+      "actionable_sentences": [
+        "The API name must be 'SymptomSearch' (case-insensitive matching is permitted).",
+        "The required parameter 'symptom' must be supplied as a string value.",
+        "For a query about fatigue, the symptom parameter should be set to 'fatigue'."
+      ],
+      "lifted_nl": [
+        "The SymptomSearch API must be invoked with the identifier 'SymptomSearch', allowing case-insensitive matching.",
+        "A symptom parameter must be supplied as a string value when calling the SymptomSearch API.",
+        "When querying symptoms related to fatigue, the symptom parameter must be set to the literal value 'fatigue'."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The symptom parameter must be a non-empty string and the API name must correspond to a registered SymptomSearch endpoint.",
+      "Function": "SymptomSearch(symptom: str) -> List[Dict[str, Any]]",
+      "Postcondition": "The API returns a list of result dictionaries, each containing at least a 'name' and 'description' key representing possible diseases associated with the queried symptom.",
+      "assumptions": [
+        "The SymptomSearch API is available and functional.",
+        "Case-insensitive matching is supported for the API name.",
+        "The symptom parameter will always be a valid string when the API is called."
+      ],
+      "invariants": [
+        "If the SymptomSearch API returns results, each result contains a 'name' and 'description' field.",
+        "The symptom parameter used in the call determines the search scope for the returned results."
+      ]
+    }
+  ]
+}

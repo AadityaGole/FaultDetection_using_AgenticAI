@@ -1,0 +1,1 @@
+<|tool_call_start|>[API_Request(ApiName='QueryRegistration', Key1='Robert Lee', Key2='2023-03-25')]<|tool_call_end|>

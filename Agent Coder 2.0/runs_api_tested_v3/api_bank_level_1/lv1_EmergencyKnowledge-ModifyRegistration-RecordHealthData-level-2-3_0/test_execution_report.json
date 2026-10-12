@@ -1,0 +1,30 @@
+{
+  "unit_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "unit_tests SyntaxError: unmatched '}' (line 29, column 1)",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "unit_tests SyntaxError: unmatched '}' (line 29, column 1)"
+  },
+  "property_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "Skipped because unit tests did not compile",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "Skipped because unit tests did not compile"
+  },
+  "runtime_errors": [
+    "unit_tests SyntaxError: unmatched '}' (line 29, column 1)"
+  ],
+  "timeouts": []
+}

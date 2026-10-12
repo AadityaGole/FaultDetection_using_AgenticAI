@@ -1,0 +1,1 @@
+<|tool_call_start|>[ToolSearcher(keywords='alarm'), GetUserToken(username='user4', password='user4pass')]<|tool_call_end|>

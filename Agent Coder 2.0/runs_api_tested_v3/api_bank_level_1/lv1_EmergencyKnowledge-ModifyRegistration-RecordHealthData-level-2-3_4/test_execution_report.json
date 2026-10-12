@@ -1,0 +1,25 @@
+{
+  "unit_tests": {
+    "passed": 1,
+    "failed": 0,
+    "failures": [],
+    "stdout": "",
+    "stderr": ""
+  },
+  "property_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpxvadeu07\\test_bundle.py\", line 20, in <module>\n    new_appointment_date=st.datetimes(dt_format='%Y-%m-%d').map(lambda d: d.strftime('%Y-%m-%d')),\n                         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\nTypeError: datetimes() got an unexpected keyword argument 'dt_format'\n",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpxvadeu07\\test_bundle.py\", line 20, in <module>\n    new_appointment_date=st.datetimes(dt_format='%Y-%m-%d').map(lambda d: d.strftime('%Y-%m-%d')),\n                         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\nTypeError: datetimes() got an unexpected keyword argument 'dt_format'\n"
+  },
+  "runtime_errors": [
+    "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpxvadeu07\\test_bundle.py\", line 20, in <module>\n    new_appointment_date=st.datetimes(dt_format='%Y-%m-%d').map(lambda d: d.strftime('%Y-%m-%d')),\n                         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\nTypeError: datetimes() got an unexpected keyword argument 'dt_format'\n"
+  ],
+  "timeouts": []
+}

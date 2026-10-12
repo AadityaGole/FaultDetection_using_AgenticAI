@@ -1,0 +1,24 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_RecordHealthData-AppointmentRegistration-EmergencyKnowledge-level-2-3_2",
+      "operationName": "AppointmentRegistration",
+      "actionable_sentences": [
+        "The output must contain a parseable API call.",
+        "The API name and parameters must exactly match the task ground truth.",
+        "The call must pass mock schema validation in the API-Bank evaluator."
+      ],
+      "lifted_nl": [
+        "When the generated call satisfies the expected API name, parameters, and schema, the canonical API-Bank evaluator returns passed=True."
+      ],
+      "LABEL": "API_BANK_EVALUATOR_CONTRACT",
+      "Precondition": "The candidate must be a string representing a parseable API call.",
+      "Function": "evaluate_api_bank(turn, generated_output)",
+      "Postcondition": "The result passes only when the parsed API name matches case-insensitively, the normalized parameters exactly match, and mock schema execution succeeds.",
+      "assumptions": [],
+      "invariants": [
+        "Malformed calls, API-name mismatches, parameter mismatches, or mock schema failures do not pass."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+<|tool_call_start|>[ApiCall(api_name='CancelRegistration', arguments={'appointment_id': '90123456'})]<|tool_call_end|>

@@ -1,0 +1,31 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2_0",
+      "operationName": "ModifyRegistration",
+      "actionable_sentences": [
+        "The ModifyRegistration API must be invoked with the appointment_id parameter set to '34567890'.",
+        "The new_appointment_date parameter must be provided in the format '%Y-%m-%d' as '2023-03-26' (March 26th, 2023).",
+        "The new_appointment_doctor parameter must be set to 'Dr. Lee'."
+      ],
+      "lifted_nl": [
+        "The ModifyRegistration API shall be invoked with the appointment_id parameter set to '34567890'.",
+        "The new_appointment_date parameter must be provided in the format '%Y-%m-%d' and must have the value '2023-03-26'.",
+        "The new_appointment_doctor parameter must be set to 'Dr. Lee'."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The appointment record with ID '34567890' exists in the system, and the date string '2023-03-26' conforms to the '%Y-%m-%d' format, while 'Dr. Lee' is a non-empty string.",
+      "Function": "modify_registration(appointment_id: str, new_appointment_date: str, new_appointment_doctor: str) -> str",
+      "Postcondition": "The registration for appointment_id '34567890' has been successfully updated to date '2023-03-26' with doctor 'Dr. Lee', and the API returns a status indicating successful modification.",
+      "assumptions": [
+        "The system maintains a persistent storage of appointments indexed by appointment_id.",
+        "Date parsing accepts the ISO format '%Y-%m-%d' without ambiguity.",
+        "The doctor name 'Dr. Lee' is a valid identifier for the appointment modification."
+      ],
+      "invariants": [
+        "After a successful ModifyRegistration call, the appointment record for '34567890' stores the new date '2023-03-26' and doctor 'Dr. Lee'.",
+        "The function returns a status string indicating the outcome of the modification."
+      ]
+    }
+  ]
+}

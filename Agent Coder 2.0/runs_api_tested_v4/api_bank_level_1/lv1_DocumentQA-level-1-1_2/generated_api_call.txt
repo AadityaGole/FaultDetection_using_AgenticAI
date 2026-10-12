@@ -1,0 +1,1 @@
+[DocumentQA(url='https://www.example.com/article-4.txt', question='What platforms does the software support?')]

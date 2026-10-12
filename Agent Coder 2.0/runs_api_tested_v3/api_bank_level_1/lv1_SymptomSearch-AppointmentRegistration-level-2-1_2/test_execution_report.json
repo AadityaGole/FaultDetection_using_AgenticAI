@@ -1,0 +1,31 @@
+{
+  "unit_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpeqgd0e9v\\test_bundle.py\", line 16, in <module>\n    from evaluate.api_bank_evaluator import evaluate_api_bank\nModuleNotFoundError: No module named 'evaluate'\n",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpeqgd0e9v\\test_bundle.py\", line 16, in <module>\n    from evaluate.api_bank_evaluator import evaluate_api_bank\nModuleNotFoundError: No module named 'evaluate'\n"
+  },
+  "property_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpfiwicfop\\test_bundle.py\", line 20, in <module>\n    date_strategy = st.text(max_size=10, pattern=r'^\\d{4}-\\d{2}-\\d{2}$')\nTypeError: text() got an unexpected keyword argument 'pattern'\n",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpfiwicfop\\test_bundle.py\", line 20, in <module>\n    date_strategy = st.text(max_size=10, pattern=r'^\\d{4}-\\d{2}-\\d{2}$')\nTypeError: text() got an unexpected keyword argument 'pattern'\n"
+  },
+  "runtime_errors": [
+    "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpeqgd0e9v\\test_bundle.py\", line 16, in <module>\n    from evaluate.api_bank_evaluator import evaluate_api_bank\nModuleNotFoundError: No module named 'evaluate'\n",
+    "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpfiwicfop\\test_bundle.py\", line 20, in <module>\n    date_strategy = st.text(max_size=10, pattern=r'^\\d{4}-\\d{2}-\\d{2}$')\nTypeError: text() got an unexpected keyword argument 'pattern'\n"
+  ],
+  "timeouts": []
+}

@@ -1,0 +1,17 @@
+import json
+from dataset.api_bank_loader import APIBankTurn
+from evaluation.api_bank_evaluator import evaluate_api_bank
+
+_api_bank_turn = APIBankTurn(**json.loads('{"task_id": "lv1_QueryBalance-level-1-2_0", "level": 1, "dialogue_id": "QueryBalance-level-1-2", "turn_id": 0, "api_descriptions": "\\nGenerate an API request in the format of [ApiName(key1=\'value1\', key2=\'value2\', ...)] based on the previous dialogue context.\\nThe current year is 2023.\\nInput: \\nUser: User\'s utterence\\nAI: AI\'s response\\n\\nExpected output:\\nAPI-Request: [ApiName(key1=\'value1\', key2=\'value2\', ...)]\\n\\nAPI descriptions:\\n{\\"name\\": \\"QueryBalance\\", \\"description\\": \\"This API queries the balance of a given user.\\", \\"input_parameters\\": {\\"token\\": {\\"type\\": \\"str\\", \\"description\\": \\"The token of the user.\\"}}, \\"output_parameters\\": {\\"balance\\": {\\"type\\": \\"float\\", \\"description\\": \\"The balance of the user.\\"}}}\\n{\\"name\\": \\"GetUserToken\\", \\"description\\": \\"Get the user token by username and password.\\", \\"input_parameters\\": {\\"username\\": {\\"type\\": \\"str\\", \\"description\\": \\"The username of the user.\\"}, \\"password\\": {\\"type\\": \\"str\\", \\"description\\": \\"The password of the user.\\"}}, \\"output_parameters\\": {\\"token\\": {\\"type\\": \\"str\\", \\"description\\": \\"The token of the user.\\"}}}", "dialogue_history": [], "expected_api_name": "GetUserToken", "expected_param_dict": {"username": "JohnDoe", "password": "pass123"}, "prompt": "Generate an API request in the format of [ApiName(key1=\'value1\', key2=\'value2\', ...)] based on the previous dialogue context.\\nThe current year is 2023.\\nInput: \\nUser: User\'s utterence\\nAI: AI\'s response\\n\\nExpected output:\\nAPI-Request: [ApiName(key1=\'value1\', key2=\'value2\', ...)]\\n\\nAPI descriptions:\\n{\\"name\\": \\"QueryBalance\\", \\"description\\": \\"This API queries the balance of a given user.\\", \\"input_parameters\\": {\\"token\\": {\\"type\\": \\"str\\", \\"description\\": \\"The token of the user.\\"}}, \\"output_parameters\\": {\\"balance\\": {\\"type\\": \\"float\\", \\"description\\": \\"The balance of the user.\\"}}}\\n{\\"name\\": \\"GetUserToken\\", \\"description\\": \\"Get the user token by username and password.\\", \\"input_parameters\\": {\\"username\\": {\\"type\\": \\"str\\", \\"description\\": \\"The username of the user.\\"}, \\"password\\": {\\"type\\": \\"str\\", \\"description\\": \\"The password of the user.\\"}}, \\"output_parameters\\": {\\"token\\": {\\"type\\": \\"str\\", \\"description\\": \\"The token of the user.\\"}}}\\n\\nUser: Hi, can you please tell me my current balance?\\nAI: Sure, I can help you with that. Can you please provide me your username and password for authentication?\\nUser: My username is JohnDoe and password is pass123.\\nAI: Thank you. Let me authenticate you first.\\nGenerate API Request:"}'))
+_generated_api_call = "[ApiName(key1='JohnDoe', key2='pass123')]"
+
+_expected_api_call = "[GetUserToken(username='JohnDoe', password='pass123')]"
+_wrong_api_call = "[DefinitelyNotGetUserToken(username='JohnDoe', password='pass123')]"
+_wrong_params_call = "[GetUserToken(username='__different_value_for_test__', password='pass123')]"
+
+def api_call():
+    return _generated_api_call
+
+def evaluate_api_call(candidate=None, turn=None):
+    output = api_call() if candidate is None else candidate
+    return evaluate_api_bank(_api_bank_turn if turn is None else turn, output)

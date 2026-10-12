@@ -1,0 +1,1 @@
+[QueryStock(stock_code='AAPL', date='2022-01-03')]

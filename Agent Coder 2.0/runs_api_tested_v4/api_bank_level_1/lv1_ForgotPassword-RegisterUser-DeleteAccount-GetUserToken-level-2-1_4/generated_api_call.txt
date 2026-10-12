@@ -1,0 +1,1 @@
+[GetUserToken(key1='foo', key2='newpassword')]

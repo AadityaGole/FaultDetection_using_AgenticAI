@@ -1,0 +1,29 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_ModifyRegistration-EmergencyKnowledge-level-2-1_4",
+      "operationName": "EmergencyKnowledge",
+      "actionable_sentences": [
+        "The API must accept a single string parameter named 'symptom' representing the medical condition being queried.",
+        "The API must return a list of result objects where each object contains a 'name' field with the disease/disorder name and an 'aid' field with recommended treatment or first-aid method."
+      ],
+      "lifted_nl": [
+        "The API must accept exactly one string parameter named 'symptom' that represents the medical condition being queried.",
+        "The API must return a list of result objects where each object contains a 'name' field with the disease or disorder name and an 'aid' field with a recommended treatment or first-aid method.",
+        "When the symptom parameter is 'fatigue', the API must return result objects including chronic fatigue syndrome, anemia, or depression with appropriate care recommendations."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The symptom parameter must be a non-empty string representing a valid medical condition.",
+      "Function": "EmergencyKnowledge(symptom: str) -> List[Dict[str, str]]",
+      "Postcondition": "The API returns a list of result objects, each containing a 'name' (string) and an 'aid' (string) describing treatment or first-aid methods. When symptom='fatigue', the result set must include at least one of: 'Chronic fatigue syndrome', 'Anemia', or 'Depression'.",
+      "assumptions": [
+        "The symptom parameter is a valid string representing a medical condition.",
+        "The API implementation conforms to the specified schema for input and output."
+      ],
+      "invariants": [
+        "Each returned result object contains exactly two keys: 'name' (medical condition name) and 'aid' (treatment recommendation).",
+        "For symptom='fatigue', the result collection includes at least one entry for 'Chronic fatigue syndrome', 'Anemia', or 'Depression'."
+      ]
+    }
+  ]
+}

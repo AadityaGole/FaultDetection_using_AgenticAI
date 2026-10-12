@@ -1,0 +1,28 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_DeleteAccount-ModifyPassword-GetUserToken-level-2-3_2",
+      "operationName": "DeleteAccount",
+      "actionable_sentences": [
+        "The DeleteAccount API requires a token parameter of type string as its only input.",
+        "A valid token may only be obtained by invoking the GetUserToken operation with a username and password."
+      ],
+      "lifted_nl": [
+        "The DeleteAccount operation must accept exactly one parameter of type string representing a token, and no additional parameters.",
+        "The DeleteAccount operation must receive the retrieved token as its sole input parameter to successfully perform account deletion."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "A valid token has been obtained by calling GetUserToken with a non-empty username and password, and the returned token is a non-empty string.",
+      "Function": "delete_account(token: str) -> str",
+      "Postcondition": "If the token is valid, the account is deleted and the operation returns 'success'; otherwise, the operation returns 'failed' indicating an invalid token.",
+      "assumptions": [
+        "The system maintains a persistent store of accounts that can be deleted.",
+        "Valid usernames and passwords are accepted by the GetUserToken operation and will yield a valid token string."
+      ],
+      "invariants": [
+        "Before DeleteAccount is invoked, there must exist an account associated with the provided credentials.",
+        "After a successful DeleteAccount call, the account corresponding to the given token is no longer present in the system."
+      ]
+    }
+  ]
+}

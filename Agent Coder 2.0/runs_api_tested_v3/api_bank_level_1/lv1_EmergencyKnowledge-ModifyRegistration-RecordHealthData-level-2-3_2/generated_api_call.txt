@@ -1,0 +1,1 @@
+<|tool_call_start|>[ModifyRegistration(appointment_id='90123456', new_appointment_date='2023-10-15', new_appointment_doctor='Dr. Johnson')]<|tool_call_end|>

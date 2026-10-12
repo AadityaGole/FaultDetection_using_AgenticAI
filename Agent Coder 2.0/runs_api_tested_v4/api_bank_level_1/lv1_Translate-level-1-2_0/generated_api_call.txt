@@ -1,0 +1,1 @@
+<|tool_call_start|>[ApiCall(api_name='Translate', params={'src': 'Hello', 'tgt_lang': 'Spanish'})]<|tool_call_end|>

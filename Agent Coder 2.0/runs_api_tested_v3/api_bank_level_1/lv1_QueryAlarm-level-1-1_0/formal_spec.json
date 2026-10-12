@@ -1,0 +1,31 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_QueryAlarm-level-1-1_0",
+      "operationName": "QueryAlarm",
+      "actionable_sentences": [
+        "The API name must be 'QueryAlarm' (case-insensitive matching allowed).",
+        "A token parameter is required and must be obtained by authenticating with the user's username and password.",
+        "The time parameter must be provided in the format '%Y-%m-%d %H:%M:%S' (e.g., '2023-03-20 06:30:00') for the alarm check."
+      ],
+      "lifted_nl": [
+        "The QueryAlarm API must use the identifier 'QueryAlarm' for its reference, allowing case-insensitive matching during identification.",
+        "Every invocation of the QueryAlarm API requires a valid authentication token, which must be obtained through user authentication using the user's username and password.",
+        "The time parameter supplied to the QueryAlarm API must follow the format '%Y-%m-%d %H:%M:%S', for example '2023-03-20 06:30:00', when performing an alarm check."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "A valid authentication token must be available (obtained via GetUserToken with username and password), and the time parameter must conform to the format '%Y-%m-%d %H:%M:%S').",
+      "Function": "query_alarm(token: str, time: str) -> dict[str, Any]",
+      "Postcondition": "Returns an API request dictionary with ApiName set to 'QueryAlarm' and containing the provided token and time parameters.",
+      "assumptions": [
+        "The user has been previously authenticated and possesses a valid token.",
+        "The time value provided follows the ISO-like format '%Y-%m-%d %H:%M:%S'."
+      ],
+      "invariants": [
+        "The returned API request contains the ApiName key with value 'QueryAlarm'.",
+        "The returned API request includes the token parameter with a non-empty string value.",
+        "The returned API request includes the time parameter with a string value matching the pattern YYYY-MM-DD HH:MM:SS."
+      ]
+    }
+  ]
+}

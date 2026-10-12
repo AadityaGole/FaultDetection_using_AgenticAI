@@ -1,0 +1,1 @@
+[Translate(src='The quick brown fox jumps over the lazy dog.', tgt_lang='es')]

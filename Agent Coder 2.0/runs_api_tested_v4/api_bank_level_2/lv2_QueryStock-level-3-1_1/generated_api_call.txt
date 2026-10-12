@@ -1,0 +1,1 @@
+<|tool_call_start|>[ToolSearcher(keywords='Query Stock'), ToolSearcher(keywords='Query Stock')]<|tool_call_end|>

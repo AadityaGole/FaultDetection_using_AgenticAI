@@ -1,0 +1,35 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2_4",
+      "operationName": "CancelRegistration",
+      "actionable_sentences": [
+        "The API call to cancel registration must include the appointment_id parameter with value '90123456'.",
+        "The system shall process any cancellation request and return a status indicating whether the cancellation was successful."
+      ],
+      "lifted_nl": [
+        "The API call to cancel registration must include the appointment_id parameter with value '90123456'.",
+        "The system shall process any cancellation request and return a status indicating whether the cancellation was successful.",
+        "After a cancellation is completed, no further modifications to the associated appointment may be made until a new appointment record is created."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": [
+        "The appointment_id '90123456' refers to an existing appointment in the system.",
+        "The appointment must be in a cancellable state (not already cancelled)."
+      ],
+      "Function": "CancelRegistration(appointment_id: str) -> str",
+      "Postcondition": [
+        "The appointment with ID '90123456' is marked as cancelled.",
+        "No further modifications to this appointment can be performed until a new appointment is created."
+      ],
+      "assumptions": [
+        "The system supports cancellation operations for appointments.",
+        "The appointment_id '90123456' is a valid identifier in the system."
+      ],
+      "invariants": [
+        "An appointment cannot be modified once its cancellation status is set to true.",
+        "A cancelled appointment remains in a cancelled state until a new appointment record replaces it."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+[AppointmentRegistration(patient_name='John', date='2023-09-01', doctor_name='Dr. Smith')]

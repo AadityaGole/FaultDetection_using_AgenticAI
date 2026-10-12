@@ -1,0 +1,1 @@
+[ApiName(hotel_name='Marriott Hotel', check_in_time='2022-05-20', check_out_time='2022-05-22', room_count=2, adult_count=2, child_count=0)]

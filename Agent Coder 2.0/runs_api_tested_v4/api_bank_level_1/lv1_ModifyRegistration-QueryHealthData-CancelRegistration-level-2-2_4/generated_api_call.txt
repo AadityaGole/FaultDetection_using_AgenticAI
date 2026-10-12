@@ -1,0 +1,1 @@
+[CancelRegistration(appointment_id='90123456')]

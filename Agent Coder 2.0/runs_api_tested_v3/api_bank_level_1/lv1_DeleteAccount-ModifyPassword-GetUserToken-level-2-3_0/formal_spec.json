@@ -1,0 +1,31 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_DeleteAccount-ModifyPassword-GetUserToken-level-2-3_0",
+      "operationName": "GetUserToken",
+      "actionable_sentences": [
+        "The API name 'GetUserToken' must be used exactly as specified in the schema.",
+        "The request must include the username parameter set to 'foo'.",
+        "The request must include the password parameter set to 'bar'."
+      ],
+      "lifted_nl": [
+        "The GetUserToken API shall be invoked using the exact name 'GetUserToken' as specified in the schema.",
+        "The request shall include a username parameter with the value 'foo'.",
+        "The request shall include a password parameter with the value 'bar'."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The username and password parameters must be non-empty strings, and the user must have been previously authenticated in the session.",
+      "Function": "get_user_token(username: str, password: str) -> str",
+      "Postcondition": "A non-empty token string is returned indicating successful authentication; the token corresponds to the provided credentials.",
+      "assumptions": [
+        "The user has provided valid credentials (username='foo', password='bar') in the conversation history.",
+        "The API service is operational and reachable.",
+        "The database contains the user record associated with the given credentials."
+      ],
+      "invariants": [
+        "After the GetUserToken operation completes, a valid authentication token string is returned.",
+        "The returned token corresponds to the credentials provided during the call."
+      ]
+    }
+  ]
+}

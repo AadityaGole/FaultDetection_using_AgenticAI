@@ -1,0 +1,1 @@
+<|tool_call_start|>[ApiCall(api_name='TimedSwitch', arguments={'name': 'smart light', 'time': '2021-12-05 19:00:00', 'on': True})]<|tool_call_end|>

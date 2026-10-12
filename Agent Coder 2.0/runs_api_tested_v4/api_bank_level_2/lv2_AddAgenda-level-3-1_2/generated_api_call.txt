@@ -1,0 +1,1 @@
+<|tool_call_start|>[ToolSearcher(keywords='add schedule'), ToolSearcher(keywords='add agenda')]<|tool_call_end|>

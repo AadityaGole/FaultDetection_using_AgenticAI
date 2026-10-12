@@ -1,0 +1,31 @@
+{
+  "unit_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpw5bj1lq7\\test_bundle.py\", line 17, in <module>\n    from api_call import evaluate_api_call, _api_bank_turn\nModuleNotFoundError: No module named 'api_call'\n",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpw5bj1lq7\\test_bundle.py\", line 17, in <module>\n    from api_call import evaluate_api_call, _api_bank_turn\nModuleNotFoundError: No module named 'api_call'\n"
+  },
+  "property_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpl87a2vp2\\test_bundle.py\", line 22, in <module>\n    device_entry = st.dict(\n                   ^^^^^^^\nAttributeError: module 'hypothesis.strategies' has no attribute 'dict'\n",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpl87a2vp2\\test_bundle.py\", line 22, in <module>\n    device_entry = st.dict(\n                   ^^^^^^^\nAttributeError: module 'hypothesis.strategies' has no attribute 'dict'\n"
+  },
+  "runtime_errors": [
+    "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpw5bj1lq7\\test_bundle.py\", line 17, in <module>\n    from api_call import evaluate_api_call, _api_bank_turn\nModuleNotFoundError: No module named 'api_call'\n",
+    "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpl87a2vp2\\test_bundle.py\", line 22, in <module>\n    device_entry = st.dict(\n                   ^^^^^^^\nAttributeError: module 'hypothesis.strategies' has no attribute 'dict'\n"
+  ],
+  "timeouts": []
+}

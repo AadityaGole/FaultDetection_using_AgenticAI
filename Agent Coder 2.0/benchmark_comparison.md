@@ -57,18 +57,18 @@ flowchart TD
 
 The table below contrasts the Vanilla AgentCoder results against the live Extended AgentCoder 2.0 runs:
 
-| Benchmark | Method | Evaluation Unit | Tasks Evaluated | Passed | Overall Accuracy | Successful Requests | Request Failures | Result File |
-|:---|:---|:---:|---:|---:|---:|---:|---:|:---|
-| **MBPP** | Vanilla AgentCoder | Python task | 257 | 129 | 50.2% | 105 | 152 | `dataset/mbpp_agent_evaluation.json` |
-| **MBPP** | **Extended AgentCoder 2.0 (Ours)** | Python task | **257** | **163** | **63.42%** | 249 | 8 | `runs/mbpp/run_summary.json` |
-| **DS-1000** | Vanilla AgentCoder | Data-science task | 1,000 | 19 | 1.9% | 510 | 490 | `dataset/ds1000_agent_results.json` |
-| **DS-1000** | **Extended AgentCoder 2.0 (Ours)** | Data-science task | **220/1000** | **21** | **9.55%** | 216 | 4 | `runs/ds1000/run_summary.json` |
-| **API-Bank (L1)** | Vanilla AgentCoder | API-call turn | 389 | 28 | 7.2% | 282 | 107 | `dataset/api_bank_level_1_agent_results.json` |
-| **API-Bank (L1)** | **Extended AgentCoder 2.0 v4 (Ours)** | API-call turn | **399/399 recorded** | **191** | **47.87%** | 131 generated | 17 | `runs_api_tested_v4/api_bank_level_1/run_summary.json` |
-| **API-Bank (L2)** | Vanilla AgentCoder | API-call turn | 119 | 18 | 15.1% | 82 | 37 | `dataset/api_bank_level_2_agent_results.json` |
-| **API-Bank (L2)** | **Extended AgentCoder 2.0 v4 (Ours)** | API-call turn | **135/135 recorded** | **22** | **16.30%** | 109 generated | 26 | `runs_api_tested_v4/api_bank_level_2/run_summary.json` |
+| Benchmark | Method | Evaluation Unit | Tasks Evaluated | Passed | Overall Accuracy | Successful Requests | Reused Calls | Request Failures | Result File |
+|:---|:---|:---:|---:|---:|---:|---:|---:|---:|:---|
+| **MBPP** | Vanilla AgentCoder | Python task | 257 | 129 | 50.2% | 105 | — | 152 | `dataset/mbpp_agent_evaluation.json` |
+| **MBPP** | **Extended AgentCoder 2.0 (Ours)** | Python task | **257** | **163** | **63.42%** | 249 | — | 8 | `runs/mbpp/run_summary.json` |
+| **DS-1000** | Vanilla AgentCoder | Data-science task | 1,000 | 19 | 1.9% | 510 | — | 490 | `dataset/ds1000_agent_results.json` |
+| **DS-1000** | **Extended AgentCoder 2.0 (Ours)** | Data-science task | **220/1000** | **21** | **9.55%** | 216 | — | 4 | `runs/ds1000/run_summary.json` |
+| **API-Bank (L1)** | Vanilla AgentCoder | API-call turn | 389 | 28 | 7.2% | 282 | — | 107 | `dataset/api_bank_level_1_agent_results.json` |
+| **API-Bank (L1)** | **Extended AgentCoder 2.0 v4 (Ours)** | API-call turn | **399/399 recorded** | **191** | **47.87%** | 131 | 251 | 17 | `runs_api_tested_v4/api_bank_level_1/run_summary.json` |
+| **API-Bank (L2)** | Vanilla AgentCoder | API-call turn | 119 | 18 | 15.1% | 82 | — | 37 | `dataset/api_bank_level_2_agent_results.json` |
+| **API-Bank (L2)** | **Extended AgentCoder 2.0 v4 (Ours)** | API-call turn | **135/135 recorded** | **22** | **16.30%** | 109 | 0 | 26 | `runs_api_tested_v4/api_bank_level_2/run_summary.json` |
 
-For v4, “recorded” means every dataset turn has a result row; it does not mean every model request succeeded. Level 1 reused 251 saved calls, generated 131 non-empty responses, and recorded 17 empty/failed responses. Level 2 generated 109 non-empty responses and recorded 26 empty/failed responses. Accuracy uses all turns as the denominator, with a task counted as passed only when the canonical API-Bank evaluator, unit suite, and property suite all pass. The vanilla and v4 task totals differ, so these are not a strict same-split comparison.
+For v4, “Successful Requests” counts fresh, non-empty model responses; “Reused Calls” counts saved, non-empty API calls that were evaluated without a new request. Thus, Level 1 had 382 candidate calls available (131 generated + 251 reused), of which 191 passed all gates; the 17 empty/failed responses are the remaining turns. Level 2 had 109 generated calls, of which 22 passed, plus 26 empty/failed responses. “Recorded” means every dataset turn has a result row, not that every request succeeded. Accuracy uses all turns as the denominator, with a task counted as passed only when the canonical API-Bank evaluator, unit suite, and property suite all pass. The vanilla and v4 task totals differ, so these are not a strict same-split comparison.
 
 ---
 

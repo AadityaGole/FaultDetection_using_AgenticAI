@@ -1,0 +1,25 @@
+{
+  "unit_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "F\n======================================================================\nFAIL: unittest.case.FunctionTestCase (test_modify_registration_api_call)\nTest that ModifyRegistration API is called successfully with correct parameters.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpdu7i4wdd\\test_bundle.py\", line 20, in test_modify_registration_api_call\n    assert result.passed is True, f\"API call failed: passed={result.passed}\"\n           ^^^^^^^^^^^^^^^^^^^^^\nAssertionError: API call failed: passed=False\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "F\n======================================================================\nFAIL: unittest.case.FunctionTestCase (test_modify_registration_api_call)\nTest that ModifyRegistration API is called successfully with correct parameters.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpdu7i4wdd\\test_bundle.py\", line 20, in test_modify_registration_api_call\n    assert result.passed is True, f\"API call failed: passed={result.passed}\"\n           ^^^^^^^^^^^^^^^^^^^^^\nAssertionError: API call failed: passed=False\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+  },
+  "property_tests": {
+    "passed": 0,
+    "failed": 0,
+    "failures": null,
+    "stdout": "",
+    "stderr": ""
+  },
+  "runtime_errors": [
+    "F\n======================================================================\nFAIL: unittest.case.FunctionTestCase (test_modify_registration_api_call)\nTest that ModifyRegistration API is called successfully with correct parameters.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpdu7i4wdd\\test_bundle.py\", line 20, in test_modify_registration_api_call\n    assert result.passed is True, f\"API call failed: passed={result.passed}\"\n           ^^^^^^^^^^^^^^^^^^^^^\nAssertionError: API call failed: passed=False\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+  ],
+  "timeouts": []
+}

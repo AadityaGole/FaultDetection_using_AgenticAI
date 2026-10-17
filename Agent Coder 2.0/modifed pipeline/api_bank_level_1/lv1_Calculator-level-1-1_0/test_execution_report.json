@@ -1,0 +1,25 @@
+{
+  "unit_tests": {
+    "passed": 1,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": ".F\n======================================================================\nFAIL: unittest.case.FunctionTestCase (test_calculator_invalid_expression)\nTest that an invalid expression fails validation.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmp9j85okxu\\test_bundle.py\", line 26, in test_calculator_invalid_expression\n    assert result.passed is False\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nFAILED (failures=1)\n",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": ".F\n======================================================================\nFAIL: unittest.case.FunctionTestCase (test_calculator_invalid_expression)\nTest that an invalid expression fails validation.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmp9j85okxu\\test_bundle.py\", line 26, in test_calculator_invalid_expression\n    assert result.passed is False\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nFAILED (failures=1)\n"
+  },
+  "property_tests": {
+    "passed": 0,
+    "failed": 0,
+    "failures": null,
+    "stdout": "",
+    "stderr": ""
+  },
+  "runtime_errors": [
+    ".F\n======================================================================\nFAIL: unittest.case.FunctionTestCase (test_calculator_invalid_expression)\nTest that an invalid expression fails validation.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmp9j85okxu\\test_bundle.py\", line 26, in test_calculator_invalid_expression\n    assert result.passed is False\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nFAILED (failures=1)\n"
+  ],
+  "timeouts": []
+}

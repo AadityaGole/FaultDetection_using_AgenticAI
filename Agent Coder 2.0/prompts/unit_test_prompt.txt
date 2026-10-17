@@ -12,6 +12,9 @@ Generated implementation or signature:
 Requirement summary:
 {requirements_summary}
 
+Formal specification, when supplied:
+{formal_spec}
+
 Your job:
 Write a compact, meaningful set of assert-based tests that validate the required behavior without depending on the implementation details.
 
@@ -24,6 +27,13 @@ Testing rules:
 6. If the task is a tool/API call, write tests that call the function by name and assert on the returned string or result, not on undefined symbols or malformed syntax.
 7. Ensure all strings are properly quoted and closed. Never emit unterminated quotes or broken string literals.
 8. Do not reference a function name that is not defined in the generated implementation.
+9. When the task context defines an authoritative evaluator wrapper and requires its
+   result to pass for the candidate, include a test that calls that wrapper with no
+   candidate override and asserts the returned result's `passed` field is exactly True.
+10. For API-Bank, the supplied implementation already defines `evaluate_api_call()` in
+    this test module. Call it directly; do not import it or the API-Bank evaluator from
+    another module. Its result is an object; check `result.passed` (not `result.get(...)`
+    or `result["passed"]`).
 
 Output contract:
 - Return only executable Python test code.
@@ -31,4 +41,3 @@ Output contract:
 - Do not include prose, markdown, comments describing the task, or any benchmark reference tests.
 - Ensure the code compiles and each assertion is valid Python.
 - Name test functions clearly and use assert statements.
-

@@ -1,0 +1,31 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_QueryScene-level-1-3_0",
+      "operationName": "QueryScene",
+      "actionable_sentences": [
+        "The API must be called using the QueryScene API name.",
+        "The 'name' parameter must be set to 'Morning Routine' to retrieve the devices from that specific scene.",
+        "The API should return a list of smart devices including their names and descriptions for the Morning Routine scene."
+      ],
+      "lifted_nl": [
+        "The QueryScene API must be invoked using its designated API name.",
+        "When querying the Morning Routine scene, the 'name' parameter must be set to 'Morning Routine'.",
+        "The API response must include a list of smart devices, each containing both a name and a description, specifically for the Morning Routine scene."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The scene named 'Morning Routine' exists in the system and contains at least one smart device entry.",
+      "Function": "query_scene(name: str) -> dict",
+      "Postcondition": "The API returns a dictionary containing a 'devices' key with a list of dictionaries, where each dictionary represents a smart device with 'name' and 'description' keys.",
+      "assumptions": [
+        "The QueryScene API endpoint is accessible and configured correctly.",
+        "The scene 'Morning Routine' has been properly registered with device definitions."
+      ],
+      "invariants": [
+        "Every device in the returned list has a non-null 'name' field.",
+        "Every device in the returned list has a non-null 'description' field.",
+        "The 'devices' list is either empty (if no devices exist) or contains at least one device entry."
+      ]
+    }
+  ]
+}

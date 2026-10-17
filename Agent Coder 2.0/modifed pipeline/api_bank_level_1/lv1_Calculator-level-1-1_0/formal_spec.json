@@ -1,0 +1,20 @@
+{
+  "task_id": "lv1_Calculator-level-1-1_0",
+  "operations": [
+    {
+      "operationId": "TASK-lv1_Calculator-level-1-1_0",
+      "operationName": "evaluate_api_call",
+      "actionable_sentences": [
+        "API-Bank task and dialogue:\nGenerate an API request in the format of [ApiName(key1='value1', key2='value2', ...)] based on the previous dialogue context.\nThe current year is 2023.\nInput: \nUser: User's utterence\nAI: AI's response\n\nExpected output:\nAPI-Request: [ApiName(key1='value1', key2='value2', ...)]\n\nAPI descriptions:\n{\"name\": \"Calculator\", \"description\": \"This API provides basic arithmetic operations: addition, subtraction, multiplication, and division.\", \"input_parameters\": {\"formula\": {\"type\": \"str\", \"description\": \"The formula that needs to be calculated. Only integers are supported. Valid operators are +, -, *, /, and (, ). For example, '(1 + 2) * 3'.\"}}, \"output_parameters\": {\"result\": {\"type\": \"float\", \"description\": \"The result of the formula.\"}}}\n\nUser: Can you calculate (5+6)*3 for me?\nAI: Sure, let me handle that.\nGenerate API Request:\n\nThe candidate is an API-call string. The provided implementation defines evaluate_api_call(candidate=None), which invokes the repository's canonical evaluation.api_bank_evaluator.evaluate_api_bank against this exact dataset turn. Its result exposes passed, parsed_api_name, parsed_params, api_match, and params_match as object attributes (for example, result.passed), not dictionary keys. Do not call .get() or subscript this result. API-Bank correctness requires a parseable call, the exact expected API name (case-insensitive), the exact expected parameter map after string normalization, and successful mock-schema execution. Unit tests must include a correctness gate that calls evaluate_api_call() with no candidate override and asserts result.passed is exactly True. The property-test agent must use the formal specification below to derive Hypothesis properties of the canonical evaluator. Do not invent API side effects or substitute another evaluator."
+      ],
+      "lifted_nl": [
+        "whenever evaluate_api_call is called, it must satisfy the task description"
+      ],
+      "LABEL": "FALLBACK_SPEC",
+      "Precondition": "inputs satisfy the problem statement",
+      "Function": "evaluate_api_call(...) -> Any",
+      "Postcondition": "the result satisfies the task description"
+    }
+  ],
+  "validation_status": "fallback"
+}

@@ -25,9 +25,16 @@ Required behavior:
 10. Do not use benchmark reference tests, reference solutions, or hidden-test assumptions.
 11. Ensure every string literal is properly closed, every decorator is valid, and every assertion is legal Python.
 12. If you are uncertain whether a property is valid, prefer a simpler, explicit property over an abstract one.
-13. Never emit an ellipsis, placeholder, or pseudo-code such as `...`, `pass`, or `TODO`.
-14. Do not wrap the result in markdown fences or prose.
-15. The generated module must be directly executable with Python.
+13. Ground every generated property in a stated precondition, postcondition, or invariant
+    from the formal specification. For metamorphic properties, only transform inputs in
+    ways the specification says preserve the relevant result.
+14. Never emit an ellipsis, placeholder, or pseudo-code such as `...`, `pass`, or `TODO`.
+15. Do not wrap the result in markdown fences or prose.
+16. The generated module must be directly executable with Python.
+17. For API-Bank, the supplied implementation already defines `evaluate_api_call()` in
+    this test module. Call it directly; do not import it or the API-Bank evaluator from
+    another module. Its result is an object; check attributes such as `result.passed`
+    (not dictionary methods or subscripting).
 
 Output contract:
 - Return only executable Python test code.
@@ -46,4 +53,3 @@ def test_example(value):
 ```
 
 Important: if the function under test is an API call wrapper, the test should call the exact function name and validate the returned string or structured result.
-

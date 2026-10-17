@@ -1,0 +1,31 @@
+{
+  "unit_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "unit_tests SyntaxError: unterminated triple-quoted string literal (detected at line 41) (line 26, column 5)",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "unit_tests SyntaxError: unterminated triple-quoted string literal (detected at line 41) (line 26, column 5)"
+  },
+  "property_tests": {
+    "passed": 0,
+    "failed": 1,
+    "failures": [
+      {
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpvmmhpt9y\\test_bundle.py\", line 18, in <module>\n    @given(st.text(min_length=1, max_length=50), st.text(min_length=1, max_length=50))\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: text() got an unexpected keyword argument 'min_length'\n",
+        "stdout": ""
+      }
+    ],
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpvmmhpt9y\\test_bundle.py\", line 18, in <module>\n    @given(st.text(min_length=1, max_length=50), st.text(min_length=1, max_length=50))\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: text() got an unexpected keyword argument 'min_length'\n"
+  },
+  "runtime_errors": [
+    "unit_tests SyntaxError: unterminated triple-quoted string literal (detected at line 41) (line 26, column 5)",
+    "Traceback (most recent call last):\n  File \"C:\\Users\\aadit\\AppData\\Local\\Temp\\tmpvmmhpt9y\\test_bundle.py\", line 18, in <module>\n    @given(st.text(min_length=1, max_length=50), st.text(min_length=1, max_length=50))\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: text() got an unexpected keyword argument 'min_length'\n"
+  ],
+  "timeouts": []
+}

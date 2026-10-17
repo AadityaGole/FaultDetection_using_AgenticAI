@@ -1,0 +1,31 @@
+{
+  "operations": [
+    {
+      "operationId": "OP-lv1_ModifyRegistration-QueryHealthData-CancelRegistration-level-2-2_2",
+      "operationName": "QueryHealthData",
+      "actionable_sentences": [
+        "The API call must include the user_id parameter set to 'J46801'.",
+        "The start_time parameter must be formatted as '2023-03-05 00:00:00' to represent the beginning of the requested time span.",
+        "The end_time parameter must be formatted as '2023-03-12 23:59:59' to capture the full past week up to the end of March 12th."
+      ],
+      "lifted_nl": [
+        "The QueryHealthData operation shall include the user_id parameter with value 'J46801'.",
+        "The QueryHealthData operation shall format the start_time parameter as '2023-03-05 00:00:00', representing the beginning of the requested time span.",
+        "The QueryHealthData operation shall format the end_time parameter as '2023-03-12 23:59:59', capturing the full past week through the end of March 12th."
+      ],
+      "LABEL": "FUNCTIONAL_SPEC",
+      "Precondition": "The user with ID 'J46801' must exist in the system, and the time interval defined by start_time='2023-03-05 00:00:00' and end_time='2023-03-12 23:59:59' must have start_time <= end_time.",
+      "Function": "query_health_data(user_id: str, start_time: str, end_time: str) -> List[dict]",
+      "Postcondition": "The function returns a list of health data records corresponding to the specified user_id and time range; each record contains the health data associated with that user within the given period.",
+      "assumptions": [
+        "The user identifier 'J46801' is valid and registered in the system.",
+        "The datetime formats '%Y-%m-%d %H:%M:%S' are correctly interpreted by the API.",
+        "The backend database contains health data entries for users and time spans."
+      ],
+      "invariants": [
+        "If the function returns a non-empty list, then every entry in the returned list corresponds to a health data record for user 'J46801' within the time range ['2023-03-05 00:00:00', '2023-03-12 23:59:59'].",
+        "If the function returns an empty list, then either there are no health data records for user 'J46801' in the specified time range or the system has no data for that user during that period."
+      ]
+    }
+  ]
+}

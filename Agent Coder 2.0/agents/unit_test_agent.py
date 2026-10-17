@@ -28,12 +28,14 @@ class UnitTestAgent:
         *,
         implementation_code: str = "",
         requirements_summary: str = "",
+        formal_spec: dict[str, Any] | None = None,
     ) -> GeneratedUnitTests:
         prompt = load_prompt("unit_test_prompt.txt").format(
             task_text=getattr(problem, "text", getattr(problem, "prompt", str(problem))),
             entry_point=getattr(problem, "entry_point", None) or "solution",
             implementation_code=implementation_code or "",
             requirements_summary=requirements_summary or "",
+            formal_spec=formal_spec or {},
         )
         response = self.client.chat(
             messages=[

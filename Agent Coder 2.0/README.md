@@ -97,29 +97,24 @@ python main.py --dataset mbpp --split test --limit 10 --mode extended
 python main.py --dataset mbpp --split test --limit 10 --mode baseline
 ```
 
-#### Run API-Bank with evaluator-aligned unit/property tests and visible progress
+#### Run the agentic API-Bank pipeline with visible progress
 ```powershell
 $ErrorActionPreference = 'Continue'
 Push-Location 'Agent Coder 2.0'
 try {
-    $progressLog = Join-Path (Get-Location) 'runs_api_tested_v4\progress.log'
+    $progressLog = Join-Path (Get-Location) 'modifed pipeline\progress.log'
     New-Item -ItemType Directory -Force -Path (Split-Path $progressLog) | Out-Null
     $python = '..\.venv\Scripts\python.exe'
 
-    & $python -u main.py --dataset api_bank --level 1 --workers 3 --requests-per-minute 25 --output-dir runs_api_tested_v4 --reuse-generated-dir runs_api_direct --resume 2>&1 | Tee-Object -FilePath $progressLog -Append
-    if ($LASTEXITCODE -ne 0) { throw 'API-Bank level 1 failed; see progress.log and run_summary.json.' }
-
-    Start-Sleep -Seconds 60
-
-    & $python -u main.py --dataset api_bank --level 2 --workers 3 --requests-per-minute 25 --output-dir runs_api_tested_v4 --resume 2>&1 | Tee-Object -FilePath $progressLog -Append
-    if ($LASTEXITCODE -ne 0) { throw 'API-Bank level 2 failed; see progress.log and run_summary.json.' }
+    & $python -u main.py --dataset api_bank --level 1 --limit 5 --workers 1 --requests-per-minute 5 --output-dir 'modifed pipeline' 2>&1 | Tee-Object -FilePath $progressLog -Append
+    if ($LASTEXITCODE -ne 0) { throw 'API-Bank level 1 sample run failed; see progress.log and run_summary.json.' }
 }
 finally {
     Pop-Location
 }
 ```
 
-API-Bank evaluates every generated API call with `evaluation/api_bank_evaluator.py` and requires that result plus unit and Hypothesis property suites to pass. These suites are generated from a task-specific harness and call that same evaluator directly, so they cannot drift into invented APIs, dict-shaped results, or API side effects. Unit tests check a generated call against the task's expected API and parameters, and check malformed, wrong-name, wrong-parameter, and applicable schema-invalid calls. Property tests exercise whitespace invariance and case-insensitive API matching. An empty model response is recorded as a failed/incomplete API-call generation, never as a successful request; `CALL=valid|invalid|empty_response|request_failed|worker_error` makes this visible in terminal output. Unexpected worker exceptions are saved as per-task `worker_error.txt` files and no longer abort the rest of the batch; those tasks remain eligible for retry with `--resume`. If Windows temporarily locks `run_summary.json`, the current checkpoint is retained as `run_summary.json.tmp`, and `--resume` recovers it when it contains more task results than the main summary. The command tees progress to `runs_api_tested_v4/progress.log` and updates each level's run summary as tasks finish. Level 1 reuses non-empty saved calls where available; level 2 generates fresh calls. The 60-second pause maintains the configured rolling request limit across the separate level runs. Keep PowerShell's error preference at `Continue` while capturing native Python output so Python tracebacks are fully logged; use `--resume` to continue the current run.
+For API-Bank Levels 1 and 2, each task passes through a requirement-analysis agent, an API-call generation agent, a formal-specification pipeline, a unit-test agent, a property-test agent that receives the validated formal spec, and the test executor. The canonical `evaluation/api_bank_evaluator.py` remains the official correctness gate. A task passes only when that evaluator, the executable unit suite, the Hypothesis property suite, and formal-spec validation all pass. Empty responses, invalid calls, and stage errors are recorded separately. The example command runs five Level-1 samples and stores its summary, progress log, and per-task artifacts under `modifed pipeline\api_bank_level_1`; use `--level 2` to run Level 2. `--resume` retries incomplete pipeline tasks.
 
 #### Head-to-Head Comparison Table
 ```bash

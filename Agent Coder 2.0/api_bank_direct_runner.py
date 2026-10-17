@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import ast
 import json
 import re
 import threading
@@ -12,15 +13,17 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from agents.api_bank_call_agent import APIBankCallAgent
+from agents.property_test_agent import PropertyTestAgent
+from agents.requirement_analyzer import RequirementAnalyzer
 from agents.test_executor import BenchmarkExecutor
+from agents.unit_test_agent import UnitTestAgent
 from config import AppConfig
 from dataset.api_bank_loader import APIBankTurn
-from evaluation.api_bank_evaluator import _coerce_api_descriptions, evaluate_api_bank
-from llm.client import ChatMessage, LLMEmptyResponseError
+from evaluation.api_bank_evaluator import evaluate_api_bank
+from formal_spec.adapter import FormalSpecAdapter
 
-
-PIPELINE_VERSION = 4
-
+PIPELINE_VERSION = 6
 
 class RequestPacer:
     """Enforce a shared minimum interval between all outbound model requests."""
@@ -41,7 +44,6 @@ class RequestPacer:
         if delay > 0:
             time.sleep(delay)
 
-
 class RateLimitedLLMClient:
     """Route every agent request and retry through the shared run-level pacer."""
 
@@ -53,35 +55,119 @@ class RateLimitedLLMClient:
         kwargs["request_hook"] = self._pacer.wait
         return self._client.chat(**kwargs)
 
-
 @dataclass(frozen=True)
 class APIBankTestProblem:
     task_id: str
     entry_point: str
     text: str
 
+def _strip_api_bank_evaluator_imports(source: str) -> str:
+    try:
+        module = ast.parse(source)
+    except SyntaxError:
+        return source
+
+    evaluator_modules = {
+        "evaluate.api_bank_evaluator",
+        "evaluation.api_bank_evaluator",
+    }
+    lines = source.splitlines(keepends=True)
+    import_ranges = [
+        (node.lineno - 1, node.end_lineno)
+        for node in ast.walk(module)
+        if (
+            isinstance(node, ast.ImportFrom)
+            and node.module in evaluator_modules
+        )
+        or (
+            isinstance(node, ast.Import)
+            and any(alias.name in evaluator_modules for alias in node.names)
+        )
+    ]
+    for start, end in sorted(set(import_ranges), reverse=True):
+        del lines[start:end]
+    return "".join(lines)
 
 def _has_unit_evaluator_assertions(source: str) -> bool:
-    return bool(
-        re.search(r"\bevaluate_api_call\s*\(", source)
-        and all(
-            re.search(rf"\b{field}\b", source)
-            for field in ("parsed_api_name", "api_match", "params_match", "passed")
+    try:
+        module = ast.parse(source)
+    except SyntaxError:
+        return False
+    for test in module.body:
+        if not isinstance(test, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            continue
+        if not test.name.startswith("test_"):
+            continue
+        candidate_bound = any(
+            isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Name)
+            and node.func.id == "evaluate_api_call"
+            and not node.args
+            and not node.keywords
+            for node in ast.walk(test)
         )
-        and re.search(r"\bassert\b", source)
-    )
-
+        candidate_pass_asserted = any(
+            isinstance(node, ast.Assert)
+            and isinstance(node.test, ast.Compare)
+            and isinstance(node.test.left, ast.Attribute)
+            and node.test.left.attr == "passed"
+            and any(
+                isinstance(comparator, ast.Constant) and comparator.value is True
+                for comparator in node.test.comparators
+            )
+            for node in ast.walk(test)
+        )
+        if candidate_bound and candidate_pass_asserted:
+            return True
+    return False
 
 def _has_property_evaluator_assertions(source: str) -> bool:
-    return bool(
-        re.search(r"\bevaluate_api_call\s*\(", source)
-        and re.search(r"\bpassed\b", source)
-        and re.search(r"\bassert\b", source)
-    )
-
+    try:
+        module = ast.parse(source)
+    except SyntaxError:
+        return False
+    for test in module.body:
+        if not isinstance(test, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            continue
+        if not test.name.startswith("test_"):
+            continue
+        has_hypothesis_decorator = any(
+            isinstance(decorator, ast.Call)
+            and isinstance(decorator.func, ast.Name)
+            and decorator.func.id == "given"
+            for decorator in test.decorator_list
+        )
+        if not has_hypothesis_decorator:
+            continue
+        calls_evaluator = any(
+            isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Name)
+            and node.func.id == "evaluate_api_call"
+            for node in ast.walk(test)
+        )
+        asserts_evaluator_result = any(
+            isinstance(node, ast.Assert)
+            and any(
+                isinstance(child, ast.Attribute)
+                and child.attr in {"passed", "api_match", "params_match", "parsed_api_name"}
+                for child in ast.walk(node.test)
+            )
+            for node in ast.walk(test)
+        )
+        if calls_evaluator and asserts_evaluator_result:
+            return True
+    return False
 
 def _unit_tests_passed(source: str, section: Any) -> bool:
-    has_test = bool(re.search(r"\bdef\s+test_[A-Za-z0-9_]+\s*\(", source))
+    try:
+        module = ast.parse(source)
+    except SyntaxError:
+        return False
+    has_test = any(
+        isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+        and node.name.startswith("test_")
+        for node in module.body
+    )
     return (
         has_test
         and _has_unit_evaluator_assertions(source)
@@ -89,265 +175,49 @@ def _unit_tests_passed(source: str, section: Any) -> bool:
         and section.failed == 0
     )
 
-
 def _property_tests_passed(source: str, section: Any) -> bool:
-    has_test = bool(
-        re.search(r"\bdef\s+test_[A-Za-z0-9_]+\s*\(", source)
-        and re.search(r"@given\s*\(", source)
-        and _has_property_evaluator_assertions(source)
+    return (
+        _has_property_evaluator_assertions(source)
+        and section.passed > 0
+        and section.failed == 0
     )
-    return has_test and section.passed > 0 and section.failed == 0
-
 
 def _make_test_problem(problem: APIBankTurn) -> APIBankTestProblem:
     return APIBankTestProblem(
         task_id=str(problem.task_id),
         entry_point="evaluate_api_call",
         text=(
-            "API-Bank evaluates a tool-call string with evaluation.api_bank_evaluator."
-            "evaluate_api_bank. It returns APIBankEvaluationResult with fields "
-            "passed, parsed_api_name, parsed_params, api_match, params_match, raw_response, "
-            "and error. It parses [ApiName(key=value)], compares API names case-insensitively, "
-            "requires exact parameters after string normalization, and mock-validates schema "
-            "required parameters, types, and supported date formats. The provided "
-            "evaluate_api_call(candidate=None, turn=None) invokes that exact repository "
-            "evaluator. Unit tests must assert APIBankEvaluationResult attributes, not dict "
-            "keys or bool return values. Property tests must be valid executable Hypothesis "
-            "tests and assert evaluator results for whitespace transformations that preserve "
-            "the original API-name spelling and call. "
-            "Do not invent API side effects or test APIs other than the task's expected API."
+            f"API-Bank task and dialogue:\n{problem.prompt}\n\n"
+            "The candidate is an API-call string. The provided implementation defines "
+            "evaluate_api_call(candidate=None), which invokes the repository's canonical "
+            "evaluation.api_bank_evaluator.evaluate_api_bank against this exact dataset turn. "
+            "Its result exposes passed, parsed_api_name, parsed_params, api_match, and "
+            "params_match as object attributes (for example, result.passed), not dictionary "
+            "keys. Do not call .get() or subscript this result. API-Bank correctness requires "
+            "a parseable call, the exact expected "
+            "API name (case-insensitive), the exact expected parameter map after string "
+            "normalization, and successful mock-schema execution. Unit tests must include a "
+            "correctness gate that calls evaluate_api_call() with no candidate override and "
+            "asserts result.passed is exactly True. The property-test agent must use the "
+            "formal specification below to derive Hypothesis properties of the canonical "
+            "evaluator. Do not invent API side effects or substitute another evaluator."
         ),
     )
 
-
-def _format_api_call(api_name: str, params: dict[str, Any]) -> str:
-    arguments = ", ".join(f"{key}={value!r}" for key, value in params.items())
-    return f"[{api_name}({arguments})]"
-
-
-def _mock_invalid_case(problem: APIBankTurn) -> tuple[APIBankTurn, str] | None:
-    registry = _coerce_api_descriptions(problem.api_descriptions)
-    api_spec = registry.get(problem.expected_api_name)
-    input_params = api_spec.get("input_parameters") if api_spec else None
-    if not isinstance(input_params, dict):
-        return None
-
-    for name, field_spec in input_params.items():
-        if not isinstance(field_spec, dict):
-            continue
-        expected = dict(problem.expected_param_dict or {})
-        if name not in expected:
-            continue
-        declared_type = str(field_spec.get("type", "")).lower()
-        if declared_type == "str":
-            invalid_value: Any = 123
-        elif declared_type in {"int", "float"}:
-            invalid_value = "not-a-number"
-        else:
-            continue
-        expected[name] = invalid_value
-        test_turn = APIBankTurn(
-            task_id=problem.task_id,
-            level=problem.level,
-            dialogue_id=problem.dialogue_id,
-            turn_id=problem.turn_id,
-            api_descriptions=problem.api_descriptions,
-            dialogue_history=problem.dialogue_history,
-            expected_api_name=problem.expected_api_name,
-            expected_param_dict=expected,
-            prompt=problem.prompt,
-        )
-        return test_turn, _format_api_call(problem.expected_api_name, expected)
-    return None
-
-
-def _generate_and_run_tests(
-    problem: APIBankTurn,
-    generated_api_call: str,
-    *,
-    config: AppConfig,
-) -> tuple[str, dict[str, Any], str, dict[str, Any], dict[str, Any]]:
-    test_problem = _make_test_problem(problem)
+def _build_test_harness(problem: APIBankTurn, generated_api_call: str) -> str:
     turn_json = json.dumps(problem.evaluation_view(), ensure_ascii=False)
-    expected_call = _format_api_call(
-        problem.expected_api_name,
-        problem.expected_param_dict or {},
-    )
-    wrong_api_call = _format_api_call(
-        f"DefinitelyNot{problem.expected_api_name}",
-        problem.expected_param_dict or {},
-    )
-    wrong_params = dict(problem.expected_param_dict or {})
-    if wrong_params:
-        first_key = next(iter(wrong_params))
-        wrong_value = "__different_value_for_test__"
-        while str(wrong_value) == str(wrong_params[first_key]):
-            wrong_value += "_"
-        wrong_params[first_key] = wrong_value
-    else:
-        wrong_params["unexpected_parameter"] = "__unexpected__"
-    wrong_params_call = _format_api_call(problem.expected_api_name, wrong_params)
-
-    mock_case = _mock_invalid_case(problem)
-    mock_case_setup = ""
-    mock_case_test = ""
-    if mock_case is not None:
-        invalid_turn_json = json.dumps(mock_case[0].evaluation_view(), ensure_ascii=False)
-        mock_case_setup = (
-            "\n_mock_invalid_turn = APIBankTurn(**json.loads("
-            f"{invalid_turn_json!r}))\n"
-            f"_mock_invalid_call = {mock_case[1]!r}\n"
-        )
-        mock_case_test = (
-            "\ndef test_mock_execution_rejects_schema_invalid_value():\n"
-            "    result = evaluate_api_call(_mock_invalid_call, turn=_mock_invalid_turn)\n"
-            "    assert result.api_match is True\n"
-            "    assert result.params_match is True\n"
-            "    assert result.passed is False\n"
-        )
-
-    implementation = (
+    return (
         "import json\n"
         "from dataset.api_bank_loader import APIBankTurn\n"
         "from evaluation.api_bank_evaluator import evaluate_api_bank\n\n"
         f"_api_bank_turn = APIBankTurn(**json.loads({turn_json!r}))\n"
         f"_generated_api_call = {generated_api_call!r}\n\n"
-        f"_expected_api_call = {expected_call!r}\n"
-        f"_wrong_api_call = {wrong_api_call!r}\n"
-        f"_wrong_params_call = {wrong_params_call!r}\n"
-        f"{mock_case_setup}\n"
         "def api_call():\n"
         "    return _generated_api_call\n\n"
-        "def evaluate_api_call(candidate=None, turn=None):\n"
+        "def evaluate_api_call(candidate=None):\n"
         "    output = api_call() if candidate is None else candidate\n"
-        "    return evaluate_api_bank(_api_bank_turn if turn is None else turn, output)\n"
+        "    return evaluate_api_bank(_api_bank_turn, output)\n"
     )
-    expected_api_name = problem.expected_api_name
-    unit_tests = (
-        "def test_generated_api_call_matches_task_ground_truth():\n"
-        "    result = evaluate_api_call()\n"
-        "    assert result.parsed_api_name is not None\n"
-        f"    assert result.parsed_api_name.lower() == {expected_api_name.lower()!r}\n"
-        "    assert result.api_match is True\n"
-        "    assert result.params_match is True\n"
-        "    assert result.passed is True\n\n"
-        "def test_evaluator_rejects_unparseable_output():\n"
-        "    result = evaluate_api_call(candidate='not an API call')\n"
-        "    assert result.passed is False\n"
-        "    assert result.parsed_api_name is None\n\n"
-        "def test_evaluator_rejects_wrong_api_name():\n"
-        "    result = evaluate_api_call(candidate=_wrong_api_call)\n"
-        "    assert result.api_match is False\n"
-        "    assert result.passed is False\n\n"
-        "def test_evaluator_api_name_comparison_is_case_insensitive():\n"
-        "    candidate = _expected_api_call.replace("
-        "_api_bank_turn.expected_api_name, "
-        "_api_bank_turn.expected_api_name.swapcase(), 1)\n"
-        "    result = evaluate_api_call(candidate=candidate)\n"
-        "    assert result.api_match is True\n\n"
-        "def test_evaluator_rejects_wrong_parameters():\n"
-        "    result = evaluate_api_call(candidate=_wrong_params_call)\n"
-        "    assert result.api_match is True\n"
-        "    assert result.params_match is False\n"
-        "    assert result.passed is False\n"
-        f"{mock_case_test}"
-    )
-    formal_spec = {
-        "operations": [
-            {
-                "operationId": f"OP-{problem.task_id}",
-                "operationName": problem.expected_api_name,
-                "actionable_sentences": [
-                    "The output must contain a parseable API call.",
-                    "The API name and parameters must exactly match the task ground truth.",
-                    "The call must pass mock schema validation in the API-Bank evaluator.",
-                ],
-                "lifted_nl": [
-                    "When the generated call satisfies the expected API name, parameters, "
-                    "and schema, the canonical API-Bank evaluator returns passed=True."
-                ],
-                "LABEL": "API_BANK_EVALUATOR_CONTRACT",
-                "Precondition": "The candidate must be a string representing a parseable API call.",
-                "Function": "evaluate_api_bank(turn, generated_output)",
-                "Postcondition": (
-                    "The result passes only when the parsed API name matches case-insensitively, "
-                    "the normalized parameters exactly match, and mock schema execution succeeds."
-                ),
-                "assumptions": [],
-                "invariants": [
-                    "Malformed calls, API-name mismatches, parameter mismatches, or mock schema "
-                    "failures do not pass."
-                ],
-            }
-        ]
-    }
-    property_tests = (
-        "from hypothesis import given, strategies as st, settings\n\n"
-        "@given(prefix=st.text(alphabet=' \\t\\r\\n', max_size=8), "
-        "suffix=st.text(alphabet=' \\t\\r\\n', max_size=8))\n"
-        "@settings(max_examples=20, deadline=1500)\n"
-        "def test_evaluator_result_is_invariant_to_surrounding_whitespace(prefix, suffix):\n"
-        "    baseline = evaluate_api_call()\n"
-        "    transformed = evaluate_api_call(candidate=prefix + api_call() + suffix)\n"
-        "    assert transformed.passed is baseline.passed\n"
-        "    assert transformed.api_match is baseline.api_match\n"
-        "    assert transformed.params_match is baseline.params_match\n\n"
-        "@given(prefix=st.text(alphabet=' \\t\\r\\n', max_size=8), "
-        "suffix=st.text(alphabet=' \\t\\r\\n', max_size=8))\n"
-        "@settings(max_examples=20, deadline=1500)\n"
-        "def test_expected_call_passes_with_surrounding_whitespace(prefix, suffix):\n"
-        "    result = evaluate_api_call(candidate=prefix + _expected_api_call + suffix)\n"
-        "    assert result.api_match is True\n"
-        "    assert result.params_match is True\n"
-        "    assert result.passed is True\n"
-    )
-    report = BenchmarkExecutor(timeout_seconds=config.test_timeout_seconds).execute(
-        implementation=implementation,
-        unit_tests=unit_tests,
-        property_tests=property_tests,
-        entry_point=test_problem.entry_point,
-        python_paths=(Path(__file__).resolve().parent,),
-    )
-    report_data = report.to_dict()
-    has_unit_tests = bool(re.search(r"\bdef\s+test_[A-Za-z0-9_]+\s*\(", unit_tests))
-    has_property_tests = bool(
-        re.search(r"\bdef\s+test_[A-Za-z0-9_]+\s*\(", property_tests)
-        and re.search(r"@given\s*\(", property_tests)
-    )
-    unit_checks_evaluator = _has_unit_evaluator_assertions(unit_tests)
-    property_checks_evaluator = _has_property_evaluator_assertions(property_tests)
-    unit_passed = _unit_tests_passed(unit_tests, report.unit_tests)
-    property_passed = _property_tests_passed(property_tests, report.property_tests)
-    return (
-        implementation,
-        formal_spec,
-        unit_tests,
-        property_tests,
-        {
-            "report": report_data,
-            "unit_tests_passed": unit_passed,
-            "property_tests_passed": property_passed,
-            "test_validation_errors": [
-                *([] if has_unit_tests else ["No executable unit test function was generated."]),
-                *(
-                    []
-                    if unit_checks_evaluator
-                    else ["Unit tests do not assert the canonical API-Bank evaluator fields."]
-                ),
-                *(
-                    []
-                    if has_property_tests
-                    else ["No Hypothesis property test using @given was generated."]
-                ),
-                *(
-                    []
-                    if property_checks_evaluator
-                    else ["Property tests do not assert the canonical API-Bank evaluator result."]
-                ),
-            ],
-        },
-    )
-
 
 def _run_task(
     problem: APIBankTurn,
@@ -359,119 +229,232 @@ def _run_task(
 ) -> dict[str, Any]:
     limited_client = RateLimitedLLMClient(client, pacer)
     call_source = "reused" if cached_call is not None else "generated"
-    generation_error: str | None = None
-    request_failed = False
-    empty_provider_response = False
+    stage_errors: dict[str, str] = {}
+    agent_outputs: dict[str, Any] = {}
+    generated_api_call = ""
+
+    test_problem = _make_test_problem(problem)
+    try:
+        requirements = RequirementAnalyzer(
+            client=limited_client,
+            model=config.resolve_model("code_generation"),
+        ).analyze(test_problem)
+        if not requirements.summary.strip():
+            raise ValueError("Requirement analysis returned an empty summary.")
+        agent_outputs["requirement_analysis"] = {
+            "summary": requirements.summary,
+            "raw_response": requirements.raw_response,
+            "model": config.resolve_model("code_generation"),
+        }
+    except Exception as exc:
+        requirements = None
+        stage_errors["requirement_analysis"] = f"{type(exc).__name__}: {exc}"
+
     try:
         if cached_call is None:
-            generated_api_call = limited_client.chat(
-                messages=[
-                    ChatMessage(
-                        role="system",
-                        content=(
-                            "You are an API-calling assistant. Determine the next API call "
-                            "from the supplied API documentation and dialogue. Return only "
-                            "one call in the requested format; do not write Python code or explanation."
-                        ),
-                    ),
-                    ChatMessage(role="user", content=problem.prompt),
-                ],
+            if requirements is None:
+                raise RuntimeError("API-call generation blocked because requirement analysis failed.")
+            call_result = APIBankCallAgent(
+                client=limited_client,
                 model=model,
-                temperature=0,
-                max_tokens=512,
-                retries=3,
-            )
+            ).generate(problem, requirements)
+            generated_api_call = call_result.raw_response
+            agent_outputs["api_call_generation"] = {
+                "raw_response": call_result.raw_response,
+                "model": call_result.model,
+            }
         else:
             generated_api_call = cached_call
+            agent_outputs["api_call_generation"] = {
+                "raw_response": cached_call,
+                "model": None,
+                "reused": True,
+            }
     except Exception as exc:
-        generated_api_call = ""
-        generation_error = f"{type(exc).__name__}: {exc}"
-        request_failed = True
-        empty_provider_response = isinstance(exc, LLMEmptyResponseError)
+        stage_errors["api_call_generation"] = f"{type(exc).__name__}: {exc}"
 
     generated_api_call = generated_api_call.strip()
     empty_response = not generated_api_call
     evaluation = evaluate_api_bank(problem, generated_api_call)
+
+    formal_spec: dict[str, Any] = {}
+    formal_spec_status = "failed"
+    try:
+        formal_spec_result = FormalSpecAdapter(
+            client=limited_client,
+            config=config,
+        ).generate(test_problem, model=config.resolve_model("formal_spec"))
+        formal_spec = formal_spec_result.formal_spec
+        formal_spec_status = formal_spec_result.validation_status
+        agent_outputs["formal_specification"] = {
+            "validation_status": formal_spec_status,
+            "validation_errors": formal_spec_result.result.artifacts.validation_errors,
+            "refinement_attempts": formal_spec_result.result.artifacts.refinement_attempts,
+            "raw_responses": formal_spec_result.result.raw_responses,
+            "model": config.resolve_model("formal_spec"),
+        }
+    except Exception as exc:
+        stage_errors["formal_specification"] = f"{type(exc).__name__}: {exc}"
+
+    implementation = _build_test_harness(problem, generated_api_call)
+
+    unit_tests = ""
+    property_tests = ""
+    test_results: dict[str, Any] = {
+        "report": {},
+        "unit_tests_passed": False,
+        "property_tests_passed": False,
+        "test_validation_errors": [],
+    }
+    try:
+        unit_result = UnitTestAgent(
+            client=limited_client,
+            model=config.resolve_model("unit_test"),
+        ).generate(
+            test_problem,
+            implementation_code=implementation,
+            requirements_summary=(
+                requirements.summary if requirements is not None else ""
+            ),
+            formal_spec=formal_spec,
+        )
+        unit_tests = _strip_api_bank_evaluator_imports(unit_result.code)
+        agent_outputs["unit_test_generation"] = {
+            "raw_response": unit_result.raw_response,
+            "model": unit_result.model,
+        }
+    except Exception as exc:
+        stage_errors["unit_test_generation"] = f"{type(exc).__name__}: {exc}"
+
+    try:
+        property_result = PropertyTestAgent(
+            client=limited_client,
+            model=config.resolve_model("property_test"),
+        ).generate(test_problem, formal_spec)
+        property_tests = _strip_api_bank_evaluator_imports(property_result.code)
+        agent_outputs["property_test_generation"] = {
+            "raw_response": property_result.raw_response,
+            "model": property_result.model,
+            "formal_spec_validation_status": formal_spec_status,
+        }
+    except Exception as exc:
+        stage_errors["property_test_generation"] = f"{type(exc).__name__}: {exc}"
+
+    try:
+        report = BenchmarkExecutor(
+            timeout_seconds=config.test_timeout_seconds
+        ).execute(
+            implementation=implementation,
+            unit_tests=unit_tests,
+            property_tests=property_tests,
+            entry_point=test_problem.entry_point,
+            python_paths=(Path(__file__).resolve().parent,),
+        )
+        report_data = report.to_dict()
+        unit_tests_passed = (
+            _unit_tests_passed(unit_tests, report.unit_tests)
+            and formal_spec_status in {"validated", "validated_after_repair"}
+        )
+        property_tests_passed = (
+            _property_tests_passed(property_tests, report.property_tests)
+            and formal_spec_status in {"validated", "validated_after_repair"}
+        )
+        unit_contract_valid = _has_unit_evaluator_assertions(unit_tests)
+        property_contract_valid = _has_property_evaluator_assertions(property_tests)
+        test_validation_errors: list[str] = []
+        if not unit_contract_valid:
+            test_validation_errors.append(
+                "Unit tests must assert that evaluate_api_call() passes for the candidate."
+            )
+        if not property_contract_valid:
+            test_validation_errors.append(
+                "Property tests must use Hypothesis and assert evaluator-result properties "
+                "grounded in the formal specification."
+            )
+        test_results = {
+            "report": report_data,
+            "unit_tests_passed": unit_tests_passed and unit_contract_valid,
+            "property_tests_passed": property_tests_passed and property_contract_valid,
+            "test_validation_errors": test_validation_errors,
+            "formal_spec_passed": formal_spec_status
+            in {"validated", "validated_after_repair"},
+        }
+    except Exception as exc:
+        stage_errors["test_execution"] = f"{type(exc).__name__}: {exc}"
+        test_results["test_validation_errors"].append(stage_errors["test_execution"])
+
     api_call_status = (
         "empty_response"
-        if empty_provider_response or (empty_response and not request_failed)
+        if empty_response and isinstance(
+            stage_errors.get("api_call_generation", ""), str
+        ) and "LLMEmptyResponseError" in stage_errors.get("api_call_generation", "")
         else "request_failed"
-        if request_failed
+        if empty_response and "api_call_generation" in stage_errors
+        else "empty_response"
+        if empty_response
         else "valid"
         if evaluation.passed
         else "invalid"
     )
-    try:
-        implementation, formal_spec, unit_tests, property_tests, test_results = (
-            _generate_and_run_tests(
-                problem,
-                generated_api_call,
-                config=config,
-            )
-        )
-    except Exception as exc:
-        return {
-            "pipeline_version": PIPELINE_VERSION,
-            "task_id": problem.task_id,
-            "pipeline_status": "failed",
-            "api_call_source": call_source,
-            "api_call_status": api_call_status,
-            "request_status": "failed" if empty_response else call_source,
-            "failure_stage": "test_execution",
-            "generated_api_call": generated_api_call,
-            "evaluation": {
-                "passed": False,
-                "parsed_api_name": evaluation.parsed_api_name,
-                "parsed_params": evaluation.parsed_params,
-                "api_match": evaluation.api_match,
-                "params_match": evaluation.params_match,
-                "unit_tests_passed": False,
-                "property_tests_passed": False,
-                "error": f"Test generation/execution failed: {type(exc).__name__}: {exc}",
-            },
-        }
-
+    request_status = (
+        "failed"
+        if empty_response and "api_call_generation" in stage_errors
+        else "reused"
+        if call_source == "reused"
+        else "success"
+    )
+    formal_spec_passed = formal_spec_status in {"validated", "validated_after_repair"}
     unit_passed = test_results["unit_tests_passed"]
     property_passed = test_results["property_tests_passed"]
-    passed = evaluation.passed and unit_passed and property_passed
-    error = generation_error or evaluation.error
+    requirements_passed = requirements is not None
+    passed = (
+        evaluation.passed
+        and requirements_passed
+        and formal_spec_passed
+        and unit_passed
+        and property_passed
+    )
+    error = evaluation.error
+    if stage_errors:
+        error = "; ".join(
+            f"{stage}: {message}" for stage, message in stage_errors.items()
+        )
     if error is None and not unit_passed:
-        error = "Generated unit tests failed"
+        error = "Generated unit tests failed validation or execution"
     if error is None and not property_passed:
-        error = "Generated property tests failed"
+        error = "Generated property tests failed validation or execution"
+    if error is None and not formal_spec_passed:
+        error = f"Formal specification validation failed: {formal_spec_status}"
     return {
         "pipeline_version": PIPELINE_VERSION,
         "task_id": problem.task_id,
-        "pipeline_status": "incomplete" if empty_response or request_failed else "completed",
+        "pipeline_status": "incomplete" if stage_errors else "completed",
         "api_call_source": call_source,
         "api_call_status": api_call_status,
-        "request_status": (
-            "failed"
-            if empty_response or request_failed
-            else "reused"
-            if call_source == "reused"
-            else "success"
-        ),
-        "failure_stage": "api_call_generation" if empty_response or request_failed else None,
+        "request_status": request_status,
+        "failure_stage": next(iter(stage_errors), None),
         "generated_api_call": generated_api_call,
         "generated_code": implementation,
         "formal_spec": formal_spec,
         "unit_tests": unit_tests,
         "property_tests": property_tests,
         "test_execution_report": test_results["report"],
+        "agent_outputs": agent_outputs,
+        "stage_errors": stage_errors,
         "evaluation": {
             "passed": passed,
             "parsed_api_name": evaluation.parsed_api_name,
             "parsed_params": evaluation.parsed_params,
             "api_match": evaluation.api_match,
             "params_match": evaluation.params_match,
+            "requirements_analysis_passed": requirements_passed,
+            "formal_spec_passed": formal_spec_passed,
             "unit_tests_passed": unit_passed,
             "property_tests_passed": property_passed,
             "test_validation_errors": test_results["test_validation_errors"],
             "error": error,
         },
     }
-
 
 def run_api_bank_direct(
     problems: list[APIBankTurn],
@@ -560,7 +543,7 @@ def run_api_bank_direct(
         summary = {
             "pipeline_version": PIPELINE_VERSION,
             "dataset": "api_bank",
-            "mode": "extended_api_call",
+            "mode": "agentic_api_bank",
             "workers": workers,
             "requests_per_minute": requests_per_minute,
             "total": len(ordered),
@@ -587,6 +570,27 @@ def run_api_bank_direct(
             ),
             "worker_failures": sum(
                 result.get("failure_stage") == "worker_execution" for result in ordered
+            ),
+            "incomplete_tasks": sum(
+                result.get("pipeline_status") != "completed" for result in ordered
+            ),
+            "requirement_analysis_failures": sum(
+                not result.get("evaluation", {}).get(
+                    "requirements_analysis_passed", False
+                )
+                for result in ordered
+            ),
+            "formal_spec_failures": sum(
+                not result.get("evaluation", {}).get("formal_spec_passed", False)
+                for result in ordered
+            ),
+            "unit_test_generation_failures": sum(
+                "unit_test_generation" in result.get("stage_errors", {})
+                for result in ordered
+            ),
+            "property_test_generation_failures": sum(
+                "property_test_generation" in result.get("stage_errors", {})
+                for result in ordered
             ),
             "unit_test_failures": sum(
                 not result.get("evaluation", {}).get("unit_tests_passed", False)
@@ -693,6 +697,8 @@ def run_api_bank_direct(
             for key, filename in (
                 ("formal_spec", "formal_spec.json"),
                 ("test_execution_report", "test_execution_report.json"),
+                ("agent_outputs", "agent_outputs.json"),
+                ("stage_errors", "stage_errors.json"),
             ):
                 if key in result:
                     (task_dir / filename).write_text(
@@ -706,6 +712,7 @@ def run_api_bank_direct(
                 f"{'PASSED' if evaluation.get('passed') else 'FAILED'} | "
                 f"CALL={result.get('api_call_status', 'unknown')} "
                 f"source={result.get('api_call_source', 'unknown')} "
+                f"spec={evaluation.get('formal_spec_passed', False)} "
                 f"API={evaluation.get('api_match', False)} "
                 f"params={evaluation.get('params_match', False)} "
                 f"unit={evaluation.get('unit_tests_passed', False)} "

@@ -36,6 +36,10 @@ Agent Coder 2.0/runs/
 temp_logs/
 downloaded_files/
 
+# Generated testcase files
+**/unit_tests.py
+**/property_tests.py
+
 # Benchmark runtime output artifacts
 *.pkl
 *.zip
